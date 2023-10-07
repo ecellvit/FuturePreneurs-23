@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(115, 115, 115, 0.413);
+    backdrop-filter: blur(3px);
+    height: 400px;
+    width: 600px;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+}
+
+.teamName {
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.teamDetails{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.teamCodeDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+.icon {
+    display: inline;
+
+    :is(svg) {
+        display: inline;
+        padding: 4px;
+        margin: 0px 10px;
+        border: 1px solid white;
+        border-radius: 7px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
+
+.icon :hover {
+    color: orange;
+    border-color: orange;
+}
+.bold{
+    font-weight: 700;
+}
