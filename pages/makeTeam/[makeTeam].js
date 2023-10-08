@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
-  const history = useHistory();
+  const router = useRouter();
 
   const handleCreateTeam = async () => {
     try {
@@ -20,7 +20,7 @@ const MakeTeam = () => {
 
       if (data.isUnique) {
         // Team name is unique, so redirect to TeamCode page
-        history.push('/TeamCode');
+        router.push('/teamCode');
       } else {
         // Team name is already used, display an error message
         alert('Team name already used. Please choose a different name.');
@@ -32,7 +32,7 @@ const MakeTeam = () => {
 
   const handleJoinTeam = () => {
     // Redirect to JoinTeam page
-    history.push('/JoinTeam');
+    router.push('/joinTeam');
   };
 
   return (
