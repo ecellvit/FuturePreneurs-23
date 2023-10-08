@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ReactDOM } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Modal from "./Modal";
+import { useRouter } from "next/router";
 
 const info = [
   {
@@ -44,9 +45,10 @@ export default function LeaderDashboard() {
   const [deleted, setDeleted] = useState(false);
   const [remove, setRemove] = useState(false);
   const [id, setId] = useState();
+  const router = useRouter();
 
   // const fetchDataFromBackend = () => {
-  //   fetch('http://localhost:3000/api/getTeamDetails', {
+  //   fetch('http://localhost:3000/LeaderDashboard/getTeamDetails', {
   //     content: "application/json",
   //     method: "GET",
   //     headers: {
@@ -87,7 +89,7 @@ export default function LeaderDashboard() {
     console.log("remove");
     console.log(id);
     setRemove(!remove);
-    //   fetch('http://localhost:3000/api/removeMember', {
+    //   fetch('http://localhost:3000/LeaderDashboard/removeMember', {
     //   method: 'POST',
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -101,10 +103,10 @@ export default function LeaderDashboard() {
     //   }).then(setRemove(!remove))
   }
   function deleteTeam() {
-    console.log("DeleteTeam");
+    alert("delete");
     setDeleted(!deleted);
-
-    // fetch('http://localhost:3000/api/deleteTeam', {
+    router.push('/');
+    // fetch('http://localhost:3000/LeaderDashboard/deleteTeam', {
     //   method: 'DELETE',
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -112,7 +114,7 @@ export default function LeaderDashboard() {
     // }).then((res) => res.json())
     //   .then((data) => {
     //     console.log(data)
-    //   })
+    //   }).then(router.push('/MakeTeam'))
   }
   return (
     <div className="w-full h-full flex flex-col items-center">
