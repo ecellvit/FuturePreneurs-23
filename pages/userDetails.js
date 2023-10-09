@@ -1,8 +1,6 @@
 import React,{ useState } from "react";
 
-"use client"
-export default function userDetails()
-{
+export default function userDetails(){
     const [userName,setUserName] = useState('');
     const [userRegNo,setUserRegNo] = useState('');
     const [userPhoneNumber,setUserPhoneNumber] = useState('');
