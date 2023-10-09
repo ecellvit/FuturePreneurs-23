@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ReactDOM } from "react";
+import { FiPlus } from "react-icons/fi";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Modal from "./Modal";
 import { useRouter } from "next/router";
@@ -123,7 +124,7 @@ export default function LeaderDashboard() {
       </div>
       <ol className="w-9/12 flex flex-col">
         {info.map((ele) => (
-          <li className="mx-4 list-none w-full self-center">
+          <li className="mx-4 list-none w-full self-center" key={ele}>
             {ele.id === 0 ? (
               <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
                 <div className="w-3/4 h-5/6 flex justify-evenly">
@@ -184,8 +185,9 @@ export default function LeaderDashboard() {
           />
         )}
       </ol>
+      <div className="w-auto flex justify-evenly">
       <button
-        className="text-black bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         onClick={togglePopUpForDelete}
       >
         Delete Team
@@ -198,6 +200,12 @@ export default function LeaderDashboard() {
           setStateDelete={toggleDelete}
         />
       )}
+      {info.length<4 && (<button
+        className="text-white flex justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        onClick={()=>router.push('/teamCode')}
+      >
+        <FiPlus  /> Add Team Member
+      </button>)}</div>
     </div>
   );
 }
