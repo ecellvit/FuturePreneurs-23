@@ -43,7 +43,7 @@ function JoinCodeCheck() {
 
   if (error) {
     router.push('/joinTeam/error');
-    //return null; // Return null to prevent rendering the rest of the component
+    return null; // Return null to prevent rendering the rest of the component
   }
 
   return (
