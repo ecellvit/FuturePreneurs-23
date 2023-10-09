@@ -12,8 +12,8 @@ function JoinCodeCheck() {
 
     if (sendCode) {
       //Calls to API to get TeamCode
-      console.log("API call");
-      console.log(sendCode);
+      // console.log("API call");
+      // console.log(sendCode);
       //
       fetch('/api/fetchteamCode', {
         method: 'POST',
@@ -41,6 +41,11 @@ function JoinCodeCheck() {
     }
   }, [router.query.joinCode]);
 
+  if (error) {
+    router.push('/joinTeam/error');
+    //return null; // Return null to prevent rendering the rest of the component
+  }
+
   return (
     <div>
       {/* <h1>Join Code Check</h1>
@@ -51,7 +56,7 @@ function JoinCodeCheck() {
         </div>
       )}*/}
       {apiResponse && <JoinTeam teamCode={apiResponse.teamCode} />} {/* Pass teamCode as a prop */}
-      {error && <p>Error: {error}</p>} 
+      {/*error && <p>Error: {error}</p>*/}
     </div>
   );
 }
