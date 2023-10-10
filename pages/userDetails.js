@@ -10,7 +10,6 @@ export default function userDetails()
 
 
     function validateRegistration() {
-        console.log("error",document);
         // const nameInput = document.getElementById('name');
         // const regNoInput = document.getElementById('reg_no');
         // const phoneInput = document.getElementById('phone');
