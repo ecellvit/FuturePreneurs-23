@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 function App() {
   const userInfo = [{
@@ -11,7 +11,7 @@ function App() {
     registrationNumber: '123456',
     email: 'john@example.com',
   }
-]
+  ]
 
   const handleLeaveTeam = () => {
     alert('You have left the team.');
@@ -26,63 +26,63 @@ function App() {
     // })
   };
 
-//   const fetchDataFromBackend = () => {
-    
-//     fetch('http://localhost:3000/MemberDashboard/getTeamDetails', {
-//       content: "application/json",
-//       method: "GET",
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${session.accessTokenBackend}`,
-//         'Access-Control-Allow-Origin': '*',
-//       },
-//     }).then(res => res.json())
-//     .then(data => {
-//       console.log(data);
-      
-      
-//     }).catch(err => {
-//       console.log("no team found");
-//       console.log(err)
-//     })
-    
-//   };
+  //   const fetchDataFromBackend = () => {
 
-  
-//   useEffect(() => {
-//     fetchDataFromBackend();
-//   }, []);
+  //     fetch('http://localhost:3000/MemberDashboard/getTeamDetails', {
+  //       content: "application/json",
+  //       method: "GET",
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${session.accessTokenBackend}`,
+  //         'Access-Control-Allow-Origin': '*',
+  //       },
+  //     }).then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+
+
+  //     }).catch(err => {
+  //       console.log("no team found");
+  //       console.log(err)
+  //     })
+
+  //   };
+
+
+  //   useEffect(() => {
+  //     fetchDataFromBackend();
+  //   }, []);
 
 
 
   return (
-    
-<div className="min-h-screen flex items-center justify-center">
-      
-        {userInfo.map( (ele)=>
-        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">User Information</h5>
-        </a>
-        <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <div>
-            <strong>Name:</strong> {ele.name}
+
+    <div className="min-h-screen flex items-center justify-center">
+
+      {userInfo.map((ele) =>
+        <div key={ele} className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">User Information</h5>
+          </a>
+          <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <div>
+              <strong>Name:</strong> {ele.name}
+            </div>
+            <div>
+              <strong>Registration Number:</strong> {ele.registrationNumber}
+            </div>
+            <div>
+              <strong>Email:</strong> {ele.email}
+            </div>
           </div>
-          <div>
-            <strong>Registration Number:</strong> {ele.registrationNumber}
-          </div>
-          <div>
-            <strong>Email:</strong> {ele.email}
-          </div>
-        </div>
         </div>)}
-        <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          <button onClick={handleLeaveTeam}>Leave Team</button>
-          <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-          </svg>
-        </a>
-      </div>
+      <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <button onClick={handleLeaveTeam}>Leave Team</button>
+        <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+        </svg>
+      </a>
+    </div>
 
   );
 }
