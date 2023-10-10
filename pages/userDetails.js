@@ -21,6 +21,7 @@ export default function userDetails(){
     //   .then((data) => {
     //     console.log(data)
     //   })
+
     }
     return(
         <div class="container mx-auto p-4 mt-4">
