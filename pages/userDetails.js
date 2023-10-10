@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-("use client");
-export default function userDetails() {
+
+export default function UserDetails() {
   const [userName, setUserName] = useState("");
   const [userRegNo, setUserRegNo] = useState("");
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
