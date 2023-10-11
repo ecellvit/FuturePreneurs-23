@@ -1,7 +1,7 @@
 import styles from "../styles/teamCode.module.css";
 import { FiCopy } from "react-icons/fi";
 import { useState } from "react";
-import Alert from "@/Components/Alert/Alert";
+import Alert from "@/components/Alert/Alert";
 
 export default function TeamCode() {
   const [teamName, setTeamName] = useState("Team Futurepreneur"); // To store the team name

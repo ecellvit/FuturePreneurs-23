@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
+import Alert from "@/components/Alert/Alert";
 
 
 export default function UserDetails() {
@@ -51,11 +52,11 @@ export default function UserDetails() {
       userRegNo !== ""
     ) {
       if (phoneError !== "" || emailError !=='') {
-        alert("Please fill all the details correctly!!");
+        <Alert name="Please fill the form correctly" />
       } else {
         const detail = [userName, userRegNo, userPhoneNumber, userEmail];
         
-        alert("Submitted");
+        <Alert name="submitted " />
         console.log(detail);
         //   fetch('http://localhost:3000/userDetails/fillUserDetails', {
         //   method: 'POST',
@@ -75,58 +76,58 @@ export default function UserDetails() {
         setUserRegNo('')
       }
     } else {
-      alert("Please fill all the details first");
+      <Alert name="Please fill all the details first" />
     }
   }
   return (
-    <div class="container mx-auto p-4 mt-4">
-      <h1 class="text-2xl font-semibold mb-4">Your Personal Details Form</h1>
+    <div className="container mx-auto p-4 mt-4">
+      <h1 className="text-2xl font-semibold mb-4">Your Personal Details Form</h1>
 
       <form
         id="registrationForm"
-        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" for="name">
             Name
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
             placeholder="User Name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           ></input>
-          <p id="nameError" class="text-red-500 text-xs italic hidden">
+          <p id="nameError" className="text-red-500 text-xs italic hidden">
             Name already exists.
           </p>
         </div>
-        <div class="mb-4">
+        <div className="mb-4">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2"
             for="reg_no"
           >
             Registration Number
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="reg_no"
             type="text"
             placeholder="Registration Number"
             value={userRegNo}
             onChange={(e) => setUserRegNo(e.target.value)}
           ></input>
-          <p id="regNoError" class="text-red-500 text-xs italic hidden">
+          <p id="regNoError" className="text-red-500 text-xs italic hidden">
             Registration Number already exists.
           </p>
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" for="phone">
             Phone Number
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="phone"
             type="number"
             placeholder="Phone Number"
@@ -136,16 +137,16 @@ export default function UserDetails() {
             }}
           ></input>
           {phoneError && <div className="text-red-600">{phoneError}</div>}
-          <p id="phoneError" class="text-red-500 text-xs italic hidden">
+          <p id="phoneError" className="text-red-500 text-xs italic hidden">
             Phone Number already exists.
           </p>
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" for="email">
             Email
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="text"
             placeholder="Email ID"
@@ -159,13 +160,13 @@ export default function UserDetails() {
               {emailError}
             </div>
           )}
-          <p id="emailError" class="text-red-500 text-xs italic hidden">
+          <p id="emailError" className="text-red-500 text-xs italic hidden">
             Email already exists.
           </p>
         </div>
-        <div class="flex items-center justify-between" onClick={submitDetails}>
+        <div className="flex items-center justify-between" onClick={submitDetails}>
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
           >
             SUBMIT

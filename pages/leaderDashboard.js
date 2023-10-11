@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ReactDOM } from "react";
 import { FiPlus } from "react-icons/fi";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
-import Modal from "../Components/Modal";
+import Modal from "../components/Modal";
 import { useRouter } from "next/router";
 
 const info = [
