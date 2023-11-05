@@ -7,14 +7,14 @@ import { useRouter } from "next/router";
 
 export default function TeamCode() {
   const router = useRouter();
-  const { data:session, status } = useSession();
+  const { data: session, status } = useSession();
   useEffect(() => {
     if (router.isReady) {
-      if (status === "unauthenticated") { //Checks if session is not ready and redirects to root.
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
         console.log("Please Login First!");
         router.push("/");
-      }
-      else if (status === "authenticated"){
+      } else if (status === "authenticated") {
         console.log(`Getting data`, status);
         getData();
       }
