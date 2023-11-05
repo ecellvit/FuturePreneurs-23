@@ -46,31 +46,36 @@ export default function LeaderDashboard() {
   const [deleted, setDeleted] = useState(false);
   const [remove, setRemove] = useState(false);
   const [id, setId] = useState();
+  const [teamId,setTeamId] = useState('');
+  const [teamName,setTeamName] = useState('');
+  const [teamData,setTeamData] = useState('');
   const router = useRouter();
 
-  // const fetchDataFromBackend = () => {
-  //   fetch('http://localhost:3000/LeaderDashboard/getTeamDetails', {
-  //     content: "application/json",
-  //     method: "GET",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${session.accessTokenBackend}`,
-  //       'Access-Control-Allow-Origin': '*',
-  //     },
-  //   }).then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
+  const fetchDataFromBackend = () => {
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/LeaderDashboard/getTeamDetails', {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setTeamId(data.teamId);
+      setTeamData(data.members);
 
-  //   }).catch(err => {
-  //     console.log("no team found");
-  //     console.log(err)
-  //   })
+    }).catch(err => {
+      console.log("no team found");
+      console.log(err)
+    })
 
-  // };
+  };
 
-  // useEffect(() => {
-  //   fetchDataFromBackend();
-  // }, [remove]);
+  useEffect(() => {
+    fetchDataFromBackend();
+  }, [remove]);
 
   useEffect(() => console.log("hii"), [remove, deleted]);
 
@@ -90,32 +95,32 @@ export default function LeaderDashboard() {
     console.log("remove");
     console.log(id);
     setRemove(!remove);
-    //   fetch('http://localhost:3000/LeaderDashboard/removeMember', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     memberId:id
-    //   })
-    // }).then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   }).then(setRemove(!remove))
+      fetch(process.env.NEXT_PUBLIC_SERVER + '/team/removeMember/'+teamId, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        memberId:id
+      })
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      }).then(setRemove(!remove))
   }
   function deleteTeam() {
     alert("delete");
     setDeleted(!deleted);
     router.push('/');
-    // fetch('http://localhost:3000/LeaderDashboard/deleteTeam', {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   }
-    // }).then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   }).then(router.push('/MakeTeam'))
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      }).then(router.push('/MakeTeam'))
   }
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -123,7 +128,7 @@ export default function LeaderDashboard() {
         Team Name
       </div>
       <ol className="w-9/12 flex flex-col">
-        {info.map((ele) => (
+        {teamData.map((ele) => (
           <li className="mx-4 list-none w-full self-center" key={ele}>
             {ele.id === 0 ? (
               <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">

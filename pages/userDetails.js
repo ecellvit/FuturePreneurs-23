@@ -58,7 +58,7 @@ export default function UserDetails() {
         
         <Alert name="submitted " />
         console.log(detail);
-        //   fetch('http://localhost:3000/userDetails/fillUserDetails', {
+        //   fetch(process.env.NEXT_PUBLIC_SERVER +'/userDetails/fillUserDetails', {
         //   method: 'POST',
         //   headers: {
         //     'Content-Type': 'application/json',
