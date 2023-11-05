@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
   const router = useRouter();
+  const session= useSession();
 
   const handleCreateTeam = async () => {
     try {
       // Send a request to the backend to check if the team name is unique
-      const response = await fetch(process.env.NEXT_PUBLIC_SERVER + '/makeTeam', {
+      const response = await fetch(process.env.NEXT_PUBLIC_SERVER + '/team/createTeam', {
         method: 'POST',
         headers: {
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ 'teamName':teamName }),
       });
 
       const data = await response.json();
+      console.log("not found",data);
 
       if (data) {
         // Team name is unique, so redirect to TeamCode page
@@ -35,6 +40,12 @@ const MakeTeam = () => {
     // Redirect to JoinTeam page
     router.push('/joinTeam');
   };
+  //useEffect(()=>{
+  //  if(!session){
+  //    console.log("redirecting")
+  //    router.push("/");
+  //  }
+  //},[])
 
   return (
     <div className="flex justify-center items-center h-screen">
