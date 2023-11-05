@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Alert from "@/components/Alert/Alert";
-
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function UserDetails() {
   const [userName, setUserName] = useState("");
@@ -14,23 +15,42 @@ export default function UserDetails() {
   const [emailError, setEmailError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const allowedDomain = "vitstudent.ac.in";
+
+  const router = useRouter();
+  const { data: session, status } = useSession();
   useEffect(() => {
-    if(userEmail!=='' && userPhoneNumber!=='')
-    {validatePhoneNumber();
-    validateEmail();}
-  }, [userPhoneNumber,userEmail]);
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
+        console.log("Please Login First!");
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log(`Getting data`, status);
+        getData();
+      }
+    }
+  }, [status, router]);
+
+  
+  useEffect(() => {
+    if (userEmail !== "" && userPhoneNumber !== "") {
+      validatePhoneNumber();
+      validateEmail();
+    }
+  }, [userPhoneNumber, userEmail]);
 
   function validateEmail() {
     // A basic email regex (not foolproof, but covers most cases)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Check if the email is from the allowed domain
-    const  emailCheck = emailRegex.test(userEmail) && userEmail.endsWith(`@${allowedDomain}`);
-    setIsValidEmail(emailCheck)
-    if(!emailCheck)
-    {setEmailError("Invalid email address or not from the allowed domain");}
-    else{
-      setEmailError('');
+    const emailCheck =
+      emailRegex.test(userEmail) && userEmail.endsWith(`@${allowedDomain}`);
+    setIsValidEmail(emailCheck);
+    if (!emailCheck) {
+      setEmailError("Invalid email address or not from the allowed domain");
+    } else {
+      setEmailError("");
     }
   }
 
@@ -51,44 +71,50 @@ export default function UserDetails() {
       userPhoneNumber !== "" &&
       userRegNo !== ""
     ) {
-      if (phoneError !== "" || emailError !=='') {
-        <Alert name="Please fill the form correctly" />
+      if (phoneError !== "" || emailError !== "") {
+        <Alert name="Please fill the form correctly" />;
       } else {
         const detail = [userName, userRegNo, userPhoneNumber, userEmail];
-        
-        <Alert name="submitted " />
+
+        <Alert name="submitted " />;
         console.log(detail);
-        //   fetch('http://localhost:3000/userDetails/fillUserDetails', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({
-        //     detail
-        //   })
-        // }).then((res) => res.json())
-        //   .then((data) => {
-        //     console.log(data)
-        //   })
-        setUserEmail('')
-        setUserName('')
-        setUserPhoneNumber('')
-        setUserRegNo('')
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            detail,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+        setUserEmail("");
+        setUserName("");
+        setUserPhoneNumber("");
+        setUserRegNo("");
       }
     } else {
-      <Alert name="Please fill all the details first" />
+      <Alert name="Please fill all the details first" />;
     }
   }
   return (
     <div className="container mx-auto p-4 mt-4">
-      <h1 className="text-2xl font-semibold mb-4">Your Personal Details Form</h1>
+      <h1 className="text-2xl font-semibold mb-4">
+        Your Personal Details Form
+      </h1>
 
       <form
         id="registrationForm"
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="name">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            for="name"
+          >
             Name
           </label>
           <input
@@ -123,7 +149,10 @@ export default function UserDetails() {
           </p>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="phone">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            for="phone"
+          >
             Phone Number
           </label>
           <input
@@ -142,7 +171,10 @@ export default function UserDetails() {
           </p>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="email">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            for="email"
+          >
             Email
           </label>
           <input
@@ -155,16 +187,15 @@ export default function UserDetails() {
               setUserEmail(e.target.value);
             }}
           ></input>
-          {emailError && (
-            <div className="text-red-600">
-              {emailError}
-            </div>
-          )}
+          {emailError && <div className="text-red-600">{emailError}</div>}
           <p id="emailError" className="text-red-500 text-xs italic hidden">
             Email already exists.
           </p>
         </div>
-        <div className="flex items-center justify-between" onClick={submitDetails}>
+        <div
+          className="flex items-center justify-between"
+          onClick={submitDetails}
+        >
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
