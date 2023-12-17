@@ -1,9 +1,9 @@
 import Alert from '@/components/Alert/Alert';
-import { getSession, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FiCopy } from 'react-icons/fi';
 import styles from '../styles/teamCode.module.css';
-import { useRouter } from 'next/router';
 
 export default function TeamCode() {
   const {data: session, status} = useSession();
@@ -28,6 +28,27 @@ export default function TeamCode() {
   const [showAlert, setShowAlert] = useState(false); //To show the bool to display the alert.
   const [alertText, setAlertText] = useState(''); //Store the alert text to be displayed
 
+  const getData = () => {
+    // console.log(process.env.NEXT_PUBLIC_SERVER);
+    // console.log(session.accessTokenBackend);
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamDetails`, {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        // console.log("no team found");
+        // console.log(err);
+      });
+  };
   return (
     <main className={styles.main}>
       {showAlert && <Alert name={alertText} />}
