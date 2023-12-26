@@ -63,7 +63,7 @@ export default function TeamCode() {
             <input
               type="text"
               placeholder="Enter Team Name Here"
-              className="bg-[#E9FFFF] rounded-md w-1/2 h-10 text-center px-5 text-black"
+              className="bg-[#E9FFFF] rounded-md w-2/3 focus:outline-none sm:w-1/2 h-10 text-center px-5 text-black"
             />
           </div>
           <div className="flex justify-center w-full gap-5">

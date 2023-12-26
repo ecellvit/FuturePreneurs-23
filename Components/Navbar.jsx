@@ -9,7 +9,7 @@ const Navbar = () => {
         <div>
             <Image src={logo} alt='FP' className='h-full w-auto'/>
         </div>
-        <div className='flex gap-10 items-center font-medium'>
+        <div className='flex gap-3 sm:gap-10 items-center font-medium'>
             <Link href="/">Home</Link>
             <Link href="/">About</Link>
             <Link href="/">Events</Link>
