@@ -4,6 +4,7 @@ import { FiPlus } from "react-icons/fi";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Modal from "../components/Modal";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const info = [
   {
@@ -46,31 +47,77 @@ export default function LeaderDashboard() {
   const [deleted, setDeleted] = useState(false);
   const [remove, setRemove] = useState(false);
   const [id, setId] = useState();
+  const [teamId,setTeamId] = useState('');
+  const [teamLeaderId,setTeamLeaderId] = useState('');
+  const [teamName,setTeamName] = useState('');
+  const [teamMemberData,setTeamMemberData] = useState('');
+  // const router = useRouter();
+  // const {data: session} = useSession();
+
+  const {data: session, status} = useSession();
   const router = useRouter();
 
-  // const fetchDataFromBackend = () => {
-  //   fetch('http://localhost:3000/LeaderDashboard/getTeamDetails', {
-  //     content: "application/json",
-  //     method: "GET",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${session.accessTokenBackend}`,
-  //       'Access-Control-Allow-Origin': '*',
-  //     },
-  //   }).then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
+  useEffect(() => {
+    if (router.isReady) {
+      console.log('status', status)
+      if (status === "unauthenticated") {
+        console.log("Please Login First!")
+        // router.push("/")
+      } else if(status === "authenticated"){
+        console.log('asdfasdfasdf',session)
+        // getData()
+        fetchDataFromBackend();
+      }
+    }
+  }, [status, router])
+  console.log('clisession', session);
 
-  //   }).catch(err => {
-  //     console.log("no team found");
-  //     console.log(err)
-  //   })
+//   useEffect(()=>{
+//   if(!session){
+//     console.log('redirecting')
+//     router.push('/')
+//   }
+//   else{
+//     console.log('in else')
+//   }
+// },[session])
 
-  // };
+// useEffect(() => {
+//   if (router.isReady) {
+//     if (status !== "loading" && status === "unauthenticated") {
+//       toast.error("Please Login First!")
+//       router.push("/")
+//     }
+//   }
+// }, [status, router])
+// const { status } = useSession();
+
+  const fetchDataFromBackend = () => {
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setTeamId(data.teamDetails._id);
+      setTeamMemberData(data.teamDetails.members);
+      setTeamName(data.teamDetails.teamName);
+      setTeamLeaderId(data.teamDetails.teamLeaderId);
+    }).catch(err => {
+      console.log("no team found");
+      console.log(err)
+    })
+
+  };
 
   // useEffect(() => {
   //   fetchDataFromBackend();
-  // }, [remove]);
+  // }, []);
 
   useEffect(() => console.log("hii"), [remove, deleted]);
 
@@ -90,122 +137,124 @@ export default function LeaderDashboard() {
     console.log("remove");
     console.log(id);
     setRemove(!remove);
-    //   fetch('http://localhost:3000/LeaderDashboard/removeMember', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     memberId:id
-    //   })
-    // }).then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   }).then(setRemove(!remove))
+      fetch(process.env.NEXT_PUBLIC_SERVER + '/team/removeMember/'+teamId, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        memberId:id
+      })
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        location.reload();
+      }).then(setRemove(!remove))
   }
   function deleteTeam() {
     alert("delete");
     setDeleted(!deleted);
     router.push('/');
-    // fetch('http://localhost:3000/LeaderDashboard/deleteTeam', {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   }
-    // }).then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   }).then(router.push('/MakeTeam'))
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      }).then(router.push('/MakeTeam'))
   }
   return (
-    <div className="w-full h-full flex flex-col items-center">
-      <div className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-orange-500">
-        Team Name
-      </div>
-      <ol className="w-9/12 flex flex-col">
-        {info.map((ele) => (
-          <li className="mx-4 list-none w-full self-center" key={ele}>
-            {ele.id === 0 ? (
-              <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
-                <div className="w-3/4 h-5/6 flex justify-evenly">
-                <div>
-                  <p className="font-black text-yellow-200 text-4xl m-2">
-                    {ele.name}
-                  </p>
-                  <p className=" text-yellow-700">{ele.role}</p></div>
-                  <div className="mt-4">
-                    <div className=" text-yellow-700">{ele.regNo}</div>
-                    <div className=" text-yellow-700">{ele.emailId}</div>
-                    <div className=" text-yellow-700">{ele.phoneNumber}</div>
-                  </div>
-                </div>
-                <div>
 
+    <div className="w-full h-full flex flex-col items-center ">
+    <div className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-orange-500">
+      {teamName}
+    </div>
+    <ol className="w-9/12 flex flex-col">
+      {info.map((ele) => (
+        <li className="mx-4 list-none w-full self-center" key={ele}>
+          {ele._id ===  teamLeaderId? (
+            <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+              <div className="w-3/4 h-5/6 flex justify-evenly">
+              <div>
+                <p className="font-black text-yellow-200 text-4xl m-2">
+                  {ele.name}
+                </p>
+                <p className=" text-yellow-700">Team Leader</p></div>
+                <div className="mt-4">
+                  <div className=" text-yellow-700">{ele.regNo}</div>
+                  <div className=" text-yellow-700">{ele.emailId}</div>
+                  {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
                 </div>
-                {/* <button
-                className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                onClick={togglePopUpForRemove}
+              </div>
+              <div>
+
+              </div>
+              {/* <button
+              className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              onClick={togglePopUpForRemove}
+            >
+              REMOVE
+            </button> */}
+            </div>
+          ) : (
+            <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+              <div className="w-3/4 h-5/6 flex justify-evenly">
+              <div>
+                <p className="font-black text-yellow-200 text-4xl m-2 flex flex-wrap">
+                {ele.name}
+                </p>
+                <p className=" text-yellow-700">Team Member</p></div>
+                <div className="mt-4">
+                  <div className=" text-yellow-700">{ele.regNo}</div>
+                  <div className=" text-yellow-700">{ele.emailId}</div>
+                  {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
+                </div>
+              </div>
+              <button
+                className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg self-end text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                onClick={() => {
+                  togglePopUpForRemove();
+                  setId(ele.id);
+                }}
               >
                 REMOVE
-              </button> */}
-              </div>
-            ) : (
-              <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
-                <div className="w-3/4 h-5/6 flex justify-evenly">
-                <div>
-                  <p className="font-black text-yellow-200 text-4xl m-2 flex flex-wrap">
-                    {ele.name}
-                  </p>
-                  <p className=" text-yellow-700">{ele.role}</p></div>
-                  <div className="mt-4">
-                    <div className=" text-yellow-700">{ele.regNo}</div>
-                    <div className=" text-yellow-700">{ele.emailId}</div>
-                    <div className=" text-yellow-700">{ele.phoneNumber}</div>
-                  </div>
-                </div>
-                <button
-                  className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg self-end text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                  onClick={() => {
-                    togglePopUpForRemove();
-                    setId(ele.id);
-                  }}
-                >
-                  REMOVE
-                </button>
-              </div>
-            )}
-          </li>
-        ))}
-        {popUpForRemove && (
-          <Modal
-            popup={togglePopUpForRemove}
-            callFunction={removeMember}
-            popUpValue={popUpForDelete}
-            setStateRemove={toggleRemove}
-          />
-        )}
-      </ol>
-      <div className="w-auto flex justify-evenly">
-      <button
-        className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        onClick={togglePopUpForDelete}
-      >
-        Delete Team
-      </button>
-      {popUpForDelete && (
+              </button>
+            </div>
+          )}
+        </li>
+      ))}
+      {popUpForRemove && (
         <Modal
-          popup={togglePopUpForDelete}
-          callFunction={deleteTeam}
-          popUpForDelete={popUpForDelete}
-          setStateDelete={toggleDelete}
+          popup={togglePopUpForRemove}
+          callFunction={removeMember}
+          popUpValue={popUpForDelete}
+          setStateRemove={toggleRemove}
         />
       )}
-      {info.length<4 && (<button
-        className="text-white flex justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        onClick={()=>router.push('/teamCode')}
-      >
-        <FiPlus  /> Add Team Member
-      </button>)}</div>
-    </div>
-  );
+    </ol>
+    <div className="w-auto flex justify-evenly">
+    <button
+      className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      onClick={togglePopUpForDelete}
+    >
+      Delete Team
+    </button>
+    {popUpForDelete && (
+      <Modal
+        popup={togglePopUpForDelete}
+        callFunction={deleteTeam}
+        popUpForDelete={popUpForDelete}
+        setStateDelete={toggleDelete}
+      />
+    )}
+    {info.length<4 && (<button
+      className="text-white flex justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      onClick={()=>router.push('/teamCode')}
+    >
+      <FiPlus  /> Add Team Member
+    </button>)}</div>
+  </div>
+);
 }

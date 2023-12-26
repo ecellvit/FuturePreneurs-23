@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 function App() {
   const userInfo = [{
@@ -13,45 +15,61 @@ function App() {
   }
   ]
 
+  const {data: session, status} = useSession();
+  const router = useRouter();
+  const [teamId,setTeamId] = useState('');
+
+  useEffect(() => {
+    if (router.isReady) {
+      console.log('status', status)
+      if (status === "unauthenticated") {
+        console.log("Please Login First!")
+        // router.push("/")
+      } else if(status === "authenticated"){
+        console.log('asdfasdfasdf')
+        fetchDataFromBackend();
+        // getData()
+      }
+    }
+  }, [status, router])
+  console.log('clisession', session);
+
   const handleLeaveTeam = () => {
     alert('You have left the team.');
-    //  fetch('http://localhost:3000/MemberDashboard/deleteTeam', {
-    //     method: 'DELETE',
-    //    headers: {
-    //      'Content-Type': 'application/json',
-    //    }
-    //  }).then((res) => res.json())
-    //    .then((data) => {
-    //      console.log(data)
-    // })
+     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/removeMember'+teamId, {//check the router
+        method: 'DELETE',
+       headers: {
+         'Content-Type': 'application/json',
+       }
+     }).then((res) => res.json())
+       .then((data) => {
+         console.log(data)
+    })
   };
 
-  //   const fetchDataFromBackend = () => {
+    const fetchDataFromBackend = () => {
 
-  //     fetch('http://localhost:3000/MemberDashboard/getTeamDetails', {
-  //       content: "application/json",
-  //       method: "GET",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${session.accessTokenBackend}`,
-  //         'Access-Control-Allow-Origin': '*',
-  //       },
-  //     }).then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
+      fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
+        content: "application/json",
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          'Access-Control-Allow-Origin': '*',
+        },
+      }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setTeamId(data.teamDetails._id);
+
+      }).catch(err => {
+        console.log("no team found");
+        console.log(err)
+      })
+
+    };
 
 
-  //     }).catch(err => {
-  //       console.log("no team found");
-  //       console.log(err)
-  //     })
-
-  //   };
-
-
-  //   useEffect(() => {
-  //     fetchDataFromBackend();
-  //   }, []);
 
 
 
