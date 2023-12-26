@@ -77,7 +77,7 @@ export default function TeamCode() {
                   navigator.clipboard.writeText(teamName);
                 }}
               >
-                <Image src={copyIcon} className="h-1/2" />
+                <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
                 <span>Click here to copy</span>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function TeamCode() {
                   navigator.clipboard.writeText(`https://fp/${teamName}`);
                 }}
               >
-                <Image src={copyIcon} className="h-1/2" />
+                <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
                 <span>Click here to copy</span>
               </div>
             </div>
