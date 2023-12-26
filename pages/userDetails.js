@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Alert from "@/components/Alert/Alert";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 
 export default function UserDetails() {
@@ -14,6 +16,24 @@ export default function UserDetails() {
   const [emailError, setEmailError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const allowedDomain = "vitstudent.ac.in";
+  
+  const {data: session, status} = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady) {
+      console.log('status', status)
+      if (status === "unauthenticated") {
+        console.log("Please Login First!")
+        // router.push("/")
+      } else if(status === "authenticated"){
+        console.log('asdfasdfasdf')
+        // getData()
+      }
+    }
+  }, [status, router])
+  console.log('clisession', session);
+
   useEffect(() => {
     if(userEmail!=='' && userPhoneNumber!=='')
     {validatePhoneNumber();
