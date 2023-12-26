@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className='flex text-white w-full justify-around h-[84px] py-4 align-center'>
+    <nav className='flex text-white w-full justify-around h-[84px] py-4'>
         <div>
             <Image src={logo} className='h-full w-auto'/>
         </div>
-        <div className='flex gap-10 align-center font-medium'>
+        <div className='flex gap-10 items-center font-medium'>
             <Link href="/">Home</Link>
             <Link href="/">About</Link>
             <Link href="/">Events</Link>
