@@ -1,9 +1,23 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import JoinTeam from '../joinTeam/index.js';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import JoinTeam from "../joinTeam/index.js";
+import { useSession } from "next-auth/react/index.js";
 
 function JoinCodeCheck() {
   const router = useRouter();
+  const { data: session, status } = useSession();
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
+        console.log("Please Login First!");
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log(`Getting data`, status);
+        getData();
+      }
+    }
+  }, [status, router]);
   const [apiResponse, setApiResponse] = useState(null);
   const [error, setError] = useState(null);
 
@@ -15,13 +29,13 @@ function JoinCodeCheck() {
       // console.log("API call");
       // console.log(sendCode);
       //
-      fetch('/api/fetchteamCode', {
-        method: 'POST',
+      fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/joinTeam`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          joinCode: sendCode
+          joinCode: sendCode,
         }),
       })
         .then((res) => {
@@ -42,7 +56,7 @@ function JoinCodeCheck() {
   }, [router.query.joinCode]);
 
   if (error) {
-    router.push('/joinTeam/error');
+    router.push("/joinTeam/error");
     return null; // Return null to prevent rendering the rest of the component
   }
 
@@ -55,7 +69,8 @@ function JoinCodeCheck() {
           <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
         </div>
       )}*/}
-      {apiResponse && <JoinTeam teamCode={apiResponse.teamCode} />} {/* Pass teamCode as a prop */}
+      {apiResponse && <JoinTeam teamCode={apiResponse.teamCode} />}{" "}
+      {/* Pass teamCode as a prop */}
       {/*error && <p>Error: {error}</p>*/}
     </div>
   );
