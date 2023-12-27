@@ -47,7 +47,7 @@ const BSG = () => {
                 />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, rotate: "-30deg" }}
+                initial={{ opacity: 0, rotate: "-20deg" }}
                 whileInView={{ opacity: 1, rotate: "0deg" }}
                 transition={{ duration: 0.5, delay: 0.9 }}
                 className="origin-bottom"
