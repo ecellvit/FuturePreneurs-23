@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-// import React, { useEffect } from 'react';
-// import Navbar from "@/Components/Navbar";
-// import bg from "public/assets/bg/spceBg.svg";
-=======
 import React, { useEffect } from 'react';
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
->>>>>>> f07e826d93286fb356152c45fd46164ddbd0d0c9
 
 // function App() {
 //   const userInfo = [{
@@ -21,47 +15,6 @@ import { useSession } from "next-auth/react";
 //   }
 //   ]
 
-<<<<<<< HEAD
-//   const handleLeaveTeam = () => {
-//     alert('You have left the team.');
-//     //  fetch('http://localhost:3000/MemberDashboard/deleteTeam', {
-//     //     method: 'DELETE',
-//     //    headers: {
-//     //      'Content-Type': 'application/json',
-//     //    }
-//     //  }).then((res) => res.json())
-//     //    .then((data) => {
-//     //      console.log(data)
-//     // })
-//   };
-
-//   //   const fetchDataFromBackend = () => {
-
-//   //     fetch('http://localhost:3000/MemberDashboard/getTeamDetails', {
-//   //       content: "application/json",
-//   //       method: "GET",
-//   //       headers: {
-//   //         'Content-Type': 'application/json',
-//   //         Authorization: `Bearer ${session.accessTokenBackend}`,
-//   //         'Access-Control-Allow-Origin': '*',
-//   //       },
-//   //     }).then(res => res.json())
-//   //     .then(data => {
-//   //       console.log(data);
-
-
-//   //     }).catch(err => {
-//   //       console.log("no team found");
-//   //       console.log(err)
-//   //     })
-
-//   //   };
-
-
-//   //   useEffect(() => {
-//   //     fetchDataFromBackend();
-//   //   }, []);
-=======
   const {data: session, status} = useSession();
   const router = useRouter();
   const [teamId,setTeamId] = useState('');
@@ -117,7 +70,6 @@ import { useSession } from "next-auth/react";
     };
 
 
->>>>>>> f07e826d93286fb356152c45fd46164ddbd0d0c9
 
 
 
