@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Alert from "@/components/Alert/Alert";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+
 
 export default function UserDetails() {
   const [userName, setUserName] = useState("");

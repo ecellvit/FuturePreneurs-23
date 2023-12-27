@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 // import React, { useEffect } from 'react';
 // import Navbar from "@/Components/Navbar";
 // import bg from "public/assets/bg/spceBg.svg";
+=======
+import React, { useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+>>>>>>> f07e826d93286fb356152c45fd46164ddbd0d0c9
 
 // function App() {
 //   const userInfo = [{
@@ -15,6 +21,7 @@
 //   }
 //   ]
 
+<<<<<<< HEAD
 //   const handleLeaveTeam = () => {
 //     alert('You have left the team.');
 //     //  fetch('http://localhost:3000/MemberDashboard/deleteTeam', {
@@ -54,6 +61,63 @@
 //   //   useEffect(() => {
 //   //     fetchDataFromBackend();
 //   //   }, []);
+=======
+  const {data: session, status} = useSession();
+  const router = useRouter();
+  const [teamId,setTeamId] = useState('');
+
+  useEffect(() => {
+    if (router.isReady) {
+      console.log('status', status)
+      if (status === "unauthenticated") {
+        console.log("Please Login First!")
+        // router.push("/")
+      } else if(status === "authenticated"){
+        console.log('asdfasdfasdf')
+        fetchDataFromBackend();
+        // getData()
+      }
+    }
+  }, [status, router])
+  console.log('clisession', session);
+
+  const handleLeaveTeam = () => {
+    alert('You have left the team.');
+     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/removeMember'+teamId, {//check the router
+        method: 'DELETE',
+       headers: {
+         'Content-Type': 'application/json',
+       }
+     }).then((res) => res.json())
+       .then((data) => {
+         console.log(data)
+    })
+  };
+
+    const fetchDataFromBackend = () => {
+
+      fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
+        content: "application/json",
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          'Access-Control-Allow-Origin': '*',
+        },
+      }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setTeamId(data.teamDetails._id);
+
+      }).catch(err => {
+        console.log("no team found");
+        console.log(err)
+      })
+
+    };
+
+
+>>>>>>> f07e826d93286fb356152c45fd46164ddbd0d0c9
 
 
 
