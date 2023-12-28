@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { parsePhoneNumberFromString } from "libphonenumber-js";
 import Alert from "@/components/Alert/Alert";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function UserDetails() {
   const [userName, setUserName] = useState("");
@@ -26,7 +26,7 @@ export default function UserDetails() {
         router.push("/");
       } else if (status === "authenticated") {
         console.log(`Getting data`, status);
-        getData();
+        // getData();
       }
     }
   }, [status, router]);
@@ -78,8 +78,8 @@ export default function UserDetails() {
 
         <Alert name="submitted " />;
         console.log(detail);
-        fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
-          method: "POST",
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/fillUserDetails`, {
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
