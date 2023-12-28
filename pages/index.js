@@ -4,6 +4,7 @@ import bg from "public/assets/landingPage/bg.svg";
 import Image from "next/image";
 import BSG from "@/Components/Landing Page/BSG";
 import CardSection from "@/Components/Landing Page/CardSection";
+import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -40,6 +41,7 @@ export default function Home() {
       </section>
       <BSG/>
       <CardSection/>
+      <StoryBehindSection/>
     </main>
   );
 }
