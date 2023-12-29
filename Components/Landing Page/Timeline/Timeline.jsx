@@ -74,7 +74,7 @@ const Timeline = () => {
               {timelineCards}
             </motion.div>
           </div>
-          <div className="visible flex flex-col sm:hidden items-center gap-5 pb-10">
+          <div className="visible flex flex-col sm:hidden items-center gap-5 pb-10 ">
             {timelineCards}
           </div>
         </div>
