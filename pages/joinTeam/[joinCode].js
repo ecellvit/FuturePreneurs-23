@@ -1,7 +1,7 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import JoinTeam from "../joinTeam/index.js";
-import { useSession } from "next-auth/react/index.js";
 
 function JoinCodeCheck() {
   const router = useRouter();
@@ -14,7 +14,7 @@ function JoinCodeCheck() {
         router.push("/");
       } else if (status === "authenticated") {
         console.log(`Getting data`, status);
-        getData();
+        // getData();
       }
     }
   }, [status, router]);

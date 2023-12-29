@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
   const [teamCode, setTeamCode] = useState(propTeamCode || '');
@@ -31,7 +31,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   const fetchTeamName = async () => {
     try {
-      const response = await fetch('/api/getTeamDetails', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/getTeamDetails`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
