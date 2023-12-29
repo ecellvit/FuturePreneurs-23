@@ -53,7 +53,7 @@ const Timeline = () => {
     target: targetRef,
   });
 
-  const timelineCards = cardsData.map((card) => <TimelineCard {...card} />);
+  const timelineCards = cardsData.map((card) => <TimelineCard {...card} key={card}/>);
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 

@@ -1,0 +1,44 @@
+.globe{
+    padding: 0%;
+    margin: 0%;
+    height: 34vh;
+    width: 34vw;
+    position: absolute;
+    right: 0%;
+    top: -20%;
+    z-index: -5;
+    animation-name: globe;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes globe {
+    
+    30%{
+        top: 40%;
+        right: 25%;
+        height: 80vh;
+        width: 80vw;
+    }
+    35%{
+        top: 40%;
+        right: 25%;
+        height: 100vh;
+        width: 100vw;
+    }
+    40%{
+        top: 60%;
+        right: 25%;
+        height: 70vh;
+        width: 70vw;
+
+    }
+    100%{
+        right: 0%;
+        top: -20%;
+        height: 34vh;
+        width: 34vw;
+    }
+}
