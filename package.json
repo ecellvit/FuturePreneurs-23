@@ -12,6 +12,7 @@
     "autoprefixer": "10.4.16",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.4",
+    "framer-motion": "^10.16.16",
     "libphonenumber-js": "^1.10.47",
     "next": "13.5.4",
     "next-auth": "^4.23.2",

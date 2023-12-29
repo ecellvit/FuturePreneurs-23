@@ -1,12 +1,17 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
-import eCellLogo from '@/public/assets/logos/ecell_logo.svg';
-import bg from "public/assets/bg/spceBg.svg";
+import { signIn, signOut, useSession } from "next-auth/react";
+import eCellLogo from "@/public/assets/logos/ecell_logo.svg";
+import bg from "public/assets/landingPage/bg.svg";
 import Image from "next/image";
-import LandingPageNavbar from '@/components/LandingPageComponent/LandingPageNavbar';
-import LoginButton from '@/components/LandingPageComponent/Loginbutton';
-import GlobeAnimation from '@/components/LandingPageComponent/GlobeAnimation';
-import CountdownTimer from '@/components/LandingPageComponent/Timer';
-import { useEffect } from 'react';
+import LandingPageNavbar from '@/components/Landing Page/LandingPageNavbar';
+import LoginButton from '@/components/Landing Page/Loginbutton';
+import GlobeAnimation from '@/components/Landing Page/GlobeAnimation';
+import CountdownTimer from '@/components/Landing Page/Timer';
+import BSG from "@/Components/Landing Page/BSG";
+import CardSection from "@/Components/Landing Page/CardSection/CardSection";
+import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
+import Ticker from "@/Components/Landing Page/Ticker";
+import FAQ from "@/Components/Landing Page/FAQ/FAQ";
+import Timeline from "@/Components/Landing Page/Timeline/Timeline";
     
 
 export default function Home() {
@@ -21,7 +26,7 @@ export default function Home() {
       
       
       <div className="mr-10 text-[#f4f4f4] font-['coalition'] font-black text-7xl">      
-        Future<br /><br /> 
+        Future<br />
         Preneurs  9.0
       </div>
       <br />
@@ -32,7 +37,15 @@ export default function Home() {
   </div>
 </button>
 
+
+  
       </section>
+      <BSG/>
+      <Timeline/>
+      <Ticker/>
+      <CardSection/>
+      <StoryBehindSection/>
+      <FAQ/>
     </main>
   );
 }

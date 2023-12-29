@@ -1,0 +1,54 @@
+@font-face {
+    font-family:porche ;
+    src: url("POR2.TTF");
+}
+
+.ticker-tape{
+    background-color: white;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    height: 75px;
+    padding-left: 100%;
+}
+
+.ticker{
+    white-space: nowrap;
+    padding-right: 100%;
+
+    animation: ticker 30s linear  infinite  ;
+
+}
+
+.ticker__item{
+    display: inline-block;
+    /* padding: 0 2rem; */
+    font-family: porche;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    color: black;
+}
+
+@-webkit-keyframes ticker{
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        visibility: visible;
+    }
+    100%{
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+@keyframes ticker{
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        visibility: visible;
+    }
+    100%{
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
