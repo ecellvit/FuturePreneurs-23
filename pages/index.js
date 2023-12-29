@@ -8,6 +8,8 @@ import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 import Ticker from "@/Components/Landing Page/Ticker";
 import FAQ from "@/Components/Landing Page/FAQ/FAQ";
 import Timeline from "@/Components/Landing Page/Timeline/Timeline";
+import RegisterSection from "@/Components/Landing Page/RegisterSection";
+import Footer from "@/Components/Landing Page/Footer";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -48,6 +50,8 @@ export default function Home() {
       <CardSection/>
       <StoryBehindSection/>
       <FAQ/>
+      <RegisterSection/>
+      <Footer/>
     </main>
   );
 }
