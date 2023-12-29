@@ -45,6 +45,7 @@ export default function Home() {
       <Ticker/>
       <CardSection/>
       <StoryBehindSection/>
+      <FAQ/>
     </main>
   );
 }

@@ -1,25 +1,23 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleDown } from "react-icons/fa6";
-import { useState } from "react";
+import { FaAngleUp } from "react-icons/fa6";
 const Accordian = (props) => {
-  const [showAns, setShowAns] = useState(false);
-  const handleClick = () => {
-    console.log("clicked");
-    setShowAns((prev) => !prev);
-  };
+  const showAns = (props.showAnsNumber === props.id)
   return (
-    <div className="w-[100vh]">
-      <motion.div className="w-full">
+    <div className="w-full">
+      <motion.div className="w-full flex flex-col gap-3">
         <motion.div
           className="w-full flex items-center justify-between hover:cursor-pointer"
           initial={false}
-          onClick={handleClick}
+          onClick={()=>{
+            props.handleClick(props.id)
+          }}
         >
-          <div>
+          <div className="font-bold text-md">
             {props.q}
           </div>
           <span>
-            <FaAngleDown />
+           {showAns ? <FaAngleUp /> : <FaAngleDown />}
           </span>
         </motion.div>
         <AnimatePresence>
@@ -28,30 +26,24 @@ const Accordian = (props) => {
               key="content"
               initial={{
                 height:0,
-                // opacity:0
               }}
               animate={{
                 height:"auto",
-                // opacity:1
               }}
               exit={{
                 height:0,
-                // opacity:0
               }}
-            //   variants={{
-            //     open: { height: "auto" },
-            //     collapsed: { height: 0 },
-            //   }}
               transition={{ duration: 0.2, ease: "linear" }}
               className="overflow-hidden"
             >
-              <div>
+              <div className="font-light text-neutral-100">
                 {props.ans}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
+      <div className="w-full h-[1px] bg-[white] mt-2 font-normal"></div>
     </div>
   );
 };
