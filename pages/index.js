@@ -3,10 +3,11 @@ import eCellLogo from "@/public/assets/logos/ecell_logo.svg";
 import bg from "public/assets/landingPage/bg.svg";
 import Image from "next/image";
 import BSG from "@/Components/Landing Page/BSG";
-import CardSection from "@/Components/Landing Page/CardSection";
+import CardSection from "@/Components/Landing Page/CardSection/CardSection";
 import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 import Ticker from "@/Components/Landing Page/Ticker";
-import FAQ from "@/Components/Landing Page/FAQ";
+import FAQ from "@/Components/Landing Page/FAQ/FAQ";
+import Timeline from "@/Components/Landing Page/Timeline/Timeline";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -42,6 +43,7 @@ export default function Home() {
         )}
       </section>
       <BSG/>
+      <Timeline/>
       <Ticker/>
       <CardSection/>
       <StoryBehindSection/>
