@@ -12,14 +12,16 @@ import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 import Ticker from "@/Components/Landing Page/Ticker";
 import FAQ from "@/Components/Landing Page/FAQ/FAQ";
 import Timeline from "@/Components/Landing Page/Timeline/Timeline";
-    
+import RegisterSection from "@/Components/Landing Page/RegisterSection";
+import Footer from "@/Components/Landing Page/Footer";
+import RegisterButton from "@/Components/Landing Page/RegisterButton";
 
 export default function Home() {
   const targetDate = new Date(2024,0,1,0)
 
   return (
-    <main className="text-white p-6 h-full">
-      <section className='Landing_page h-full'>
+    <main className="text-white h-full">
+      <section className='Landing_page p-6 h-full'>
       <Image src={bg} fill className="object-cover z-[-10]" />
       <GlobeAnimation />
       <LandingPageNavbar />
@@ -31,11 +33,7 @@ export default function Home() {
       </div>
       <br />
       <CountdownTimer targetDate={targetDate}/>
-      <button className="rounded-full py-1 px-1 bg-gradient-to-br from-cyan-600 via-green-400 to-purple-600">
-      <div className="py-2 px-4 rounded-full bg-black">
-  Register!
-  </div>
-</button>
+      <RegisterButton text="Register!"/>
 
 
   
@@ -46,6 +44,8 @@ export default function Home() {
       <CardSection/>
       <StoryBehindSection/>
       <FAQ/>
+      <RegisterSection/>
+      <Footer/>
     </main>
   );
 }
