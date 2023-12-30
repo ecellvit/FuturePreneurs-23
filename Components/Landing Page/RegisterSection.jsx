@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import image from "public/assets/landingPage/mountainsWithFlag.svg";
 import bg from "public/assets/landingPage/bg.svg";
+import RegisterButton from "./RegisterButton";
 
 const RegisterSection = () => {
   return (
@@ -15,7 +16,7 @@ const RegisterSection = () => {
           <div className="text-4xl font-medium">Sounds Awesome?</div>
         </div>
         <div className="flex justify-center w-full">
-            register now
+            <RegisterButton text={"Register Now !!".toUpperCase()}/>
         </div>
       </div>
     </main>
