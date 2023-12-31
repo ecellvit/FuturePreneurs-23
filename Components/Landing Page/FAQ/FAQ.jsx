@@ -41,7 +41,7 @@ const FAQ = () => {
   ]
 
   const faqSection = faqs.map((questionObj)=>(
-    <Accordian key={questionObj.id} q={questionObj.q} ans={questionObj.ans} id={questionObj.id} handleClick={handleClick} showAnsNumber={showAnsNumber}/>
+    <Accordian key={questionObj.id} {...questionObj} handleClick={handleClick} showAnsNumber={showAnsNumber}/>
   ))
 
   return (
