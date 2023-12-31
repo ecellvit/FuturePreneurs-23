@@ -19,13 +19,13 @@ export default function Home() {
 
   return (
     <main className="text-white p-6 h-full">
-      <section className='Landing_page h-full'>
+      <section className='Landing_page h-screen'>
       <Image src={bg} fill className="object-cover z-[-10]" />
       <GlobeAnimation />
       <LandingPageNavbar />
       
       
-      <div className="mr-10 text-[#f4f4f4] font-['coalition'] font-black text-7xl">      
+      <div className="mr-10 text-[#f4f4f4] font-['coalition'] font-black text-8xl">      
         Future<br />
         Preneurs  9.0
       </div>

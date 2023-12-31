@@ -5,6 +5,9 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import bg from "../public/assets/bg/spceBg.svg"
+import FP_Logo from "../public/assets/logos/FP LOGO 5.svg"
 
 
 export default function UserDetails() {
@@ -102,6 +105,12 @@ export default function UserDetails() {
     }
   }
   return (
+    <main>
+    <Image src={bg} fill className="object-cover z-[-10]"/>
+    <div className="flex flex-row ">
+    <div>
+      <Image src={FP_Logo} />
+    </div>
     <div className="container mx-auto p-4 mt-4">
       <h1 className="text-2xl font-semibold mb-4">
         Your Personal Details Form
@@ -206,5 +215,8 @@ export default function UserDetails() {
         </div>
       </form>
     </div>
+    </div>
+      
+    </main>
   );
 }
