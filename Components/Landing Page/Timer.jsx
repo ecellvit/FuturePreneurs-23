@@ -31,7 +31,7 @@ export default function CountdownTimer({ targetDate }){
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []);
+  });
 
   return (
     <div className="text-white flex flex-col w-fit">

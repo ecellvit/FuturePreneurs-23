@@ -6,6 +6,7 @@
 .ticker-tape{
     background-color: white;
     display: flex;
+    align-items: center;
     width: 100%;
     overflow: hidden;
     height: 75px;
@@ -15,14 +16,12 @@
 .ticker{
     white-space: nowrap;
     padding-right: 100%;
-
     animation: ticker 30s linear  infinite  ;
 
 }
 
 .ticker__item{
     display: inline-block;
-    /* padding: 0 2rem; */
     font-family: porche;
     font-size: 2.5rem;
     font-weight: bold;
