@@ -53,7 +53,9 @@ const Timeline = () => {
     target: targetRef,
   });
 
-  const timelineCards = cardsData.map((card) => <TimelineCard {...card} key={card.id}/>);
+  const timelineCards = cardsData.map((card) => (
+    <TimelineCard {...card} key={card.id} />
+  ));
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
@@ -62,9 +64,15 @@ const Timeline = () => {
       <section
         ref={targetRef}
         className="sm:min-h-[400vh] relative flex flex-col justify-start"
+        id="timeline"
       >
         <div className="static sm:sticky sm:top-0 sm:h-screen ">
-        <Image alt="background space image" src={bg} fill className="object-cover z-[-10]" />
+          <Image
+            alt="background space image"
+            src={bg}
+            fill
+            className="object-cover z-[-10]"
+          />
 
           <h1 className="w-full flex justify-center text-4xl tracking-widest font-bold my-10">
             TIMELINE

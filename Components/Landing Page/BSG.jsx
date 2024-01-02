@@ -10,7 +10,10 @@ import bcCard from "public/assets/landingPage/BSG/bitcoinCard.svg";
 const BSG = () => {
   return (
     <main>
-      <section className="min-h-[100vh] relative flex flex-col justify-center items-center">
+      <section
+        className="min-h-[100vh] relative flex flex-col justify-center items-center"
+        id="about"
+      >
         <Image
           alt="background space image"
           src={bg}
