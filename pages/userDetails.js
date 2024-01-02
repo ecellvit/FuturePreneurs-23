@@ -5,6 +5,10 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
+import bg from "../public/assets/bg/spceBg.svg"
+import FP_Logo from "../public/assets/logos/FP LOGO 5.svg"
 
 
 export default function UserDetails() {
@@ -19,18 +23,18 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
-  useEffect(() => {
-    if (router.isReady) {
-      if (status === "unauthenticated") {
-        //Checks if session is not ready and redirects to root.
-        console.log("Please Login First!");
-        router.push("/");
-      } else if (status === "authenticated") {
-        console.log(`Getting data`, status);
-        // getData();
-      }
-    }
-  }, [status, router]);
+  // useEffect(() => {
+  //   if (router.isReady) {
+  //     if (status === "unauthenticated") {
+  //       //Checks if session is not ready and redirects to root.
+  //       console.log("Please Login First!");
+  //       router.push("/");
+  //     } else if (status === "authenticated") {
+  //       console.log(`Getting data`, status);
+  //       // getData();
+  //     }
+  //   }
+  // }, [status, router]);
 
   
   useEffect(() => {
@@ -102,24 +106,35 @@ export default function UserDetails() {
     }
   }
   return (
-    <div className="container mx-auto p-4 mt-4">
-      <h1 className="text-2xl font-semibold mb-4">
-        Your Personal Details Form
+    <main className="w-[100vw] h-[100vh] flex justify-evenly">
+    <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]"/>
+    <Navbar/>
+    <div className="flex flex-row w-full justify-evenly items-center mt-6">
+    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-96 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl border border-gray-600">
+      <Image src={FP_Logo} alt="fp-Logo" className="h-2/3 w-2/3 self-center"/>
+      <div className="text-white text-5xl flex flex-col items-center">
+        FuturePreneurs<br/>
+        <h1 className="text-7xl">9.0</h1>
+      </div>
+    </div>
+    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl border border-gray-600">
+      <h1 className="text-2xl text-white  font-semibold mb-4">
+        Enter Your Information
       </h1>
 
       <form
         id="registrationForm"
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-inherit shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="name"
+            className="block text-white text-sm font-bold mb-2 font-poppins"
+            htmlFor="name"
           >
-            Name
+            Full Name
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
             placeholder="User Name"
@@ -132,13 +147,13 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="reg_no"
+            className="block text-white text-sm font-bold mb-2"
+            htmlFor="reg_no"
           >
             Registration Number
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="reg_no"
             type="text"
             placeholder="Registration Number"
@@ -151,13 +166,13 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="phone"
+            className="block text-white text-sm font-bold mb-2"
+            htmlFor="phone"
           >
             Phone Number
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="phone"
             type="number"
             placeholder="Phone Number"
@@ -173,13 +188,13 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="email"
+            className="block text-white text-sm font-bold mb-2"
+            htmlFor="email"
           >
             Email
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="text"
             placeholder="Email ID"
@@ -197,14 +212,15 @@ export default function UserDetails() {
           className="flex items-center justify-between"
           onClick={submitDetails}
         >
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-          >
-            SUBMIT
+         
+          <button type="button" class="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
+          Register
           </button>
         </div>
       </form>
     </div>
+    </div>
+      
+    </main>
   );
 }

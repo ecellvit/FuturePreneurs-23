@@ -17,22 +17,25 @@ import Footer from "@/Components/Landing Page/Footer";
 import RegisterButton from "@/Components/Landing Page/RegisterButton";
 
 export default function Home() {
-  const targetDate = new Date(2024,0,1,0)
-
+  const targetDate = new Date(2024,0,24,0,0)
   return (
-    <main className="text-white h-full">
-      <section className='Landing_page p-6 h-full'>
-      <Image src={bg} fill className="object-cover z-[-10]" />
+    
+
+    <main className="text-white h-full w-full">
+      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] h-[100vh]" />
+      <section className='Landing_page p-2 h-[100svh]'>
+      
       <GlobeAnimation />
       <LandingPageNavbar />
       
       
-      <div className="mr-10 text-[#f4f4f4] font-['coalition'] font-black text-7xl">      
+      <div className="mr-10 text-[#f4f4f4] drop-shadow-[0_35px_35px_rgb(a,a,a)] font-['coalition'] font-black text-8xl">      
         Future<br />
         Preneurs  9.0
       </div>
       <br />
       <CountdownTimer targetDate={targetDate}/>
+      <br/><br/>
       <RegisterButton text="Register!"/>
 
 
