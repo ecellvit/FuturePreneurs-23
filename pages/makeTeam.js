@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
+import Navbar from '../components/Navbar';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
@@ -48,32 +49,56 @@ const MakeTeam = () => {
   //},[])
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="border border-gray-300 rounded shadow-md p-6 bg-white w-96 text-center mt-8">
-        <h1 className="text-2xl font-semibold mb-4 text-black">Make a Team</h1>
-        <div className="mb-4">
-          <input 
-            type="text"
-            placeholder="Enter Team Name"
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-            className="w-full p-2 border text-black border-gray-300 rounded"
-          />
-        </div>
-        <div className="text-center">
-        <button
-          className="px-4 py-2 rounded cursor-pointer bg-blue-500 text-white mb-4 w-32 h-12"
-          onClick={handleCreateTeam}
-        >
-          Create Team
-        </button>
-        <div className=" border-b border-black"><hr></hr></div>{/*Line*/}
-        <button
-          className="px-4 py-2 rounded cursor-pointer bg-green-500 text-white mt-4 w-32 h-12"
-          onClick={handleJoinTeam}
-        >
-          Join Team
-        </button>
+    <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
+      <Navbar />
+      <div className='flex flex-col justify-center items-center h-screen'>
+        <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
+          <p className="text-[2.8rem] font-bold m-2 mb-4 text-center">Join a Team or Create a Team</p>
+          
+          <div className="flex flex-col sm:flex-row sm:justify-center items-center gap-6">
+
+
+            <div className="flex flex-col items-center mx-auto mb-4">
+            <h1 className="text-[1.8rem] font-semibold mb-4">Join your team</h1>
+            <input 
+                type="text"
+                placeholder="Enter Team Name"
+                value={teamName}
+                /*onChange={(e) => setTeamName(e.target.value)}*/
+                className="w-full p-2 border text-black border-gray-300 rounded"
+              />
+            
+            <button
+              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+              onClick={handleJoinTeam}
+            >
+              Find Team To Join
+            </button>
+            </div>
+
+            <div className="border-b border-gray-300 w-full sm:hidden my-4"></div>
+            <div className="border-l border-gray-300 h-full my-4 hidden sm:block" ></div>
+
+
+            <div className="flex flex-col items-center mx-auto mb-4 ">
+            <h1 className="text-[1.8rem] font-semibold mb-4 ">Create your team</h1>
+              <input 
+                type="text"
+                placeholder="Enter Team Name"
+                value={teamName}
+                onChange={(e) => setTeamName(e.target.value)}
+                className="w-full p-2 border text-black border-gray-300 rounded"
+              />
+              
+              <button
+              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+              onClick={handleCreateTeam}
+              >
+              Create Your Own Team
+              </button>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
