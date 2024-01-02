@@ -23,7 +23,6 @@ const Accordian = (props) => {
         <AnimatePresence>
           {showAns && (
             <motion.div
-              key="content"
               initial={{
                 height:0,
               }}

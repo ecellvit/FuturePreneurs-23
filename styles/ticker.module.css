@@ -17,6 +17,7 @@
     white-space: nowrap;
     padding-right: 100%;
     animation: ticker 30s linear  infinite  ;
+    -webkit-animation: ticker 30s linear infinite;
 
 }
 

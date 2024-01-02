@@ -11,7 +11,12 @@ const BSG = () => {
   return (
     <main>
       <section className="min-h-[100vh] relative flex flex-col justify-center items-center">
-        <Image src={bg} fill className="object-cover z-[-10]" />
+        <Image
+          alt="background space image"
+          src={bg}
+          fill
+          className="object-cover z-[-10]"
+        />
         <div className=" bg-[#141B2B] opacity-90 rounded-3xl p-4 h-[80vh] w-[80vw] flex flex-col items-center justify-between sm:justify-around">
           <div className="flex flex-col items-center gap-2 sm:gap-0">
             <h3 className="uppercase font-semibold text-xl sm:text-3xl tracking-wider font-montserrat">
@@ -28,10 +33,11 @@ const BSG = () => {
                 whileInView={{ opacity: 1, rotate: "0deg" }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="origin-bottom"
+                className="relative origin-bottom"
               >
                 <Image
                   src={bcCard}
+                  alt="bitcoin"
                   className=" h-40 sm:h-52 absolute z-[2] left-[-30px] top-[50px]"
                 />
               </motion.div>
@@ -40,9 +46,11 @@ const BSG = () => {
                 whileInView={{ opacity: 1, rotate: "0deg" }}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
+                className="relative origin-bottom"
               >
                 <Image
                   src={EcellCard}
+                  alt="e-cell"
                   className="h-40 sm:h-52 absolute z-[3] left-[5%] top-[10px]"
                 />
               </motion.div>
@@ -50,11 +58,12 @@ const BSG = () => {
                 initial={{ opacity: 0, rotate: "-20deg" }}
                 whileInView={{ opacity: 1, rotate: "0deg" }}
                 transition={{ duration: 0.5, delay: 0.9 }}
-                className="origin-bottom"
                 viewport={{ once: true }}
+                className="relative origin-bottom"
               >
                 <Image
                   src={FPCard}
+                  alt="Futurepreneur"
                   className="h-40 sm:h-52 absolute z-[4] left-[20%]"
                 />
               </motion.div>

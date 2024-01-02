@@ -29,19 +29,19 @@ const Timeline = () => {
       text: "Registrations open!!",
     },
     {
-      id: 1,
+      id: 4,
       img: img1,
       date: "20 JAN 2023",
       text: "Registrations open!!",
     },
     {
-      id: 2,
+      id: 5,
       img: img2,
       date: "20 JAN 2023",
       text: "Registrations open!!",
     },
     {
-      id: 3,
+      id: 6,
       img: img3,
       date: "20 JAN 2023",
       text: "Registrations open!!",
@@ -53,7 +53,7 @@ const Timeline = () => {
     target: targetRef,
   });
 
-  const timelineCards = cardsData.map((card) => <TimelineCard {...card} key={card}/>);
+  const timelineCards = cardsData.map((card) => <TimelineCard {...card} key={card.id}/>);
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
@@ -64,7 +64,7 @@ const Timeline = () => {
         className="sm:min-h-[400vh] relative flex flex-col justify-start"
       >
         <div className="static sm:sticky sm:top-0 sm:h-screen ">
-        <Image src={bg} fill className="object-cover z-[-10]" />
+        <Image alt="background space image" src={bg} fill className="object-cover z-[-10]" />
 
           <h1 className="w-full flex justify-center text-4xl tracking-widest font-bold my-10">
             TIMELINE
