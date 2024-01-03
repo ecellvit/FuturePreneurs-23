@@ -16,7 +16,7 @@ const StoryBehindSection = () => {
         }}
         transition={{duration:1,ease:easeInOut ,repeat:Infinity, repeatType:"mirror"}}
         className="image h-full w-1/2 relative">
-          <Image alt="astronaut chilling on the moon" src={image} className=" h-96 w-full" />
+          <Image alt="astronaut chilling on the moon" src={image} className=" h-96 w-full pointer-events-none" />
         </motion.div>
         <div className="w-full sm:w-1/2 flex flex-col justify-center gap-5 px-16 sm:px-0">
           <h1 className="font-bold text-5xl">Story Behind...</h1>

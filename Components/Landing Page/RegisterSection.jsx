@@ -11,7 +11,7 @@ const RegisterSection = () => {
       <div className="card w-4/5 sm:w-1/2 h-4/5 bg-[#ffffff13] rounded-lg p-5">
         <div className="h-1/2 flex flex-col sm:flex-row items-center justify-start">
           <div className="relative h-full w-1/2 sm:w-1/3">
-            <Image alt="mountains with a flag" src={image} fill/>
+            <Image alt="mountains with a flag" className="pointer-events-none" src={image} fill/>
           </div>
           <div className="text-4xl font-medium">Sounds Awesome?</div>
         </div>

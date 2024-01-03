@@ -10,7 +10,10 @@ import bcCard from "public/assets/landingPage/BSG/bitcoinCard.svg";
 const BSG = () => {
   return (
     <main>
-      <section className="min-h-[100vh] relative flex flex-col justify-center items-center">
+      <section
+        className="min-h-[100vh] relative flex flex-col justify-center items-center"
+        id="about"
+      >
         <Image
           alt="background space image"
           src={bg}
@@ -38,7 +41,7 @@ const BSG = () => {
                 <Image
                   src={bcCard}
                   alt="bitcoin"
-                  className=" h-40 sm:h-52 absolute z-[2] left-[-30px] top-[50px]"
+                  className=" h-40 sm:h-52 absolute z-[2] left-[-30px] top-[50px] pointer-events-none"
                 />
               </motion.div>
               <motion.div
@@ -51,7 +54,7 @@ const BSG = () => {
                 <Image
                   src={EcellCard}
                   alt="e-cell"
-                  className="h-40 sm:h-52 absolute z-[3] left-[5%] top-[10px]"
+                  className="h-40 sm:h-52 absolute z-[3] left-[5%] top-[10px] pointer-events-none"
                 />
               </motion.div>
               <motion.div
@@ -64,7 +67,7 @@ const BSG = () => {
                 <Image
                   src={FPCard}
                   alt="Futurepreneur"
-                  className="h-40 sm:h-52 absolute z-[4] left-[20%]"
+                  className="h-40 sm:h-52 absolute z-[4] left-[20%] pointer-events-none"
                 />
               </motion.div>
             </div>

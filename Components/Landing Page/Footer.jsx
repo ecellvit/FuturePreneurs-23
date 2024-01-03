@@ -12,7 +12,7 @@ import x from "public/assets/landingPage/footer/socialMedia/x.svg"
 
 const Footer = () => {
   return (
-    <footer className="relative h-fit flex flex-col sm:flex-row sm:px-14 items-center py-10 gap-5 sm:gap-0">
+    <footer className="relative h-fit flex flex-col sm:flex-row sm:px-14 items-center py-10 gap-5 sm:gap-0" id="contact">
         <Image alt="backround space image" src={bg} fill className="object-cover z-[-10]" />
         <div className="w-full sm:w-1/3 h-full flex flex-col gap-5 sm:gap-10">
             <div className="flex flex-col items-center gap-3">

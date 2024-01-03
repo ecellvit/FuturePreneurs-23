@@ -50,7 +50,7 @@ const FAQ = () => {
       <div className="flex flex-col sm:flex-row gap-10 items-center w-3/4">
         <div className="w-full sm:w-1/2 flex sm:flex-col items-center gap-5 sm:gap-0">
           <div className="w-1/2 sm:w-full">
-            <Image src={faqAstro} alt="Astronaut"/>
+            <Image src={faqAstro} alt="Astronaut" className="pointer-events-none"/>
           </div>
           <div className="">
             <h1 className="text-2xl sm:text-3xl">
