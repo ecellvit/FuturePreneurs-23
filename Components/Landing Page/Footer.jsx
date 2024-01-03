@@ -3,12 +3,12 @@ import Link from "next/link";
 
 //Images import
 import bg from "public/assets/landingPage/bg.svg";
-import mail from "public/assets/landingPage/footer/contact/mail.svg"
-import phone from "public/assets/landingPage/footer/contact/phone.svg"
-import fb from "public/assets/landingPage/footer/socialMedia/fb.svg"
-import insta from "public/assets/landingPage/footer/socialMedia/insta.svg"
-import linkedin from "public/assets/landingPage/footer/socialMedia/linkedin.svg"
-import x from "public/assets/landingPage/footer/socialMedia/x.svg"
+import mail from "public/assets/landingPage/footer/contact/mail.svg";
+import phone from "public/assets/landingPage/footer/contact/phone.svg";
+import fb from "public/assets/landingPage/footer/socialMedia/fb.svg";
+import insta from "public/assets/landingPage/footer/socialMedia/insta.svg";
+import linkedin from "public/assets/landingPage/footer/socialMedia/linkedin.svg";
+import x from "public/assets/landingPage/footer/socialMedia/x.svg";
 
 const Footer = () => {
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="w-full px-8">
             <div className="h-[1px] bg-[#4B4949]"></div>
-            <p className=" font-light text-sm tracking-wider">Entrepreneurship Cell is a Student based Club functioning under Office of Students' Welfare, VIT Vellore which aims at fostering entrepreneurial spirit amongst young aspirants by providing them with a platform and required resources for actuating their ideas into successful business ventures. E-Cell strives to attain an entrepreneurial environment in the campus and believes in taking strides towards establishing an ever-growing, ever-improving Start-Up environment. Our sole approach is to magnify the reach and set up a diverse pool of investors, evaluators and mentors.</p>
+            <p className=" font-light text-sm tracking-wider">Entrepreneurship Cell is a Student based Club functioning under Office of Students Welfare, VIT Vellore which aims at fostering entrepreneurial spirit amongst young aspirants by providing them with a platform and required resources for actuating their ideas into successful business ventures. E-Cell strives to attain an entrepreneurial environment in the campus and believes in taking strides towards establishing an ever-growing, ever-improving Start-Up environment. Our sole approach is to magnify the reach and set up a diverse pool of investors, evaluators and mentors.</p>
         </div>
         <div className="w-full sm:w-[10%] h-full flex sm:flex-col gap-3 items-center justify-center">
             <Link target="blank" href={"https://www.facebook.com/ecellvit"}><Image className="h-10" src={fb} alt="facebook icon"/></Link>
