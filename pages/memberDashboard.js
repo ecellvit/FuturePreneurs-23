@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
-import Navbar from '../components/Navbar';
-import Card from '../components/Card';
+import Card from '../Components/Card';
+import Navbar from '../Components/Navbar';
 
 const IndexPage = () => {
   return (
