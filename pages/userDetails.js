@@ -23,6 +23,7 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
+  console.log(session)
   // useEffect(() => {
   //   if (router.isReady) {
   //     if (status === "unauthenticated") {
@@ -83,7 +84,7 @@ export default function UserDetails() {
 
         <Alert name="submitted " />;
         console.log(detail);
-        fetch(`${process.env.NEXT_PUBLIC_SERVER}/fillUserDetails`, {
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
