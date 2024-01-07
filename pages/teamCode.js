@@ -52,7 +52,7 @@ export default function TeamCode() {
   return (
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
       <Navbar />
-      <Image src={bg} fill className="object-cover z-[-10]" />
+      <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
       <div className="h-[70vh] w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
         <div>
           <h1 className="text-[1.8rem] font-bold">Enter Team Details</h1>

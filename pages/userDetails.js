@@ -1,7 +1,7 @@
 "use client";
 
 import Alert from "@/Components/Alert";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/Components/Navbar";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
