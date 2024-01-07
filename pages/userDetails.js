@@ -2,13 +2,13 @@
 
 import Alert from "@/Components/Alert";
 import Navbar from "@/Components/Navbar";
+import bg from "@/public/assets/bg/spceBg.svg";
+import FP_Logo from "@/public/assets/logos/FP LOGO 5.svg";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import bg from "../public/assets/bg/spceBg.svg";
-import FP_Logo from "../public/assets/logos/FP LOGO 5.svg";
 
 
 export default function UserDetails() {

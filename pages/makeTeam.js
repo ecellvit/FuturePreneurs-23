@@ -1,7 +1,7 @@
+import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import Navbar from '../Components/Navbar';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');

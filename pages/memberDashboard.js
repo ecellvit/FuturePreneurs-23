@@ -1,5 +1,5 @@
-import Card from '../Components/Card';
-import Navbar from '../Components/Navbar';
+import Card from '@/Components/Card';
+import Navbar from '@/Components/Navbar';
 
 const IndexPage = () => {
   return (

@@ -1,6 +1,6 @@
-import Card from '../Components/Card';
-import DeleteTeamButton from '../Components/DeleteTeamButton';
-import Navbar from '../Components/Navbar';
+import Card from '@/Components/Card';
+import DeleteTeamButton from '@/Components/DeleteTeamButton';
+import Navbar from '@/Components/Navbar';
 
 const IndexPage = () => {
   // Function to handle the "Delete Team" button click
@@ -43,7 +43,7 @@ export default IndexPage;
 // import { ReactDOM } from "react";
 // import { FiPlus } from "react-icons/fi";
 // // import LeaderDashboardCards from "./LeaderDashboardCards";
-// import Modal from "../Components/Modal";
+// import Modal from "@/Components/Modal";
 // import { useRouter } from "next/router";
 // import { useSession } from "next-auth/react";
 
