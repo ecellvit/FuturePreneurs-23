@@ -1,13 +1,13 @@
 "use client";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Alert from "@/Components/Alert";
 import Navbar from "@/Components/Navbar";
+import { AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
-import Alert from "@/Components/Alert/Alert";
-import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function TeamCode() {
   const { data: session, status } = useSession();

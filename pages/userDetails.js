@@ -1,14 +1,14 @@
 "use client";
 
-import Alert from "@/components/Alert/Alert";
+import Alert from "@/Components/Alert";
+import Navbar from "@/components/Navbar";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import bg from "../public/assets/bg/spceBg.svg"
-import FP_Logo from "../public/assets/logos/FP LOGO 5.svg"
+import bg from "../public/assets/bg/spceBg.svg";
+import FP_Logo from "../public/assets/logos/FP LOGO 5.svg";
 
 
 export default function UserDetails() {
