@@ -1,14 +1,14 @@
 "use client";
 
-import Alert from "@/components/Alert/Alert";
+import Alert from "@/Components/Alert";
+import Navbar from "@/Components/Navbar";
+import bg from "@/public/assets/bg/spceBg.svg";
+import FP_Logo from "@/public/assets/logos/FP LOGO 5.svg";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import bg from "../public/assets/bg/spceBg.svg"
-import FP_Logo from "../public/assets/logos/FP LOGO 5.svg"
 
 
 export default function UserDetails() {
@@ -23,18 +23,19 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
-  useEffect(() => {
-    if (router.isReady) {
-      if (status === "unauthenticated") {
-        //Checks if session is not ready and redirects to root.
-        console.log("Please Login First!");
-        router.push("/");
-      } else if (status === "authenticated") {
-        console.log(`Getting data`, status);
-        // getData();
-      }
-    }
-  }, [status, router]);
+  console.log(session)
+  // useEffect(() => {
+  //   if (router.isReady) {
+  //     if (status === "unauthenticated") {
+  //       //Checks if session is not ready and redirects to root.
+  //       console.log("Please Login First!");
+  //       router.push("/");
+  //     } else if (status === "authenticated") {
+  //       console.log(`Getting data`, status);
+  //       // getData();
+  //     }
+  //   }
+  // }, [status, router]);
 
   
   useEffect(() => {
@@ -84,8 +85,8 @@ export default function UserDetails() {
 
         // <Alert name="submitted " />;
         console.log(detail);
-      fetch(process.env.NEXT_PUBLIC_SERVER+'/fillUserDetails', {
-          method: "PATCH",
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },

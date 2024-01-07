@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
-import Navbar from '../components/Navbar';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
