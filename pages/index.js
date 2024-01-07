@@ -18,8 +18,8 @@ export default function Home() {
   return (
     
 
-    <main className="text-white h-full w-full">
-      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] h-[100vh]" />
+    <main className="text-white h-full w-full overflow-hidden">
+      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] h-[100vh] overflow-hidden" />
       <section className='Landing_page p-2 h-[100svh]'>
       
       <GlobeAnimation />
