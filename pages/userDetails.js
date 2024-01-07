@@ -85,7 +85,7 @@ export default function UserDetails() {
         <Alert name="submitted " />;
         console.log(detail);
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
-          method: "PATCH",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
