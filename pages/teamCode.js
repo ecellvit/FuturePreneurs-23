@@ -53,18 +53,12 @@ export default function TeamCode() {
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
       <Navbar />
       <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
-      <div className="h-[70vh] w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
+      <div className="h-[55vh] w-[45vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
         <div>
-          <h1 className="text-[1.8rem] font-bold">Enter Team Details</h1>
+          <h1 className="text-[1.8rem] font-bold">Share with Members!</h1>
         </div>
         <div className="w-full flex flex-col items-center gap-5">
-          <div className="w-full flex flex-col items-center">
-            <input
-              type="text"
-              placeholder="Enter Team Name Here"
-              className="bg-[#E9FFFF] rounded-md w-2/3 focus:outline-none sm:w-1/2 h-10 text-center px-5 text-black"
-            />
-          </div>
+            <h1 className=" text-2xl font-bold">{teamName}</h1>
           <div className="flex justify-center w-full gap-5">
             <div className="w-1/2 text-end font-semibold underline">
               {teamName}
@@ -107,9 +101,6 @@ export default function TeamCode() {
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <h1 className="text-[1.8rem] font-bold">Share with Members!</h1>
         </div>
       </div>
       <AnimatePresence>
