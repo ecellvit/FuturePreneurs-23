@@ -1,6 +1,5 @@
 "use client";
 
-import Alert from "@/Components/Alert";
 import Navbar from "@/Components/Navbar";
 import bg from "@/public/assets/bg/spceBg.svg";
 import FP_Logo from "@/public/assets/logos/FP LOGO 5.svg";
@@ -213,7 +212,7 @@ export default function UserDetails() {
         </div>
         <div
           className="flex items-center justify-between"
-          onClick={submitDetails}
+          onClick={()=>submitDetails()}
         >
          
           <button type="button" className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
