@@ -1,14 +1,14 @@
 "use client";
 
-import Alert from "@/components/Alert/Alert";
+import Alert from "@/Components/Alert";
+import Navbar from "@/Components/Navbar";
+import bg from "@/public/assets/bg/spceBg.svg";
+import FP_Logo from "@/public/assets/logos/FP LOGO 5.svg";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import bg from "../public/assets/bg/spceBg.svg"
-import FP_Logo from "../public/assets/logos/FP LOGO 5.svg"
 
 
 export default function UserDetails() {
@@ -23,6 +23,7 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
+  console.log(session)
   // useEffect(() => {
   //   if (router.isReady) {
   //     if (status === "unauthenticated") {
@@ -77,14 +78,15 @@ export default function UserDetails() {
       userRegNo !== ""
     ) {
       if (phoneError !== "" || emailError !== "") {
-        <Alert name="Please fill the form correctly" />;
+        // <Alert name="Please fill the form correctly" />;
+        console.log("Please fill the form correctly")
       } else {
         const detail = [userName, userRegNo, userPhoneNumber, userEmail];
 
-        <Alert name="submitted " />;
+        // <Alert name="submitted " />;
         console.log(detail);
-        fetch(`${process.env.NEXT_PUBLIC_SERVER}/fillUserDetails`, {
-          method: "PATCH",
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -102,7 +104,8 @@ export default function UserDetails() {
         setUserRegNo("");
       }
     } else {
-      <Alert name="Please fill all the details first" />;
+      console("Please fill all the details first")
+      // <Alert name="Please fill all the details first" />;
     }
   }
   return (
@@ -213,7 +216,7 @@ export default function UserDetails() {
           onClick={submitDetails}
         >
          
-          <button type="button" class="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
+          <button type="button" className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
           Register
           </button>
         </div>

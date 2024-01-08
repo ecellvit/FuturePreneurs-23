@@ -1,13 +1,13 @@
 "use client";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Alert from "@/Components/Alert";
 import Navbar from "@/Components/Navbar";
+import { AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
-import Alert from "@/Components/Alert/Alert";
-import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function TeamCode() {
   const { data: session, status } = useSession();
@@ -52,7 +52,7 @@ export default function TeamCode() {
   return (
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
       <Navbar />
-      <Image src={bg} fill className="object-cover z-[-10]" />
+      <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
       <div className="h-[70vh] w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
         <div>
           <h1 className="text-[1.8rem] font-bold">Enter Team Details</h1>

@@ -1,17 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 import bg from "public/assets/landingPage/bg.svg";
 import image from "public/assets/landingPage/moonAstronaut.svg";
-import Link from "next/link";
 
 const Cutom404 = () => {
   return (
     <main>
       <div className="h-[100vh] relative flex flex-col text-neutral-100 items-center justify-center">
-        <Image src={bg} fill className="object-cover z-[-10]" />
+        <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
         <h1 className="text-4xl my-2 font-semibold">Far Out!!</h1>
         <h1 className="my-2">404 Page Not Found</h1>
         <div className="h-60 relative my-3">
-          <Image src={image} className="h-full" />
+          <Image alt='img' src={image} className="h-full" />
         </div>
         <div className="text-center text-lg">
           <div>We are not sure how you got here...</div>
