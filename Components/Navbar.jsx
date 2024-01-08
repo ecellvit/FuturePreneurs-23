@@ -11,8 +11,8 @@ const Navbar = () => {
         </div>
         <div className='flex gap-3 sm:gap-10 items-center font-medium'>
             <Link href="/">Home</Link>
-            <Link href="/">About</Link>
-            <Link href="/">Events</Link>
+            <Link href="/#about">About</Link>
+            <Link href="/#timeline">Events</Link>
             <Link href="/">Speakers</Link>
             <Link href="/">Sponsors</Link>
         </div>
