@@ -12,6 +12,7 @@ import Timeline from "@/Components/Landing Page/Timeline/Timeline";
 import CountdownTimer from '@/Components/Landing Page/Timer';
 import Image from "next/image";
 import bg from "public/assets/landingPage/bg.svg";
+import fpFont from 'public/assets/landingPage/FUTURE PRENEURS.svg'
 
 export default function Home() {
   const targetDate = new Date(2024,0,24,0,0)
@@ -19,21 +20,20 @@ export default function Home() {
     
 
     <main className="text-white h-full w-full overflow-hidden">
-      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] h-[100vh] overflow-hidden" />
+      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] min-h-[100vh]" />
       <section className='Landing_page p-2 h-[100svh]'>
       
       <GlobeAnimation />
       <LandingPageNavbar />
       
       
-      <div className="mr-10 text-[#f4f4f4] drop-shadow-[0_35px_35px_rgb(a,a,a)] font-['coalition'] font-black text-8xl">      
-        Future<br />
-        Preneurs  9.0
-      </div>
+      <div className="pr-10">      
+       <Image src={fpFont} className="w-3/4 h-1/4"/>
       <br />
       <CountdownTimer targetDate={targetDate}/>
       <br/><br/>
       <RegisterButton text="Register!"/>
+      </div>
 
 
   
