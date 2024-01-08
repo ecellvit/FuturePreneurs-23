@@ -1,7 +1,6 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Card from '../components/Card';
-import DeleteTeamButton from '../components/DeleteTeamButton';
+import Card from '@/Components/Card';
+import DeleteTeamButton from '@/Components/DeleteTeamButton';
+import Navbar from '@/Components/Navbar';
 
 const IndexPage = () => {
   // Function to handle the "Delete Team" button click
@@ -12,22 +11,22 @@ const IndexPage = () => {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center"
-      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}
+      className="bg-cover bg-no-repeat bg-center min-h-screen"
+      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">YOUR TEAM</h1>
 
-        <div className="flex flex-wrap justify-center text-left">
-          <Card name="Person 1" imageSrc="/path/to/person1.jpg" />
-          <Card name="Person 2" imageSrc="/path/to/person2.jpg" />
+        <div className="flex flex-wrap justify-center">
+          <Card name="Person 1" imageSrc="/assets/boardpics/image2.svg" />
+          <Card name="Person 2" imageSrc="/assets/boardpics/image2.svg" />
         </div>
 
-        <div className="flex flex-wrap justify-center mt-4 text-left">
-          <Card name="Person 3" imageSrc="/path/to/person3.jpg" />
-          <Card name="Person 4" imageSrc="/path/to/person4.jpg" />
+        <div className="flex flex-wrap justify-center mt-4">
+          <Card name="Person 3" imageSrc="/assets/boardpics/image2.svg" />
+          <Card name="Person 4" imageSrc="/assets/boardpics/image2.svg" />
         </div>
       </div>
 
@@ -44,7 +43,7 @@ export default IndexPage;
 // import { ReactDOM } from "react";
 // import { FiPlus } from "react-icons/fi";
 // // import LeaderDashboardCards from "./LeaderDashboardCards";
-// import Modal from "../components/Modal";
+// import Modal from "@/Components/Modal";
 // import { useRouter } from "next/router";
 // import { useSession } from "next-auth/react";
 

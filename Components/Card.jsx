@@ -1,16 +1,19 @@
-import React from 'react';
+import Image from 'next/image';
 import LeaveButton from './LeaveButton';
 
 const Card = ({ name, imageSrc }) => {
   return (
-    <div className="relative flex-col justify-between w-96 h-47 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 bg-white bg-opacity-30 ">
-      <img className="w-full h-32 object-cover rounded-t-3xl" src={imageSrc} alt={name} />
-      <div className="flex justify-between">
-        <div className="px-3 py-0">
-          <p className="font-bold text-xl mb-2 text-white">{name}</p>
+    <div
+      className="relative w-96 h-48 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 flex items-center"
+      style={{ backgroundColor: '#141B2B' }} // Light blue color
+    >
+      <img className="w-full h-24 object-contain rounded-t-3xl" src={imageSrc} alt={name} />
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">
+        <div>
+          <p className="font-bold text-lg mb-1 text-white">{name}</p>
         </div>
-        <div className="px-6 pb-4">
-          <LeaveButton />
+        <div>
+          <LeaveButton className="p-1" />
         </div>
       </div>
     </div>

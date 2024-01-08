@@ -10,21 +10,21 @@ export default function LoginButton(){
         
         {session ? (
             <div>
-              <button className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex-row justify-evenly"
+              <button className="flex flex-row justify-evenly items-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
                 onClick={() => {
                   signOut();
                 }}>
                 <IoIosContact />
-                Log Out
+                <span>Log Out</span>
               </button>{' '}
             </div>
           ) : (
-            <button className="flex-row justify-evenly text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
+            <button className="flex flex-row justify-evenly items-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
               onClick={() => {
                 signIn('google', { callbackUrl: '/userDetails' });
               }}>
               <IoIosContact />
-              Log In
+              <span>Log In</span>
             </button>
           )}
           </div>

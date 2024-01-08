@@ -1,3 +1,4 @@
+import Navbar from '@/Components/Navbar';
 import { useEffect, useState } from 'react';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
@@ -99,24 +100,27 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   return (
     // tailwind
-    <div className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-900">
-      <h1 className="text-2xl font-semibold text-black dark:text-white mb-4">
+    <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
+      <Navbar />
+      <div className='flex flex-col justify-center items-center h-screen'>
+      <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-evenly text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
+      <h1 className="text-[2.8rem] font-bold m-2 mb-4 text-center">
         Join a Team
       </h1>
-      <form onSubmit={(e) => { e.preventDefault(); fetchTeamName(); }}  className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md w-80">
+      <form onSubmit={(e) => { e.preventDefault(); fetchTeamName(); }}  className=" dark:bg-gray-800 p-4 rounded-lg shadow-md w-80 flex flex-col justify-center">
         <div className="mb-4">
-          <label className="block text-gray-600 dark:text-gray-400">Team Code:</label>
+          <label className="text-[1.8rem] font-semibold mb-4">Team Code:</label>
           <input
             type="text"
             value={teamCode}
             onChange={handleTeamCodeChange}
-            className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500 dark:bg-gray-700"
+            className="text-black border border-gray-300 dark:border-gray-600 rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500 dark:bg-gray-700"
           />
         </div>
         <button
           id="joinTeamButton" 
           type="submit"
-          className="bg-blue-500 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded px-4 py-2 hover:bg-blue-600 focus:outline-none"
+          className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
         >
           Join Team
         </button>
@@ -157,6 +161,8 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           </div>
         </div>
       )}
+      </div>
+      </div>
     </div>
   );
 };

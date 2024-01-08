@@ -1,11 +1,13 @@
 "use client";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Alert from "@/Components/Alert";
 import Navbar from "@/Components/Navbar";
+import { AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
+import { useEffect, useState } from "react";
 
 export default function TeamCode() {
   const { data: session, status } = useSession();
@@ -18,7 +20,6 @@ export default function TeamCode() {
         console.log("Please Login First!");
         // router.push("/")
       } else if (status === "authenticated") {
-        console.log("asdfasdfasdf");
         // getData()
       }
     }
@@ -30,8 +31,6 @@ export default function TeamCode() {
   const [showAlert, setShowAlert] = useState(false); //To show the bool to display the alert.
   const [alertText, setAlertText] = useState(""); //Store the alert text to be displayed
   const getData = () => {
-    // console.log(process.env.NEXT_PUBLIC_SERVER);
-    // console.log(session.accessTokenBackend);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamDetails`, {
       content: "application/json",
       method: "GET",
@@ -46,26 +45,20 @@ export default function TeamCode() {
         console.log(data);
       })
       .catch((err) => {
-        // console.log("no team found");
-        // console.log(err);
+        console.log("no team found");
+        console.log(err);
       });
   };
   return (
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
       <Navbar />
-      <Image src={bg} fill className="object-cover z-[-10]" />
-      <div className="h-[70vh] w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
+      <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
+      <div className="h-[55vh] w-[45vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
         <div>
-          <h1 className="text-[1.8rem] font-bold">Enter Team Details</h1>
+          <h1 className="text-[1.8rem] font-bold">Share with Members!</h1>
         </div>
         <div className="w-full flex flex-col items-center gap-5">
-          <div className="w-full flex flex-col items-center">
-            <input
-              type="text"
-              placeholder="Enter Team Name Here"
-              className="bg-[#E9FFFF] rounded-md w-2/3 focus:outline-none sm:w-1/2 h-10 text-center px-5 text-black"
-            />
-          </div>
+            <h1 className=" text-2xl font-bold">{teamName}</h1>
           <div className="flex justify-center w-full gap-5">
             <div className="w-1/2 text-end font-semibold underline">
               {teamName}
@@ -75,6 +68,11 @@ export default function TeamCode() {
                 className="flex hover:underline hover:cursor-pointer"
                 onClick={() => {
                   navigator.clipboard.writeText(teamName);
+                  setAlertText("Team name copied to clipboard.")
+                  setShowAlert(true);
+                  setTimeout(() => {
+                    setShowAlert(false);
+                  }, 3000);
                 }}
               >
                 <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
@@ -84,13 +82,18 @@ export default function TeamCode() {
           </div>
           <div className="flex justify-center w-full gap-5">
             <div className="w-1/2 text-end font-semibold underline">
-            {`https://fp/${teamName}`}
+              {`https://fp/${teamName}`}
             </div>
             <div className="flex w-1/2 ">
               <div
                 className="flex hover:underline hover:cursor-pointer"
                 onClick={() => {
                   navigator.clipboard.writeText(`https://fp/${teamName}`);
+                  setAlertText("Team link copied to clipboard.")
+                  setShowAlert(true);
+                  setTimeout(() => {
+                    setShowAlert(false);
+                  }, 3000);
                 }}
               >
                 <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
@@ -99,11 +102,10 @@ export default function TeamCode() {
             </div>
           </div>
         </div>
-        <div>
-          
-          <h1 className="text-[1.8rem] font-bold">Share with Members!</h1>
-        </div>
       </div>
+      <AnimatePresence>
+        {showAlert && <Alert name={alertText} />}
+      </AnimatePresence>
     </main>
   );
 }

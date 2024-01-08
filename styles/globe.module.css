@@ -7,13 +7,9 @@
     right: 0%;
     top: -20%;
     z-index: -5;
-    animation-name: globe;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
     
 }
-
+/* 
 @keyframes globe {
     
     30%{
@@ -41,4 +37,4 @@
         height: 34vh;
         width: 34vw;
     }
-}
+} */

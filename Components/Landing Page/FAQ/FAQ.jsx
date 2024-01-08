@@ -41,16 +41,16 @@ const FAQ = () => {
   ]
 
   const faqSection = faqs.map((questionObj)=>(
-    <Accordian key={questionObj.id} q={questionObj.q} ans={questionObj.ans} id={questionObj.id} handleClick={handleClick} showAnsNumber={showAnsNumber}/>
+    <Accordian key={questionObj.id} {...questionObj} handleClick={handleClick} showAnsNumber={showAnsNumber}/>
   ))
 
   return (
     <section className="relative min-h-[80vh] w-full flex justify-center items-center">
-      <Image src={bg} fill className="object-cover z-[-10]" />
+      <Image alt="background space image" src={bg} fill className="object-cover z-[-10]" />
       <div className="flex flex-col sm:flex-row gap-10 items-center w-3/4">
         <div className="w-full sm:w-1/2 flex sm:flex-col items-center gap-5 sm:gap-0">
           <div className="w-1/2 sm:w-full">
-            <Image src={faqAstro} />
+            <Image src={faqAstro} alt="Astronaut" className="pointer-events-none"/>
           </div>
           <div className="">
             <h1 className="text-2xl sm:text-3xl">

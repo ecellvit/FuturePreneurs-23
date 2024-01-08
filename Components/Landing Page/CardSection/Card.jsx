@@ -16,7 +16,7 @@ const Card = (props) => {
         transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         className="h-1/2 w-full flex justify-center"
       >
-        <Image className="h-full" src={props.image} />
+        <Image alt="Card Image" className="h-full pointer-events-none" src={props.image} />
       </motion.div>
       <div className="h-full flex flex-col justify-around">
         <h1 className="text-center font-bold text-2xl">{props.heading}</h1>

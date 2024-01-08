@@ -8,14 +8,18 @@ export default function CountdownTimer({ targetDate }){
 
     if (timeDiff <= 0) {
       // Target date has passed
-      return { days: 0, hours: 0, minutes: 0};
+      return { days: '00', hours: '00', minutes: '00' };
     }
 
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const days =Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
 
-    return { days, hours, minutes};
+    return {
+      days: days.toString().padStart(2, '0'),
+      hours: hours.toString().padStart(2, '0'),
+      minutes: minutes.toString().padStart(2, '0')
+    };
   };
 
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
@@ -27,12 +31,16 @@ export default function CountdownTimer({ targetDate }){
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []);
+  });
 
   return (
-    <div>
-      <h1>Registration Closes In</h1>
-      <p>{timeRemaining.days} days : {timeRemaining.hours} hours : {timeRemaining.minutes} minutes</p>
+    <div className="text-white flex flex-col w-fit">
+      <div className="font-bold text-4xl self-center">Registration Closes In</div>
+      <div className='flex font-black text-4xl justify-evenly'>
+      <div className='flex flex-col'>{timeRemaining.days}<span className='text-base font-normal'>DAYS</span></div>:
+      <div className='flex flex-col'>{timeRemaining.hours}<span className='text-base font-normal'>HOURS</span></div>:
+      <div className='flex flex-col'>{timeRemaining.minutes}<span className='text-base font-normal'>MINS</span></div>
+      </div>
     </div>
   );
 };
