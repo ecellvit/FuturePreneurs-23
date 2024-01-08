@@ -1,4 +1,3 @@
-// pages/index.js
 import Card from '@/Components/Card';
 import DeleteTeamButton from '@/Components/DeleteTeamButton';
 import Navbar from '@/Components/Navbar';

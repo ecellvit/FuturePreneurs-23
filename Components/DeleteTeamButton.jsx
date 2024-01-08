@@ -1,4 +1,3 @@
-// components/DeleteTeamButton.js
 import React from 'react';
 
 const DeleteTeamButton = ({ onClick }) => {
