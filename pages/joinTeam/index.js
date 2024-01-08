@@ -1,5 +1,5 @@
+import Navbar from '@/Components/Navbar';
 import { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
   const [teamCode, setTeamCode] = useState(propTeamCode || '');
