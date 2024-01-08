@@ -113,25 +113,36 @@ export default function UserDetails() {
     <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]"/>
     <Navbar/>
     <div className="flex flex-row w-full justify-evenly items-center mt-6">
-    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-96 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl border border-gray-600">
-      <Image src={FP_Logo} alt="fp-Logo" className="h-2/3 w-2/3 self-center"/>
-      <div className="text-white text-5xl flex flex-col items-center">
-        FuturePreneurs<br/>
-        <h1 className="text-7xl">9.0</h1>
-      </div>
-    </div>
-    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl border border-gray-600">
-      <h1 className="text-2xl text-white  font-semibold mb-4">
-        Enter Your Information
-      </h1>
+    <div className="w-100 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
+    style={{ backgroundColor: '#141B2B' }}
+    >
+  <Image src={FP_Logo} alt="fp-Logo" className="h-2/3 w-2/3 self-center"/>
+  <div className="text-white text-6xl font-bold flex flex-col items-center">
+  FuturePreneurs<br/>
+  <h1 className="text-7xl font-bold">9.0</h1>
+</div>
+
+</div>
+
+    <div className="w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl"
+    style={{ backgroundColor: '#141B2B' }}
+    >
+      <div className="flex justify-start items-center pt-9">
+  <h1 className="text-4xl text-white font-bold mb-8">
+    Enter Your Information
+  </h1>
+</div>
+
+
+
 
       <form
         id="registrationForm"
-        className="bg-inherit shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-inherit shadow-md rounded px-8 pt-0 pb-8 mb-4"
       >
         <div className="mb-4">
           <label
-            className="block text-white text-sm font-bold mb-2 font-poppins"
+            className="block text-white text-lg font-bold mb-2 font-poppins"
             htmlFor="name"
           >
             Full Name
@@ -150,7 +161,7 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-white text-sm font-bold mb-2"
+            className="block text-white text-lg font-bold mb-2"
             htmlFor="reg_no"
           >
             Registration Number
@@ -169,7 +180,7 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-white text-sm font-bold mb-2"
+            className="block text-white text-lg font-bold mb-2"
             htmlFor="phone"
           >
             Phone Number
@@ -191,7 +202,7 @@ export default function UserDetails() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-white text-sm font-bold mb-2"
+            className="block text-white text-lg font-bold mb-2"
             htmlFor="email"
           >
             Email
@@ -216,7 +227,7 @@ export default function UserDetails() {
           onClick={submitDetails}
         >
          
-          <button type="button" className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
+          <button type="button" className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2">
           Register
           </button>
         </div>
