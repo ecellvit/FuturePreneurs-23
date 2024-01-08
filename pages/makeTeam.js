@@ -53,34 +53,25 @@ const MakeTeam = () => {
       <Navbar />
       <div className='flex flex-col justify-center items-center h-screen'>
         <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
-          <p className="text-[2.8rem] font-bold m-2 mb-4 text-center">Join a Team or Create a Team</p>
+          <p className="text-[2.8rem] font-bold m-2 mb-4 text-center">Join or Create a Team</p>
           
-          <div className="flex flex-col sm:flex-row sm:justify-center items-center gap-6">
 
 
-            <div className="flex flex-col items-center mx-auto mb-4">
-            <h1 className="text-[1.8rem] font-semibold mb-4">Join your team</h1>
-            <input 
-                type="text"
-                placeholder="Enter Team Name"
-                value={teamName}
-                /*onChange={(e) => setTeamName(e.target.value)}*/
-                className="w-full p-2 border text-black border-gray-300 rounded"
-              />
+            <div className="flex flex-col items-center mx-auto mb-1">
+            
             
             <button
-              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-bold"
               onClick={handleJoinTeam}
             >
               Find Team To Join
             </button>
             </div>
 
-            <div className="border-b border-gray-300 w-full sm:hidden my-4"></div>
-            <div className="border-l border-gray-300 h-full my-4 hidden sm:block" ></div>
+            <div className="border-b border-gray-300 w-5/6 my-1"></div>
+            
 
-
-            <div className="flex flex-col items-center mx-auto mb-4 ">
+            <div className="flex flex-col items-center mx-auto mb-6 ">
             <h1 className="text-[1.8rem] font-semibold mb-4 ">Create your team</h1>
               <input 
                 type="text"
@@ -91,14 +82,14 @@ const MakeTeam = () => {
               />
               
               <button
-              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-bold"
               onClick={handleCreateTeam}
               >
               Create Your Own Team
               </button>
 
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
