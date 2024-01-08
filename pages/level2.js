@@ -1,7 +1,6 @@
-import React from "react";
-import NavbarForLevels from "../components/NavbarForLevels";
-import Image from "next/image";
+import NavbarForLevels from "@/Components/NavbarForLevels";
 import bg from "@/public/assets/bg/spceBg.svg";
+import Image from "next/image";
 
 export default function level2(){
     return(
