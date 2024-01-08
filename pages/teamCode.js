@@ -20,16 +20,16 @@ export default function TeamCode() {
         console.log("Please Login First!");
         // router.push("/")
       } else if (status === "authenticated") {
-        // getData()
+        getData()
       }
     }
   }, [status, router]);
-  console.log("clisession", session);
 
   const [teamName, setTeamName] = useState("Team Futurepreneur"); // To store the team name
   const [teamCode, setTeamCode] = useState("abc123"); //To store the team code recieved from the backend
   const [showAlert, setShowAlert] = useState(false); //To show the bool to display the alert.
   const [alertText, setAlertText] = useState(""); //Store the alert text to be displayed
+  
   const getData = () => {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamDetails`, {
       content: "application/json",
@@ -43,12 +43,27 @@ export default function TeamCode() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/gettoken/${data.teamDetails._id}`, {
+          content: "application/json",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.accessTokenBackend}`,
+            "Access-Control-Allow-Origin": "*",
+          },
+        }).then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+
       })
       .catch((err) => {
         console.log("no team found");
         console.log(err);
       });
   };
+
   return (
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
       <Navbar />

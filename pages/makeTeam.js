@@ -6,9 +6,12 @@ import { useState } from 'react';
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
   const router = useRouter();
-  const session= useSession();
+  const { data: session, status } = useSession()
 
   const handleCreateTeam = async () => {
+
+    console.log('session', session)
+
     try {
       // Send a request to the backend to check if the team name is unique
       const response = await fetch(process.env.NEXT_PUBLIC_SERVER + '/team/createTeam', {
@@ -24,9 +27,11 @@ const MakeTeam = () => {
       const data = await response.json();
       console.log("not found",data);
 
-      if (data) {
+      if (data.message == 'User Already Part of a Team') {
+        // show toast
+      } else {
         // Team name is unique, so redirect to TeamCode page
-        router.push('/teamCode');
+        router.push('/leaderDashboard');
       }
       // else {
       //  // Team name is already used, display an error message
