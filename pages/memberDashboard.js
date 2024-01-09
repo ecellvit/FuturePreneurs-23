@@ -1,4 +1,5 @@
 import Card from '@/Components/Card';
+import LeaveButton from '@/Components/LeaveButton';
 import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -47,12 +48,15 @@ const TeamPage = () => {
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
-            router.push("/leaderDashboard");
+            // router.push("/");
+            if (user.teamRole === '0') {
+              router.push('/leaderDashboard')
+            }
           } else {
-            
+            router.push('/makeTeam')
           }
         } else{
-          router.push('/');
+          router.push('/userDetails');
         }
         console.log('user', user)
       })
@@ -72,6 +76,7 @@ const TeamPage = () => {
       console.log('dd', data)
       setTeamId(data.teamDetails._id);
       setTeamMemberData(data.teamDetails.members);
+      console.log(data.teamDetails.members)
       setTeamName(data.teamDetails.teamName);
       setTeamLeaderId(data.teamDetails.teamLeaderId);
     }).catch(err => {
@@ -79,6 +84,19 @@ const TeamPage = () => {
       console.log(err)
     })
   };
+
+  const leaveTeam = () => {
+    fetch(process.env.NEXT_PUBLIC_SERVER + '/user/leaveTeam/'+teamId, {
+      content: "application/json",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    }).then(data=>data.json())
+    .then(data=>{console.log(data)})
+  }
 
   return (
     <div
@@ -93,10 +111,16 @@ const TeamPage = () => {
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              <Card name={el.firstName} imageSrc="/assets/boardpics/image2.svg" />
+              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} imageSrc="/assets/boardpics/image2.svg" />
             })
           }
         </div>
+      </div>
+      <div className="flex justify-center mt-4">
+        <LeaveButton 
+          // onClick={()=>{console.log('asdf')}}
+          onClick={()=>leaveTeam()}
+         />
       </div>
     </div>
   );

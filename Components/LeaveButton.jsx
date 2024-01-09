@@ -1,8 +1,9 @@
-import React from 'react';
 
-const LeaveButton = () => {
+const LeaveButton = ({onClick}) => {
   return (
-    <button className="bg-blue-500 text-white px-3 py-1 rounded-full">
+    <button 
+      onClick={onClick}
+      className="bg-red-500 text-white px-3 py-1 rounded-full">
       Leave
     </button>
   );
