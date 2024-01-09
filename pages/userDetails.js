@@ -25,6 +25,7 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
+
   useEffect(() => {
     if (router.isReady) {
       if (status === "unauthenticated") {
@@ -35,6 +36,7 @@ export default function UserDetails() {
         console.log(`Getting data`, status);
         // toast.success("Logged In");
         getData();
+        localStorage.setItem('asdf', 'asdf')
       }
     }
   }, [status, router]);
@@ -56,9 +58,9 @@ export default function UserDetails() {
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
             const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
-            // router.push(redirect);
+            router.push(redirect);
           } else {
-            // router.push("/makeTeam");
+            router.push("/makeTeam");
           }
         }
         console.log('user', user)

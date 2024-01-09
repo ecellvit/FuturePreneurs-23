@@ -1,4 +1,6 @@
 import Navbar from '@/Components/Navbar';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
@@ -6,6 +8,50 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const [teamName, setTeamName] = useState('');
   const [message, setMessage] = useState('');
   const [showDialog, setShowDialog] = useState(false);
+
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
+        console.log("Please Login First!");
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log(`Getting data`, status);
+        // toast.success("Logged In");
+        getData();
+        localStorage.setItem('asdf', 'asdf')
+      }
+    }
+  }, [status, router]);
+
+  const getData = ()=>{
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const user = data.user;
+        if (user.hasFilledDetails == false) {
+          router.push('/userDetails');
+        } else {
+          if (user.teamId !== null) {
+            const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
+            router.push(redirect);
+          }
+        }
+        console.log('user', user)
+      })
+  }
 
   const handleTeamCodeChange = (e) => {
     setTeamCode(e.target.value);
