@@ -155,12 +155,12 @@ export default function UserDetails() {
     }
   }
   return (
-    <main className="w-[100vw] h-[100vh] flex justify-evenly">
-      <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]" />
+    <main className="min-w-[100vw] min-h-[100vh] flex justify-center items-center">
       <Navbar />
-      <div className="flex flex-row w-full justify-evenly items-center mt-6">
+      <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]" />
+      <div className="flex flex-col md:flex-row w-full h-[90vh] justify-evenly items-center">
         <div
-          className="w-100 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
+          className="hidden md:w-100 h-5/6 md:flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
           style={{ backgroundColor: "#141B2B" }}
         >
           <Image
@@ -170,28 +170,27 @@ export default function UserDetails() {
           />
           <div className="text-white text-6xl font-bold flex flex-col items-center">
             FuturePreneurs
-            <br />
             <h1 className="text-7xl font-bold">9.0</h1>
           </div>
         </div>
 
         <div
-          className="w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl"
+          className="w-4/5 md:w-1/2 h-5/6 flex flex-col justify-evenly md:justify-around items-start rounded-3xl px-4"
           style={{ backgroundColor: "#141B2B" }}
         >
-          <div className="flex justify-start items-center pt-9">
-            <h1 className="text-4xl text-white font-bold mb-8">
+          <div className="flex justify-start items-center">
+            <h1 className="text-3xl text-white font-bold">
               Enter Your Information
             </h1>
           </div>
 
           <form
             id="registrationForm"
-            className="shadow-md rounded px-8 pt-0 pb-8 mb-4"
+            className="shadow-md rounded w-full"
           >
             <div className="mb-4">
               <label
-                className="block text-white text-lg font-bold mb-2 font-poppins"
+                className="block text-white text-lg font-bold font-poppins"
                 htmlFor="name"
               >
                 First Name
@@ -210,7 +209,7 @@ export default function UserDetails() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-lg font-bold mb-2 font-poppins"
+                className="block text-white text-lg font-bold  font-poppins"
                 htmlFor="name"
               >
                 Last Name
@@ -229,7 +228,7 @@ export default function UserDetails() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-lg font-bold mb-2"
+                className="block text-white text-lg font-bold "
                 htmlFor="reg_no"
               >
                 Registration Number
@@ -248,7 +247,7 @@ export default function UserDetails() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-lg font-bold mb-2"
+                className="block text-white text-lg font-bold "
                 htmlFor="phone"
               >
                 Phone Number
@@ -256,7 +255,7 @@ export default function UserDetails() {
               <input
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="phone"
-                type="number"
+                type="text"
                 placeholder="Phone Number"
                 value={userPhoneNumber}
                 onChange={(e) => {
@@ -268,28 +267,6 @@ export default function UserDetails() {
                 Phone Number already exists.
               </p>
             </div>
-            {/* <div className="mb-4">
-          <label
-            className="block text-white text-lg font-bold mb-2"
-            htmlFor="email"
-          >
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="text"
-            placeholder="Email ID"
-            value={userEmail}
-            onChange={(e) => {
-              setUserEmail(e.target.value);
-            }}
-          ></input>
-          {emailError && <div className="text-red-600">{emailError}</div>}
-          <p id="emailError" className="text-red-500 text-xs italic hidden">
-            Email already exists.
-          </p>
-        </div> */}
             <div className="flex items-center justify-between">
               <button
                 type="button"
@@ -297,9 +274,8 @@ export default function UserDetails() {
                   () => {
                     submitDetails();
                   }
-                  // console.log('asdf')
                 }
-                className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2 text-center me-2 mb-2"
               >
                 Register
               </button>
