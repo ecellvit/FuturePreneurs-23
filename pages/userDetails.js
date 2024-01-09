@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+//Imports for toast.
+import toast, { Toaster } from "react-hot-toast";
 
 export default function UserDetails() {
   const [first, setFirstName] = useState("");
@@ -55,7 +57,8 @@ export default function UserDetails() {
       })
   }
 
-  
+  const [toastID, settoastID] = useState(null);
+
   useEffect(() => {
     if (userEmail !== "" && userPhoneNumber !== "") {
       validatePhoneNumber();
@@ -97,7 +100,7 @@ export default function UserDetails() {
     ) {
       if (phoneError !== "") {
         // <Alert name="Please fill the form correctly" />;
-        console.log("Please fill the form correctly")
+        console.log("Please fill the form correctly");
       } else {
         const detail = [first, userRegNo, userPhoneNumber, last];
 
@@ -107,147 +110,157 @@ export default function UserDetails() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + session.accessTokenBackend,
+            Authorization: "Bearer " + session.accessTokenBackend,
           },
-          body: JSON.stringify(
-              {
-                "firstName":first,
-                "lastName":last,
-                "regNo":userRegNo,
-                "mob":userPhoneNumber
-              }
-            ),
+          body: JSON.stringify({
+            firstName: first,
+            lastName: last,
+            regNo: userRegNo,
+            mob: userPhoneNumber,
+          }),
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+
             if (data.status === "success") {
               router.push("/makeTeam");
+              console.log("success and toastID = ", toastID)
+              toast.success("Resigtered successfully.");
+            } else {
+
             }
+          })
+          .catch(err=>{
+            toast.error("Something went wrong");
+
           });
-          // pratyush.kongalla2021@vitstudent.ac.in
-        // setFirstName("");
-        // setLastName("");
-        // setUserPhoneNumber("");
-        // setUserRegNo("");
+        // pratyush.kongalla2021@vitstudent.ac.in
       }
     } else {
-      console.log("Please fill all the details first")
+      console.log("Please fill all the details first");
+      console.log("error and toastID = ", toastID)
+      toast.error("Fill Details");
+
+
       // <Alert name="Please fill all the details first" />;
     }
   }
   return (
     <main className="w-[100vw] h-[100vh] flex justify-evenly">
-    <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]"/>
-    <Navbar/>
-    <div className="flex flex-row w-full justify-evenly items-center mt-6">
-    <div className="w-100 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
-    style={{ backgroundColor: '#141B2B' }}
-    >
-  <Image src={FP_Logo} alt="fp-Logo" className="h-2/3 w-2/3 self-center"/>
-  <div className="text-white text-6xl font-bold flex flex-col items-center">
-  FuturePreneurs<br/>
-  <h1 className="text-7xl font-bold">9.0</h1>
-</div>
-
-</div>
-
-    <div className="w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl"
-    style={{ backgroundColor: '#141B2B' }}
-    >
-      <div className="flex justify-start items-center pt-9">
-  <h1 className="text-4xl text-white font-bold mb-8">
-    Enter Your Information
-  </h1>
-</div>
-
-
-
-
-      <form
-        id="registrationForm"
-        className="shadow-md rounded px-8 pt-0 pb-8 mb-4"
-      >
-        <div className="mb-4">
-          <label
-            className="block text-white text-lg font-bold mb-2 font-poppins"
-            htmlFor="name"
-          >
-            First Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            placeholder="User Name"
-            value={first}
-            onChange={(e) => setFirstName(e.target.value)}
-          ></input>
-          <p id="nameError" className="text-red-500 text-xs italic hidden">
-            Name already exists.
-          </p>
+      <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]" />
+      <Navbar />
+      <div className="flex flex-row w-full justify-evenly items-center mt-6">
+        <div
+          className="w-100 h-5/6 flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
+          style={{ backgroundColor: "#141B2B" }}
+        >
+          <Image
+            src={FP_Logo}
+            alt="fp-Logo"
+            className="h-2/3 w-2/3 self-center"
+          />
+          <div className="text-white text-6xl font-bold flex flex-col items-center">
+            FuturePreneurs
+            <br />
+            <h1 className="text-7xl font-bold">9.0</h1>
+          </div>
         </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-lg font-bold mb-2 font-poppins"
-            htmlFor="name"
+
+        <div
+          className="w-1/2 h-5/6 flex flex-col justify-between px-4 pb-5 pt-3 rounded-3xl"
+          style={{ backgroundColor: "#141B2B" }}
+        >
+          <div className="flex justify-start items-center pt-9">
+            <h1 className="text-4xl text-white font-bold mb-8">
+              Enter Your Information
+            </h1>
+          </div>
+
+          <form
+            id="registrationForm"
+            className="shadow-md rounded px-8 pt-0 pb-8 mb-4"
           >
-            Last Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            placeholder="User Name"
-            value={last}
-            onChange={(e) => setLastName(e.target.value)}
-          ></input>
-          <p id="nameError" className="text-red-500 text-xs italic hidden">
-            Name already exists.
-          </p>
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-lg font-bold mb-2"
-            htmlFor="reg_no"
-          >
-            Registration Number
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="reg_no"
-            type="text"
-            placeholder="Registration Number"
-            value={userRegNo}
-            onChange={(e) => setUserRegNo(e.target.value)}
-          ></input>
-          <p id="regNoError" className="text-red-500 text-xs italic hidden">
-            Registration Number already exists.
-          </p>
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-lg font-bold mb-2"
-            htmlFor="phone"
-          >
-            Phone Number
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="phone"
-            type="number"
-            placeholder="Phone Number"
-            value={userPhoneNumber}
-            onChange={(e) => {
-              setUserPhoneNumber(e.target.value);
-            }}
-          ></input>
-          {phoneError && <div className="text-red-600">{phoneError}</div>}
-          <p id="phoneError" className="text-red-500 text-xs italic hidden">
-            Phone Number already exists.
-          </p>
-        </div>
-        {/* <div className="mb-4">
+            <div className="mb-4">
+              <label
+                className="block text-white text-lg font-bold mb-2 font-poppins"
+                htmlFor="name"
+              >
+                First Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="User Name"
+                value={first}
+                onChange={(e) => setFirstName(e.target.value)}
+              ></input>
+              <p id="nameError" className="text-red-500 text-xs italic hidden">
+                Name already exists.
+              </p>
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-white text-lg font-bold mb-2 font-poppins"
+                htmlFor="name"
+              >
+                Last Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="User Name"
+                value={last}
+                onChange={(e) => setLastName(e.target.value)}
+              ></input>
+              <p id="nameError" className="text-red-500 text-xs italic hidden">
+                Name already exists.
+              </p>
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-white text-lg font-bold mb-2"
+                htmlFor="reg_no"
+              >
+                Registration Number
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="reg_no"
+                type="text"
+                placeholder="Registration Number"
+                value={userRegNo}
+                onChange={(e) => setUserRegNo(e.target.value)}
+              ></input>
+              <p id="regNoError" className="text-red-500 text-xs italic hidden">
+                Registration Number already exists.
+              </p>
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-white text-lg font-bold mb-2"
+                htmlFor="phone"
+              >
+                Phone Number
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="phone"
+                type="number"
+                placeholder="Phone Number"
+                value={userPhoneNumber}
+                onChange={(e) => {
+                  setUserPhoneNumber(e.target.value);
+                }}
+              ></input>
+              {phoneError && <div className="text-red-600">{phoneError}</div>}
+              <p id="phoneError" className="text-red-500 text-xs italic hidden">
+                Phone Number already exists.
+              </p>
+            </div>
+            {/* <div className="mb-4">
           <label
             className="block text-white text-lg font-bold mb-2"
             htmlFor="email"
@@ -269,20 +282,24 @@ export default function UserDetails() {
             Email already exists.
           </p>
         </div> */}
-        <div className="flex items-center justify-between" >
-          <button type="button" 
-          onClick={()=>
-            submitDetails()
-            // console.log('asdf')
-          }
-          className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2">
-          Register
-          </button>
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={
+                  () => {
+                    submitDetails();
+                  }
+                  // console.log('asdf')
+                }
+                className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Register
+              </button>
+              <Toaster />
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    </div>
-      
+      </div>
     </main>
   );
 }
