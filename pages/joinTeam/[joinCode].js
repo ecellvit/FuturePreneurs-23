@@ -26,32 +26,32 @@ function JoinCodeCheck() {
 
     if (sendCode) {
       //Calls to API to get TeamCode
-      // console.log("API call");
+      console.log("API call");
       // console.log(sendCode);
       //
-      fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/joinTeam`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          joinCode: sendCode,
-        }),
-      })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error(`HTTP error! Status: ${res.status}`);
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setApiResponse(data);
-          setError(null);
-        })
-        .catch((error) => {
-          setError(`API call failed: ${error.message}`);
-          setApiResponse(null);
-        });
+      // fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/joinTeam`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     joinCode: sendCode,
+      //   }),
+      // })
+      //   .then((res) => {
+      //     if (!res.ok) {
+      //       throw new Error(`HTTP error! Status: ${res.status}`);
+      //     }
+      //     return res.json();
+      //   })
+      //   .then((data) => {
+      //     setApiResponse(data);
+      //     setError(null);
+      //   })
+      //   .catch((error) => {
+      //     setError(`API call failed: ${error.message}`);
+      //     setApiResponse(null);
+      //   });
     }
   }, [router.query.joinCode]);
 

@@ -1,6 +1,5 @@
-import React from "react";
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from "next/router";
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 const RegisterButton = (props) => {
   const router = useRouter();
@@ -12,7 +11,7 @@ const RegisterButton = (props) => {
         router.push('/userDetails')
       }
       else{
-        signIn('google', { callbackUrl: '/userDetails' });
+        signIn('google', { callbackUrl: '/' });
       }
     }}>
       <div className="py-2 px-4 rounded-full bg-black">{props.text}</div>
