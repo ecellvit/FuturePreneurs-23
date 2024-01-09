@@ -10,6 +10,7 @@ import { FiPlus } from "react-icons/fi";
 import Modal from "@/Components/Modal";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import { redirect } from 'next/dist/server/api-utils';
 
 const info = [
   {
@@ -96,6 +97,34 @@ export default function LeaderDashboard() {
 //   }
 // }, [status, router])
 // const { status } = useSession();
+
+const getData = ()=>{
+  fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    content: "application/json",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session.accessTokenBackend}`,
+      "Access-Control-Allow-Origin": "*",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const user = data.user;
+      if (user.hasFilledDetails == true) {
+        if (user.teamId !== null) {
+          const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
+          router.push("/memberDashboard");
+        } else {
+          router.push(redirect);
+        }
+      }else{
+        router.push('/makeTeam')
+      }
+      console.log('user', user)
+    })
+}
 
   const fetchDataFromBackend = () => {
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {

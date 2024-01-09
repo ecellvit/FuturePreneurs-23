@@ -2,6 +2,33 @@ import Card from '@/Components/Card';
 import Navbar from '@/Components/Navbar';
 
 const TeamPage = () => {
+  const getData = ()=>{
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const user = data.user;
+        if (user.hasFilledDetails == true) {
+          if (user.teamId !== null) {
+            const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
+            router.push(redirect);
+          } else {
+            router.push("/leaderDashboard");
+          }
+        } else{
+          router.push('/makeTeam');
+        }
+        console.log('user', user)
+      })
+  }
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
