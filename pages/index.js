@@ -21,9 +21,9 @@ export default function Home() {
   return (
     
 
-    <main className="text-white h-full overflow-auto">
+    <main className="text-white h-full">
       <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
-      <section className='Landing_page p-2 h-[100svh]'>
+      <section className='Landing_page p-2 h-[100svh] overflow-hidden'>
       
       <GlobeAnimation />
       <LandingPageNavbar />
@@ -41,9 +41,6 @@ export default function Home() {
       <br/>
       <RegisterButton text="Register!"/>
       </div>
-
-
-  
       </section>
       <BSG/>
       <Timeline/>
