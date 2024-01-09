@@ -158,7 +158,7 @@ export default function UserDetails() {
     <main className="min-w-[100vw] min-h-[100vh] flex justify-center items-center">
       <Navbar />
       <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]" />
-      <div className="flex flex-col md:flex-row w-full h-[90vh] justify-evenly items-center">
+      <div className="flex flex-col md:flex-row w-full h-[80vh] md:h-[90vh] justify-evenly items-center">
         <div
           className="hidden md:w-100 h-5/6 md:flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl"
           style={{ backgroundColor: "#141B2B" }}
