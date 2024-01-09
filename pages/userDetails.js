@@ -56,9 +56,9 @@ export default function UserDetails() {
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
             const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
-            // router.push(redirect);
+            router.push(redirect);
           } else {
-            // router.push("/makeTeam");
+            router.push("/makeTeam");
           }
         }
         console.log('user', user)
