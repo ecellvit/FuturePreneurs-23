@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import bg from "@/public/assets/bg/spceBg.svg";
@@ -5,6 +6,7 @@ import Navbar from "@/Components/Navbar";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+
 export default function termsNC(){
     const router = useRouter();
     const { data: session, status } = useSession();
