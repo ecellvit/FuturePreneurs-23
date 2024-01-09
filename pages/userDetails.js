@@ -101,6 +101,21 @@ export default function UserDetails() {
     }
   }
 
+  const handleInputChange = (e) => {
+    const input = e.target.value;
+
+    // Check if the input matches the desired pattern
+    const isValidInput = /^(20(24|23|22|21))\w{3}\d{4}$/.test(input);
+
+    if (isValidInput) {
+      setUserRegNo(input);
+    } else {
+      setUserRegNo('');
+      // Display an error or provide feedback for invalid input
+      console.log('Invalid registration number format');
+    }
+};
+
   function submitDetails() {
     if (
       first !== "" &&
@@ -241,7 +256,8 @@ export default function UserDetails() {
                 type="text"
                 placeholder="Registration Number"
                 value={userRegNo}
-                onChange={(e) => setUserRegNo(e.target.value)}
+                onChange={(e)=>{handleInputChange(e);setUserRegNo(e.target.value)}}
+
               ></input>
               <p id="regNoError" className="text-red-500 text-xs italic hidden">
                 Registration Number already exists.
