@@ -1,6 +1,7 @@
 import Card from '@/Components/Card';
 import DeleteTeamButton from '@/Components/DeleteTeamButton';
 import Navbar from '@/Components/Navbar';
+import Link from 'next/link';
 
 const IndexPage = () => {
   // Function to handle the "Delete Team" button click
@@ -18,6 +19,9 @@ const IndexPage = () => {
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">YOUR TEAM</h1>
+
+        {/* this is link to teamCode, if 4 members do'nt show this.  */}
+        <Link className="text-white" href="/teamCode"> Add Members </Link>
 
         <div className="flex flex-wrap justify-center">
           <Card name="Person 1" imageSrc="/assets/boardpics/image2.svg" />

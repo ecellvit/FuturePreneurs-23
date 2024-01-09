@@ -6,6 +6,7 @@ import { motion,useTransform } from "framer-motion";
 
 export default function GlobeAnimation(){
     return(
+        <div>
         <motion.div
         initial={
             {
@@ -20,10 +21,13 @@ export default function GlobeAnimation(){
         transition={{duration:7}}
         style={{
             position:"absolute",
-            zIndex:"-5",
-        }}
-        >
+            zIndex:"-5"}
+        }
+        className="invisible sm:visible">
             <Image src={earth} alt="Globo" className={styles.globe}/>
         </motion.div>
+        
+        <Image src={earth} alt="Globo" className="invisible max-sm:visible absolute h-1/2 w-full top-1/4 right-[-50%] z-[-5]"/>
+        </div>
     )
 }
