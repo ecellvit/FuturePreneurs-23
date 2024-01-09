@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 
 export default function TeamCode() {
   const { data: session, status } = useSession();
@@ -20,18 +22,20 @@ export default function TeamCode() {
         console.log("Please Login First!");
         // router.push("/")
       } else if (status === "authenticated") {
-        getData()
+        console.log("asdf");
+        getData();
       }
     }
   }, [status, router]);
 
   const [teamName, setTeamName] = useState("Team Futurepreneur"); // To store the team name
   const [teamCode, setTeamCode] = useState("abc123"); //To store the team code recieved from the backend
+  const [loading, setLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false); //To show the bool to display the alert.
   const [alertText, setAlertText] = useState(""); //Store the alert text to be displayed
-  
+
   const getData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamDetails`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
@@ -42,9 +46,17 @@ export default function TeamCode() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
-        fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/gettoken/${data.teamDetails._id}`, {
+        const user = data.user;
+        if (user.hasFilledDetails === true) {
+          if (user.teamId !== null) {
+            if (user.teamRole !== "0") {
+              router.push("/memberDashboard");
+            }
+          } else {
+            router.push("/joinTeam");
+          }
+        }
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamCode`, {
           content: "application/json",
           method: "GET",
           headers: {
@@ -52,69 +64,41 @@ export default function TeamCode() {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
-        }).then((res) => res.json())
-        .then((data) => {
-          console.log(data);
         })
-
-      })
-      .catch((err) => {
-        console.log("no team found");
-        console.log(err);
+          .then((res) => res.json())
+          .then((data) => {
+            setLoading(false);
+            console.log(data);
+            setTeamCode(data.teamCode);
+            setTeamName(data.teamName);
+          })
+          .catch((err) => {
+            setLoading(true);
+            console.log(err);
+          });
       });
   };
 
   return (
     <main className="min-h-[100vh] items-center flex flex-col justify-center">
+      <Toaster/>
       <Navbar />
-      <Image alt='bg' src={bg} fill className="object-cover z-[-10]" />
-      <div className="h-[55vh] w-[45vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-fit">
-        <div>
-          <h1 className="text-[1.8rem] font-bold">Share with Members!</h1>
+      <Image alt="bg" src={bg} fill className="object-cover z-[-10]" />
+      <div className="h-[45vh] w-[45vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-3 min-w-fit min-h-fit">
+        <h1 className="text-4xl sm:text-5xl font-bold">
+          {loading ? "Loading..." : teamName}
+        </h1>
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-2xl font-medium underline">Team Code</h1>
+          <h1 className="text-lg">{loading ? "Loding..." : teamCode}</h1>
         </div>
-        <div className="w-full flex flex-col items-center gap-5">
-            <h1 className=" text-2xl font-bold">{teamName}</h1>
-          <div className="flex justify-center w-full gap-5">
-            <div className="w-1/2 text-end font-semibold underline">
-              {teamName}
-            </div>
-            <div className="flex w-1/2 ">
-              <div
-                className="flex hover:underline hover:cursor-pointer"
-                onClick={() => {
-                  navigator.clipboard.writeText(teamName);
-                  setAlertText("Team name copied to clipboard.")
-                  setShowAlert(true);
-                  setTimeout(() => {
-                    setShowAlert(false);
-                  }, 3000);
-                }}
-              >
-                <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
-                <span>Click here to copy</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center w-full gap-5">
-            <div className="w-1/2 text-end font-semibold underline">
-              {`https://fp/${teamName}`}
-            </div>
-            <div className="flex w-1/2 ">
-              <div
-                className="flex hover:underline hover:cursor-pointer"
-                onClick={() => {
-                  navigator.clipboard.writeText(`https://fp/${teamName}`);
-                  setAlertText("Team link copied to clipboard.")
-                  setShowAlert(true);
-                  setTimeout(() => {
-                    setShowAlert(false);
-                  }, 3000);
-                }}
-              >
-                <Image src={copyIcon} alt="copyIcon" className="h-1/2" />
-                <span>Click here to copy</span>
-              </div>
-            </div>
+        <div className="flex items-center hover:underline hover:cursor-pointer" onClick={()=>{
+          navigator.clipboard.writeText(teamCode);
+          toast.success("Copied to clipboard.", {duration:3000})
+        }}>
+          Click here to copy
+          <div>
+            <Image src={copyIcon} className="h-full p-2" />
           </div>
         </div>
       </div>
