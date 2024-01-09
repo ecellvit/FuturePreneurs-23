@@ -150,7 +150,7 @@ const getData = ()=>{
         <div className="flex flex-wrap justify-center">
         {
           teamMembersData.map(el=>{
-            return <Card key={el.firstName} name={el.firstName} imageSrc="/assets/boardpics/image2.svg" />
+            return <Card key={el.firstName} name={el.firstName} Role={el.teamRole} leader={true} removeMember={()=>{removeMember()}} imageSrc="/assets/boardpics/image2.svg" />
           })
         }
 

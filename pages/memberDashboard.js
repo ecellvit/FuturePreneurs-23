@@ -95,7 +95,11 @@ const TeamPage = () => {
         "Access-Control-Allow-Origin": "*",
       },
     }).then(data=>data.json())
-    .then(data=>{console.log(data)})
+    .then(data=>{
+      if(data.error == false) {
+        router.push('/makeTeam')
+      }
+    })
   }
 
   return (
@@ -111,7 +115,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} imageSrc="/assets/boardpics/image2.svg" />
+              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc="/assets/boardpics/image2.svg" />
             })
           }
         </div>
