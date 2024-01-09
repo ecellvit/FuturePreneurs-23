@@ -3,12 +3,173 @@ import DeleteTeamButton from '@/Components/DeleteTeamButton';
 import Navbar from '@/Components/Navbar';
 import Link from 'next/link';
 
-const IndexPage = () => {
-  // Function to handle the "Delete Team" button click
-  const handleDeleteTeam = () => {
-    // Add your logic to handle deleting the team
-    console.log('Team deleted!');
+import React, { useEffect, useState } from "react";
+import { ReactDOM } from "react";
+import { FiPlus } from "react-icons/fi";
+// import LeaderDashboardCards from "./LeaderDashboardCards";
+import Modal from "@/Components/Modal";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+
+const info = [
+  {
+    id: 0,
+    role: "leader",
+    name: "Karan Vyas",
+    regNo: "22BIT0092",
+    emailId: "karan.vyas2022@vitstudent.ac.in",
+    phoneNumber: "123456789",
+  },
+  {
+    id: 1,
+    role: "member",
+    name: "abcd",
+    regNo: "22BIT0139",
+    emailId: "karan.vyas2022@vitstudent.ac.in",
+    phoneNumber: "123456789",
+  },
+  {
+    id: 2,
+    role: "member",
+    name: "efgh",
+    regNo: "22BIT0051",
+    emailId: "karan.vyas2022@vitstudent.ac.in",
+    phoneNumber: "123456789",
+  },
+  {
+    id: 3,
+    role: "member",
+    name: "ijkl",
+    regNo: "22BIT0108",
+    emailId: "karan.vyas2022@vitstudent.ac.in",
+    phoneNumber: "123456789",
+  },
+];
+
+export default function LeaderDashboard() {
+  const [popUpForDelete, setPopUpForDelete] = useState(false);
+  const [popUpForRemove, setPopUpForRemove] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+  const [remove, setRemove] = useState(false);
+  const [id, setId] = useState();
+  const [teamId,setTeamId] = useState('');
+  const [teamLeaderId,setTeamLeaderId] = useState('');
+  const [teamName,setTeamName] = useState('');
+  const [teamMemberData,setTeamMemberData] = useState('');
+  // const router = useRouter();
+  // const {data: session} = useSession();
+
+  const {data: session, status} = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady) {
+      console.log('status', status)
+      if (status === "unauthenticated") {
+        console.log("Please Login First!")
+        // router.push("/")
+      } else if(status === "authenticated"){
+        console.log('asdfasdfasdf',session)
+        // getData()
+        fetchDataFromBackend();
+      }
+    }
+  }, [status, router])
+  console.log('clisession', session);
+
+//   useEffect(()=>{
+//   if(!session){
+//     console.log('redirecting')
+//     router.push('/')
+//   }
+//   else{
+//     console.log('in else')
+//   }
+// },[session])
+
+// useEffect(() => {
+//   if (router.isReady) {
+//     if (status !== "loading" && status === "unauthenticated") {
+//       toast.error("Please Login First!")
+//       router.push("/")
+//     }
+//   }
+// }, [status, router])
+// const { status } = useSession();
+
+  const fetchDataFromBackend = () => {
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setTeamId(data.teamDetails._id);
+      setTeamMemberData(data.teamDetails.members);
+      setTeamName(data.teamDetails.teamName);
+      setTeamLeaderId(data.teamDetails.teamLeaderId);
+    }).catch(err => {
+      console.log("no team found");
+      console.log(err)
+    })
+
   };
+
+  // useEffect(() => {
+  //   fetchDataFromBackend();
+  // }, []);
+
+  useEffect(() => console.log("hii"), [remove, deleted]);
+
+  function toggleDelete() {
+    setDeleted(!deleted);
+  }
+  function toggleRemove() {
+    setRemove(!remove);
+  }
+  function togglePopUpForRemove() {
+    setPopUpForRemove(!popUpForRemove);
+  }
+  function togglePopUpForDelete() {
+    setPopUpForDelete(!popUpForDelete);
+  }
+  function removeMember() {
+    console.log("remove");
+    console.log(id);
+    setRemove(!remove);
+      fetch(process.env.NEXT_PUBLIC_SERVER + '/team/remove/'+teamId, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        memberId:id
+      })
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        location.reload();
+      }).then(setRemove(!remove))
+  }
+  function deleteTeam() {
+    alert("delete");
+    setDeleted(!deleted);
+    router.push('/');
+    fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      }).then(router.push('/MakeTeam'))
+  }
 
   return (
     <div
@@ -35,181 +196,15 @@ const IndexPage = () => {
       </div>
 
       <div className="flex justify-center mt-4">
-        <DeleteTeamButton onClick={handleDeleteTeam} />
+        <DeleteTeamButton onClick={deleteTeam} />
       </div>
     </div>
   );
 };
 
-export default IndexPage;
 
-// import React, { useEffect, useState } from "react";
-// import { ReactDOM } from "react";
-// import { FiPlus } from "react-icons/fi";
-// // import LeaderDashboardCards from "./LeaderDashboardCards";
-// import Modal from "@/Components/Modal";
-// import { useRouter } from "next/router";
-// import { useSession } from "next-auth/react";
 
-// const info = [
-//   {
-//     id: 0,
-//     role: "leader",
-//     name: "Karan Vyas",
-//     regNo: "22BIT0092",
-//     emailId: "karan.vyas2022@vitstudent.ac.in",
-//     phoneNumber: "123456789",
-//   },
-//   {
-//     id: 1,
-//     role: "member",
-//     name: "abcd",
-//     regNo: "22BIT0139",
-//     emailId: "karan.vyas2022@vitstudent.ac.in",
-//     phoneNumber: "123456789",
-//   },
-//   {
-//     id: 2,
-//     role: "member",
-//     name: "efgh",
-//     regNo: "22BIT0051",
-//     emailId: "karan.vyas2022@vitstudent.ac.in",
-//     phoneNumber: "123456789",
-//   },
-//   {
-//     id: 3,
-//     role: "member",
-//     name: "ijkl",
-//     regNo: "22BIT0108",
-//     emailId: "karan.vyas2022@vitstudent.ac.in",
-//     phoneNumber: "123456789",
-//   },
-// ];
 
-// export default function LeaderDashboard() {
-//   const [popUpForDelete, setPopUpForDelete] = useState(false);
-//   const [popUpForRemove, setPopUpForRemove] = useState(false);
-//   const [deleted, setDeleted] = useState(false);
-//   const [remove, setRemove] = useState(false);
-//   const [id, setId] = useState();
-//   const [teamId,setTeamId] = useState('');
-//   const [teamLeaderId,setTeamLeaderId] = useState('');
-//   const [teamName,setTeamName] = useState('');
-//   const [teamMemberData,setTeamMemberData] = useState('');
-//   // const router = useRouter();
-//   // const {data: session} = useSession();
-
-//   const {data: session, status} = useSession();
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     if (router.isReady) {
-//       console.log('status', status)
-//       if (status === "unauthenticated") {
-//         console.log("Please Login First!")
-//         // router.push("/")
-//       } else if(status === "authenticated"){
-//         console.log('asdfasdfasdf',session)
-//         // getData()
-//         fetchDataFromBackend();
-//       }
-//     }
-//   }, [status, router])
-//   console.log('clisession', session);
-
-// //   useEffect(()=>{
-// //   if(!session){
-// //     console.log('redirecting')
-// //     router.push('/')
-// //   }
-// //   else{
-// //     console.log('in else')
-// //   }
-// // },[session])
-
-// // useEffect(() => {
-// //   if (router.isReady) {
-// //     if (status !== "loading" && status === "unauthenticated") {
-// //       toast.error("Please Login First!")
-// //       router.push("/")
-// //     }
-// //   }
-// // }, [status, router])
-// // const { status } = useSession();
-
-//   const fetchDataFromBackend = () => {
-//     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
-//       content: "application/json",
-//       method: "GET",
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${session.accessTokenBackend}`,
-//         'Access-Control-Allow-Origin': '*',
-//       },
-//     }).then(res => res.json())
-//     .then(data => {
-//       console.log(data)
-//       setTeamId(data.teamDetails._id);
-//       setTeamMemberData(data.teamDetails.members);
-//       setTeamName(data.teamDetails.teamName);
-//       setTeamLeaderId(data.teamDetails.teamLeaderId);
-//     }).catch(err => {
-//       console.log("no team found");
-//       console.log(err)
-//     })
-
-//   };
-
-//   // useEffect(() => {
-//   //   fetchDataFromBackend();
-//   // }, []);
-
-//   useEffect(() => console.log("hii"), [remove, deleted]);
-
-//   function toggleDelete() {
-//     setDeleted(!deleted);
-//   }
-//   function toggleRemove() {
-//     setRemove(!remove);
-//   }
-//   function togglePopUpForRemove() {
-//     setPopUpForRemove(!popUpForRemove);
-//   }
-//   function togglePopUpForDelete() {
-//     setPopUpForDelete(!popUpForDelete);
-//   }
-//   function removeMember() {
-//     console.log("remove");
-//     console.log(id);
-//     setRemove(!remove);
-//       fetch(process.env.NEXT_PUBLIC_SERVER + '/team/removeMember/'+teamId, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         memberId:id
-//       })
-//     }).then((res) => res.json())
-//       .then((data) => {
-//         console.log(data)
-//         location.reload();
-//       }).then(setRemove(!remove))
-//   }
-//   function deleteTeam() {
-//     alert("delete");
-//     setDeleted(!deleted);
-//     router.push('/');
-//     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       }
-//     }).then((res) => res.json())
-//       .then((data) => {
-//         console.log(data)
-//       }).then(router.push('/MakeTeam'))
-//   }
 //   return (
 
 //     <div className="w-full h-full flex flex-col items-center ">

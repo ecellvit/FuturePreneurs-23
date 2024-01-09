@@ -7,7 +7,7 @@ const Card = ({ name, imageSrc }) => {
       className="relative w-96 h-48 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 flex items-center"
       style={{ backgroundColor: '#141B2B' }} // Light blue color
     >
-      <img className="w-full h-24 object-contain rounded-t-3xl" src={imageSrc} alt={name} />
+      
       <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">
         <div>
           <p className="font-bold text-lg mb-1 text-white">{name}</p>
