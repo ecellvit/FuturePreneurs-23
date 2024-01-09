@@ -23,19 +23,37 @@ export default function UserDetails() {
 
   const router = useRouter();
   const { data: session, status } = useSession();
-  console.log(session)
-  // useEffect(() => {
-  //   if (router.isReady) {
-  //     if (status === "unauthenticated") {
-  //       //Checks if session is not ready and redirects to root.
-  //       console.log("Please Login First!");
-  //       router.push("/");
-  //     } else if (status === "authenticated") {
-  //       console.log(`Getting data`, status);
-  //       // getData();
-  //     }
-  //   }
-  // }, [status, router]);
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
+        console.log("Please Login First!");
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log(`Getting data`, status);
+        // toast.success("Logged In");
+        getData();
+      }
+    }
+  }, [status, router]);
+
+  const getData = ()=>{
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const user = data.user;
+        console.log('user', user)
+      })
+  }
 
   
   useEffect(() => {
@@ -108,10 +126,10 @@ export default function UserDetails() {
             }
           });
           // pratyush.kongalla2021@vitstudent.ac.in
-        setFirstName("");
-        setLastName("");
-        setUserPhoneNumber("");
-        setUserRegNo("");
+        // setFirstName("");
+        // setLastName("");
+        // setUserPhoneNumber("");
+        // setUserRegNo("");
       }
     } else {
       console.log("Please fill all the details first")
