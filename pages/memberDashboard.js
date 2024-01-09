@@ -47,13 +47,12 @@ const TeamPage = () => {
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
-            const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
-            router.push(redirect);
-          } else {
             router.push("/leaderDashboard");
+          } else {
+            
           }
         } else{
-          router.push('/makeTeam');
+          router.push('/');
         }
         console.log('user', user)
       })

@@ -53,13 +53,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       })
   }
 
-    setTeamCode(e.target.value);
-  const  (e) => {
-    setTeamCode(e.target.value);
-  };
-
  useEffect(() => {
-    // Simulate typing effect for propTeamCode
     if (propTeamCode) {
       simulateTyping(propTeamCode);
     }
@@ -79,17 +73,19 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   const fetchTeamName = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/getTeamViaToken`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamViaToken`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+ session.accessTokenBackend
         },
         body: JSON.stringify({ teamCode: teamCode }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        setTeamName(data.teamName);
+        console.log('teamData', data)
+        setTeamName(data.teamDetails.teamName);
         setShowDialog(true); // Show the dialog box
       } else {
         showMessage('Team code not found. Please try again.');
@@ -104,14 +100,14 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const handleConfirmJoin = async () => {
     // Send a request to the API to join the team with the team code.
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_SERVER+'/api/jointeam', {
+      const response = await fetch(process.env.NEXT_PUBLIC_SERVER+'/team/jointeam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + session.accessTokenBackend
         },
         body: JSON.stringify({ teamCode: teamCode }),
-      });
+      })
 
       if (response.ok) {
         showMessage('Successfully joined the team.', 'success');
@@ -131,6 +127,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
         }, 1000);
       } else {
+        console.log('response', response)
         showMessage('Failed to join the team. Please check the team code.', 'error');
       }
     } catch (error) {
@@ -161,7 +158,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           <input
             type="text"
             value={teamCode}
-            onChange={()=>{
+            onChange={(e)=>{
               setTeamCode(e.target.value)
             }}
             className="text-black border border-gray-300 dark:border-gray-600 rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500 dark:bg-gray-700"
@@ -192,7 +189,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md w-96">
             <p className="text-gray-700 dark:text-gray-300">
-              Do you want to join {teamName}?
+              Do you want to join Team-{teamName}?
             </p>
             <div className="mt-4 flex justify-end">
               <button

@@ -10,16 +10,13 @@ import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 import Ticker from "@/Components/Landing Page/Ticker";
 import Timeline from "@/Components/Landing Page/Timeline/Timeline";
 import CountdownTimer from '@/Components/Landing Page/Timer';
+import styles from "@/styles/fpfont.module.css";
 import Image from "next/image";
 import bg from "public/assets/landingPage/bg.svg";
-import fpFont from 'public/assets/landingPage/FUTURE PRENEURS.webp'
-import fpFont2 from "public/assets/landingPage/9.0.webp"
-import styles from "@/styles/fpfont.module.css"
 
 export default function Home() {
   const targetDate = new Date(2024,0,19,0,0)
   return (
-    
 
     <main className="text-white h-full">
       <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
@@ -27,7 +24,6 @@ export default function Home() {
       
       <GlobeAnimation />
       <LandingPageNavbar />
-
       
       <div className="pl-5"> 
       <div className={styles.fp}>     
