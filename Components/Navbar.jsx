@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Image from 'next/image';
 import logo from "public/assets/logos/fp logo.png";
 import Link from 'next/link';
+import LoginButton from './Landing Page/Loginbutton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +16,8 @@ const Navbar = () => {
         </div>
         <div className='hidden gap-3 sm:gap-10 items-center font-medium md:flex'>
             <Link href="/">Home</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#timeline">Events</Link>
-            <Link href="/">Speakers</Link>
-            <Link href="/">Sponsors</Link>
+            <Link href="/memberDashboard">Dashboard</Link>
+            <LoginButton/>
         </div>
         <div className='flex flex-col justify-around md:hidden'>
         {/* Hamburger menu icon */}
