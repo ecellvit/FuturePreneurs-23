@@ -57,7 +57,7 @@ const Timeline = () => {
     <TimelineCard {...card} key={card.id} />
   ));
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-45%"]);
 
   return (
     <main>
