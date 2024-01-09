@@ -11,7 +11,8 @@ import { useEffect, useState } from "react";
 
 
 export default function UserDetails() {
-  const [userName, setUserName] = useState("");
+  const [first, setFirstName] = useState("");
+  const [last, setLastName] = useState("");
   const [userRegNo, setUserRegNo] = useState("");
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -71,39 +72,49 @@ export default function UserDetails() {
 
   function submitDetails() {
     if (
-      userName !== "" &&
-      userEmail !== "" &&
+      first !== "" &&
+      last !== "" &&
       userPhoneNumber !== "" &&
       userRegNo !== ""
     ) {
-      if (phoneError !== "" || emailError !== "") {
+      if (phoneError !== "") {
         // <Alert name="Please fill the form correctly" />;
         console.log("Please fill the form correctly")
       } else {
-        const detail = [userName, userRegNo, userPhoneNumber, userEmail];
+        const detail = [first, userRegNo, userPhoneNumber, last];
 
         // <Alert name="submitted " />;
-        console.log(detail);
+        console.log("details11111111111111", detail);
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": "Bearer " + session.accessTokenBackend,
           },
-          body: JSON.stringify({
-            detail,
-          }),
+          body: JSON.stringify(
+              {
+                "firstName":first,
+                "lastName":last,
+                "regNo":userRegNo,
+                "mob":userPhoneNumber
+              }
+            ),
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            if (data.status === "success") {
+              router.push("/makeTeam");
+            }
           });
-        setUserEmail("");
-        setUserName("");
+          // pratyush.kongalla2021@vitstudent.ac.in
+        setFirstName("");
+        setLastName("");
         setUserPhoneNumber("");
         setUserRegNo("");
       }
     } else {
-      console("Please fill all the details first")
+      console.log("Please fill all the details first")
       // <Alert name="Please fill all the details first" />;
     }
   }
@@ -144,15 +155,34 @@ export default function UserDetails() {
             className="block text-white text-lg font-bold mb-2 font-poppins"
             htmlFor="name"
           >
-            Full Name
+            First Name
           </label>
           <input
             className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
             placeholder="User Name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={first}
+            onChange={(e) => setFirstName(e.target.value)}
+          ></input>
+          <p id="nameError" className="text-red-500 text-xs italic hidden">
+            Name already exists.
+          </p>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-white text-lg font-bold mb-2 font-poppins"
+            htmlFor="name"
+          >
+            Last Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="name"
+            type="text"
+            placeholder="User Name"
+            value={last}
+            onChange={(e) => setLastName(e.target.value)}
           ></input>
           <p id="nameError" className="text-red-500 text-xs italic hidden">
             Name already exists.
@@ -199,7 +229,7 @@ export default function UserDetails() {
             Phone Number already exists.
           </p>
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label
             className="block text-white text-lg font-bold mb-2"
             htmlFor="email"
@@ -220,13 +250,14 @@ export default function UserDetails() {
           <p id="emailError" className="text-red-500 text-xs italic hidden">
             Email already exists.
           </p>
-        </div>
-        <div
-          className="flex items-center justify-between"
-          onClick={()=>submitDetails()}
-        >
-         
-          <button type="button" className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2">
+        </div> */}
+        <div className="flex items-center justify-between" >
+          <button type="button" 
+          onClick={()=>
+            submitDetails()
+            // console.log('asdf')
+          }
+          className="text-white bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2.5 text-center me-2 mb-2">
           Register
           </button>
         </div>
