@@ -137,7 +137,7 @@ export default function UserDetails() {
 
       <form
         id="registrationForm"
-        className="bg-inherit shadow-md rounded px-8 pt-0 pb-8 mb-4"
+        className="shadow-md rounded px-8 pt-0 pb-8 mb-4"
       >
         <div className="mb-4">
           <label
