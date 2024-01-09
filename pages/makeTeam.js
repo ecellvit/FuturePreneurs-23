@@ -108,10 +108,10 @@ const MakeTeam = () => {
             
             
             <button
-              className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-bold"
+              className="px-4 py-2 rounded-full capitalize cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-bold"
               onClick={handleJoinTeam}
             >
-              Find Team To Join
+              Join team with code
             </button>
             </div>
 

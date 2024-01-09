@@ -56,6 +56,9 @@ export default function TeamCode() {
             router.push("/joinTeam");
           }
         }
+        else{
+          router.push("/userDetails")
+        }
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamCode`, {
           content: "application/json",
           method: "GET",
