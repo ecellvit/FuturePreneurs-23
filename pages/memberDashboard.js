@@ -1,6 +1,5 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Card from '../components/Card';
+import Card from '@/Components/Card';
+import Navbar from '@/Components/Navbar';
 
 const TeamPage = () => {
   return (
