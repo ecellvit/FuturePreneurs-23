@@ -9,7 +9,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
       
       <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">
         <div className="">
-          <p className="font-bold text-lg mb-1 text-white">{name} ({Role})</p>
+          <p className="font-bold text-lg mb-1 text-white">{name} : {Role==0?'Leader':'Member'}</p>
         </div>
 
         {leader ? <LeaveButton onClick={()=>{removeMember()}} className="p-1" /> : 
