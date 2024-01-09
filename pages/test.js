@@ -1,13 +1,38 @@
+// Navbar.js
+import React, { useState } from 'react';
 
-export default function test(){
-    return (
-        <div class="relative">
-          <p class="absolute top-0 left-0 text-4xl font-bold text-white mix-blend-overlay">
-            Your Eroded Text
-          </p>
-          <p class="absolute top-1 left-1 text-4xl font-bold text-gray-900">
-            Your Eroded Text
-          </p>
+const test = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <nav className="bg-gray-800 p-4">
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="text-white font-bold text-xl">Your Logo</div>
+        <div className='flex flex-col'>
+        {/* Hamburger menu icon */}
+        <div className="cursor-pointer text-white md:hidden" onClick={toggleMenu}>
+          &#9776;
         </div>
-    )
-}
+
+        {/* Navbar links */}
+        <div className={`md:flex flex-col z-10 bg-gray-800 bg-opacity-75 p-4 rounded-md ${isOpen ? 'absolute right-0 top-12' : 'hidden'} `}>
+          <ul className="md:flex space-x-4">
+            <li><a href="#" className="text-white">Home</a></li>
+            <li><a href="#" className="text-white">About</a></li>
+            <li><a href="#" className="text-white">Services</a></li>
+            <li><a href="#" className="text-white">Contact</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default test;
+
+

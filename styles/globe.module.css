@@ -9,6 +9,20 @@
     z-index: -5;
     
 }
+
+/* @media screen and (max-width:640px){
+    .globe {
+        padding: 0%;
+    margin: 0%;
+    height: 60vh;
+    width: 40vw;
+    position: absolute;
+    right: -10%;
+    top: 40%;
+    z-index: -5;
+    overflow: hidden;
+    }
+} */
 /* 
 @keyframes globe {
     
