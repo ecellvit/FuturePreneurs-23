@@ -12,26 +12,33 @@ import Timeline from "@/Components/Landing Page/Timeline/Timeline";
 import CountdownTimer from '@/Components/Landing Page/Timer';
 import Image from "next/image";
 import bg from "public/assets/landingPage/bg.svg";
-import fpFont from 'public/assets/landingPage/FUTURE PRENEURS.svg'
+import fpFont from 'public/assets/landingPage/FUTURE PRENEURS.webp'
+import fpFont2 from "public/assets/landingPage/9.0.webp"
+import styles from "@/styles/fpfont.module.css"
 
 export default function Home() {
-  const targetDate = new Date(2024,0,24,0,0)
+  const targetDate = new Date(2024,0,19,0,0)
   return (
     
 
-    <main className="text-white h-full w-full overflow-hidden">
-      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-[100vw] min-h-[100vh]" />
+    <main className="text-white h-full overflow-auto">
+      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
       <section className='Landing_page p-2 h-[100svh]'>
       
       <GlobeAnimation />
       <LandingPageNavbar />
+
       
-      
-      <div className="pr-10">      
-       <Image src={fpFont} className="w-3/4 h-1/4"/>
+      <div className="pl-5"> 
+      <div className={styles.fp}>     
+       <p>FUTURE</p>
+       <p>PRENEURS  9.0</p>
+       </div>
+       {/* <Image src={fpFont} alt="Future Preneurs Logo" />
+       <Image src={fpFont2} alt="9.0" /> */}
       <br />
       <CountdownTimer targetDate={targetDate}/>
-      <br/><br/>
+      <br/>
       <RegisterButton text="Register!"/>
       </div>
 

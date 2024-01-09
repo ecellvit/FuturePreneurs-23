@@ -1,0 +1,15 @@
+@font-face {
+    font-family:coalition ;
+    src: url("POR2.TTF");
+}
+
+.fp{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+    font-size:7vw;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
