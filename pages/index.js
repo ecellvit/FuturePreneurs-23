@@ -23,7 +23,7 @@ export default function Home() {
 
     <main className="text-white h-full">
       <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
-      <section className='Landing_page p-2 h-[100svh] overflow-hidden'>
+      <section className='Landing_page p-2 relative h-[100svh] overflow-hidden'>
       
       <GlobeAnimation />
       <LandingPageNavbar />
@@ -36,7 +36,6 @@ export default function Home() {
        </div>
        {/* <Image src={fpFont} alt="Future Preneurs Logo" />
        <Image src={fpFont2} alt="9.0" /> */}
-      <br />
       <CountdownTimer targetDate={targetDate}/>
       <br/>
       <RegisterButton text="Register!"/>
