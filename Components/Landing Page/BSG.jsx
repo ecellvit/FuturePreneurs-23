@@ -6,12 +6,13 @@ import bg from "public/assets/landingPage/bg.svg";
 import FPCard from "public/assets/landingPage/BSG/FPCard.svg";
 import EcellCard from "public/assets/landingPage/BSG/EcellCard.svg";
 import bcCard from "public/assets/landingPage/BSG/bitcoinCard.svg";
+import groupImg from "public/assets/landingPage/BSG/groupImg.svg";
 
 const BSG = () => {
   return (
     <main>
       <section
-        className="min-h-[100vh] relative flex flex-col justify-center items-center"
+        className="min-h-[100vh] relative flex flex-col justify-center items-center p-2 sm:p-0"
         id="about"
       >
         <Image
@@ -20,7 +21,7 @@ const BSG = () => {
           fill
           className="object-cover z-[-10]"
         />
-        <div className=" bg-[#141B2B] opacity-90 rounded-3xl p-4 h-[80vh] w-[80vw] flex flex-col items-center justify-between sm:justify-around">
+        <div className=" bg-[#141B2B] opacity-90 rounded-3xl p-4 min-h-[80vh] w-[80vw] flex flex-col items-center justify-between sm:justify-around">
           <div className="flex flex-col items-center gap-2 sm:gap-0">
             <h3 className="uppercase font-semibold text-xl sm:text-3xl tracking-wider font-montserrat">
               the ultimate
@@ -30,7 +31,7 @@ const BSG = () => {
             </h1>
           </div>
           <div className="w-full flex flex-col h-full pt-10 sm:pt-0 sm:h-auto sm:flex-row">
-            <div className="sm:w-1/2 pr-10 sm:pr-0 h-full relative">
+            <div className="hidden sm:block sm:w-1/2 pr-10 sm:pr-0 h-full relative">
               <motion.div
                 initial={{ opacity: 0, rotate: "-30deg" }}
                 whileInView={{ opacity: 1, rotate: "0deg" }}
@@ -70,6 +71,9 @@ const BSG = () => {
                   className="h-40 sm:h-52 absolute z-[4] left-[20%] pointer-events-none"
                 />
               </motion.div>
+            </div>
+            <div className="sm:hidden flex justify-center">
+              <Image src={groupImg}/>
             </div>
             <div className="sm:w-1/2 pr-10 flex flex-col gap-3 sm:gap-10 text-lg leading-8 text-justify sm:text-left">
               <div>
