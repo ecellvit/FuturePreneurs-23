@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import logo from "public/assets/logos/fp logo.png";
 import Link from 'next/link';
+import LoginButton from './Landing Page/Loginbutton';
 
 const Navbar = () => {
   return (
@@ -11,10 +12,8 @@ const Navbar = () => {
         </div>
         <div className='flex gap-3 sm:gap-10 items-center font-medium'>
             <Link href="/">Home</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#timeline">Events</Link>
-            <Link href="/">Speakers</Link>
-            <Link href="/">Sponsors</Link>
+            <Link href="/memberDashboard">Dashboard</Link>
+            <LoginButton/>
         </div>
     </nav>
   )
