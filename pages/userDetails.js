@@ -53,6 +53,14 @@ export default function UserDetails() {
       .then((data) => {
         console.log(data);
         const user = data.user;
+        if (user.hasFilledDetails == true) {
+          if (user.teamId !== null) {
+            const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
+            // router.push(redirect);
+          } else {
+            // router.push("/makeTeam");
+          }
+        }
         console.log('user', user)
       })
   }
