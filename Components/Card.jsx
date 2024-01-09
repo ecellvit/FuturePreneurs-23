@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import LeaveButton from './LeaveButton';
 
 const Card = ({ name, imageSrc }) => {
   return (
@@ -13,7 +11,7 @@ const Card = ({ name, imageSrc }) => {
           <p className="font-bold text-lg mb-1 text-white">{name}</p>
         </div>
         <div>
-          <LeaveButton className="p-1" />
+          {/* <LeaveButton className="p-1" /> */}
         </div>
       </div>
     </div>
