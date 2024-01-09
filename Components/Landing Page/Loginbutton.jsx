@@ -2,7 +2,6 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import { IoIosContact } from "react-icons/io";
 export default function LoginButton(){
   const { data: session } = useSession();
-  console.log('session', session);
     return(
         <div>
         

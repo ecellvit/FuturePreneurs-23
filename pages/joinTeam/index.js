@@ -53,7 +53,8 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       })
   }
 
-  const handleTeamCodeChange = (e) => {
+    setTeamCode(e.target.value);
+  const  (e) => {
     setTeamCode(e.target.value);
   };
 
@@ -78,12 +79,12 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   const fetchTeamName = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/getTeamDetails`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/getTeamViaToken`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ teamCode }),
+        body: JSON.stringify({ teamCode: teamCode }),
       });
 
       if (response.ok) {
@@ -103,12 +104,13 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const handleConfirmJoin = async () => {
     // Send a request to the API to join the team with the team code.
     try {
-      const response = await fetch('/api/joinTeam', {
+      const response = await fetch(process.env.NEXT_PUBLIC_SERVER+'/api/jointeam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + session.accessTokenBackend
         },
-        body: JSON.stringify({ teamCode }),
+        body: JSON.stringify({ teamCode: teamCode }),
       });
 
       if (response.ok) {
@@ -159,7 +161,9 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           <input
             type="text"
             value={teamCode}
-            onChange={handleTeamCodeChange}
+            onChange={()=>{
+              setTeamCode(e.target.value)
+            }}
             className="text-black border border-gray-300 dark:border-gray-600 rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500 dark:bg-gray-700"
           />
         </div>

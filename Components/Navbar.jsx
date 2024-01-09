@@ -38,7 +38,6 @@ const Navbar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const user = data.user;
         if (user.teamRole === '0') {
           setDashboardLink('/leaderDashboard');

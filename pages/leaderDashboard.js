@@ -1,51 +1,13 @@
-import Card from '@/Components/Card';
-import DeleteTeamButton from '@/Components/DeleteTeamButton';
-import Navbar from '@/Components/Navbar';
-import Link from 'next/link';
 
-import React, { useEffect, useState } from "react";
-import { ReactDOM } from "react";
-import { FiPlus } from "react-icons/fi";
+import { useEffect, useState } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
-import Modal from "@/Components/Modal";
-import { useRouter } from "next/router";
+import Card from "@/Components/Card";
+import DeleteTeamButton from "@/Components/DeleteTeamButton";
+import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
-import { redirect } from 'next/dist/server/api-utils';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const info = [
-  {
-    id: 0,
-    role: "leader",
-    name: "Karan Vyas",
-    regNo: "22BIT0092",
-    emailId: "karan.vyas2022@vitstudent.ac.in",
-    phoneNumber: "123456789",
-  },
-  {
-    id: 1,
-    role: "member",
-    name: "abcd",
-    regNo: "22BIT0139",
-    emailId: "karan.vyas2022@vitstudent.ac.in",
-    phoneNumber: "123456789",
-  },
-  {
-    id: 2,
-    role: "member",
-    name: "efgh",
-    regNo: "22BIT0051",
-    emailId: "karan.vyas2022@vitstudent.ac.in",
-    phoneNumber: "123456789",
-  },
-  {
-    id: 3,
-    role: "member",
-    name: "ijkl",
-    regNo: "22BIT0108",
-    emailId: "karan.vyas2022@vitstudent.ac.in",
-    phoneNumber: "123456789",
-  },
-];
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -56,7 +18,7 @@ export default function LeaderDashboard() {
   const [teamId,setTeamId] = useState('');
   const [teamLeaderId,setTeamLeaderId] = useState('');
   const [teamName,setTeamName] = useState('');
-  const [teamMemberData,setTeamMemberData] = useState('');
+  const [teamMembersData,setTeamMemberData] = useState([]);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -67,36 +29,13 @@ export default function LeaderDashboard() {
     if (router.isReady) {
       console.log('status', status)
       if (status === "unauthenticated") {
-        console.log("Please Login First!")
-        // router.push("/")
+        router.push("/")
       } else if(status === "authenticated"){
-        console.log('asdfasdfasdf',session)
-        // getData()
+        getData()
         fetchDataFromBackend();
       }
     }
   }, [status, router])
-  console.log('clisession', session);
-
-//   useEffect(()=>{
-//   if(!session){
-//     console.log('redirecting')
-//     router.push('/')
-//   }
-//   else{
-//     console.log('in else')
-//   }
-// },[session])
-
-// useEffect(() => {
-//   if (router.isReady) {
-//     if (status !== "loading" && status === "unauthenticated") {
-//       toast.error("Please Login First!")
-//       router.push("/")
-//     }
-//   }
-// }, [status, router])
-// const { status } = useSession();
 
 const getData = ()=>{
   fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
@@ -113,16 +52,16 @@ const getData = ()=>{
       console.log(data);
       const user = data.user;
       if (user.hasFilledDetails == true) {
-        if (user.teamId !== null) {
-          const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
-          router.push("/memberDashboard");
+        if (user.teamId == null) {
+          router.push('/makeTeam')
         } else {
-          router.push(redirect);
+          if (user.teamRole=='1') {
+            router.push('/memberDashboard')
+          }
         }
-      }else{
-        router.push('/makeTeam')
+      } else {
+        router.push('/userDetails')
       }
-      console.log('user', user)
     })
 }
 
@@ -137,7 +76,7 @@ const getData = ()=>{
       },
     }).then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log('dd', data)
       setTeamId(data.teamDetails._id);
       setTeamMemberData(data.teamDetails.members);
       setTeamName(data.teamDetails.teamName);
@@ -146,14 +85,7 @@ const getData = ()=>{
       console.log("no team found");
       console.log(err)
     })
-
   };
-
-  // useEffect(() => {
-  //   fetchDataFromBackend();
-  // }, []);
-
-  useEffect(() => console.log("hii"), [remove, deleted]);
 
   function toggleDelete() {
     setDeleted(!deleted);
@@ -185,19 +117,21 @@ const getData = ()=>{
         location.reload();
       }).then(setRemove(!remove))
   }
+
   function deleteTeam() {
     alert("delete");
     setDeleted(!deleted);
     router.push('/');
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
-      method: 'DELETE',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + session.accessTokenBackend
       }
     }).then((res) => res.json())
       .then((data) => {
         console.log(data)
-      }).then(router.push('/MakeTeam'))
+      }).then(router.push('/makeTeam'))
   }
 
   return (
@@ -208,123 +142,122 @@ const getData = ()=>{
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">YOUR TEAM</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         <Link className="text-white" href="/teamCode"> Add Members </Link>
 
         <div className="flex flex-wrap justify-center">
-          <Card name="Person 1" imageSrc="/assets/boardpics/image2.svg" />
-          <Card name="Person 2" imageSrc="/assets/boardpics/image2.svg" />
-        </div>
+        {
+          teamMembersData.map(el=>{
+            return <Card name={el.firstName} imageSrc="/assets/boardpics/image2.svg" />
+          })
+        }
 
-        <div className="flex flex-wrap justify-center mt-4">
-          <Card name="Person 3" imageSrc="/assets/boardpics/image2.svg" />
-          <Card name="Person 4" imageSrc="/assets/boardpics/image2.svg" />
+        {/* </div> */}
+        {/* <div className="flex flex-wrap justify-center mt-4"> */}
         </div>
       </div>
 
       <div className="flex justify-center mt-4">
-        <DeleteTeamButton onClick={deleteTeam} />
+        <DeleteTeamButton onClick={()=>deleteTeam()} />
       </div>
     </div>
   );
-};
+// };
 
+return (
 
+    <div className="w-full h-full flex flex-col items-center ">
+    <div className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-orange-500">
+      {teamName}
+    </div>
+    <ol className="w-9/12 flex flex-col">
+      {teamMembersData?.map((ele) => (
+        <li className="mx-4 list-none w-full self-center" key={ele}>
+          {ele._id ===  teamLeaderId? (
+            <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+              <div className="w-3/4 h-5/6 flex justify-evenly">
+              <div>
+                <p className="font-black text-yellow-200 text-4xl m-2">
+                  {ele.name}
+                </p>
+                <p className=" text-yellow-700">Team Leader</p></div>
+                <div className="mt-4">
+                  <div className=" text-yellow-700">{ele.regNo}</div>
+                  <div className=" text-yellow-700">{ele.emailId}</div>
+                  {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
+                </div>
+              </div>
+              <div>
 
-
-//   return (
-
-//     <div className="w-full h-full flex flex-col items-center ">
-//     <div className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-orange-500">
-//       {teamName}
-//     </div>
-//     <ol className="w-9/12 flex flex-col">
-//       {info.map((ele) => (
-//         <li className="mx-4 list-none w-full self-center" key={ele}>
-//           {ele._id ===  teamLeaderId? (
-//             <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
-//               <div className="w-3/4 h-5/6 flex justify-evenly">
-//               <div>
-//                 <p className="font-black text-yellow-200 text-4xl m-2">
-//                   {ele.name}
-//                 </p>
-//                 <p className=" text-yellow-700">Team Leader</p></div>
-//                 <div className="mt-4">
-//                   <div className=" text-yellow-700">{ele.regNo}</div>
-//                   <div className=" text-yellow-700">{ele.emailId}</div>
-//                   {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
-//                 </div>
-//               </div>
-//               <div>
-
-//               </div>
-//               {/* <button
-//               className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-//               onClick={togglePopUpForRemove}
-//             >
-//               REMOVE
-//             </button> */}
-//             </div>
-//           ) : (
-//             <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
-//               <div className="w-3/4 h-5/6 flex justify-evenly">
-//               <div>
-//                 <p className="font-black text-yellow-200 text-4xl m-2 flex flex-wrap">
-//                 {ele.name}
-//                 </p>
-//                 <p className=" text-yellow-700">Team Member</p></div>
-//                 <div className="mt-4">
-//                   <div className=" text-yellow-700">{ele.regNo}</div>
-//                   <div className=" text-yellow-700">{ele.emailId}</div>
-//                   {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
-//                 </div>
-//               </div>
-//               <button
-//                 className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg self-end text-sm px-5 py-2.5 text-center mr-2 mb-2"
-//                 onClick={() => {
-//                   togglePopUpForRemove();
-//                   setId(ele.id);
-//                 }}
-//               >
-//                 REMOVE
-//               </button>
-//             </div>
-//           )}
-//         </li>
-//       ))}
-//       {popUpForRemove && (
-//         <Modal
-//           popup={togglePopUpForRemove}
-//           callFunction={removeMember}
-//           popUpValue={popUpForDelete}
-//           setStateRemove={toggleRemove}
-//         />
-//       )}
-//     </ol>
-//     <div className="w-auto flex justify-evenly">
-//     <button
-//       className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-//       onClick={togglePopUpForDelete}
-//     >
-//       Delete Team
-//     </button>
-//     {popUpForDelete && (
-//       <Modal
-//         popup={togglePopUpForDelete}
-//         callFunction={deleteTeam}
-//         popUpForDelete={popUpForDelete}
-//         setStateDelete={toggleDelete}
-//       />
-//     )}
-//     {info.length<4 && (<button
-//       className="text-white flex justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-//       onClick={()=>router.push('/teamCode')}
-//     >
-//       <FiPlus  /> Add Team Member
-//     </button>)}</div>
-//   </div>
-// );
-// }
+              </div>
+              {/* <button
+              className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              onClick={togglePopUpForRemove}
+            >
+              REMOVE
+            </button> */}
+            </div>
+          ) : (
+            <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+              <div className="w-3/4 h-5/6 flex justify-evenly">
+              <div>
+                <p className="font-black text-yellow-200 text-4xl m-2 flex flex-wrap">
+                {ele.name}
+                </p>
+                <p className=" text-yellow-700">Team Member</p></div>
+                <div className="mt-4">
+                  <div className=" text-yellow-700">{ele.regNo}</div>
+                  <div className=" text-yellow-700">{ele.emailId}</div>
+                  {/* <div className=" text-yellow-700">{ele.phoneNumber}</div> */}
+                </div>
+              </div>
+              <button
+                className="text-black bg-gradient-to-r from-yellow-500 to-orange-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg self-end text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                onClick={() => {
+                  togglePopUpForRemove();
+                  setId(ele.id);
+                }}
+              >
+                REMOVE
+              </button>
+            </div>
+          )}
+        </li>
+      ))}
+      {popUpForRemove && (
+        <Modal
+          popup={togglePopUpForRemove}
+          callFunction={removeMember}
+          popUpValue={popUpForDelete}
+          setStateRemove={toggleRemove}
+        />
+      )}
+    </ol>
+    <div className="w-auto flex justify-evenly">
+    <button
+      className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      onClick={togglePopUpForDelete}
+    >
+      Delete Team
+    </button>
+    {popUpForDelete && (
+      <Modal
+        popup={togglePopUpForDelete}
+        callFunction={deleteTeam}
+        popUpForDelete={popUpForDelete}
+        setStateDelete={toggleDelete}
+      />
+    )}
+    {teamMembersData?.length<4 && (<button
+      className="text-white flex justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      onClick={()=>router.push('/teamCode')}
+    >
+      {/* <FiPlus  /> */}
+       Add Team Member
+    </button>)}</div>
+  </div>
+);
+}
 
