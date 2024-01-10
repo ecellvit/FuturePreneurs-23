@@ -13,38 +13,32 @@ const Timeline = () => {
     {
       id: 1,
       img: img1,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
+      date: "10 JAN 2023",
+      text: "Registrations open!",
     },
     {
       id: 2,
       img: img2,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
+      date: "14 JAN 2023",
+      text: "Registrations closes!",
     },
     {
       id: 3,
       img: img3,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
+      date: "17 JAN 2023",
+      text: "Qualifier Round!",
     },
     {
       id: 4,
       img: img1,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
+      date: "18 JAN 2023",
+      text: "Results of Qualifier Round!",
     },
     {
       id: 5,
       img: img2,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
-    },
-    {
-      id: 6,
-      img: img3,
-      date: "20 JAN 2023",
-      text: "Registrations open!!",
+      date: "19 JAN 2023",
+      text: "D-Day!",
     },
   ];
 
@@ -57,7 +51,7 @@ const Timeline = () => {
     <TimelineCard {...card} key={card.id} />
   ));
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
 
   return (
     <main>

@@ -73,18 +73,16 @@ const BSG = () => {
               </motion.div>
             </div>
             <div className="sm:hidden flex justify-center">
-              <Image src={groupImg}/>
+              <Image src={groupImg} />
             </div>
             <div className="sm:w-1/2 pr-10 flex flex-col gap-3 sm:gap-10 text-lg leading-8 text-justify sm:text-left">
               <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-              <div>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.
+                Entrepreneurship Cell, VIT proudly presents Futurepreneurs 9.0,
+                a dynamic Business Simulation Event! Elevate your business
+                acumen by staying tuned to consumer preferences and current
+                trends. Can you demonstrate a vision, which would allow you to
+                navigate through the ebbing and flowing challenges of the event?
+                Enroll in the crew, where discovery meets competition!
               </div>
             </div>
           </div>
