@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Card from "@/Components/Card";
 import DeleteTeamButton from "@/Components/DeleteTeamButton";
+import LoadingScreen from "@/Components/LoadingScreen";
 import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import boardImg from "public/assets/boardpics/image2.svg";
 import toast, { Toaster } from "react-hot-toast";
-import boardImg from "public/assets/boardpics/image2.svg"
-import LoadingScreen from "@/Components/LoadingScreen";
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -174,7 +174,7 @@ export default function LeaderDashboard() {
         {
           teamMembersData.length < 3 && 
           <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
-            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who've registered would be added to my team</p>
+            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who&lsquo;ve registered would be added to my team</p>
           </div>
         }
 
