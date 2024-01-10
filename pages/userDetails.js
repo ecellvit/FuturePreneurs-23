@@ -20,6 +20,7 @@ export default function UserDetails() {
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [regError,setRegError] = useState('');
   const [emailError, setEmailError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const allowedDomain = "vitstudent.ac.in";
@@ -107,39 +108,44 @@ export default function UserDetails() {
     }
   }
 
-  function validatePhoneNumber() {
-    const parsedPhoneNumber = parsePhoneNumberFromString(userPhoneNumber, "IN");
+  const handlePhoneNumber = (e) => {
+    const input = e.target.value;
 
-    if (!parsedPhoneNumber || !parsedPhoneNumber.isValid()) {
-      setPhoneError("Invalid phone number");
+    // Check if the input matches the desired phone number pattern
+    const isValidInput = /^(\+91-?)?[0-9]{10}$/.test(input);
+
+    if (isValidInput || input === '') {
+      setUserPhoneNumber(input);
+      setPhoneError(''); // Reset error state
     } else {
-      setPhoneError("");
+      setPhoneError('Invalid Phone Number'); // Set error state
     }
-  }
-
+  };
   const handleInputChange = (e) => {
     const input = e.target.value;
 
     // Check if the input matches the desired pattern
-    const isValidInput = /^(20(24|23|22|21))\w{3}\d{4}$/.test(input);
+    const isValidInput = /^[1-9][0-9][a-zA-Z]{3}[0-9]{4}$/.test(input);
 
     if (isValidInput) {
       setUserRegNo(input);
+      console.log(regError)
+      setRegError('');
     } else {
-      setUserRegNo('');
+      
       // Display an error or provide feedback for invalid input
-      console.log('Invalid registration number format');
+      setRegError('Invalid registration number format');
     }
 };
 
   function submitDetails() {
     if (
-      first !== "" &&
-      last !== "" &&
-      userPhoneNumber !== "" &&
-      userRegNo !== ""
+      first !== "" &&last !== ""
     ) {
-      if (phoneError !== "") {
+      if(phoneError === "" && userPhoneNumber !=='')
+      {
+        if(regError==="" && userRegNo !== '')
+     { if (phoneError !== "") {
         // <Alert name="Please fill the form correctly" />;
         console.log("Please fill the form correctly");
       } else {
@@ -178,10 +184,20 @@ export default function UserDetails() {
           });
         // pratyush.kongalla2021@vitstudent.ac.in
       }
-    } else {
+    }
+    else{
+      console.log("Please fill correct registration number number");
+      console.log("error and toastID = ", toastID)
+      toast.error("Fill Registration number Correctly");
+    }
+  } else{
+      console.log("Please fill correct phone number");
+      console.log("error and toastID = ", toastID)
+      toast.error("Fill Phone Number Correctly");
+    }}else {
       console.log("Please fill all the details first");
       console.log("error and toastID = ", toastID)
-      toast.error("Fill Details");
+      toast.error("Fill Name Correctly");
 
 
       // <Alert name="Please fill all the details first" />;
@@ -276,6 +292,7 @@ export default function UserDetails() {
                 onChange={(e)=>{handleInputChange(e);setUserRegNo(e.target.value)}}
 
               ></input>
+              {/* {regError && <div className="text-red-600">{regError}</div>} */}
               <p id="regNoError" className="text-red-500 text-xs italic hidden">
                 Registration Number already exists.
               </p>
@@ -294,6 +311,7 @@ export default function UserDetails() {
                 placeholder="Phone Number"
                 value={userPhoneNumber}
                 onChange={(e) => {
+                  handlePhoneNumber;
                   setUserPhoneNumber(e.target.value);
                 }}
               ></input>
