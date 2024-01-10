@@ -22,7 +22,7 @@ export default function UserDetails() {
   const [emailError, setEmailError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const allowedDomain = "vitstudent.ac.in";
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState();
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -43,6 +43,7 @@ export default function UserDetails() {
   }, [status, router]);
 
   const getData = ()=>{
+    setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",

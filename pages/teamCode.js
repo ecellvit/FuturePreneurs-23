@@ -15,6 +15,7 @@ import LoadingIcons from "react-loading-icons";
 export default function TeamCode() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [isLoading,setIsLoading] = useState()
 
   useEffect(() => {
     if (router.isReady) {
@@ -36,6 +37,7 @@ export default function TeamCode() {
   const [alertText, setAlertText] = useState(""); //Store the alert text to be displayed
 
   const getData = () => {
+    setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -60,6 +62,7 @@ export default function TeamCode() {
         else{
           router.push("/userDetails")
         }
+        setIsLoading(true)
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamCode`, {
           content: "application/json",
           method: "GET",
@@ -71,15 +74,15 @@ export default function TeamCode() {
         })
           .then((res) => res.json())
           .then((data) => {
-            setLoading(false);
+            
             console.log(data);
             setTeamCode(data.teamCode);
             setTeamName(data.teamName);
           })
           .catch((err) => {
-            setLoading(true);
+           
             console.log(err);
-          });
+          }).then(setIsLoading(false));
       });
   };
 

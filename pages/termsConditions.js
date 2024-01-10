@@ -9,9 +9,10 @@ export default function TermsConditions() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [check, setCheck] = useState();
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState();
 
   const getData = () => {
+    setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -26,7 +27,6 @@ export default function TermsConditions() {
         console.log(data.consent);
         const user = data.user;
         setCheck(user.consent);
-        setIsLoading(true)
         
         // if (user.hasFilledDetails == true) {
         //   if (user.teamId !== null) {
@@ -37,10 +37,11 @@ export default function TermsConditions() {
         //   }
         // }
         console.log('user', user)
-      })
+      }).then(setIsLoading(false))
   }
 
   function consent() {
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + '/user/consent', {
       method: 'POST',
       headers: {
@@ -54,12 +55,12 @@ export default function TermsConditions() {
     }).then((res) => res.json())
       .then((data) => {
         router.push("/makeTeam")
-        setIsLoading(true)
         // location.reload();
-      })
+      }).then(setIsLoading(false))
   }
 
   function disagreeConsent() {
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + '/user/consent', {
       method: 'POST',
       headers: {

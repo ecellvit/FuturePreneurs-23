@@ -16,7 +16,7 @@ const TeamPage = () => {
   const [teamLeaderId,setTeamLeaderId] = useState('');
   const [teamName,setTeamName] = useState('');
   const [teamMembersData,setTeamMemberData] = useState([]);
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState();
 
   const {data: session, status} = useSession();
   const router = useRouter();
@@ -34,6 +34,7 @@ const TeamPage = () => {
   }, [status, router])
 
   const getData = ()=>{
+    setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -51,26 +52,27 @@ const TeamPage = () => {
           if (user.teamId !== null) {
             // router.push("/");
             if (user.teamRole === '0') {
-              setIsLoading(true)
+              
               router.push('/leaderDashboard')
               
             }
           } else {
-            setIsLoading(true)
+            
             router.push('/makeTeam')
             
           }
         } else{
-          setIsLoading(true)
+          
           router.push('/userDetails');
           
         }
         console.log('user', user)
-        setIsLoading(true)
-      })
+        
+      }).then(setIsLoading(false))
   }
 
   const fetchDataFromBackend = () => {
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
       content: "application/json",
       method: "GET",
@@ -87,15 +89,16 @@ const TeamPage = () => {
       console.log(data.teamDetails.members)
       setTeamName(data.teamDetails.teamName);
       setTeamLeaderId(data.teamDetails.teamLeaderId);
-      setIsLoading(true)
+      
     }).catch(err => {
       console.log("no team found");
       console.log(err)
-      setIsLoading(true)
-    })
+      
+    }).then(setIsLoading(false))
   };
 
   const leaveTeam = () => {
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + '/user/leaveTeam/'+teamId, {
       content: "application/json",
       method: "POST",
@@ -108,9 +111,9 @@ const TeamPage = () => {
     .then(data=>{
       if(data.error == false) {
         router.push('/makeTeam')
-        setIsLoading(true)
+        
       }
-    })
+    }).then(setIsLoading(false))
   }
 
   return (

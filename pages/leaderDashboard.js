@@ -19,7 +19,7 @@ export default function LeaderDashboard() {
   const [teamLeaderId, setTeamLeaderId] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState();
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -39,6 +39,7 @@ export default function LeaderDashboard() {
   }, [status, router]);
 
   const getData = () => {
+    setIsLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -52,24 +53,26 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data);
         const user = data.user;
+        setIsLoading(false)
         if (user.hasFilledDetails == true) {
           if (user.teamId == null) {
             router.push('/makeTeam')
-            setIsLoading(true)
+            
           } else {
             if (user.teamRole == '1') {
               router.push('/memberDashboard')
-              setIsLoading(true)
+              
             }
           }
         } else {
           router.push('/userDetails')
-          setIsLoading(true)
+          
         }
       });
   };
 
   const fetchDataFromBackend = () => {
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
       content: "application/json",
       method: "GET",
@@ -86,16 +89,16 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
-        setIsLoading(true)
+        
       }).catch(err => {
         console.log("no team found");
         console.log(err)
-        setIsLoading(true)
+      
       })
       .catch((err) => {
         console.log("no team found");
         console.log(err);
-      });
+      }).then(setIsLoading(false));
   };
 
   function toggleDelete() {
@@ -113,6 +116,7 @@ export default function LeaderDashboard() {
   function removeMember(id) {
     console.log("remove");
     setRemove(!remove);
+
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
       method: "POST",
       headers: {
@@ -128,8 +132,8 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data);
         location.reload();
-        setIsLoading(true)
-      }).then(setRemove(!remove))
+        
+      }).then(setRemove(!remove)).then(setIsLoading(false))
   }
 
   function deleteTeam() {
@@ -141,6 +145,7 @@ export default function LeaderDashboard() {
     // alert("delete");
     setDeleted(!deleted);
     router.push("/makeTeam");
+    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/deleteTeam/" + teamId, {
       method: "POST",
       headers: {
@@ -155,8 +160,8 @@ export default function LeaderDashboard() {
       .then(() => {
         router.push("/makeTeam");
         toast.success("Team Deleted.")
-        setIsLoading(true)
-      });
+        
+      }).then(setIsLoading(false));
   }
 
   return (
