@@ -32,13 +32,13 @@ const Timeline = () => {
       id: 4,
       img: img1,
       date: "18 JAN 2023",
-      text: "Results of Qualifier Round!",
+      text: "Qualification Results!",
     },
     {
       id: 5,
       img: img2,
       date: "19 JAN 2023",
-      text: "D-Day!",
+      text: "The D-Day is here!",
     },
   ];
 
