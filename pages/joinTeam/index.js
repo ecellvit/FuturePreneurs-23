@@ -10,6 +10,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const [message, setMessage] = useState('');
   const [showDialog, setShowDialog] = useState(false);
   const [isLoading, setisLoading] = useState(false);
+  const [isModalLoading, setIsMoadalLoading] = useState(false);
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -105,6 +106,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   const handleConfirmJoin = async () => {
     // Send a request to the API to join the team with the team code.
+    setIsMoadalLoading(true);
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_SERVER+'/team/jointeam', {
         method: 'POST',
@@ -116,6 +118,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       })
 
       if (response.ok) {
+        setIsMoadalLoading(false);
         showMessage('Successfully joined the team.', 'success');
         setShowDialog(false);
         setTimeout(() => { 
@@ -200,10 +203,11 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
             </p>
             <div className="mt-4 flex justify-end">
               <button
+                disabled={isModalLoading}
                 className="bg-blue-500 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded px-4 py-2 hover:bg-blue-600 focus:outline-none mr-2"
                 onClick={() => handleConfirmJoin()}
               >
-                Yes
+                {isModalLoading ? <LoadingIcons.Oval height="20px"/> : "Yes"}
               </button>
               <button
                 className="text-gray-500 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 rounded px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none"
