@@ -1,4 +1,3 @@
-import LeaveButton from "./LeaveButton";
 
 const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
   return (
@@ -12,7 +11,14 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
           <p className="font-bold text-lg mb-1 text-white">{name} : {Role==0?'Leader':'Member'}</p>
         </div>
 
-        {leader ? <LeaveButton onClick={()=>{removeMember()}} className="p-1" /> : 
+        {leader ? 
+          <div>
+            {Role=='1' && 
+            <button className="bg-red-500 text-white px-3 py-1 rounded-full" 
+              onClick={()=>{removeMember()}} > Remove </button>
+            }
+          </div>
+          :
           <p className="font-bold text-lg mb-1 text-white">{regNo}</p>
         }
       </div>

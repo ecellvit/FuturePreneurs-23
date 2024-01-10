@@ -1,13 +1,11 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import bg from "@/public/assets/bg/spceBg.svg";
 import Navbar from "@/Components/Navbar";
+import bg from "@/public/assets/bg/spceBg.svg";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
-export default function termsNC() {
+export default function TermsConditions() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [check, setCheck] = useState();
@@ -56,6 +54,7 @@ export default function termsNC() {
         location.reload();
       })
   }
+  
   useEffect(() => {
     if (router.isReady) {
       if (status === "unauthenticated") {
@@ -66,10 +65,10 @@ export default function termsNC() {
         console.log(`Getting data`, status);
         // toast.success("Logged In");
         // getData();
-        localStorage.setItem('asdf', 'asdf')
       }
     }
   }, [status, router]);
+
   return (
     <div className="h-full w-full">
       <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
