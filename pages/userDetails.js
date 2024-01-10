@@ -22,6 +22,7 @@ export default function UserDetails() {
   const [emailError, setEmailError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const allowedDomain = "vitstudent.ac.in";
+  const [isLoading,setIsLoading] = useState(true);
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -59,11 +60,14 @@ export default function UserDetails() {
           if (user.teamId !== null) {
             const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
             router.push(redirect);
+            setIsLoading(true)
           } else {
             router.push("/makeTeam");
+            setIsLoading(true)
           }
         }
         console.log('user', user)
+        setIsLoading(true)
       })
   }
 

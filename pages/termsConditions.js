@@ -9,6 +9,7 @@ export default function TermsConditions() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [check, setCheck] = useState();
+  const [isLoading,setIsLoading] = useState(true);
 
   const getData = () => {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
@@ -25,6 +26,7 @@ export default function TermsConditions() {
         console.log(data.consent);
         const user = data.user;
         setCheck(user.consent);
+        setIsLoading(true)
         
         // if (user.hasFilledDetails == true) {
         //   if (user.teamId !== null) {
@@ -52,6 +54,7 @@ export default function TermsConditions() {
     }).then((res) => res.json())
       .then((data) => {
         router.push("/makeTeam")
+        setIsLoading(true)
         // location.reload();
       })
   }

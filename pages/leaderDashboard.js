@@ -19,6 +19,7 @@ export default function LeaderDashboard() {
   const [teamLeaderId, setTeamLeaderId] = useState('');
   const [teamName, setTeamName] = useState('');
   const [teamMembersData, setTeamMemberData] = useState([]);
+  const [isLoading,setIsLoading] = useState(true);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -54,13 +55,16 @@ export default function LeaderDashboard() {
         if (user.hasFilledDetails == true) {
           if (user.teamId == null) {
             router.push('/makeTeam')
+            setIsLoading(true)
           } else {
             if (user.teamRole == '1') {
               router.push('/memberDashboard')
+              setIsLoading(true)
             }
           }
         } else {
           router.push('/userDetails')
+          setIsLoading(true)
         }
       })
   }
@@ -81,9 +85,11 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
+        setIsLoading(true)
       }).catch(err => {
         console.log("no team found");
         console.log(err)
+        setIsLoading(true)
       })
   };
 
@@ -116,6 +122,7 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data)
         location.reload();
+        setIsLoading(true)
       }).then(setRemove(!remove))
   }
 
@@ -137,7 +144,8 @@ export default function LeaderDashboard() {
     }).then((res) => res.json())
       .then((data) => {
         console.log(data)
-      }).then(router.push('/makeTeam'))
+
+      }).then(router.push('/makeTeam')).then(setIsLoading(true))
   }
 
   return (
