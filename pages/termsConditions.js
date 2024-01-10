@@ -96,11 +96,7 @@ export default function TermsConditions() {
         <div className="w-1/2 h-1/2 max-md:h-fit max-md:w-2/3 p-8 flex flex-col justify-around items-center bg-[#141B2B] rounded-lg border border-white">
           <p className="text-white text-xl font-bold flex max-md:align-top">TERMS AND CONDITION</p>
           <p className="text-white flex flex-wrap max-md:text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-            mollitia quis expedita nam animi soluta voluptatum hic ratione in
-            incidunt dicta error quibusdam dolores ullam quos tempora facere
-            repellat eaque sequi unde rerum odit autem? Reiciendis alias non
-            neque quam!
+            I understand that if I do not create a team or join an existing team before the end of registrations, I would be added to a random team.
           </p>
         </div>
         <div className="mt-3">

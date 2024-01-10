@@ -112,6 +112,15 @@ const TeamPage = () => {
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">{teamName}</h1>
 
+        {
+          teamMembersData.length < 3 && 
+          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
+            <p className="text-white">
+              By joining this team, I understand that if the team I have joined has a total of 2 members or less, this team may be merged with another team to meet the minimum requirement of 3 members per team.
+            </p>
+          </div>
+        }
+
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
