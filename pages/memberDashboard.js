@@ -16,7 +16,8 @@ const TeamPage = () => {
   const [teamLeaderId,setTeamLeaderId] = useState('');
   const [teamName,setTeamName] = useState('');
   const [teamMembersData,setTeamMemberData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const[isLoading, setIsLoading] = useState(false);
+
 
   const {data: session, status} = useSession();
   const router = useRouter();
@@ -34,7 +35,7 @@ const TeamPage = () => {
   }, [status, router])
 
   const getData = ()=>{
-    setLoading(true)
+    setIsLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -54,7 +55,7 @@ const TeamPage = () => {
             if (user.teamRole === '0') {
               router.push('/leaderDashboard')
             } else {
-              setLoading(false);
+              setIsLoading(false);
             }
           } else {
             router.push('/makeTeam')
@@ -67,6 +68,7 @@ const TeamPage = () => {
   }
 
   const fetchDataFromBackend = () => {
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
       content: "application/json",
       method: "GET",
@@ -83,6 +85,8 @@ const TeamPage = () => {
       console.log(data.teamDetails.members)
       setTeamName(data.teamDetails.teamName);
       setTeamLeaderId(data.teamDetails.teamLeaderId);
+      
+      setIsLoading(false);
     }).catch(err => {
       console.log("no team found");
       console.log(err)
@@ -90,6 +94,7 @@ const TeamPage = () => {
   };
 
   const leaveTeam = () => {
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + '/user/leaveTeam/'+teamId, {
       content: "application/json",
       method: "POST",
@@ -101,6 +106,7 @@ const TeamPage = () => {
     }).then(data=>data.json())
     .then(data=>{
       if(data.error == false) {
+        setIsLoading(true);
         router.push('/makeTeam')
       }
     })

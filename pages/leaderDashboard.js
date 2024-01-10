@@ -61,6 +61,8 @@ export default function LeaderDashboard() {
           } else {
             if (user.teamRole == "1") {
               router.push("/memberDashboard");
+            } else {
+              setIsLoading(false);
             }
           }
         } else {
