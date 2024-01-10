@@ -52,7 +52,7 @@ export default function TermsConditions() {
     }).then((res) => res.json())
       .then((data) => {
         router.push("/makeTeam")
-        location.reload();
+        // location.reload();
       })
   }
 
@@ -104,11 +104,13 @@ export default function TermsConditions() {
           </p>
         </div>
         <div className="mt-3">
-          {!check ? <button onClick={() => { consent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+          {/* {!check ?  */}
+          <button onClick={() => { consent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             I Agree
-          </button> : <button onClick={() => { disagreeConsent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-            I Disgree
-          </button>}
+          </button>
+           {/* : <button onClick={() => { disagreeConsent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"> */}
+            {/* I Disgree */}
+          {/* </button>} */}
         </div>
       </div>
     </div>
