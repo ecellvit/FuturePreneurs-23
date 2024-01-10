@@ -16,6 +16,7 @@ const TeamPage = () => {
   const [teamLeaderId,setTeamLeaderId] = useState('');
   const [teamName,setTeamName] = useState('');
   const [teamMembersData,setTeamMemberData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const {data: session, status} = useSession();
   const router = useRouter();
@@ -33,6 +34,7 @@ const TeamPage = () => {
   }, [status, router])
 
   const getData = ()=>{
+    setLoading(true)
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -51,6 +53,8 @@ const TeamPage = () => {
             // router.push("/");
             if (user.teamRole === '0') {
               router.push('/leaderDashboard')
+            } else {
+              setLoading(false);
             }
           } else {
             router.push('/makeTeam')
