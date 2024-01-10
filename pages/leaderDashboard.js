@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Card from "@/Components/Card";
@@ -7,7 +6,8 @@ import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import toast, { Toaster } from "react-hot-toast";
+import boardImg from "public/assets/boardpics/image2.svg"
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -15,9 +15,9 @@ export default function LeaderDashboard() {
   const [deleted, setDeleted] = useState(false);
   const [remove, setRemove] = useState(false);
   const [id, setId] = useState();
-  const [teamId, setTeamId] = useState('');
-  const [teamLeaderId, setTeamLeaderId] = useState('');
-  const [teamName, setTeamName] = useState('');
+  const [teamId, setTeamId] = useState("");
+  const [teamLeaderId, setTeamLeaderId] = useState("");
+  const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
   // const router = useRouter();
   // const {data: session} = useSession();
@@ -27,15 +27,15 @@ export default function LeaderDashboard() {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log('status', status)
+      console.log("status", status);
       if (status === "unauthenticated") {
-        router.push("/")
+        router.push("/");
       } else if (status === "authenticated") {
-        getData()
+        getData();
         fetchDataFromBackend();
       }
     }
-  }, [status, router])
+  }, [status, router]);
 
   const getData = () => {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
@@ -53,38 +53,40 @@ export default function LeaderDashboard() {
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.teamId == null) {
-            router.push('/makeTeam')
+            router.push("/makeTeam");
           } else {
-            if (user.teamRole == '1') {
-              router.push('/memberDashboard')
+            if (user.teamRole == "1") {
+              router.push("/memberDashboard");
             }
           }
         } else {
-          router.push('/userDetails')
+          router.push("/userDetails");
         }
-      })
-  }
+      });
+  };
 
   const fetchDataFromBackend = () => {
-    fetch(process.env.NEXT_PUBLIC_SERVER + '/team/getTeamDetails', {
+    fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
       content: "application/json",
       method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
       },
-    }).then(res => res.json())
-      .then(data => {
-        console.log('dd', data)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("dd", data);
         setTeamId(data.teamDetails._id);
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
-      }).catch(err => {
-        console.log("no team found");
-        console.log(err)
       })
+      .catch((err) => {
+        console.log("no team found");
+        console.log(err);
+      });
   };
 
   function toggleDelete() {
@@ -102,53 +104,62 @@ export default function LeaderDashboard() {
   function removeMember(id) {
     console.log("remove");
     setRemove(!remove);
-    fetch(process.env.NEXT_PUBLIC_SERVER + '/team/remove/' + teamId, {
-      method: 'POST',
+    fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        userId: id
-      })
-    }).then((res) => res.json())
+        userId: id,
+      }),
+    })
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         location.reload();
-      }).then(setRemove(!remove))
+      })
+      .then(setRemove(!remove));
   }
 
   function deleteTeam() {
-
     if (teamMembersData.length !== 1) {
-      console.log('ddff')
+      toast.error("First remove all other members.");
+      return;
     }
 
     // alert("delete");
     setDeleted(!deleted);
-    router.push('/');
-    fetch(process.env.NEXT_PUBLIC_SERVER + '/team/deleteTeam/' + teamId, {
-      method: 'POST',
+    router.push("/makeTeam");
+    fetch(process.env.NEXT_PUBLIC_SERVER + "/team/deleteTeam/" + teamId, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + session.accessTokenBackend
-      }
-    }).then((res) => res.json())
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + session.accessTokenBackend,
+      },
+    })
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-      }).then(router.push('/makeTeam'))
+        console.log(data);
+      })
+      .then(() => {
+        router.push("/makeTeam");
+        toast.success("Team Deleted.")
+      });
   }
 
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
-      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      style={{ backgroundImage: "url(/assets/bg/spceBg.svg)" }}
     >
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">
+          Team : {teamName}
+        </h1>
 
         {
           teamMembersData.length < 3 && 
@@ -159,16 +170,31 @@ export default function LeaderDashboard() {
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
-        {
-          teamMembersData.length < 4 && <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link>
-
-        }
+        {teamMembersData.length < 4 && (
+          <Link
+            className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
+            href="/teamCode"
+          >
+            {" "}
+            Add Members{" "}
+          </Link>
+        )}
         <div className="flex flex-wrap justify-center">
-          {
-            teamMembersData.map(el => {
-              return <Card key={el.firstName} name={el.firstName} Role={el.teamRole} regNo={el.regNo} leader={true} removeMember={() => { removeMember(el._id) }} imageSrc="/assets/boardpics/image2.svg" />
-            })
-          }
+          {teamMembersData.map((el) => {
+            return (
+              <Card
+                key={el.firstName}
+                name={el.firstName}
+                Role={el.teamRole}
+                regNo={el.regNo}
+                leader={true}
+                removeMember={() => {
+                  removeMember(el._id);
+                }}
+                imageSrc={boardImg}
+              />
+            );
+          })}
 
           {/* </div> */}
           {/* <div className="flex flex-wrap justify-center mt-4"> */}
@@ -177,6 +203,7 @@ export default function LeaderDashboard() {
 
       <div className="flex justify-center mt-4">
         <DeleteTeamButton onClick={() => deleteTeam()} />
+        <Toaster />
       </div>
     </div>
   );
@@ -276,4 +303,3 @@ export default function LeaderDashboard() {
   //   </div>
   // );
 }
-

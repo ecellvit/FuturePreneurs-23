@@ -216,7 +216,7 @@ export default function UserDetails() {
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="name"
                 type="text"
-                placeholder="User Name"
+                placeholder="First Name"
                 value={first}
                 onChange={(e) => setFirstName(e.target.value)}
               ></input>
@@ -235,7 +235,7 @@ export default function UserDetails() {
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="name"
                 type="text"
-                placeholder="User Name"
+                placeholder="Last Name"
                 value={last}
                 onChange={(e) => setLastName(e.target.value)}
               ></input>
@@ -273,7 +273,7 @@ export default function UserDetails() {
               <input
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="phone"
-                type="text"
+                type="tel"
                 placeholder="Phone Number"
                 value={userPhoneNumber}
                 onChange={(e) => {

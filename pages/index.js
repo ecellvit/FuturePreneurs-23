@@ -10,15 +10,19 @@ import StoryBehindSection from "@/Components/Landing Page/StoryBehindSection";
 import Ticker from "@/Components/Landing Page/Ticker";
 import Timeline from "@/Components/Landing Page/Timeline/Timeline";
 import CountdownTimer from '@/Components/Landing Page/Timer';
+import LoadingScreen from "@/Components/LoadingScreen";
 import styles from "@/styles/fpfont.module.css";
 import Image from "next/image";
 import bg from "public/assets/landingPage/bg.svg";
+import { useState } from "react";
 
 export default function Home() {
   const targetDate = new Date(2024,0,19,0,0)
+  const [isLoading, setIsLoading] = useState(false);
   return (
 
     <main className="text-white h-full">
+     {isLoading && (<LoadingScreen/>) }
       <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
       <section className='Landing_page p-2 relative h-[100svh] overflow-hidden'>
       
@@ -34,7 +38,7 @@ export default function Home() {
        <Image src={fpFont2} alt="9.0" /> */}
       <CountdownTimer targetDate={targetDate}/>
       <br/>
-      <RegisterButton text="Register!"/>
+      <RegisterButton isLoading={isLoading} setIsLoading={setIsLoading} text="Register!"/>
       </div>
       </section>
       <BSG/>
@@ -43,7 +47,7 @@ export default function Home() {
       <CardSection/>
       <StoryBehindSection/>
       <FAQ/>
-      <RegisterSection/>
+      <RegisterSection isLoading={isLoading} setIsLoading={setIsLoading}/>
       <Footer/>
     </main>
   );
