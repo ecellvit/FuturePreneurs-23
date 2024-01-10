@@ -144,6 +144,12 @@ const getData = ()=>{
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
 
+        <div className="w-full">
+          <div className="flex w-fit bg-gray-700 p-2">
+            <i className="fa-sharp fa-thin fa-circle-info w-5 "></i>
+            <p className="text-white">You can add more members</p>
+          </div>
+        </div>
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         <Link className="text-white" href="/teamCode"> Add Members </Link>
 
