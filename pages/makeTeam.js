@@ -57,6 +57,11 @@ const MakeTeam = () => {
 
   const handleCreateTeam = async () => {
     setIsLoading(true);
+    if(teamName.trim().length === 0){
+      toast.error("Team name cannot be empty.")
+      setIsLoading(false)
+      return
+    }
     console.log("session", session);
 
     try {
