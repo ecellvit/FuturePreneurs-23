@@ -2,12 +2,14 @@ import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import LoadingIcons from 'react-loading-icons';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
   const [teamCode, setTeamCode] = useState(propTeamCode || '');
   const [teamName, setTeamName] = useState('');
   const [message, setMessage] = useState('');
   const [showDialog, setShowDialog] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -72,6 +74,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   };
 
   const fetchTeamName = async () => {
+    setisLoading(true);
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamViaToken`, {
         method: 'POST',
@@ -89,10 +92,13 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         setShowDialog(true); // Show the dialog box
       } else {
         showMessage('Team code not found. Please try again.');
+      setisLoading(fasle);
+
       }
     } catch (error) {
       console.error('Error fetching team name:', error);
       showMessage('An error occurred while fetching team name.');
+      setisLoading(false);
     }
     // TODO: ShowMessage if already in a team
   };
@@ -167,9 +173,10 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         <button
           id="joinTeamButton" 
           type="submit"
+          disabled={isLoading}
           className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
         >
-          Join Team
+          {isLoading ? <LoadingIcons.Oval height="20px"/> : "Join Team"}
         </button>
       </form>
       {message && (
