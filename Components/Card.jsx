@@ -1,4 +1,5 @@
 
+
 const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
   return (
     <div
@@ -8,7 +9,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
       
       <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">
         <div className="">
-          <p className="font-bold text-lg mb-1 text-white">{name} : {Role==0?'Leader':'Member'}</p>
+          <p className="font-bold text-lg mb-1 text-white">{name}  [{regNo}] - {Role==0?'Leader':'Member'}</p>
         </div>
 
         {leader ? 
@@ -19,7 +20,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
             }
           </div>
           :
-          <p className="font-bold text-lg mb-1 text-white">{regNo}</p>
+          null
         }
       </div>
     </div>
