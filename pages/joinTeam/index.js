@@ -140,6 +140,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         showMessage('Failed to join the team. Please check the team code.', 'error');
       }
     } catch (error) {
+      setIsMoadalLoading(false);
       console.error('Error joining the team:', error);
       showMessage('An error occurred while joining the team.', 'error');
     }
