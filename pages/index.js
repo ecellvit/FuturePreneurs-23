@@ -22,36 +22,33 @@ export default function Home() {
   return (
 
     <main className="text-white h-full">
-      {isLoading ? <LoadingScreen/> : (<>
-        <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
-        <section className='Landing_page p-2 relative h-[100svh] overflow-hidden'>
-        
-        <GlobeAnimation />
-        <LandingPageNavbar />
-        
-        <div className="pl-5"> 
-        <div className={styles.fp}>     
-         <p>FUTURE</p>
-         <p>PRENEURS  9.0</p>
-         </div>
-         {/* <Image src={fpFont} alt="Future Preneurs Logo" />
-         <Image src={fpFont2} alt="9.0" /> */}
-        <CountdownTimer targetDate={targetDate}/>
-        <br/>
-        <RegisterButton text="Register!"/>
-        </div>
-        </section>
-        <BSG/>
-        <Timeline/>
-        <Ticker/>
-        <CardSection/>
-        <StoryBehindSection/>
-        <FAQ/>
-        <RegisterSection/>
-        <Footer/>
-        </>
-      )}
+     {isLoading && <LoadingScreen/> }
+      <Image src={bg} alt="bgImage" fill className="object-cover z-[-10] w-full min-h-[100vh]" />
+      <section className='Landing_page p-2 relative h-[100svh] overflow-hidden'>
       
+      <GlobeAnimation />
+      <LandingPageNavbar />
+      
+      <div className="pl-5"> 
+      <div className={styles.fp}>     
+       <p>FUTURE</p>
+       <p>PRENEURS  9.0</p>
+       </div>
+       {/* <Image src={fpFont} alt="Future Preneurs Logo" />
+       <Image src={fpFont2} alt="9.0" /> */}
+      <CountdownTimer targetDate={targetDate}/>
+      <br/>
+      <RegisterButton text="Register!"/>
+      </div>
+      </section>
+      <BSG/>
+      <Timeline/>
+      <Ticker/>
+      <CardSection/>
+      <StoryBehindSection/>
+      <FAQ/>
+      <RegisterSection/>
+      <Footer/>
     </main>
   );
 }
