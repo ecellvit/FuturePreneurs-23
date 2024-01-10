@@ -7,6 +7,7 @@ import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import toast, { Toaster } from "react-hot-toast";
 
 
 export default function LeaderDashboard() {
@@ -145,6 +146,7 @@ export default function LeaderDashboard() {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
+      <Toaster/>
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">

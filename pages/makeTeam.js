@@ -71,6 +71,8 @@ const MakeTeam = () => {
 
       if (data.message == 'User Already Part of a Team') {
         // show toast
+      } else if (data.message =='TeamName Already Exists') {
+        alert('Team name already used. Please choose a different name.');
       } else {
         // Team name is unique, so redirect to TeamCode page
         router.push('/leaderDashboard');
