@@ -152,17 +152,6 @@ const MakeTeam = () => {
             <Toaster />
           </div>
 
-<<<<<<< HEAD
-          <div className="border-b border-gray-300 w-5/6 my-1"></div>
-          <div>
-            <button
-              onClick={() => {
-                router.push("/termsConditions");
-              }}
-              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              I don't have a Team
-=======
             </div>
             
       <div className="border-b border-gray-300 w-5/6 my-1"></div>
@@ -170,12 +159,10 @@ const MakeTeam = () => {
             
             <button onClick={()=>{router.push('/termsConditions')}} className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'>
               I dont have a Team
->>>>>>> 3aa7f6fa13553bd819ef44d29ec3dd84707245ac
             </button>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
