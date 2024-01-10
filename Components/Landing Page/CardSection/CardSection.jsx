@@ -11,9 +11,9 @@ const CardSection = () => {
     <main className="relative py-10">
       <Image alt="background space image" src={bg} fill className="object-cover z-[-10]" />
       <div className="flex justify-evenly  flex-wrap gap-10 sm:gap-0">
-        <Card image={img1} heading= {"Problem Solving"} des={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}/>
-        <Card image={img2} heading= {"Skill Testing"} des={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}/>
-        <Card image={img3} heading= {"Self Analysis"} des={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}/>
+        <Card image={img1} heading= {"Explore"} des={" Dive into the world of entrepreneurship, discovering new possibilities and opportunities.`x"}/>
+        <Card image={img2} heading= {"Create"} des={"Develop your business acumen, crafting innovative solutions and strategies."}/>
+        <Card image={img3} heading= {"Triumph"} des={"Experience success by applying your newfound skills, excelling in the event and beyond."}/>
       </div>
     </main>
   );
