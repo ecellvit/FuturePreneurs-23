@@ -15,15 +15,14 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
           <p className="font-bold text-lg mb-1 text-white">{name}  [{regNo}] - {Role}</p>
         </div>
 
-        {leader ? 
+        {leader && 
           <div>
-            {Role=='1' && 
+            {Role === 'Member' && 
             <button className="bg-red-500 text-white px-3 py-1 rounded-full" 
               onClick={()=>{removeMember()}} > Remove </button>
             }
           </div>
-          :
-          null
+          
         }
       </div>
     </div>
