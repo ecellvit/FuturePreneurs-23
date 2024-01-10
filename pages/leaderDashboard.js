@@ -99,17 +99,18 @@ const getData = ()=>{
   function togglePopUpForDelete() {
     setPopUpForDelete(!popUpForDelete);
   }
-  function removeMember() {
+  function removeMember(id) {
     console.log("remove");
-    console.log(id);
     setRemove(!remove);
-      fetch(process.env.NEXT_PUBLIC_SERVER + '/team/remove/'+teamId, {
+    fetch(process.env.NEXT_PUBLIC_SERVER + '/team/remove/'+teamId, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
-        memberId:id
+        userId:id
       })
     }).then((res) => res.json())
       .then((data) => {
@@ -119,7 +120,12 @@ const getData = ()=>{
   }
 
   function deleteTeam() {
-    alert("delete");
+
+    if (teamMembersData.length!==1){
+      console.log('ddff')
+    }
+
+    // alert("delete");
     setDeleted(!deleted);
     router.push('/');
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/deleteTeam/'+teamId, {
@@ -150,7 +156,7 @@ const getData = ()=>{
         <div className="flex flex-wrap justify-center">
         {
           teamMembersData.map(el=>{
-            return <Card key={el.firstName} name={el.firstName} Role={el.teamRole} leader={true} removeMember={()=>{removeMember()}} imageSrc="/assets/boardpics/image2.svg" />
+            return <Card key={el.firstName} name={el.firstName} Role={el.teamRole} leader={true} removeMember={()=>{removeMember(el._id)}} imageSrc="/assets/boardpics/image2.svg" />
           })
         }
 
