@@ -24,7 +24,8 @@ export default function TermsConditions() {
       .then((data) => {
         console.log(data.consent);
         const user = data.user;
-        setCheck(data.consent);
+        setCheck(user.consent);
+        
         // if (user.hasFilledDetails == true) {
         //   if (user.teamId !== null) {
         //     const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
@@ -38,7 +39,7 @@ export default function TermsConditions() {
   }
 
   function consent() {
-    fetch(process.env.NEXT_PUBLIC_SERVER + 'user/consent', {
+    fetch(process.env.NEXT_PUBLIC_SERVER + '/user/consent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,6 +55,24 @@ export default function TermsConditions() {
         location.reload();
       })
   }
+
+  function disagreeConsent() {
+    fetch(process.env.NEXT_PUBLIC_SERVER + '/user/consent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        "consent": false
+      })
+    }).then((res) => res.json())
+      .then((data) => {
+        // router.push("/makeTeam")
+        location.reload();
+      })
+  }
   
   useEffect(() => {
     if (router.isReady) {
@@ -64,7 +83,7 @@ export default function TermsConditions() {
       } else if (status === "authenticated") {
         console.log(`Getting data`, status);
         // toast.success("Logged In");
-        // getData();
+        getData();
       }
     }
   }, [status, router]);
@@ -84,10 +103,10 @@ export default function TermsConditions() {
             neque quam!
           </p>
         </div>
-        <div>
+        <div className="mt-3">
           {!check ? <button onClick={() => { consent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             I Agree
-          </button> : <button onClick={() => { location.reload() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+          </button> : <button onClick={() => { disagreeConsent() }} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             I Disgree
           </button>}
         </div>
