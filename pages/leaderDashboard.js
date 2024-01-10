@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
-import boardImg from "public/assets/boardpics/image2.svg"
+import boardImg from "public/assets/boardpics/image2.svg";
 import LoadingScreen from "@/Components/LoadingScreen";
 
 export default function LeaderDashboard() {
@@ -20,7 +20,7 @@ export default function LeaderDashboard() {
   const [teamLeaderId, setTeamLeaderId] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
-  const[isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -109,7 +109,8 @@ export default function LeaderDashboard() {
   }
   function removeMember(id) {
     console.log("remove");
-    setRemove(!remove);
+    setRemove(prev=>!prev);
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
       method: "POST",
       headers: {
@@ -125,9 +126,13 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data);
         location.reload();
+        setIsLoading(false);
       })
-      .then(setRemove(!remove));
-  }
+      .then(() => {
+        setRemove(!remove);
+        toast.success("Member removed successfully.");
+      });
+    }
 
   function deleteTeam() {
     if (teamMembersData.length !== 1) {
@@ -149,12 +154,12 @@ export default function LeaderDashboard() {
       })
       .then(() => {
         router.push("/makeTeam");
-        toast.success("Team Deleted.")
+        toast.success("Team Deleted.");
         setIsLoading(false);
-      }).catch(()=>{
-        toast.error("Something went wrong.")
+      })
+      .catch(() => {
+        toast.error("Something went wrong.");
         setIsLoading(false);
-        
       });
   }
 
@@ -163,7 +168,7 @@ export default function LeaderDashboard() {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       style={{ backgroundImage: "url(/assets/bg/spceBg.svg)" }}
     >
-     {isLoading && <LoadingScreen/>}
+      {isLoading && <LoadingScreen />}
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
@@ -171,12 +176,19 @@ export default function LeaderDashboard() {
           Team : {teamName}
         </h1>
 
-        {
-          teamMembersData.length < 3 && 
-          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
-            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who've registered would be added to my team</p>
+        {teamMembersData.length < 3 && (
+          <div
+            style={{ backgroundColor: "#141B2B" }}
+            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5"
+          >
+            <p className="text-white">
+              I understand that if the team I have created does not meet the
+              minimum requirement of 3 members per team before the end of
+              registrations, random members who've registered would be added to
+              my team
+            </p>
           </div>
-        }
+        )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
