@@ -37,7 +37,7 @@ const Accordian = (props) => {
             >
               <div className="font-light text-neutral-100">
                 {props.ans.map(el=>{
-                  return <div>{el}</div>
+                  return <div key={el}>{el}</div>
                 })}
               </div>
             </motion.div>

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Card from "@/Components/Card";
 import DeleteTeamButton from "@/Components/DeleteTeamButton";
+import LoadingScreen from "@/Components/LoadingScreen";
 import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 import boardImg from "public/assets/boardpics/image2.svg";
-import LoadingScreen from "@/Components/LoadingScreen";
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -61,6 +61,8 @@ export default function LeaderDashboard() {
           } else {
             if (user.teamRole == "1") {
               router.push("/memberDashboard");
+            } else {
+              setIsLoading(false);
             }
           }
         } else {
@@ -176,19 +178,12 @@ export default function LeaderDashboard() {
           Team : {teamName}
         </h1>
 
-        {teamMembersData.length < 3 && (
-          <div
-            style={{ backgroundColor: "#141B2B" }}
-            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5"
-          >
-            <p className="text-white">
-              I understand that if the team I have created does not meet the
-              minimum requirement of 3 members per team before the end of
-              registrations, random members who've registered would be added to
-              my team
-            </p>
+        {
+          teamMembersData.length < 3 && 
+          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
+            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who&lsquo;ve registered would be added to my team</p>
           </div>
-        )}
+        }
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
@@ -207,7 +202,7 @@ export default function LeaderDashboard() {
               <Card
                 key={el.firstName}
                 name={el.firstName}
-                Role={el.teamRole}
+                Role={el.teamRole === "0" ? "Leader" : "Member"}
                 regNo={el.regNo}
                 leader={true}
                 removeMember={() => {
