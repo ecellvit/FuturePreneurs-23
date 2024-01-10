@@ -9,6 +9,7 @@ import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import LoadingIcons from "react-loading-icons";
 
 
 export default function TeamCode() {
@@ -89,11 +90,11 @@ export default function TeamCode() {
       <Image alt="bg" src={bg} fill className="object-cover z-[-10]" />
       <div className="h-[45vh] w-[45vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-3 min-w-fit min-h-fit">
         <h1 className="text-4xl sm:text-5xl font-bold">
-          {loading ? "Loading..." : teamName}
+          {loading ? <LoadingIcons.Oval/> : teamName}
         </h1>
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-2xl font-medium underline">Team Code</h1>
-          <h1 className="text-lg">{loading ? "Loding..." : teamCode}</h1>
+          <h1 className="text-lg">{loading ? <LoadingIcons.Oval/> : teamCode}</h1>
         </div>
         <div className="flex items-center hover:underline hover:cursor-pointer" onClick={()=>{
           navigator.clipboard.writeText(teamCode);
