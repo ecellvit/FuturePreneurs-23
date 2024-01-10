@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import logo from "public/assets/logos/fp logo.png";
 import eCellLogo from "@/public/assets/logos/ecell_logo.svg";
-import LoginButton from "./Loginbutton";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import LoginButton from "./Loginbutton";
 
 export default function LandingPageNavbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import logo from 'public/assets/logos/fp logo.png';
+import logo from 'public/assets/logos/FP LOGO.svg';
 import { useEffect, useState } from 'react';
 import LoginButton from './Landing Page/Loginbutton';
 
