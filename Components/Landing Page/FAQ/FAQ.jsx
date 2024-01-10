@@ -20,23 +20,43 @@ const FAQ = () => {
   const faqs = [
     {
       id: 1,
-      q: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, odio!",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae enim placeat tempora similique cum ipsa ea debitis quia repellat earum."
+      q: "Is it compulsory to participate in a team?",
+      ans: ["Yes, it is compulsory to participate as a team."]
     },
     {
       id: 2,
-      q: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, odio!",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae enim placeat tempora similique cum ipsa ea debitis quia repellat earum."
+      q: "What is the team size?",
+      ans: ["Team can consists 2 to 4 members."]
     },
     {
       id: 3,
-      q: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, odio!",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae enim placeat tempora similique cum ipsa ea debitis quia repellat earum."
+      q: "I’m interested in participating but I’m unable to find a team. What should I do?",
+      ans: ["You can register without a team, we will provide a team for you."]
     },
     {
       id: 4,
-      q: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, odio!",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae enim placeat tempora similique cum ipsa ea debitis quia repellat earum."
+      q: "Will there be any registration fees?",
+      ans: ["No, the event is free of cost."]
+    },
+    {
+      id: 5,
+      q: "Do I need to have a business idea ready?",
+      ans: ["No, we provide support for idea development throughout the event - just bring your enthusiasm!"]
+    },
+    {
+      id: 6,
+      q: "What is the duration of the event?",
+      ans: ["The event will be conducted from 10:00 AM to 5:00 PM."]
+    },
+    {
+      id: 7,
+      q: "Will ODs be provided for the event? ",
+      ans: ["Yes, ODs will be provided for the duration of the event."]
+    },
+    {
+      id: 8,
+      q: "I still have some doubts regarding the event. How can I get them resolved?",
+      ans: ["Contact:", "Anuj Khokhar +91 8827995405","Vrinda Bajaj +91 7303555341 "]
     },
   ]
 
