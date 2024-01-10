@@ -8,7 +8,7 @@ const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
   const [showConsent, setShowConsent] = useState(false);
   const router = useRouter();
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (router.isReady) {
@@ -20,7 +20,7 @@ const MakeTeam = () => {
         console.log(`Getting data`, status);
         // toast.success("Logged In");
         getData();
-        localStorage.setItem('asdf', 'asdf')
+        localStorage.setItem("asdf", "asdf");
       }
     }
   }, [status, router]);
@@ -50,12 +50,11 @@ const MakeTeam = () => {
         } else {
           router.push("/userDetails")
         }
-      })
-  }
+      });
+  };
 
   const handleCreateTeam = async () => {
-
-    console.log('session', session)
+    console.log("session", session);
 
     try {
       // Send a request to the backend to check if the team name is unique
@@ -72,26 +71,26 @@ const MakeTeam = () => {
       const data = await response.json();
       console.log("not found", data);
 
-      if (data.message == 'User Already Part of a Team') {
+      if (data.message == "User Already Part of a Team") {
         // show toast
       } else if (data.message =='TeamName Already Exists') {
         toast.error('Team name already used. Please choose a different name.');
       } else {
         // Team name is unique, so redirect to TeamCode page
-        router.push('/leaderDashboard');
+        router.push("/leaderDashboard");
       }
       // else {
       //  // Team name is already used, display an error message
       //  alert('Team name already used. Please choose a different name.');
       //}
     } catch (error) {
-      console.error('Error creating team:', error);
+      console.error("Error creating team:", error);
     }
   };
 
   const handleJoinTeam = () => {
     // Redirect to JoinTeam page
-    router.push('/joinTeam');
+    router.push("/joinTeam");
   };
   //useEffect(()=>{
   //  if(!session){
@@ -101,7 +100,13 @@ const MakeTeam = () => {
   //},[])
 
   return (
-    <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
+    <div
+      className=" bg-cover bg-no-repeat bg-center"
+      style={{
+        backgroundImage: "url(/assets/bg/spceBg.svg)",
+        minHeight: "100vh",
+      }}
+    >
       <Navbar />
       <Toaster/>
       <div className='flex flex-col justify-center items-center h-screen'>

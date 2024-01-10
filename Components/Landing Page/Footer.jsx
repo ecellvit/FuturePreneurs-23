@@ -32,7 +32,7 @@ const Footer = () => {
             <Link target="blank" href={"https://www.facebook.com/ecellvit"}><Image className="h-10" src={fb} alt="facebook icon"/></Link>
             <Link target="blank" href={"https://www.instagram.com/ecell_vit"}><Image className="h-10" src={insta} alt="instagram icon"/></Link>
             <Link target="blank" href={"https://www.linkedin.com/company/ecellvitvellore"}><Image className="h-10" src={linkedin} alt="linkedin icon"/></Link>
-            <Link target="blank" href={"https://twitter.com/ecell_vit"}><Image className="h-10" src={x} alt="twitter icon"/></Link>
+            <Link target="blank" href={"https://twitter.com/ecell_vit"}><Image className="h-10 w-full" src={x} alt="twitter icon"/></Link>
         </div>
     </footer>
   )
