@@ -2,6 +2,7 @@ import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from "react-hot-toast";
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
@@ -74,7 +75,7 @@ const MakeTeam = () => {
       if (data.message == 'User Already Part of a Team') {
         // show toast
       } else if (data.message =='TeamName Already Exists') {
-        alert('Team name already used. Please choose a different name.');
+        toast.error('Team name already used. Please choose a different name.');
       } else {
         // Team name is unique, so redirect to TeamCode page
         router.push('/leaderDashboard');
@@ -102,6 +103,7 @@ const MakeTeam = () => {
   return (
     <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
       <Navbar />
+      <Toaster/>
       <div className='flex flex-col justify-center items-center h-screen'>
         <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
           <p className="text-[2.8rem] font-bold m-2 mb-4 text-center">Join or Create a Team</p>
