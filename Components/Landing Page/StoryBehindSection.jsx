@@ -1,6 +1,5 @@
-import React from "react";
-import Image from "next/image";
 import { easeInOut, motion } from "framer-motion";
+import Image from "next/image";
 
 import bg from "public/assets/landingPage/bg.svg";
 import image from "public/assets/landingPage/moonAstronaut.svg";
@@ -36,7 +35,7 @@ const StoryBehindSection = () => {
         <div className="w-full sm:w-1/2 flex flex-col justify-center gap-5 px-16 sm:px-0">
           <h1 className="font-bold text-5xl">Story Behind...</h1>
           <p className="">
-            Born from E-Cell's fiery spirit, we are ready to bring
+            Born from E-Cell&apos;s fiery spirit, we are ready to bring
             Futurepreneurs 9.0, to converse unique ideas. This event was
             meticulously crafted with the prime objective of delivering
             first-hand experiences of a business simulation event right to the

@@ -1,9 +1,12 @@
 import Card from '@/Components/Card';
 import LeaveButton from '@/Components/LeaveButton';
+import LoadingScreen from '@/Components/LoadingScreen';
 import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import boardImg from "public/assets/boardpics/image2.svg";
+import Loading from 'react-loading';
 
 const TeamPage = () => {
 
@@ -16,7 +19,8 @@ const TeamPage = () => {
   const [teamLeaderId,setTeamLeaderId] = useState('');
   const [teamName,setTeamName] = useState('');
   const [teamMembersData,setTeamMemberData] = useState([]);
-  const [isLoading,setIsLoading] = useState();
+  const[isLoading, setIsLoading] = useState(false);
+
 
   const {data: session, status} = useSession();
   const router = useRouter();
@@ -34,7 +38,7 @@ const TeamPage = () => {
   }, [status, router])
 
   const getData = ()=>{
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -54,7 +58,8 @@ const TeamPage = () => {
             if (user.teamRole === '0') {
               
               router.push('/leaderDashboard')
-              
+            } else {
+              setIsLoading(false);
             }
           } else {
             
@@ -72,7 +77,7 @@ const TeamPage = () => {
   }
 
   const fetchDataFromBackend = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER +'/team/getTeamDetails', {
       content: "application/json",
       method: "GET",
@@ -90,6 +95,7 @@ const TeamPage = () => {
       setTeamName(data.teamDetails.teamName);
       setTeamLeaderId(data.teamDetails.teamLeaderId);
       
+      setIsLoading(false);
     }).catch(err => {
       console.log("no team found");
       console.log(err)
@@ -98,7 +104,7 @@ const TeamPage = () => {
   };
 
   const leaveTeam = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + '/user/leaveTeam/'+teamId, {
       content: "application/json",
       method: "POST",
@@ -110,6 +116,7 @@ const TeamPage = () => {
     }).then(data=>data.json())
     .then(data=>{
       if(data.error == false) {
+        setIsLoading(true);
         router.push('/makeTeam')
         
       }
@@ -121,15 +128,25 @@ const TeamPage = () => {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
+    {isLoading && <LoadingScreen/>}
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">{teamName}</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
+
+        {
+          teamMembersData.length < 3 && 
+          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
+            <p className="text-white">
+              By joining this team, I understand that if the team I have joined has a total of 2 members or less, this team may be merged with another team to meet the minimum requirement of 3 members per team.
+            </p>
+          </div>
+        }
 
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc="/assets/boardpics/image2.svg" />
+              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc={boardImg} />
             })
           }
         </div>

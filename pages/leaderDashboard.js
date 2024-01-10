@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Card from "@/Components/Card";
 import DeleteTeamButton from "@/Components/DeleteTeamButton";
+import LoadingScreen from "@/Components/LoadingScreen";
 import Navbar from "@/Components/Navbar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
-import boardImg from "public/assets/boardpics/image2.svg"
+import boardImg from "public/assets/boardpics/image2.svg";
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -19,7 +20,7 @@ export default function LeaderDashboard() {
   const [teamLeaderId, setTeamLeaderId] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
-  const [isLoading,setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -39,7 +40,7 @@ export default function LeaderDashboard() {
   }, [status, router]);
 
   const getData = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
       content: "application/json",
       method: "GET",
@@ -53,15 +54,16 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data);
         const user = data.user;
-        setIsLoading(false)
+        setIsLoading(false);
         if (user.hasFilledDetails == true) {
           if (user.teamId == null) {
             router.push('/makeTeam')
             
           } else {
-            if (user.teamRole == '1') {
-              router.push('/memberDashboard')
-              
+            if (user.teamRole == "1") {
+              router.push("/memberDashboard");
+            } else {
+              setIsLoading(false);
             }
           }
         } else {
@@ -72,7 +74,7 @@ export default function LeaderDashboard() {
   };
 
   const fetchDataFromBackend = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
       content: "application/json",
       method: "GET",
@@ -89,11 +91,7 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
-        
-      }).catch(err => {
-        console.log("no team found");
-        console.log(err)
-      
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("no team found");
@@ -115,8 +113,8 @@ export default function LeaderDashboard() {
   }
   function removeMember(id) {
     console.log("remove");
-    setRemove(!remove);
-
+    setRemove(prev=>!prev);
+    setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
       method: "POST",
       headers: {
@@ -132,20 +130,21 @@ export default function LeaderDashboard() {
       .then((data) => {
         console.log(data);
         location.reload();
-        
-      }).then(setRemove(!remove)).then(setIsLoading(false))
-  }
+        setIsLoading(false);
+      })
+      .then(() => {
+        setRemove(!remove);
+        toast.success("Member removed successfully.");
+      });
+    }
 
   function deleteTeam() {
     if (teamMembersData.length !== 1) {
       toast.error("First remove all other members.");
       return;
     }
-
-    // alert("delete");
+    setIsLoading(true);
     setDeleted(!deleted);
-    router.push("/makeTeam");
-    setIsLoading(true)
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/deleteTeam/" + teamId, {
       method: "POST",
       headers: {
@@ -159,9 +158,13 @@ export default function LeaderDashboard() {
       })
       .then(() => {
         router.push("/makeTeam");
-        toast.success("Team Deleted.")
-        
-      }).then(setIsLoading(false));
+        toast.success("Team Deleted.");
+        setIsLoading(false);
+      })
+      .catch(() => {
+        toast.error("Something went wrong.");
+        setIsLoading(false);
+      });
   }
 
   return (
@@ -169,6 +172,7 @@ export default function LeaderDashboard() {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       style={{ backgroundImage: "url(/assets/bg/spceBg.svg)" }}
     >
+      {isLoading && <LoadingScreen />}
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
@@ -179,7 +183,7 @@ export default function LeaderDashboard() {
         {
           teamMembersData.length < 3 && 
           <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
-            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who've registered would be added to my team</p>
+            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who&lsquo;ve registered would be added to my team</p>
           </div>
         }
 
@@ -200,7 +204,7 @@ export default function LeaderDashboard() {
               <Card
                 key={el.firstName}
                 name={el.firstName}
-                Role={el.teamRole}
+                Role={el.teamRole === "0" ? "Leader" : "Member"}
                 regNo={el.regNo}
                 leader={true}
                 removeMember={() => {
