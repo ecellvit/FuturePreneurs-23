@@ -4,7 +4,7 @@ import image from "public/assets/landingPage/mountainsWithFlag.svg";
 import bg from "public/assets/landingPage/bg.svg";
 import RegisterButton from "./RegisterButton";
 
-const RegisterSection = () => {
+const RegisterSection = (props) => {
   return (
     <main className="h-[80vh] sm:h-[50vh] relative flex justify-center items-center">
       <Image src={bg} alt="background space image" fill className="object-cover z-[-10]" />
@@ -16,7 +16,7 @@ const RegisterSection = () => {
           <div className="text-4xl font-medium">Sounds Awesome?</div>
         </div>
         <div className="flex justify-center w-full">
-            <RegisterButton text={"Register Now !!".toUpperCase()}/>
+            <RegisterButton isLoading={props.isLoading} setIsLoading={props.setIsLoading} text={"Register Now !!".toUpperCase()}/>
         </div>
       </div>
     </main>
