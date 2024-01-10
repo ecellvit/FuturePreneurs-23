@@ -3,12 +3,14 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from "react-hot-toast";
+import LoadingIcons from 'react-loading-icons';
 
 const MakeTeam = () => {
   const [teamName, setTeamName] = useState('');
   const [showConsent, setShowConsent] = useState(false);
   const router = useRouter();
   const { data: session, status } = useSession();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (router.isReady) {
@@ -54,6 +56,7 @@ const MakeTeam = () => {
   };
 
   const handleCreateTeam = async () => {
+    setIsLoading(true);
     console.log("session", session);
 
     try {
@@ -84,6 +87,7 @@ const MakeTeam = () => {
       //  alert('Team name already used. Please choose a different name.');
       //}
     } catch (error) {
+      setIsLoading(false)
       console.error("Error creating team:", error);
     }
   };
@@ -143,7 +147,7 @@ const MakeTeam = () => {
               className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-bold"
               onClick={() => handleCreateTeam()}
             >
-              Create Your Own Team
+              {isLoading ? <LoadingIcons.Oval height={"20px"}/> : "Create Your Own Team"}
             </button>
 
           </div>
