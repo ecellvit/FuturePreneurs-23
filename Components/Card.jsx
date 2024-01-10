@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
   return (
@@ -6,7 +7,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
       style={{ backgroundColor: '#141B2B' }} // Light blue color
     >
       <div className="h-3/4 w-full flex justify-center">
-        {/* <Image src={imageSrc}  className="h-full"/> */}
+        <Image src={imageSrc} className="h-full"/>
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">

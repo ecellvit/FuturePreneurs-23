@@ -1,9 +1,12 @@
 import Card from '@/Components/Card';
 import LeaveButton from '@/Components/LeaveButton';
+import LoadingScreen from '@/Components/LoadingScreen';
 import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import boardImg from "public/assets/boardpics/image2.svg";
+import Loading from 'react-loading';
 
 const TeamPage = () => {
 
@@ -117,10 +120,11 @@ const TeamPage = () => {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
+    {isLoading && <LoadingScreen/>}
       <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">{teamName}</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
 
         {
           teamMembersData.length < 3 && 
@@ -134,7 +138,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc="/assets/boardpics/image2.svg" />
+              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc={boardImg} />
             })
           }
         </div>
