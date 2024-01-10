@@ -18,7 +18,7 @@ import { useState } from "react";
 
 export default function Home() {
   const targetDate = new Date(2024,0,19,0,0)
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   return (
 
     <main className="text-white h-full">
