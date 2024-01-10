@@ -31,8 +31,8 @@ export default function Home() {
       
       <div className="pl-5"> 
       <div className={styles.fp}>     
-       <p>FUTURE</p>
-       <p>PRENEURS  9.0</p>
+       <p className={styles.text}>FUTURE</p>
+       <p className={styles.text}>PRENEURS9.O</p>
        </div>
        {/* <Image src={fpFont} alt="Future Preneurs Logo" />
        <Image src={fpFont2} alt="9.0" /> */}

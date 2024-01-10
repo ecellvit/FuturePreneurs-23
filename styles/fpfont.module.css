@@ -1,15 +1,27 @@
 @font-face {
-    font-family:coalition ;
-    src: url("POR2.TTF");
+    font-family: coalition;
+    src: url("landingPageFont.ttf");
 }
 
-.fp{
+.fp {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
     overflow: hidden;
-    font-size:7vw;
+    gap: 0;
+    line-height: normal;
+}
+
+.text {
+    font-size: 7vw;
     font-weight: 500;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: coalition, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.text {
+    @media (min-width:640px) {
+        font-size: 5vw;
+    }
 }

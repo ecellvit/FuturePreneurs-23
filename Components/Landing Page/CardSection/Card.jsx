@@ -2,7 +2,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 const Card = (props) => {
   return (
-    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-80 h-96 flex flex-col justify-between px-4 pb-5 pt-3 rounded-xl">
+    <div className="bg-gradient-to-r from-[#06318730] from-15% via-[#104c8893] via-60% to-[#0655872f] to-85% w-72 h-80 flex flex-col justify-between px-4 pb-5 pt-3 rounded-xl">
       <motion.div
         initial={{
           opacity: 0,
@@ -20,7 +20,7 @@ const Card = (props) => {
       </motion.div>
       <div className="h-full flex flex-col justify-around">
         <h1 className="text-center font-bold text-2xl">{props.heading}</h1>
-        <div className="text-justify text-md">{props.des}</div>
+        <div className="text-justify text-md px-2">{props.des}</div>
       </div>
     </div>
   );
