@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import LoadingScreen from "@/Components/LoadingScreen";
 
 //Imports for toast.
 import toast, { Toaster } from "react-hot-toast";
@@ -80,6 +81,16 @@ export default function UserDetails() {
       validateEmail();
     }
   }, [userPhoneNumber, userEmail]);
+
+  const handleFirstnameChange = (e) => {
+    const inputValue = e.target.value.replace(/[^a-zA-Z]/g, ''); // Allow only alphabets
+    setFirstName(inputValue);
+  };
+
+  const handleLastnameChange = (e) => {
+    const inputValue = e.target.value.replace(/[^a-zA-Z]/g, ''); // Allow only alphabets
+    setLastName(inputValue);
+  };
 
   function validateEmail() {
     // A basic email regex (not foolproof, but covers most cases)
@@ -178,6 +189,7 @@ export default function UserDetails() {
   }
   return (
     <main className="min-w-[100vw] min-h-[100vh] flex justify-center items-center">
+      {/* {isLoading && <LoadingScreen/>} */}
       <Navbar />
       <Image src={bg} alt="bg-Image" fill className="object-cover z-[-10]" />
       <div className="flex flex-col md:flex-row w-full h-[80vh] md:h-[90vh] justify-evenly items-center">
@@ -223,7 +235,7 @@ export default function UserDetails() {
                 type="text"
                 placeholder="First Name"
                 value={first}
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={handleFirstnameChange}
               ></input>
               <p id="nameError" className="text-red-500 text-xs italic hidden">
                 Name already exists.
@@ -242,7 +254,7 @@ export default function UserDetails() {
                 type="text"
                 placeholder="Last Name"
                 value={last}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={handleLastnameChange}
               ></input>
               <p id="nameError" className="text-red-500 text-xs italic hidden">
                 Name already exists.
