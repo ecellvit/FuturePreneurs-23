@@ -1,5 +1,3 @@
-"use client";
-
 import Navbar from "@/Components/Navbar";
 import bg from "@/public/assets/bg/spceBg.svg";
 import { useSession } from "next-auth/react";
@@ -7,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function termsConditions() {
+export default function TermsConditions() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [check, setCheck] = useState();
