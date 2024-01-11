@@ -31,10 +31,10 @@ export default function UserDetails() {
     if (router.isReady) {
       if (status === 'unauthenticated') {
         //Checks if session is not ready and redirects to root.
-        console.log('Please Login First!');
+        
         router.push('/');
       } else if (status === 'authenticated') {
-        console.log(`Getting data`, status);
+        
         // toast.success("Logged In");
         getData();
         localStorage.setItem('asdf', 'asdf');
@@ -55,7 +55,7 @@ export default function UserDetails() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
@@ -70,7 +70,7 @@ export default function UserDetails() {
             setIsLoading(true);
           }
         }
-        console.log('user', user);
+        
         setIsLoading(true);
       });
   };
@@ -127,7 +127,7 @@ export default function UserDetails() {
   };
   const handleInputChange = (e) => {
     const input = e.target.value;
-    console.log('input', input);
+    
 
     // Check if the input matches the desired pattern
     const isValidInput = /^[1-9][0-9][a-zA-Z]{3}[0-9]{4}$/.test(
@@ -136,7 +136,7 @@ export default function UserDetails() {
 
     if (isValidInput) {
       setUserRegNo(input);
-      console.log(regError);
+      
       setRegError('');
     } else {
       // Display an error or provide feedback for invalid input
@@ -145,20 +145,20 @@ export default function UserDetails() {
   };
 
   function submitDetails() {
-    console.log('asdf', userPhoneNumber.length === 10);
+    
     if (first !== '' && last !== '') {
       if (phoneError === '' && userPhoneNumber !== '') {
         if (regError === '' && userRegNo !== '') {
           if (phoneError !== '') {
             // <Alert name="Please fill the form correctly" />;
-            console.log('Please fill the form correctly');
+            
           } else {
             if (userPhoneNumber.length === 10 && isNaN(+userPhoneNumber) === false) {
 
             const detail = [first, userRegNo, userPhoneNumber, last];
 
             // <Alert name="submitted " />;
-            console.log('details11111111111111', detail);
+            
             fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/fillUserDetails`, {
               method: "POST",
               headers: {
@@ -174,11 +174,11 @@ export default function UserDetails() {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
+                
 
                 if (data.status === "success") {
                   router.push("/makeTeam");
-                  console.log("success and toastID = ", toastID)
+                  
                   toast.success("Resigtered successfully.");
                 } else {
 
@@ -194,20 +194,20 @@ export default function UserDetails() {
             }
           }
         } else {
-          console.log(
+          
             'Please fill correct registration number number'
           );
-          console.log('error and toastID = ', toastID);
+          
           toast.error('Fill Registration number Correctly');
         }
       } else {
-        console.log('Please fill correct phone number');
-        console.log('error and toastID = ', toastID);
+        
+        
         toast.error('Fill Phone Number Correctly');
       }
     } else {
-      console.log('Please fill all the details first');
-      console.log('error and toastID = ', toastID);
+      
+      
       toast.error('Fill Name Correctly');
 
       // <Alert name="Please fill all the details first" />;

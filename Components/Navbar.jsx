@@ -17,7 +17,6 @@ const Navbar = () => {
   };
   useEffect(() => {
     if (router.isReady) {
-      console.log('status', status);
       if (status === 'unauthenticated') {
         router.push("/")
       } else if (status === 'authenticated') {
@@ -45,10 +44,8 @@ const Navbar = () => {
           setDashboardLink('/memberDashboard');
         }
 
-        console.log('user', user);
       })
       .catch((error) => {
-        console.error('Error fetching user details:', error);
       });
   };
 

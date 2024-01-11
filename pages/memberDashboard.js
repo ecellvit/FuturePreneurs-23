@@ -27,7 +27,7 @@ const TeamPage = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log('status', status)
+      
       if (status === "unauthenticated") {
         router.push("/")
       } else if(status === "authenticated"){
@@ -50,7 +50,7 @@ const TeamPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.teamId !== null) {
@@ -66,7 +66,7 @@ const TeamPage = () => {
         } else{
           router.push('/userDetails');
         }
-        console.log('user', user)
+        
       })
   }
 
@@ -82,17 +82,17 @@ const TeamPage = () => {
       },
     }).then(res => res.json())
     .then(data => {
-      console.log('dd', data)
+      
       setTeamId(data.teamDetails._id);
       setTeamMemberData(data.teamDetails.members);
-      console.log(data.teamDetails.members)
+      
       setTeamName(data.teamDetails.teamName);
       setTeamLeaderId(data.teamDetails.teamLeaderId);
       
       setIsLoading(false);
     }).catch(err => {
-      console.log("no team found");
-      console.log(err)
+      
+      
     })
   };
 
@@ -145,7 +145,7 @@ const TeamPage = () => {
       </div>
       <div className="flex justify-center mt-4">
         <LeaveButton 
-          // onClick={()=>{console.log('asdf')}}
+          // onClick={()=>{
           onClick={()=>leaveTeam()}
          />
       </div>

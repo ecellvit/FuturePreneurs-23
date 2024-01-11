@@ -26,7 +26,6 @@ const RegisterButton = (props) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               const user = data.user;
               if (user.hasFilledDetails == true) {
                 if (user.teamId !== null) {
@@ -39,7 +38,6 @@ const RegisterButton = (props) => {
                   router.push("/makeTeam");
                 }
               }
-              // console.log('user', user)
               else {
                 router.push("/userDetails");
               }

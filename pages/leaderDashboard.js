@@ -29,7 +29,6 @@ export default function LeaderDashboard() {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log("status", status);
       if (status === "unauthenticated") {
         router.push("/");
       } else if (status === "authenticated") {
@@ -52,7 +51,6 @@ export default function LeaderDashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const user = data.user;
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
@@ -84,7 +82,6 @@ export default function LeaderDashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("dd", data);
         setTeamId(data.teamDetails._id);
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
@@ -92,8 +89,6 @@ export default function LeaderDashboard() {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log("no team found");
-        console.log(err);
       });
   };
 
@@ -110,7 +105,6 @@ export default function LeaderDashboard() {
     setPopUpForDelete(!popUpForDelete);
   }
   function removeMember(id) {
-    console.log("remove");
     setRemove(prev=>!prev);
     setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
@@ -126,7 +120,6 @@ export default function LeaderDashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         location.reload();
         setIsLoading(false);
       })
@@ -152,7 +145,6 @@ export default function LeaderDashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
       })
       .then(() => {
         router.push("/makeTeam");

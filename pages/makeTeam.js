@@ -16,10 +16,10 @@ const MakeTeam = () => {
     if (router.isReady) {
       if (status === "unauthenticated") {
         //Checks if session is not ready and redirects to root.
-        console.log("Please Login First!");
+        
         router.push("/");
       } else if (status === "authenticated") {
-        console.log(`Getting data`, status);
+        
         // toast.success("Logged In");
         getData();
         localStorage.setItem("asdf", "asdf");
@@ -39,7 +39,7 @@ const MakeTeam = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         const user = data.user;
         setShowConsent(user.consent)
         if (user.hasFilledDetails == true) {
@@ -62,7 +62,7 @@ const MakeTeam = () => {
       setIsLoading(false)
       return
     }
-    console.log("session", session);
+    
 
     try {
       // Send a request to the backend to check if the team name is unique
@@ -77,7 +77,7 @@ const MakeTeam = () => {
       });
 
       const data = await response.json();
-      console.log("not found", data);
+      
 
       if (data.message == "User Already Part of a Team") {
         // show toast
@@ -103,7 +103,7 @@ const MakeTeam = () => {
   };
   //useEffect(()=>{
   //  if(!session){
-  //    console.log("redirecting")
+  //    
   //    router.push("/");
   //  }
   //},[])

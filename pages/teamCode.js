@@ -18,12 +18,12 @@ export default function TeamCode() {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log("status", status);
+      
       if (status === "unauthenticated") {
-        console.log("Please Login First!");
+        
         // router.push("/")
       } else if (status === "authenticated") {
-        console.log("asdf");
+        
         getData();
       }
     }
@@ -72,13 +72,13 @@ export default function TeamCode() {
           .then((res) => res.json())
           .then((data) => {
             setLoading(false);
-            console.log(data);
+            
             setTeamCode(data.teamCode);
             setTeamName(data.teamName);
           })
           .catch((err) => {
             setLoading(true);
-            console.log(err);
+            
           });
       });
   };

@@ -29,7 +29,6 @@ export default function Modal(props,{popUpForDelete}){
                 onClick={()=>{
                 //   togglePopUpForDelete();
                 props.popup();
-                  console.log("Not Deleted");
                 }}
                 className="bg-gray-300 text-gray-700 py-2 px-4 rounded"
               >
