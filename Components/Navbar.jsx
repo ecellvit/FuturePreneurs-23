@@ -17,7 +17,6 @@ const Navbar = () => {
   };
   useEffect(() => {
     if (router.isReady) {
-      console.log('status', status);
       if (status === 'unauthenticated') {
         router.push("/")
       } else if (status === 'authenticated') {
@@ -45,10 +44,8 @@ const Navbar = () => {
           setDashboardLink('/memberDashboard');
         }
 
-        console.log('user', user);
       })
       .catch((error) => {
-        console.error('Error fetching user details:', error);
       });
   };
 
@@ -75,7 +72,7 @@ const Navbar = () => {
           className={`md:flex flex-col z-10 bg-gray-800 bg-opacity-75 p-4 rounded-md top-[6vh] h-[20vh] ${
             isOpen ? 'absolute right-0' : 'hidden'
           } `}>
-          <ul className="flex flex-col justify-around items-center space-x-4">
+          <ul className="flex flex-col justify-around items-center space-x-4 h-full">
             <li>
               <Link href="/">Home</Link>
             </li>

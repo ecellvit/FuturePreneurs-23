@@ -22,7 +22,7 @@ export default function TermsConditions() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.consent);
+        
         const user = data.user;
         setCheck(user.consent);
         
@@ -34,7 +34,7 @@ export default function TermsConditions() {
         //     router.push("/makeTeam");
         //   }
         // }
-        console.log('user', user)
+        
       })
   }
 
@@ -78,10 +78,10 @@ export default function TermsConditions() {
     if (router.isReady) {
       if (status === "unauthenticated") {
         //Checks if session is not ready and redirects to root.
-        console.log("Please Login First!");
+        
         router.push("/");
       } else if (status === "authenticated") {
-        console.log(`Getting data`, status);
+        
         // toast.success("Logged In");
         getData();
       }
