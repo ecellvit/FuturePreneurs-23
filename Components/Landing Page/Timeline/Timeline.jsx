@@ -13,31 +13,31 @@ const Timeline = () => {
     {
       id: 1,
       img: img1,
-      date: "10 JAN 2023",
+      date: "10 JAN 2024",
       text: "Registrations open!",
     },
     {
       id: 2,
       img: img2,
-      date: "14 JAN 2023",
+      date: "16 JAN 2024",
       text: "Registrations closes!",
     },
     {
       id: 3,
       img: img3,
-      date: "17 JAN 2023",
+      date: "17 JAN 2024",
       text: "Qualifier Round!",
     },
     {
       id: 4,
       img: img1,
-      date: "18 JAN 2023",
+      date: "18 JAN 2024",
       text: "Qualification Results!",
     },
     {
       id: 5,
       img: img2,
-      date: "19 JAN 2023",
+      date: "19 JAN 2024",
       text: "The D-Day is here!",
     },
   ];
