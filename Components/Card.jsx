@@ -19,7 +19,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
           <div>
             {Role === 'Member' && 
             <button className="bg-red-500 text-white px-3 py-1 rounded-full" 
-              onClick={()=>{removeMember()}} > Remove </button>
+              onClick={()=>{removeMember()}}> Remove </button>
             }
           </div>
           
