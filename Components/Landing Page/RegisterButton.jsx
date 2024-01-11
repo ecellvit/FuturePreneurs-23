@@ -9,6 +9,7 @@ const RegisterButton = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
+    <div className="position-relative" style={{ marginTop: "20px" }}>
     <button
       className=" rounded-full py-1 px-1 bg-gradient-to-br from-cyan-600 via-green-400 to-purple-600 font-semibold w-42"
       onClick={() => {
@@ -52,6 +53,7 @@ const RegisterButton = (props) => {
         {isLoading ? <LoadingIcons.Oval height={"20px"}/> : (status == "authenticated" ? "Get Started" : "Register")}
       </div>
     </button>
+    </div>
   );
 };
 
