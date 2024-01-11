@@ -195,9 +195,6 @@ export default function UserDetails() {
           }
         } else {
           
-            'Please fill correct registration number number'
-          );
-          
           toast.error('Fill Registration number Correctly');
         }
       } else {
