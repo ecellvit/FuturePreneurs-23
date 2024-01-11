@@ -7,7 +7,7 @@ export default function LoginButton(){
         
         {session ? (
             <div>
-              <button className="flex flex-row justify-evenly items-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 md:px-2 md:py-1"
+              <button className="flex flex-row justify-evenly items-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-2 md:px-3 md:py-1.5"
                 onClick={() => {
                   signOut();
                 }}>
