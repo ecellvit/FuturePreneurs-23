@@ -26,7 +26,7 @@ const FAQ = () => {
     {
       id: 2,
       q: "What is the team size?",
-      ans: ["Team can consists 2 to 4 members."]
+      ans: ["Team can consists 3 to 4 members."]
     },
     {
       id: 3,
