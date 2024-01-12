@@ -14,6 +14,7 @@
     "eslint-config-next": "13.5.4",
     "framer-motion": "^10.16.16",
     "libphonenumber-js": "^1.10.47",
+    "mongoose": "^8.0.4",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "postcss": "8.4.31",

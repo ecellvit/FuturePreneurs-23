@@ -88,5 +88,5 @@ const userSchema = new Schema(
     { collection: "Users" }
 );
 
-module.exports = mongoose.model("Users", userSchema);
+module.exports = mongoose.model("Users", userSchema) || mongoose.model("Users", userSchema);
 

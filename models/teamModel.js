@@ -38,5 +38,5 @@ const teamSchema = mongoose.Schema(
     { collection: "TeamModel" }
 );
 
-module.exports = mongoose.model("TeamModel", teamSchema);
+module.exports = mongoose.model("TeamModel", teamSchema) || mongoose.model("TeamModel", teamSchema);;
 
