@@ -37,7 +37,7 @@ const userSchema = new Schema(
     { collection: "Users" }
 );
 
-module.exports = mongoose.model("Users", userSchema);
+export const TeamModel = mongoose.model("Users", userSchema);
 
 */
 
@@ -88,5 +88,4 @@ const userSchema = new Schema(
     { collection: "Users" }
 );
 
-module.exports = mongoose.model("Users", userSchema) || mongoose.model("Users", userSchema);
-
+export const Users = mongoose.model.Users || mongoose.model("Users", userSchema);

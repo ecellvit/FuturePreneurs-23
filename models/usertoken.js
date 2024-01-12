@@ -21,4 +21,4 @@ const userTokenSchema = new Schema(
   { collection: "UserToken" }
 );
 
-module.exports = mongoose.model("UserToken", userTokenSchema) || mongoose.model("UserToken", userTokenSchema);;
+export const UserToken = mongoose.model.UserToken || mongoose.model("UserToken", userTokenSchema);;

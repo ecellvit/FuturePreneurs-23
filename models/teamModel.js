@@ -1,5 +1,5 @@
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
 const teamSchema = mongoose.Schema(
     {
         teamName: {
@@ -38,5 +38,4 @@ const teamSchema = mongoose.Schema(
     { collection: "TeamModel" }
 );
 
-module.exports = mongoose.model("TeamModel", teamSchema) || mongoose.model("TeamModel", teamSchema);;
-
+export const TeamModel = mongoose.models.TeamModel || mongoose.model("TeamModel", teamSchema);
