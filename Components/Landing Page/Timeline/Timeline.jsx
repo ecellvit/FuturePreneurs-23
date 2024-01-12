@@ -7,6 +7,8 @@ import bg from "public/assets/landingPage/bg.svg";
 import img1 from "public/assets/landingPage/timeline/img1.svg";
 import img2 from "public/assets/landingPage/timeline/img2.svg";
 import img3 from "public/assets/landingPage/timeline/img3.svg";
+import img4 from "public/assets/landingPage/timeline/img4.svg";
+import img5 from "public/assets/landingPage/timeline/img5.svg";
 
 const Timeline = () => {
   const cardsData = [
@@ -30,13 +32,13 @@ const Timeline = () => {
     },
     {
       id: 4,
-      img: img1,
+      img: img4,
       date: "18 JAN 2024",
       text: "Qualification Results!",
     },
     {
       id: 5,
-      img: img2,
+      img: img5,
       date: "19 JAN 2024",
       text: "The D-Day is here!",
     },
