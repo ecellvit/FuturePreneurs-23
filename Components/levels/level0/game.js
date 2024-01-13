@@ -1,5 +1,5 @@
-
-export default Game = () => {
+import React,{useEffect} from "react"
+export default function Game (){
 
   useEffect(()=>{
     // fetch /api/level0/getTime
