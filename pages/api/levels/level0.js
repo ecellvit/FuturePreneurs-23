@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const teamName = 'team1';
 
     await connectMongoDB();
-    // const teams = await TeamModel.find({name: teamName});
+    const teams = await TeamModel.find({name: teamName});
     // const team = new Level0({teamName: teamName});
     // await team.save();
 
