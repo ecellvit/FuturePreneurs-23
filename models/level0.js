@@ -19,6 +19,10 @@ const level0Schema = mongoose.Schema(
         endTime: {
             type: Date
         },
+        level0Points: {
+            type: Number,
+            default: 0
+        },
 
         // members: [
         //     {
