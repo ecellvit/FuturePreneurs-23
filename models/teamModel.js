@@ -23,7 +23,7 @@ const teamSchema = mongoose.Schema(
             type: Boolean
         },
         currentRound: {
-            type: String
+            type: Number
         },
         members: [
             {
