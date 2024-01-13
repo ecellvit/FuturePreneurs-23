@@ -6,13 +6,13 @@ export default async function handler(req, res) {
     res.status(405).json({ message: "Method not allowed" });
     return;
   }
-  const teamName = "team2"; //Get team ID from db
+  const teamName = "team1"; //Get team ID from db
   const startTime = Date.now();
   const endTime = startTime + 1000 * 60 * 5; //mins
   await connectMongoDB();
   const teamData = await Level0.findOne({ teamName: teamName });
   console.log(teamData.startTime);
-  if (teamData.startTime === undefined) {
+  if (teamData.startTime === undefined || teamData.startTime === null) {
     await Level0.updateOne(
       { teamName: teamName },
       { startTime: startTime, endTime: endTime }
