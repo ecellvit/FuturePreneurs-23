@@ -8,13 +8,13 @@ export default function Level0() {
 
   useEffect(() => {
     // fetch /api/level0
-    getLevelData();
-    checkCurrentLevel();
+    getLevel0Data();
+    checkCurrentLevel0();
   }, [])
 
   const [curPage, setCurPage] = useState(-1);
 
-  const checkCurrentLevel = ()=>{
+  const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
         method: "GET",
         headers: {
@@ -37,7 +37,7 @@ export default function Level0() {
       });
   }
 
-  const getLevelData = () => {
+  const getLevel0Data = () => {
     // get question number & end Time from backend
     fetch("/api/levels/level0/getData", {
       method: "GET",
@@ -59,7 +59,7 @@ export default function Level0() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for other teams"}/>}
+      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <Game/>}
