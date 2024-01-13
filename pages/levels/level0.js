@@ -1,3 +1,6 @@
+import Game from "@/Components/levels/level0/game";
+import { useState, useEffect } from "react";
+
 export default function Level0() {
 
   useEffect(() => {
