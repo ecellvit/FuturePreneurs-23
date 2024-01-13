@@ -20,14 +20,14 @@ export default async function handler(req, res) {
     const teamName = 'team1';
 
     await connectMongoDB();
-    // const teams = await TeamModel.find({name: teamName});
+    const teams = await TeamModel.find({name: teamName});
     // const team = new Level0({teamName: teamName});
     // await team.save();
 
     // const tesmLevelData = await Level0Model.find({teamId: teams[0]._id});
 
     // const team = teams[0];
-    console.log(team)
+    // console.log(team)
 
     try{
       res.status(200).json({ questionNo: 123 })
