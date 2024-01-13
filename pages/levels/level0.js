@@ -7,7 +7,7 @@ export default function Level0() {
     // fetch /api/level0
   }, [])
 
-  const [curPage, setCurPage] = useState();
+  const [curPage, setCurPage] = useState(1);
 
   return (
     <div>
