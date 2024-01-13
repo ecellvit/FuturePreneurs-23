@@ -33,6 +33,10 @@ const teamSchema = mongoose.Schema(
         ],
         teamCode: {
             type: String
+        },
+        level:{
+            type:Number,
+            default:-1
         }
     },
     { collection: "TeamModel" }
