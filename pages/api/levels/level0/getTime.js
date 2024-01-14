@@ -1,5 +1,6 @@
 import connectMongoDB from "@/libs/mongodb";
 import { Level0 } from "@/models/level0";
+import time from "@/constants/time";
 
 export default async function handler(req, res) {
   try {
@@ -9,7 +10,7 @@ export default async function handler(req, res) {
     }
     const teamName = "team1"; //Get team ID from db
     const startTime = Date.now();
-    const endTime = startTime + 1000 * 60 * 5; //mins
+    const endTime = startTime + 1000 * 60 * time.qualifiers; //mins
     await connectMongoDB();
     const teamData = await Level0.findOne({ teamName: teamName });
     console.log(teamData.startTime);
