@@ -1,9 +1,33 @@
 import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
 
-
 export default function InputBoxList() {
+  const sendData = ()=>{
+    // send data to backend
+    fetch("/api/levels/level0/sendData",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({answers:todos.length})
+      
+    })
+    .then(res=>{
+      if(res.status === 200){
+        toast.success("Submitted successfully.")
+      };
+    })
+    .then(data=>{
+      console.log(data);
+      location.reload();
+    })
+    .catch(err=>{
+      toast.error("Something went wrong")
+    })
+
+  }
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
 
@@ -31,7 +55,6 @@ export default function InputBoxList() {
     setTodos(curTodos);
     localStorage.setItem("todos", JSON.stringify({ todos: curTodos }));
   };
-
   return (
     <div className="max-w-md mx-auto mt-8">
       <h1 className="text-2xl font-bold mb-4">Enter Your Answers</h1>
@@ -63,6 +86,8 @@ export default function InputBoxList() {
           <FaPlus className="h-6 w-6"/>
         </button>
       </div>
+      <button onClick={()=>{sendData()}}>SUBMIT</button>
+      <Toaster/>
     </div>
   );
 }

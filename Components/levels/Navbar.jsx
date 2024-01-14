@@ -9,7 +9,7 @@ const Navbar = (props) => {
     }
   return (
     <main>
-      <nav className="flex justify-around h-16 items-center w-full bg-[#555]">
+      <nav className="flex justify-around h-16 items-center w-full bg-[#2b3a5d]">
         <div className="left flex w-1/3 justify-around">
           <div className="logo">logo</div>
           <div className="newspaper">newspaper</div>
@@ -20,7 +20,7 @@ const Navbar = (props) => {
       <div className="flex w-full justify-center">
       <div
         style={{
-          borderBottom: "50px solid #555",
+          borderBottom: "50px solid #2b3a5d ",
           borderLeft: "25px solid transparent",
           borderRight: " 25px solid transparent",
           height: "0px",
@@ -29,7 +29,7 @@ const Navbar = (props) => {
         }}
       >
         <div className="rotate-180">
-        <GameTimer level={"level0"} />
+        <GameTimer sendData={props.sendData} level={"level0"} />
         </div>
       </div>
       </div>
