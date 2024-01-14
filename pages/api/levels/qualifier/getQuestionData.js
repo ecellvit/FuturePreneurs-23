@@ -8,7 +8,7 @@ export default async function handler(req,res){
         return
     }else{
         await connectMongoDB();
-        const teamName = 'team1';
+        const teamName = 'team2';
         const qualTeam = await Qualifier.findOne({teamName:teamName});
         if(!qualTeam){
             res.status(400).json({ message: 'Team not found' })
@@ -17,6 +17,7 @@ export default async function handler(req,res){
         if (team.level!==-1) {
           res.status(400).json({ message: 'Qualifier is not right now' })
         } else {
+          console.log('asdf', qualTeam)
           res.status(200).json({category:qualTeam.questionCategory, questionPointer:qualTeam.questionPointer})
         }
 

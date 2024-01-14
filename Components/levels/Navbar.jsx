@@ -29,7 +29,7 @@ const Navbar = (props) => {
         }}
       >
         <div className="rotate-180">
-        <GameTimer level={"level0"} />
+        {/* <GameTimer level={"level0"} /> */}
         </div>
       </div>
       </div>
