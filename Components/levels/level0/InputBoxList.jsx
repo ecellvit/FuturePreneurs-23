@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa6";
+import { FaTrash } from "react-icons/fa6";
+
+
 
 export default function InputBoxList() {
   const [todos, setTodos] = useState([]);
@@ -31,35 +35,35 @@ export default function InputBoxList() {
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
+      <h1 className="text-2xl font-bold mb-4">Enter Your Answers</h1>
+      <ul>
+        {todos?.map((todo) => (
+          <li key={todo.id} className="flex items-center mb-2">
+            <div className="mr-2 p-2 bg-white border border-gray-300 flex-1">{todo.task}</div>
+            <button
+              onClick={() => removeTodo(todo.id)}
+              className="h-6"
+            >
+              <FaTrash />
+            </button>
+          </li>
+        ))}
+      </ul>
       <div className="flex mb-4">
         <input
           type="text"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           className="p-2 border border-gray-300 flex-1"
-          placeholder="Add a new task"
+          placeholder="Enter your Answers Here"
         />
         <button
           onClick={() => addTodo()}
-          className="ml-2 p-2 bg-blue-500 text-white"
+          className=""
         >
-          Add
+          <FaPlus className="h-6 w-6"/>
         </button>
       </div>
-      <ul>
-        {todos?.map((todo) => (
-          <li key={todo.id} className="flex items-center mb-2">
-            <span className="mr-2">{todo.task}</span>
-            <button
-              onClick={() => removeTodo(todo.id)}
-              className="p-1 text-red-500"
-            >
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
