@@ -3,7 +3,6 @@ import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
 
 
-
 export default function InputBoxList() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
