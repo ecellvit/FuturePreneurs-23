@@ -12,6 +12,7 @@
     "autoprefixer": "10.4.16",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.4",
+    "flowbite": "^2.2.1",
     "framer-motion": "^10.16.16",
     "jsonwebtoken": "^9.0.2",
     "libphonenumber-js": "^1.10.47",
