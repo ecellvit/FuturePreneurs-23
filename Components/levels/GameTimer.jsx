@@ -24,6 +24,10 @@ export default function GameTimer(props) {
       return { minutes: "00", seconds: "00" };
     }
 
+    if(Math.floor(timeDiff/1000) <= 0){
+      props.sendData();
+    }
+
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
     return {
