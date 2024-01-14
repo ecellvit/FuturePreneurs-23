@@ -27,7 +27,7 @@ export default function GamePage() {
 
     try {
       // Send formData to the backend using a fetch or Axios
-      const response = await fetch("/your-backend-endpoint", {
+      const response = await fetch("/api/levels/level4/sendData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function GamePage() {
         body: JSON.stringify(formData),
       });
       console.log(formData);
-      if (response.ok) {
+      if (response.status === 200) {
         // Handle success, maybe show a success message to the user
         console.log("Data successfully sent to the backend.");
       } else {

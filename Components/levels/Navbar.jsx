@@ -30,7 +30,7 @@ const Navbar = (props) => {
         }}
       >
         <div className="rotate-180">
-        <GameTimer sendData={props.sendData} level={"level0"} />
+        <GameTimer sendData={props.sendData} level={props.level} />
         </div>
       </div>
       </div>
