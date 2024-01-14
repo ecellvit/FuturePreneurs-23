@@ -1,18 +1,17 @@
 import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
-import Game from "@/Components/levels/level0/game";
+import GamePage1 from "@/Components/levels/level3/GamePage1";
 import Router from "next/router";
-import { redirect } from "next/dist/server/api-utils";
 
-export default function Level0() {
-  const [curPage, setCurPage] = useState(-1);
+export default function Level3() {
 
-  useEffect(() => {
-    // fetch /api/level0
-    getLevel0Data();
-    checkCurrentLevel0();
-  }, [])
+  // useEffect(() => {
+  //   // fetch /api/level0
+  //   getLevel0Data();
+  //   checkCurrentLevel0();
+  // }, [])
 
+  const [curPage, setCurPage] = useState(1);
 
   const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
@@ -59,12 +58,13 @@ export default function Level0() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
+      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
-      {curPage === 1 && <Game/>}
-      {curPage === 2 && <Waiting text={"Prompt"}/>}
-      {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}
+      {curPage === 1 && <GamePage1/>}
+      {curPage === 2 && <GamePage1/>}
+      {curPage === 3 && <Waiting text={"Prompt"}/>}
+      {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}
       {/* {curPage === 2 && <Prompt/>} */}
     </div>
   )
