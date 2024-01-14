@@ -5,6 +5,7 @@ import Router from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 
 export default function Level0() {
+  const [curPage, setCurPage] = useState(-1);
 
   useEffect(() => {
     // fetch /api/level0
@@ -12,7 +13,6 @@ export default function Level0() {
     checkCurrentLevel0();
   }, [])
 
-  const [curPage, setCurPage] = useState(-1);
 
   const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
