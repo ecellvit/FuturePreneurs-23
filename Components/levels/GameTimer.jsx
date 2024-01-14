@@ -7,7 +7,7 @@ export default function GameTimer(props) {
     fetch(`/api/levels/${props.level}/getTime`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log("data for time",data);
         setEndTime(data.endTime);
       })
       .catch((err) => {
