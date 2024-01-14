@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     }
     const teamName = "team1"; //Get team ID from db
     const startTime = Date.now();
-    const endTime = startTime + 1000 * 60 * time.qualifiers; //mins
+    const endTime = startTime + 1000 * 60 * time.level0; //mins
     await connectMongoDB();
     const teamData = await Level0.findOne({ teamName: teamName });
     console.log(teamData.startTime);
