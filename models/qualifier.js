@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const qualifierSchema = mongoose.Schema(
     {
@@ -23,7 +23,22 @@ const qualifierSchema = mongoose.Schema(
             type: String,
             default: "easy"
         },
-        randomOrder: [
+        easyOrder: [
+          {
+            type: Number,
+          }
+        ],
+        mediumOrder: [
+          {
+            type: Number,
+          }
+        ],
+        hardOrder: [
+          {
+            type: Number,
+          }
+        ],
+        caseOrder: [
           {
             type: Number,
           }
