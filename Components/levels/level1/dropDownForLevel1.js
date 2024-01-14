@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function DropdownStatements(){
   const initialDropdownValues = {
@@ -34,7 +35,8 @@ export default function DropdownStatements(){
         setDropdownValues(updatedDropdownValues);
       } else {
         // Show an error or handle the validation as needed
-        alert("Please select a unique value for each statement.");
+        // alert("Please select a unique value for each statement.");
+        toast.error("Please select a unique value for each problem statement.")
         // Reset the dropdown value for the statement that violated the rule
         updatedDropdownValues[statement] = "";
         setDropdownValues(updatedDropdownValues);
@@ -44,6 +46,7 @@ export default function DropdownStatements(){
 
   return (
     <div className="flex flex-col items-center gap-8">
+    <Toaster/>
       <div className="text-lg p-2">
         Arrange The Given Problems In Correct Order
       </div>
@@ -64,6 +67,7 @@ export default function DropdownStatements(){
           </select>
         </div>
       ))}
+      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Submit</button>
     </div>
   );
 };

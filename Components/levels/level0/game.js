@@ -7,7 +7,7 @@ export default function Game() {
       <Navbar level="level0"/>
       <div className="flex h-full">
         <div className="flex w-3/5 h-full">
-          <iframe className="h-96 w-full m-2 no-scrollbar" src="/assets/newspapers/Set 3.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
+          <iframe className="h-[80vh] w-full m-2 no-scrollbar" src="/assets/newspapers/Set 3.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
         </div>
         <InputBoxList />
       </div>
