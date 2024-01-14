@@ -11,7 +11,13 @@ export default async function handler(req, res) {
       await connectMongoDB();
       const teamName = 'team1';
 
-      const qualTeam = await Qualifier.findAndUpdate({ teamName: teamName }, { ans: req.body.answer })
+      const qualTeam = await Qualifier.findOne({ teamName: teamName })
+      if (!qualTeam) {
+        res.status(400).json({ message: 'Team not found' })
+        return
+      }
+
+      // const secondQual = await Qualifier.findAndUpdate({ teamName: teamName }, { : req.body.answer })
 
       res.status(200).json({ message: 'Answer submitted' });
 
