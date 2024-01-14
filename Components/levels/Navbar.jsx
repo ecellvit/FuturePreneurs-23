@@ -1,6 +1,12 @@
 import GameTimer from "./GameTimer";
 
 const Navbar = (props) => {
+    const levelNames = {
+        "level0":"Round 1",
+        "level1":"Round 2",
+        "level2":"Round 3",
+        "level3":"Round 4",
+    }
   return (
     <main>
       <nav className="flex justify-around h-16 items-center w-full bg-[#555]">
@@ -8,7 +14,7 @@ const Navbar = (props) => {
           <div className="logo">logo</div>
           <div className="newspaper">newspaper</div>
         </div>
-        <div className="mid w-1/3 flex justify-center">{props.level == "level0" ? "Round 1":"" }</div>
+        <div className="mid w-1/3 flex justify-center">{levelNames[props.level]}</div>
         <div className="right w-1/3 flex justify-center">right</div>
       </nav>
       <div className="flex w-full justify-center">
