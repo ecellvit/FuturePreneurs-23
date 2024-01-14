@@ -1,19 +1,73 @@
-export default function level4(){
+import React,{useEffect,useState} from "react"
+import Waiting from "@/Components/levels/Waiting";
+import Router from "next/router";
+import { redirect } from "next/dist/server/api-utils";
+import GamePage from "@/Components/levels/level4/GamePage";
+
+export default function Level4() {
+  const [curPage, setCurPage] = useState(1);
+
+  useEffect(() => {
+    // fetch /api/level0
+    getLevel4Data();
+    checkCurrentLevel4();
+  }, [])
+
+
+  const checkCurrentLevel4 = ()=>{
+    fetch('/api/levels/checkCurrentRound',{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            console.log("data", data);
+            // setCurPage(data.team.pageNo);
+            console.log(data.round.level);
+            if(data.round.level!==4){
+                // redirect(`/levels/level${data.round.level}`)
+                // Router.push(`/levels/level${data.round.level}`)
+            }
+          });
+        } else {
+          console.log("error");
+        }
+      });
+  }
+
+  const getLevel4Data = () => {
+    // get question number & end Time from backend
+    fetch("/api/levels/level4/getData", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          console.log("data", data);
+          // setCurPage(data.team.pageNo);
+          console.log(data.team.pageNo);
+        });
+      } else {
+        console.log("error");
+      }
+    });
+  };
+
   return (
-    <main>
-      <div className="grid min-h-screen gap-1 grid-cols-5">
-        <div className=" h-full w-full bg-red-500 col-span-5 row-span-1">heading</div>
-        <div className="h-full w-full bg-red-500 row-span-4">problem statement</div>
-        <div className="h-full w-full bg-red-500 row-span-2">project/product name</div>
-        <div className="h-full w-full bg-red-500 row-span-4">key features</div>
-        <div className="h-full w-full bg-red-500 row-span-2">success criteria</div>
-        <div className="h-full w-full bg-red-500 row-span-4">Objective</div>
-        <div className="h-full w-full bg-red-500 row-span-2">target audience</div>
-        <div className="h-full w-full bg-red-500 row-span-2">testing plan</div>
-        <div className="h-full w-full bg-red-500 col-span-3">key metrices to measure success</div>
-        <div className="h-full w-full bg-red-500 col-span-2">constraints and guidlines</div>
-      </div>
-    </main>
+    <div>
+      {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
+      {/* {curPage === 0 && <Instructions/>} */}
+      {curPage === 0 && <Waiting text={"Instruction"}/>}
+      {curPage === 1 && <GamePage/>}
+      {curPage === 2 && <Waiting text={"Prompt"}/>}
+      {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}
+      {/* {curPage === 2 && <Prompt/>} */}
+    </div>
   )
 }
+
 
