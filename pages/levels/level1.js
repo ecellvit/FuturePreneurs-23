@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Router from "next/router";
 import Waiting from "@/Components/levels/Waiting";
-import Game from "@/Components/levels/level1/game";
+import Game1 from "@/Components/levels/level1/game";
 
 export default function Level1() {
   useEffect(() => {
     checkCurrentLevel1();
     getLevel1Data();
   });
+
+  const [curPage, setCurPage] = useState(-1);
 
   const checkCurrentLevel1 = () => {
     fetch("/api/levels/checkCurrentRound", {
@@ -54,10 +56,10 @@ export default function Level1() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 1 started"} />}
+      {curPage === -1 && <Waiting text={"Please Wait for Level 1 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"} />}
-      {curPage === 1 && <Game />}
+      {curPage === 1 && <Game1 />}
       {curPage === 2 && <Waiting text={"Prompt"} />}
       {curPage === 3 && <Waiting text={"Level 1 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}

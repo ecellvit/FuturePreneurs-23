@@ -59,7 +59,7 @@ export default function Level0() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
+      {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <Game/>}
