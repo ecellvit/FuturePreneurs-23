@@ -5,13 +5,13 @@ import Router from "next/router";
 
 export default function Level3() {
 
-  useEffect(() => {
-    // fetch /api/level0
-    getLevel0Data();
-    checkCurrentLevel0();
-  }, [])
+  // useEffect(() => {
+  //   // fetch /api/level0
+  //   getLevel0Data();
+  //   checkCurrentLevel0();
+  // }, [])
 
-  const [curPage, setCurPage] = useState(-1);
+  const [curPage, setCurPage] = useState(1);
 
   const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
@@ -27,7 +27,7 @@ export default function Level3() {
             console.log(data.round.level);
             if(data.round.level!==0){
                 // redirect(`/levels/level${data.round.level}`)
-                // Router.push(`/levels/level${data.round.level}`)
+                Router.push(`/levels/level${data.round.level}`)
             }
           });
         } else {
@@ -62,7 +62,7 @@ export default function Level3() {
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <GamePage1/>}
-      {curPage === 2 && <GamePage2/>}
+      {curPage === 2 && <GamePage1/>}
       {curPage === 3 && <Waiting text={"Prompt"}/>}
       {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}
       {/* {curPage === 2 && <Prompt/>} */}
