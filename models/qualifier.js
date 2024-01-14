@@ -9,15 +9,19 @@ const qualifierSchema = mongoose.Schema(
         teamName: {
             type: String,
         },
+        startTime: {
+          type: Date
+        },
+        endTime: {
+          type: Date
+        },
         questionPointer: {
             type: Number,
             default: -1
         },
-        startTime: {
-            type: Date
-        },
-        endTime: {
-            type: Date
+        questionCategory: {
+            type: String,
+            default: "easy"
         },
         randomOrder: [
           {
@@ -46,4 +50,6 @@ export const Qualifier = mongoose.models.Qualifier || mongoose.model("Qualifier"
 
 // mcq store option No.
 // multiple correct store array of correct options. eg. [1,2]
+// 10 + 8 + 8 + 4
+// easy medium hard caseStudy
 // 
