@@ -71,11 +71,11 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <>
+                  <div key={ele}>
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
-                      <div>
-                        <label key={ele}>
+                      <div key={ele}>
+                        <label >
                           <input
                             type={
                               props.questionType === "single"
@@ -100,7 +100,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="flex">
+                      <div className="flex" key={ele}>
                         <input
                           type={
                               props.questionType === "single"
@@ -128,7 +128,7 @@ export default function AnswerForQualifier(props) {
                         />
                       </div>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </ul>
@@ -143,11 +143,11 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <>
+                  <div key={ele}>
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
-                      <div>
-                        <label key={ele}>
+                      <div key={ele}>
+                        <label>
                           <input
                             type={
                               props.questionType === "single"
@@ -172,7 +172,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="flex">
+                      <div className="flex" key={ele}>
                         <input
                           type={
                             props.questionType === "single"
@@ -200,7 +200,7 @@ export default function AnswerForQualifier(props) {
                         />
                       </div>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </ul>
@@ -215,11 +215,11 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <>
+                  <div key={ele}>
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
-                      <div>
-                        <label key={ele}>
+                      <div key={ele}>
+                        <label>
                           <input
                             type={
                               props.questionType === "single"
@@ -244,7 +244,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="flex">
+                      <div className="flex" key={ele}>
                         <input
                           type={
                             props.questionType === "single"
@@ -272,7 +272,7 @@ export default function AnswerForQualifier(props) {
                         />
                       </div>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </ul>
@@ -287,11 +287,11 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <>
+                  <div key={ele}>
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
-                      <div>
-                        <label key={ele}>
+                      <div key={ele}>
+                        <label >
                           <input
                             type={
                               props.questionType === "single"
@@ -316,7 +316,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="flex">
+                      <div className="flex" key={ele}>
                         <input
                           type={
                             props.questionType === "single"
@@ -344,7 +344,7 @@ export default function AnswerForQualifier(props) {
                         />
                       </div>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </ul>
