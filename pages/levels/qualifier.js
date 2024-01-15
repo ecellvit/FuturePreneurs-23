@@ -4,24 +4,38 @@ import QuestionForQualifier from "@/Components/Qualifier/QuestionsForQualifier";
 import Navbar from "@/Components/levels/Navbar";
 import Waiting from "@/Components/levels/Waiting";
 import questions from "@/constants/qualifiers/questions.json";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState("easy");
   const [finalAnswer,setFinalAnswer]= useState([]);
-  console.log(questions)
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    GetQuestionNumber();
-    checkCurrentQualifier();
-  });
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log("Authenticated", session);
+        GetQuestionNumber();
+        checkCurrentQualifier();
+      }
+    }
+  }, [status, router]);
+
 
   const submitAnswer=()=>{
     fetch('/api/levels/qualifier/submitAnswer',{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${session.accessTokenBackend}`,
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify( {"answer":finalAnswer} ),
         })
@@ -43,6 +57,8 @@ export default function Qualifier() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
         },
       }).then((res) => {
         if (res.status === 200) {
@@ -66,6 +82,8 @@ export default function Qualifier() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
       },
     })
     .then(res=>res.json())

@@ -163,7 +163,8 @@ export default function UserDetails() {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer " + session.accessTokenBackend,
+                Authorization: `Bearer ${session.accessTokenBackend}`,
+                "Access-Control-Allow-Origin": "*",
               },
               body: JSON.stringify({
                 firstName: first,
