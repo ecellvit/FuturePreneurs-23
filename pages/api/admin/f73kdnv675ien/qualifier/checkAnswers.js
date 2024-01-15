@@ -1,7 +1,7 @@
-import connectMongoDB from "@/libs/mongodb";
-import { Qualifier } from "@/models/qualifier";
 import answers from "@/constants/qualifiers/answers.json";
 import gamePoints from "@/constants/qualifiers/points.json";
+import connectMongoDB from "@/libs/mongodb";
+import { Qualifier } from "@/models/qualifier";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -11,14 +11,14 @@ export default async function handler(req, res) {
     await connectMongoDB();
     const teamName = "team1";
 
-    const qualTeam = await Qualifier.findOne({ teamName: teamName });
+    const qualTeam = await Qualifier.findOne({ teamId: teamId});
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
       return;
     }
 
     let points = 0;
-    const qualifierData = await Qualifier.findOne({ teamName: teamName });
+    const qualifierData = await Qualifier.findOne({ teamId: teamId});
     const easyAnswers = qualifierData.easyAnswers;
     const mediumAnswers = qualifierData.mediumAnswers;
     const hardAnswers = qualifierData.hardAnswers;

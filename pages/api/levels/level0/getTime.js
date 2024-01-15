@@ -1,6 +1,6 @@
+import time from "@/constants/time";
 import connectMongoDB from "@/libs/mongodb";
 import { Level0 } from "@/models/level0";
-import time from "@/constants/time";
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const startTime = Date.now();
     const endTime = startTime + 1000 * 60 * time.level0; //mins
     await connectMongoDB();
-    const teamData = await Level0.findOne({ teamName: teamName });
+    const teamData = await Level0.findOne({ teamId: teamId});
     console.log(teamData.startTime);
     if (teamData.startTime === undefined || teamData.startTime === null) {
       await Level0.updateOne(

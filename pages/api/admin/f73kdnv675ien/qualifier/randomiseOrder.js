@@ -1,6 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
-import { Qualifier } from "@/models/qualifier"
-import { TeamModel } from "@/models/teamModel";
+import { Qualifier } from "@/models/qualifier";
 
 export default async function handler(req, res) {
     if (req.method !== 'GET') {
@@ -9,7 +8,7 @@ export default async function handler(req, res) {
     } else {
         await connectMongoDB();
         const teamName = 'team1';
-        const qualTeam = await Qualifier.findOne({ teamName: teamName });
+        const qualTeam = await Qualifier.findOne({ teamId: teamId});
         if (!qualTeam) {
             res.status(400).json({ message: 'Team not found' })
         }

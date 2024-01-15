@@ -3,21 +3,24 @@ import { Qualifier } from "@/models/qualifier";
 import { TeamModel } from "@/models/teamModel";
 
 export default async function handler(req, res) {
+
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
+
   if (req.method !== "GET") {
     res.status(405).json({ message: "Method not allowed" });
     return;
   } else {
     await connectMongoDB();
-    const teamName = "team2";
-    const qualTeam = await Qualifier.findOne({ teamName: teamName });
+    const qualTeam = await Qualifier.findOne({ teamId: teamId});
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
     }
-    const team = await TeamModel.findOne({ teamName: teamName });
+    const team = await TeamModel.findOne({ teamId: teamId});
     if (team.level !== -1) {
       res.status(400).json({ message: "Qualifier is not right now" });
     } else {
-      const teamData = await Qualifier.findOne({ teamName: teamName });
+      const teamData = await Qualifier.findOne({ teamId: teamId});
       const questionCatogory = teamData.questionCategory;
       const pointer = teamData.questionPointer;
       const easyOrder = teamData.easyOrder;

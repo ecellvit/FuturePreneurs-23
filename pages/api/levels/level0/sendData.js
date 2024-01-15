@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       const teamName = "team1";
       await connectMongoDB();
 
-      const teamData = await Level0.findOne({ teamName: teamName });
+      const teamData = await Level0.findOne({ teamId: teamId});
       const endTime = Date.now();
       const startTime = teamData.startTime;
       const timeTaken = (endTime - startTime) / 1000;
