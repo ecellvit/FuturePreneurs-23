@@ -68,6 +68,10 @@ const qualifierSchema = mongoose.Schema(
             default: Array(4).fill(null)
           },
         ],
+        points:{
+          type: Number,
+          default: 0
+        }
 
 
         // members: [
