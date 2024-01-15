@@ -88,7 +88,7 @@ export default function qualifier() {
         <Waiting text={"Wait!!! Quiz will start in few minutes"} />)}
       {(questionCategory !== "instruction" && questionCategory !=='waiting') && (
         <div>
-          <Navbar />
+          <Navbar sendData={submitAnswer} teamName={"Team 1"} level="qualifier"/>
           <section className="flex flex-col gap-4 mt-4 items-center">
             <QuestionForQualifier
               questionNumber={questionNumber}
