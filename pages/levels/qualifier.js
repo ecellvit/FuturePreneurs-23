@@ -8,11 +8,55 @@ import Waiting from "@/Components/levels/Waiting";
 
 export default function qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [questionCategory, setQuestionCategory] = useState("");
+  const [questionCategory, setQuestionCategory] = useState("easy");
+  const [finalAnswer,setFinalAnswer]= useState([]);
+  console.log(questions)
 
   useEffect(() => {
     GetQuestionNumber();
+    checkCurrentQualifier();
   });
+
+  const submitAnswer=()=>{
+    fetch('/api/levels/qualifier/submitAnswer',{
+          method: "PUSH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify( finalAnswer ),
+        }).then((res) => {
+          if (res.status === 200) {
+            res.json().then((data) => {
+              console.log("data", data);
+            });
+          } else {
+            console.log("error");
+          }
+        });
+  }
+
+  const checkCurrentQualifier = ()=>{
+    fetch('/api/levels/checkCurrentRound',{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            console.log("data", data);
+            // setCurPage(data.team.pageNo);
+            console.log(data.round.level);
+            if(data.round.level!==-1){
+                // redirect(`/levels/level${data.round.level}`)
+                Router.push(`/levels/level${data.round.level}`)
+            }
+          });
+        } else {
+          console.log("error");
+        }
+      });
+  }
 
   function GetQuestionNumber() {
     fetch("/api/levels/qualifier/getQuestionData", {
@@ -23,11 +67,8 @@ export default function qualifier() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
           setQuestionNumber(data.questionPointer);
-          console.log(data.category)
           setQuestionCategory(data.category);
-          // console.log(data.team.pageNo);
         });
       } else {
         console.log("error");
@@ -37,7 +78,10 @@ export default function qualifier() {
 
   return (
     <main className="min-h-screen">
-      {questionCategory !== "instruction" ? (
+      {questionCategory==='waiting' && <Waiting text={"Wait!!! Quiz will start in few minutes"} />}
+      {questionCategory === 'instruction' && (
+        <Waiting text={"Wait!!! Quiz will start in few minutes"} />)}
+      {(questionCategory !== "instruction" && questionCategory !=='waiting') && (
         <div>
           <Navbar />
           <section className="flex flex-col gap-4 mt-4 items-center">
@@ -48,18 +92,20 @@ export default function qualifier() {
             <AnswerForQualifier
               questionNumber={questionNumber}
               questionCategory={questionCategory}
+              questionType={questions[questionCategory][questionNumber].q.questionType}
+              setFinalAnswer = {setFinalAnswer}
+              finalAnswer = {finalAnswer}
             />
             <button
               type="button"
-              class="text-white w-1/6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+              className="text-white w-1/6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+              onClick={()=>console.log(finalAnswer)}
             >
-              Submit
+              Next
             </button>
           </section>
         </div>
-      ) : (
-        <Waiting text={"Wait!!! Quiz will start in few minutes"} />
-      )}
+      ) }
     </main>
   );
 }

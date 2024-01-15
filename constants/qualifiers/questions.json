@@ -2,7 +2,7 @@
   "easy": [
     {
       "q": {
-        "questionType": "single", 
+        "questionType": "multiple", 
         "contentType": "text", 
         "content": "Emma owns a small bakery called \"Sweet Delights.\"In what strategic move does Emma's surprise expansion of her bakery menu, featuring intriguing textures and boasting exotic flours, truly shine:"
       },
