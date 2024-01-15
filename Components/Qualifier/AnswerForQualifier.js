@@ -3,7 +3,6 @@ import questions from "@/constants/qualifiers/questions.json";
 
 
 export default function AnswerForQualifier(props) {
-  const [answer, setAnswer] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({});
 
   // const storeAnswers = ()=>{
@@ -15,21 +14,22 @@ export default function AnswerForQualifier(props) {
 
   const storeAnswer=(ele)=>{
     if(props.questionType==='single')
-      props.setFinalAnswer(ele)
+      {console.log('hfsdfsd',ele)
+      props.setFinalAnswer([ele])}
     else{
       // console.log(selectedOptions)
-      if(answer.includes(ele))
+      if((props.finalAnswer).includes(ele))
         {
-          setAnswer(answer.filter((x) => x !== ele));
+          props.setFinalAnswer((props.answer).filter((x) => x !== ele));
         }
       
       else{
-        setAnswer(prevAnswer => [...prevAnswer, ele]);
+        props.setFinalAnswer(prevAnswer => [...prevAnswer, ele]);
         
       }
     }
   }
-  props.setFinalAnswer(answer)
+  // props.setFinalAnswer(answer)
   
   const handleOptionChange = (questionId, option) => {
     const isSelected = selectedOptions[questionId]?.includes(option);
@@ -103,7 +103,7 @@ export default function AnswerForQualifier(props) {
                       <div className="">
                         <input
                           type={
-                              answerOptionType === "single"
+                              props.questionType === "single"
                                 ? "radio"
                                 : "checkbox"
                             }
@@ -175,7 +175,7 @@ export default function AnswerForQualifier(props) {
                       <div className="">
                         <input
                           type={
-                              answerOptionType === "single"
+                            props.questionType === "single"
                                 ? "radio"
                                 : "checkbox"
                             }
@@ -247,7 +247,7 @@ export default function AnswerForQualifier(props) {
                       <div className="">
                         <input
                           type={
-                              answerOptionType === "single"
+                            props.questionType === "single"
                                 ? "radio"
                                 : "checkbox"
                             }
@@ -319,7 +319,7 @@ export default function AnswerForQualifier(props) {
                       <div className="">
                         <input
                           type={
-                              answerOptionType === "single"
+                            props.questionType === "single"
                                 ? "radio"
                                 : "checkbox"
                             }
