@@ -19,20 +19,23 @@ export default function qualifier() {
 
   const submitAnswer=()=>{
     fetch('/api/levels/qualifier/submitAnswer',{
-          method: "PUSH",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify( finalAnswer ),
-        }).then((res) => {
-          if (res.status === 200) {
-            res.json().then((data) => {
-              // console.log("data", data);
-            });
-          } else {
-            console.log("error");
-          }
-        });
+          body: JSON.stringify( {"answer":finalAnswer} ),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+          setFinalAnswer([]);
+          GetQuestionNumber();
+  console.log("Final Answer => " , finalAnswer);
+
+        })
+        .catch(err=>{
+          console.log(err);
+        })
   }
 
   const checkCurrentQualifier = ()=>{
@@ -58,7 +61,6 @@ export default function qualifier() {
         } 
       });
   }
-
   function GetQuestionNumber() {
     fetch("/api/levels/qualifier/getQuestionData", {
       method: "GET",
@@ -69,6 +71,7 @@ export default function qualifier() {
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
+      console.log("Question number got :::::")
       console.log(data.questionNumber)
       setQuestionNumber(data.questionNumber);
       setQuestionCategory(data.category);

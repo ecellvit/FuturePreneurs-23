@@ -18,7 +18,7 @@
     },
     {
       "q": {
-        "questionType": "single", 
+        "questionType": "multiple", 
         "contentType": "text", 
         "contentLink": "",
         "content": "Which is the correct chronological order"
@@ -31,8 +31,8 @@
     {
       "q": {
         "questionType": "single",
-        "contentType": "text",
-        "contentLink": "",
+        "contentType": "audio",
+        "contentLink": "https://utfs.io/f/ae4bd204-2efd-4a94-b522-ede0b687b921-iemjdv.mp3",
         "content":"`A value-based strategy aims to create distinctiveness in the market. By providing peerless products and services, companies can justify charging elevated costs. Realizing differentiation requires offering perks that patrons appreciate amply to pay a premium. Branding, R&D, unique features, and high-touch customer service aid. A differentiation tactic is to premium valuations as a affordability approach is to"
       },
       "ans": {

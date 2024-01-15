@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return;
   } else {
     await connectMongoDB();
-    const teamName = "team1";
+    const teamName = "team2";
     const qualTeam = await Qualifier.findOne({ teamName: teamName });
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
