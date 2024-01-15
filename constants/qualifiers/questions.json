@@ -2,7 +2,7 @@
   "easy": [
     {
       "q": {
-        "questionType": "multiple", 
+        "questionType": "single", 
         "contentType": "text", 
         "content": "The images given below represent the characteristic traits of an entrepreneur, identify which one of these is a managerial function of an entrepreneur"
       },
@@ -15,7 +15,8 @@
       "q": {
         "questionType": "single", 
         "contentType": "image", 
-        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705313797/fp9.0/pq6m1tx9qbabclfbgmee.png"
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705313797/fp9.0/pq6m1tx9qbabclfbgmee.png",
+        "content":"Match the following "
       },
       "ans": {
        "optionsType": "text", 
@@ -262,7 +263,7 @@
     },
     {
       "q": {
-        "questionType": "calculation",
+        "questionType": "single",
         "contentType": "text",
         "contentLink": "",
         "content": "'X' is a metric used to measure the efficiency and profitability of an investment. It essentially tells you how much you've gained (or lost) on an investment compared to its cost. Find what X is and calculate it for the following:A company invests $7,500 in a new software system. After one year, the software has generated $12,000 in additional revenue. What is the company's 'x' on this investment?"
@@ -497,7 +498,7 @@
       "questionType": "single",
       "contentType": "image",
       "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315417/FP/medium-12_ans_jbd9gn.jpg",
-      "content": "Listen to the audio file for the question \n https://utfs.io/f/e8c76257-7c48-4ec8-aef5-087fdad9dafa-zbc96v.m4a"
+      "content": "Arrange the given sharebrokers of India in descending order of their active clients in 2023"
     },
     "ans":{
       "optionsType":"text",
@@ -509,7 +510,7 @@
       "questionType": "single",
       "contentType": "image",
       "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315418/FP/medium-13_ans_ah46vc.jpg",
-      "content": "Listen to the audio file for the question \n https://utfs.io/f/900b7d3e-368d-46e7-a7a3-7cb6586bd920-zbc96u.m4a"
+      "content": "Arrange the given online payment platforms in ascending order of the number of the users in 2023"
     },
     "ans":{
       "optionsType":"text",
@@ -533,7 +534,7 @@
       "questionType": "single",
       "contentType": "image",
       "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315420/FP/medium-15_ans_ne3ar1.jpg",
-      "content": "Listen to the audio for the question \n https://utfs.io/f/0dc9b451-9b5a-4dc6-91d5-d6bc2d216664-zbc96s.m4a"
+      "content": "which famous company had the inhouse quick commerce venture shutdown within days of introduction"
     },
     "ans":{
       "optionsType":"text",
@@ -605,12 +606,12 @@
     "q": {
       "questionType": "single",
       "contentType": "image",
-      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315428/FP/medium-20_zi1itg.png",
-      "content": "Guess the Company Name"
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705343200/FP/dreamworks_e5wjsw.png",
+      "content": ""
     },
     "ans":{
       "optionsType":"text",
-      "optionsContent":["a)Value innovation","b)Value curve","c)Value frontier","d)Value proposition"]
+      "optionsContent":["DreamWorks","Dream11","Sleepwell","Sleepyhead"]
   }
   },
   {
@@ -677,7 +678,7 @@
   },
   {
     "q":{
-      "questionType": "multiple",
+      "questionType": "single",
       "contentType": "image",
       "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705335242/FP/hard-2_jpsiaw.png",
       "content":"Which is the correct chronological order?"
@@ -723,18 +724,6 @@
       "optionsContent":["a)Green","b)Pink","c)Blue","d)Orange"]
   }
   },
-    {
-      "q":{
-        "questionType": "single",
-        "contentType": "image",
-        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705336613/FP/hard-6_zmyrr7.png",
-        "content":"Identify the following sections in the given graph"
-      },
-      "ans":{
-        "optionsType":"text",
-        "optionsContent":["a)A-Growth, B-Time, C-Maturity, D-Decline, E-Introduction, F- Salesn","b)A-Introduction, B-Sales, C-Time, D-Maturity, E-Growth, F-Declinek","c)A- Introduction, B- Maturity, C-Sales, D-Growth, E-Time, F-Decline","d)A-Maturity, B-Sales, C-Introduction, D-Time, E-Decline, F-Growthe"]
-    }
-    },
     {
       "q":{
         "questionType": "single",
@@ -841,18 +830,6 @@
       "ans":{
         "optionsType":"text",
         "optionsContent":["a)A visual representation featuring horizontal lines that illustrates the quality of work accomplished or production completed during specific time intervals in comparison to the planned amounts for those periods.","b)A graphical depiction utilizing horizontal lines to display the progress of work or production left within defined timeframes, showcasing how it aligns with the planned quantities for those periods.","c)A chart composed of horizontal lines that visually communicates the extent of work undertaken or production achieved during overall time segments, offering insights into the correlation with the predetermined targets for each period.","d)a chart in which a series of horizontal lines shows the amount of work done or production completed in certain periods of time in relation to the amount planned for those periods. "]
-    }
-    },
-    {
-      "q":{
-        "questionType": "single",
-        "contentType": "text",
-        "contentLink": "",
-        "content":"X is a company that started in 1921 in Boston and the name was an expression for a petite wooden structure intricately constructed to house the radio apparatus of a maritime vessel. This company was purchased by leather goods corporation in 1962 for about US$300,000. In mid 1990’s this company endeavored to transitioned from niche components to broader consumer markets, with a specific emphasis on promoting wireless phones. It was delisted  from the NYSE in 2015 and subsequently in 2017 filed for bankruptcy "
-      },
-      "ans":{
-        "optionsType":"text",
-        "optionsContent":["a)Raytheon Technologies","b)RadioShack","c)Motorola","d)Zenith Electronics"]
     }
     },
     {
@@ -977,6 +954,5 @@
         "optionsContent": ["0.5, medium", "0.8, medium", "1, high", "0.4, low"]
       }
     }
-    
   ]
 }
