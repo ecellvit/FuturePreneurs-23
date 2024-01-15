@@ -47,12 +47,12 @@ export default function DropdownStatements(){
   return (
     <div className="flex flex-col items-center gap-8">
     <Toaster/>
-      <div className="text-lg p-2">
+      <div className="text-4xl p-2 text-white font-bold">
         Arrange The Given Problems In Correct Order
       </div>
       {Object.keys(dropdownValues).map((statement, index) => (
         <div key={index} className="flex items-center">
-          <p className="mr-2">{`${questionStatement[index]}:`}</p>
+          <p className="mr-2 text-white font-bold text-3xl">{`${questionStatement[index]}:`}</p>
           <select
             className="border rounded p-2"
             value={dropdownValues[statement]}

@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
+import Image from "public/assets/bg/spceBg.svg";
 import LoadingIcons from "react-loading-icons";
-
 
 export default function Game() {
   const [todos, setTodos] = useState([]);
@@ -67,11 +67,13 @@ export default function Game() {
   return (
     <main className="min-h-screen bg-neutral-800">
       <Navbar sendData={sendData} level="level0"/>
-      <div className="flex h-full">
+      <div className="flex h-full"
+      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      >
         <div className="flex w-3/5 h-full">
           <iframe className="h-[80vh] w-full m-2 no-scrollbar" src="https://utfs.io/f/70759f63-63e2-41b8-ab97-87e023d0cda5-rcqfzh.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
         </div>
-        <div className="max-w-md mx-auto mt-8">
+        <div className="max-w-md mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-4 text-white">Enter Your Answers</h1>
       <ul>
         {todos?.map((todo) => (
@@ -92,7 +94,7 @@ export default function Game() {
           value={task}
           rows={4}
           onChange={(e) => setTask(e.target.value)}
-          className="p-2 border bg-[#E9FFFF] border-gray-300 rounded-lg w-full"
+          className="p-20 border bg-[#E9FFFF] border-gray-300 rounded-lg w-full h-full"
           placeholder="Enter your Answers Here"
         />
         <button
@@ -102,9 +104,7 @@ export default function Game() {
           <FaPlus className="h-6 w-6 text-white m-2"/>
         </button>
       </div>
-      <button className="text-white border border-white rounded-xl p-2" disabled={loading} onClick={()=>{sendData()}}>
-        {loading?<LoadingIcons.ThreeDots className="h-6 w-6"/>:"Submit"}
-      </button>
+      <button className="text-white" onClick={()=>{sendData()}}>SUBMIT</button>
       <Toaster/>
   
     </div>
