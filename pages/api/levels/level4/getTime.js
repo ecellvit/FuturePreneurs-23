@@ -1,18 +1,21 @@
+import time from "@/constants/time";
 import connectMongoDB from "@/libs/mongodb";
 import { Level4 } from "@/models/level4";
-import time from "@/constants/time";
 
 export default async function handler(req, res) {
+
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
+
   try {
     if (req.method !== "GET") {
       res.status(405).json({ message: "Method not allowed" });
       return;
     }
-    const teamName = "team1"; //Get team ID from db
     const startTime = Date.now();
     const endTime = startTime + 1000 * 60 * time.level4; //mins
     await connectMongoDB();
-    const teamData = await Level4.findOne({ teamName: teamName });
+    const teamData = await Level4.findOne({ teamId: teamId});
     console.log(teamData.startTime);
     if (teamData.startTime === undefined || teamData.startTime === null) {
       await Level4.updateOne(

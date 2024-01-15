@@ -6,7 +6,8 @@ import mongoose from "mongoose";
 
 export default async function handler(req, res) {
 
-  const { qno } = req.query
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' })

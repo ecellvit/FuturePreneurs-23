@@ -2,15 +2,18 @@ import connectMongoDB from "@/libs/mongodb";
 import { Qualifier } from "@/models/qualifier";
 
 export default async function handler(req, res) {
+
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
+
   if (req.method !== "POST") {
     res.status(405).json({ message: "Method not allowed" });
     return;
   } else {
     try {
       await connectMongoDB();
-      const teamName = "team2";
 
-      const qualTeam = await Qualifier.findOne({ teamName: teamName });
+      const qualTeam = await Qualifier.findOne({ teamId: teamId});
       if (!qualTeam) {
         res.status(400).json({ message: "Team not found" });
         return;
@@ -18,7 +21,7 @@ export default async function handler(req, res) {
 
       const answerData = req.body.answer;
       console.log("answerData", answerData);
-      const teamData = await Qualifier.findOne({ teamName: teamName });
+      const teamData = await Qualifier.findOne({ teamId: teamId});
       const questionPointer = teamData.questionPointer;
       const easyOrder = teamData.easyOrder;
       const mediumOrder = teamData.mediumOrder;

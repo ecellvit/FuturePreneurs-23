@@ -7,7 +7,7 @@ export default function GameTimer(props) {
     fetch(`/api/levels/${props.level}/getTime`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("data for time",data);
+        console.log("data for time", data);
         setEndTime(data.endTime);
       })
       .catch((err) => {
@@ -24,7 +24,7 @@ export default function GameTimer(props) {
       return { minutes: "00", seconds: "00" };
     }
 
-    if(Math.floor(timeDiff/1000) <= 0){
+    if (Math.floor(timeDiff / 1000) <= 0) {
       props.sendData();
     }
 
@@ -48,10 +48,18 @@ export default function GameTimer(props) {
   });
 
   return (
-    <div className="text-black flex h-full w-full text-xl justify-center">
-      <div className="flex flex-col">{timeRemaining.minutes}</div>
-      <span>:</span>
-      <div className="flex flex-col">{timeRemaining.seconds}</div>
+    <div className="flex justify-center h-full w-full text-white ">
+      <div className="flex justify-evenly h-full w-full text-xl">
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col">{timeRemaining.minutes}</div>
+          MINS
+        </div>
+        <span>:</span>
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col">{timeRemaining.seconds}</div>
+          SECS
+        </div>
+      </div>
     </div>
   );
 }
