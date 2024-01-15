@@ -12,24 +12,28 @@ export default function QuestionForQualifier(props) {
             <div>Question {props.questionNumber + 1}</div>
             <div>
               {
-                questions[props.questionCategory][props.questionNumber].q
-                  .content
+                questions[props.questionCategory][props.questionNumber].q.content
               }
             </div>
-            {questions[props.questionCategory][props.questionNumber].q
-              .contentType === "image" && (
+            {questions[props.questionCategory][props.questionNumber].q.contentType === "image" && (
               <img
                 src={
-                  questions[props.questionCategory][props.questionNumber].q
-                    .contentLink
+                  questions[props.questionCategory][props.questionNumber].q.contentLink
                 }
               />
             )}
+            {questions[props.questionCategory][props.questionNumber].q.contentType === "audio" && (
+            <audio controls className="mb-2">
+              <source src={questions[props.questionCategory][props.questionNumber].q
+                    .contentLink} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
           </div>
         )}
         {props.questionCategory === "medium" && (
           <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
-            <div>Question {props.questionNumber + 1}</div>
+            <div>Question {props.questionNumber + 11}</div>
             <div>
               {
                 questions[props.questionCategory][props.questionNumber].q
@@ -45,11 +49,19 @@ export default function QuestionForQualifier(props) {
                 } className="w-[30vw] h-[15vh]"
               />
             )}
+            {questions[props.questionCategory][props.questionNumber].q
+              .contentType === "audio" && (
+            <audio controls className="mb-2">
+              <source src={questions[props.questionCategory][props.questionNumber].q
+                    .contentLink} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
           </div>
         )}
         {props.questionCategory === "hard" && (
           <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
-            <div>Question {props.questionNumber + 1}</div>
+            <div>Question {props.questionNumber + 19}</div>
             <div>
               {
                 questions[props.questionCategory][props.questionNumber].q
@@ -65,6 +77,14 @@ export default function QuestionForQualifier(props) {
                 }
               />
             )}
+            {questions[props.questionCategory][props.questionNumber].q
+              .contentType === "audio" && (
+            <audio controls className="mb-2">
+              <source src={questions[props.questionCategory][props.questionNumber].q
+                    .contentLink} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
           </div>
         )}
         {props.questionCategory === "caseStudy" && (
@@ -85,6 +105,14 @@ export default function QuestionForQualifier(props) {
                 }
               />
             )}
+            {questions[props.questionCategory][props.questionNumber].q
+              .contentType === "audio" && (
+            <audio controls className="mb-2">
+              <source src={questions[props.questionCategory][props.questionNumber].q
+                    .contentLink} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
           </div>
         )}
       </section>
