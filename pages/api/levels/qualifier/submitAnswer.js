@@ -1,5 +1,6 @@
 import connectMongoDB from "@/libs/mongodb";
 import { Qualifier } from "@/models/qualifier";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
