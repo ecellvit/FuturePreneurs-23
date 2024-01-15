@@ -20,8 +20,8 @@ export default async function handler(req, res) {
     const teamData = await Qualifier.findOne({ teamId: teamId});
     console.log(teamData.startTime);
     if (teamData.startTime === undefined || teamData.startTime === null) {
-      await Qualifier.updateOne(
-        { teamId: teamData.teamId },
+      await Qualifier.findByIdAndUpdate(
+        teamId,
         { startTime: startTime, endTime: endTime }
       );
       return res

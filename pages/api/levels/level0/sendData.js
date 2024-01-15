@@ -32,8 +32,8 @@ export default async function handler(req, res) {
 
       //TODO: set points in TeamModel.
 
-      await Level0.updateOne(
-        { teamName: teamName },
+      await Level0.findByIdAndUpdate(
+        teamId,
         { pageNo: 2, level0Points: points }
       );
       return res
