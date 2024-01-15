@@ -1,7 +1,7 @@
 
-import { TeamModel1 } from "@/models/test";
 import connectMongoDB from '@/libs/mongodb';
-import { Users1 } from "@/models/testuser";
+import { TeamModel1 } from "@/models/test";
+import { Users } from "@/models/user";
 
 export default async function handler(req, res) {
     try {
@@ -15,9 +15,9 @@ export default async function handler(req, res) {
 
        
         
-        const totalUsers=await Users1.countDocuments();
+        const totalUsers=await Users.countDocuments();
         //console.log(totalUsers);
-        const usersWithNullTeamId = await Users1.find({ teamId: null });
+        const usersWithNullTeamId = await Users.find({ teamId: null });
         console.log(usersWithNullTeamId);
         const userobj = usersWithNullTeamId.map(user => user._id);
         console.log(userobj);
@@ -86,7 +86,7 @@ export default async function handler(req, res) {
             if(team.members.length===2){
                 team.members.push(userobj[a]);
                 await team.save();
-                await Users1.findByIdAndUpdate(userobj[a]._id, { teamId: team._id });
+                await Users.findByIdAndUpdate(userobj[a]._id, { teamId: team._id });
 
                 userobj.splice(a, 1);
                 count3++;
@@ -109,7 +109,7 @@ export default async function handler(req, res) {
                 await team.save();
 
                 for (const userId of [userobj[a]._id, userobj[a+1]._id]) {
-                    await Users1.findByIdAndUpdate(userId, { teamId: team._id });
+                    await Users.findByIdAndUpdate(userId, { teamId: team._id });
                 }
                 userobj.splice(a, 2);
 
@@ -154,7 +154,7 @@ export default async function handler(req, res) {
         
                 for (const user of arr) {
                     if (user) {
-                        await Users1.findByIdAndUpdate(user._id, { teamId: newTeam._id });
+                        await Users.findByIdAndUpdate(user._id, { teamId: newTeam._id });
                     }
                 }
         
@@ -168,12 +168,12 @@ export default async function handler(req, res) {
                     // Update teamId for the first user
                     existingThreeMemberTeams[0].members.push(arr[0]);
                     await existingThreeMemberTeams[0].save();
-                    await Users1.findByIdAndUpdate(arr[0]._id, { teamId: existingThreeMemberTeams[0]._id });
+                    await Users.findByIdAndUpdate(arr[0]._id, { teamId: existingThreeMemberTeams[0]._id });
             
                     // Update teamId for the second user
                     existingThreeMemberTeams[1].members.push(arr[1]);
                     await existingThreeMemberTeams[1].save();
-                    await Users1.findByIdAndUpdate(arr[1]._id, { teamId: existingThreeMemberTeams[1]._id });
+                    await Users.findByIdAndUpdate(arr[1]._id, { teamId: existingThreeMemberTeams[1]._id });
             
                     count4++;
                     count4++;
@@ -189,7 +189,7 @@ export default async function handler(req, res) {
                     // Update teamId for the user
                     existingThreeMemberTeams[0].members.push(arr[0]);
                     await existingThreeMemberTeams[0].save();
-                    await Users1.findByIdAndUpdate(arr[0]._id, { teamId: existingThreeMemberTeams[0]._id });
+                    await Users.findByIdAndUpdate(arr[0]._id, { teamId: existingThreeMemberTeams[0]._id });
             
                     count4++;
                     count3 = count3 - 1;

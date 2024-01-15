@@ -1,6 +1,6 @@
 // src/components/Quiz.js
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const questions = [
   {
@@ -13,7 +13,7 @@ const questions = [
   // Add more questions as needed
 ];
 
-const test = () => {
+const Test = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
 
   const handleOptionChange = (questionId, option) => {

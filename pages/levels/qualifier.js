@@ -1,13 +1,13 @@
 // full questions ui here
-import React, { useEffect, useState } from "react";
-import Navbar from "@/Components/levels/Navbar";
-import questions from "@/constants/qualifiers/questions.json";
-import QuestionForQualifier from "@/Components/Qualifier/QuestionsForQualifier";
 import AnswerForQualifier from "@/Components/Qualifier/AnswerForQualifier";
+import QuestionForQualifier from "@/Components/Qualifier/QuestionsForQualifier";
+import Navbar from "@/Components/levels/Navbar";
 import Waiting from "@/Components/levels/Waiting";
+import questions from "@/constants/qualifiers/questions.json";
+import { useEffect, useState } from "react";
 import Instructions from "@/Components/Qualifier/Instructions";
 
-export default function qualifier() {
+export default function Qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState("easy");
   const [finalAnswer,setFinalAnswer]= useState([]);
@@ -89,7 +89,7 @@ export default function qualifier() {
         <Instructions/>)}
       {(questionCategory !== "instruction" && questionCategory !=='waiting') && (
         <div>
-          <Navbar />
+          <Navbar sendData={submitAnswer} teamName={"Team 1"} level="qualifier"/>
           <section className="flex flex-col gap-4 mt-4 items-center">
             <QuestionForQualifier
               questionNumber={questionNumber}
