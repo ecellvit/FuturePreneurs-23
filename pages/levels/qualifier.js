@@ -71,7 +71,7 @@ export default function Qualifier() {
             // console.log(data.round.level);
             if (data.round.level !== -1) {
               // redirect(`/levels/level${data.round.level}`)
-              Router.push(`/levels/level${data.round.level}`);
+              router.push(`/levels/level${data.round.level}`);
             }
           })
           .catch((err) => {
