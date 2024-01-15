@@ -4,6 +4,7 @@ import image from "public/assets/levels/navbar/downloadNewspaper.svg"
 import logo from "public/assets/logos/FP LOGO.svg"
 const Navbar = (props) => {
   const levelNames = {
+    qualifier:"Qualifier",
     level0: "Round 1",
     level1: "Round 2",
     level2: "Round 3",
