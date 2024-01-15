@@ -4,11 +4,17 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
+import LoadingIcons from "react-loading-icons";
 
 
 export default function Game() {
+  const [todos, setTodos] = useState([]);
+  const [task, setTask] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const sendData = ()=>{
     // send data to backend
+    setLoading(true);
     fetch("/api/levels/level0/sendData",{
       method:"POST",
       headers:{
@@ -27,12 +33,12 @@ export default function Game() {
       location.reload();
     })
     .catch(err=>{
-      toast.error("Something went wrong")
+      toast.error("Something went wrong");
+      setLoading(false);
     })
 
   }
-  const [todos, setTodos] = useState([]);
-  const [task, setTask] = useState("");
+  
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -96,8 +102,11 @@ export default function Game() {
           <FaPlus className="h-6 w-6 text-white m-2"/>
         </button>
       </div>
-      <button className="text-white" onClick={()=>{sendData()}}>SUBMIT</button>
+      <button className="text-white border border-white rounded-xl p-2" disabled={loading} onClick={()=>{sendData()}}>
+        {loading?<LoadingIcons.ThreeDots className="h-6 w-6"/>:"Submit"}
+      </button>
       <Toaster/>
+  
     </div>
         {/* <InputBoxList /> */}
       </div>
