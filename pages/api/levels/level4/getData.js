@@ -2,7 +2,9 @@ import connectMongoDB from "@/libs/mongodb";
 import { Level4 } from "@/models/level4";
 // import { Level0Model } from "@/models/level0";
 import { TeamModel } from "@/models/teamModel";
+import getTokenDetails from "@/utils/auth";
 import mongoose from "mongoose";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
@@ -21,7 +23,7 @@ export default async function handler(req, res) {
     const teamName = 'team1';
 
     await connectMongoDB();
-    const team = await Level4.findOne({teamName: teamName});
+    const team = await Level4.findOne({teamId: teamId});
     // const team = new Level0({teamName: teamName});
     // await team.save();
 
