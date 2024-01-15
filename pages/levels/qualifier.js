@@ -8,6 +8,8 @@ import questions from "@/constants/qualifiers/questions.json";
 // import bg from "public/assets/landingPage/bg.svg";
 import { useEffect, useState } from "react";
 import Instructions from "@/Components/Qualifier/Instructions";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 export default function Qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
