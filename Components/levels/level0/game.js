@@ -66,7 +66,7 @@ export default function Game() {
   };
   return (
     <main className="min-h-screen bg-neutral-800">
-      <Navbar sendData={sendData} level="level0"/>
+      <Navbar sendData={sendData} teamName={"Team 1"} level="level0"/>
       <div className="flex h-full"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
@@ -78,7 +78,7 @@ export default function Game() {
       <ul>
         {todos?.map((todo) => (
           <li key={todo.id} className="flex items-center mb-2">
-            <div className="mr-2 p-2 bg-white border border-gray-300 min-w-full text-wrap">{todo.task}</div>
+            <div className="mr-2 p-2 bg-white border border-gray-300 min-w-20 text-wrap h-fit">{todo.task}</div>
             <button
               onClick={() => removeTodo(todo.id)}
               className="h-6"
@@ -88,13 +88,13 @@ export default function Game() {
           </li>
         ))}
       </ul>
-      <div className="flex mb-4">
+      <div className="flex mb-4 w-full">
         <textarea
           type="text"
           value={task}
           rows={4}
           onChange={(e) => setTask(e.target.value)}
-          className="p-20 border bg-[#E9FFFF] border-gray-300 rounded-lg w-full h-full"
+          className="p-2 border bg-[#E9FFFF] border-gray-300 rounded-lg w-full h-full"
           placeholder="Enter your Answers Here"
         />
         <button
