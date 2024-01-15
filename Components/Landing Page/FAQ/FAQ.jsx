@@ -56,7 +56,7 @@ const FAQ = () => {
     {
       id: 8,
       q: "I still have some doubts regarding the event. How can I get them resolved?",
-      ans: ["Contact:", "Anuj Khokhar +91 8827995405","Vrinda Bajaj +91 7303555341 "]
+      ans: ["Contact:", "Anuj Khokhar +91 8827995405","Yashita Jindal +91 7696780371 "]
     },
   ]
 

@@ -17,7 +17,7 @@ import bg from "public/assets/landingPage/bg.svg";
 import { useState } from "react";
 
 export default function Home() {
-  const targetDate = new Date(2024, 0, 16, 21, 0);
+  const targetDate = new Date(2024, 0, 16, 1, 0);
   const [isLoading, setIsLoading] = useState(false);
   return (
 
