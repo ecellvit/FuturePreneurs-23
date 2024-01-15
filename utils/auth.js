@@ -17,6 +17,9 @@ export default async function getTokenDetails (session) {
 
       const userId = tokenDetails.payload._id
       const user = await Users.findOne({"_id": userId})
+      if(user.teamRole != '0'){
+        throw new Error("Not allowed bro");
+      }
       return user.teamId
 
     } catch (err) {
