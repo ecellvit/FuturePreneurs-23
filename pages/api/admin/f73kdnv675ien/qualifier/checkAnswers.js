@@ -9,7 +9,6 @@ export default async function handler(req, res) {
   }
   try {
     await connectMongoDB();
-    const teamName = "team1";
 
     const qualTeam = await Qualifier.findOne({ teamId: teamId});
     if (!qualTeam) {

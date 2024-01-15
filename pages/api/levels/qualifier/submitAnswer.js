@@ -2,13 +2,16 @@ import connectMongoDB from "@/libs/mongodb";
 import { Qualifier } from "@/models/qualifier";
 
 export default async function handler(req, res) {
+
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
+
   if (req.method !== "POST") {
     res.status(405).json({ message: "Method not allowed" });
     return;
   } else {
     try {
       await connectMongoDB();
-      const teamName = "team2";
 
       const qualTeam = await Qualifier.findOne({ teamId: teamId});
       if (!qualTeam) {
