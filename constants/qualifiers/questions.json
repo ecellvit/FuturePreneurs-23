@@ -2,7 +2,7 @@
   "easy": [
     {
       "q": {
-        "questionType": "single", 
+        "questionType": "multiple", 
         "contentType": "text", 
         "content": "The images given below represent the characteristic traits of an entrepreneur, identify which one of these is a managerial function of an entrepreneur"
       },

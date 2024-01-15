@@ -43,11 +43,35 @@ const qualifierSchema = mongoose.Schema(
             type: Number,
           }
         ],
-        userAnswers: [
+        easyAnswers: [
           {
-            type: Schema.Types.Mixed
+            type: Schema.Types.Mixed,
+            default: Array(30).fill(null)
           },
         ],
+        mediumAnswers: [
+          {
+            type: Schema.Types.Mixed,
+            default: Array(25).fill(null)
+          },
+        ],
+        hardAnswers: [
+          {
+            type: Schema.Types.Mixed,
+            default: Array(20).fill(null)
+
+          },
+        ],
+        caseStudyAnswers: [
+          {
+            type: Schema.Types.Mixed,
+            default: Array(4).fill(null)
+          },
+        ],
+        points:{
+          type: Number,
+          default: 0
+        }
 
 
         // members: [

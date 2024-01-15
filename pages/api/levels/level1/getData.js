@@ -2,18 +2,23 @@ import connectMongoDB from "@/libs/mongodb";
 import { Level1 } from "@/models/level1";
 // import { Level0Model } from "@/models/level0";
 import { TeamModel } from "@/models/teamModel";
+import getTokenDetails from "@/utils/auth";
 import mongoose from "mongoose";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
-  const { qno } = req.query
+  const session = await getSession({req});
+  console.log('session', session);
+  let token = await getTokenDetails(session)
+  console.log('asdf', token);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' })
     return
   } else {
     // read which questoin the user is in, endTime from db, send to user.
-
+    console.log('asdf', token)
     // const authToken = req.headers.authorization;
     // check if leader, auth etc.
 

@@ -8,7 +8,7 @@ export default async function checkCurrentRound(req,res){
         return
     }else{
         await connectMongoDB();
-        const teamName = 'team1';
+        const teamName = 'team2';
         const round = await TeamModel.findOne({teamName:teamName});
 
         try{
