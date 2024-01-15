@@ -6,9 +6,9 @@ export default function QuestionForQualifier(props) {
     <main>
       <section className="flex flex-col justify-center items-center">
         {props.questionCategory === "easy" && (
-          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
+          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-white text-white rounded-lg">
             <div>Question {props.questionNumber + 1}</div>
-            <div>
+            <div className="">
               {
                 questions[props.questionCategory][props.questionNumber].q
                   .content
@@ -71,7 +71,7 @@ export default function QuestionForQualifier(props) {
           </div>
         )}
         {props.questionCategory === "medium" && (
-          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
+          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-white text-white rounded-lg">
             <div>Question {props.questionNumber + 11}</div>
             <div>
               {
@@ -137,7 +137,7 @@ export default function QuestionForQualifier(props) {
           </div>
         )}
         {props.questionCategory === "hard" && (
-          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
+          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-white text-white rounded-lg">
             <div>Question {props.questionNumber + 19}</div>
             <div>
               {
@@ -202,7 +202,7 @@ export default function QuestionForQualifier(props) {
           </div>
         )}
         {props.questionCategory === "caseStudy" && (
-          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-black rounded-lg">
+          <div className="flex flex-col text-xl w-3/4 h-fit p-5 border border-white text-white rounded-lg">
             <div>Question {props.questionNumber + 23}</div>
             <iframe src="/assets/levels/navbar/qualifier/pdf.pdf#toolbar=0&navpanes=0" />
             <div>

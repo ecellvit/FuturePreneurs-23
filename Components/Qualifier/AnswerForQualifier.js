@@ -59,9 +59,9 @@ export default function AnswerForQualifier(props) {
     }
   };
   return (
-    <main>
+    <main className="text-white">
       
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center text-white">
       
         {props.questionCategory === "easy" && (
           <div className="flex text-xl">
