@@ -76,8 +76,8 @@ export default async function handler(req, res) {
         }
     }
 
-    await Qualifier.updateOne(
-      { teamName: teamName },
+    await Qualifier.findByIdAndUpdate(
+        teamId,
       { points: points }
     );
 

@@ -20,8 +20,8 @@ export default async function handler(req, res) {
     const teamData = await Level0.findById(teamId);
     console.log(teamData.startTime);
     if (teamData.startTime === undefined || teamData.startTime === null) {
-      await Level0.updateOne(
-        { teamName: teamName },
+      await Level0.findByIdAndUpdate(
+        teamId,
         { startTime: startTime, endTime: endTime }
       );
       return res

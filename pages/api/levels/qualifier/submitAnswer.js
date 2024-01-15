@@ -65,8 +65,8 @@ export default async function handler(req, res) {
       }
 
       console.log(questionPointer);
-      await Qualifier.updateOne(
-        { teamName: teamName },
+      await Qualifier.findByIdAndUpdate(
+        teamId,
         {
           questionPointer: newQuestionPointer,
           questionCategory: questionCategory,
