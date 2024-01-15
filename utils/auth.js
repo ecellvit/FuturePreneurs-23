@@ -16,7 +16,7 @@ export default async function getTokenDetails (session) {
 
       const userId = tokenDetails.payload._id
       console.log('aaaaaa', userId)
-      const user = await Users.findById(userId)
+      const user = await Users.findOne({"_id": userId})
       console.log('sssssss', user)
       return user.teamId
 
