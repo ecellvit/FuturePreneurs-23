@@ -2,10 +2,13 @@ import { Qualifier } from "@/models/qualifier";
 import connectMongoDB from '@/libs/mongodb';
 
 export default async function handler(req, res) {
+
+    const session = await getSession({req});
+    let teamId = await getTokenDetails(session);
+
     try {
         connectMongoDB();
 
-        const qualifiers = await Qualifier.findOne({ teamName: "team1" });
         let startTime = new Date("January 15, 2024 16:45:00");
         startTime.toTimeString()
         startTime= startTime-4;
@@ -17,7 +20,7 @@ export default async function handler(req, res) {
         if (Math.abs((currentTime) - startTime) <= 600000) {
             
             await Qualifier.findOneAndUpdate(
-                { teamName: "team1" },
+                { teamId: teamId },
                 {
                     $set: {
                         questionCategory: "easy",
