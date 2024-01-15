@@ -928,5 +928,55 @@
     }
     }
   ],
-  "caseStudy":[]
+  "caseStudy":[
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What are the depreciation and amortization expenses in the Oil to Chemicals sector in the September 21' Quarter? (*in INR crores)"
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["1973", "12,231", "12,720", "1953"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What is the YoY change in revenue in Financial services for the half-year period ending on 30th September 2021? (*in INR crores)"
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["-43.19", "-330", "46.59", "612"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Find the Y ratio that is a measure of the company's operating profit as a percentage of its revenue, for September 2021 (Half Year Ended)."
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["16.76", "18.22", "16.85", "12.39"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Find the x ratio that examines how much of a company's assets are made of liabilities and also examines the leverage and risk for September 2021 (Quarter Ended)."
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["0.5, medium", "0.8, medium", "1, high", "0.4, low"]
+      }
+    }
+    
+  ]
 }
