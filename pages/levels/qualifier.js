@@ -5,6 +5,7 @@ import questions from "@/constants/qualifiers/questions.json";
 import QuestionForQualifier from "@/Components/Qualifier/QuestionsForQualifier";
 import AnswerForQualifier from "@/Components/Qualifier/AnswerForQualifier";
 import Waiting from "@/Components/levels/Waiting";
+import Instructions from "@/Components/Qualifier/Instructions";
 
 export default function qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -85,7 +86,7 @@ export default function qualifier() {
     <main className="min-h-screen">
       {questionCategory==='waiting' && <Waiting text={"Wait!!! Quiz will start in few minutes"} />}
       {questionCategory === 'instruction' && (
-        <Waiting text={"Wait!!! Quiz will start in few minutes"} />)}
+        <Instructions/>)}
       {(questionCategory !== "instruction" && questionCategory !=='waiting') && (
         <div>
           <Navbar />
