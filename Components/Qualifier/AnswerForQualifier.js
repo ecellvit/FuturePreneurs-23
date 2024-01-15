@@ -65,7 +65,7 @@ export default function AnswerForQualifier(props) {
       
         {props.questionCategory === "easy" && (
           <div className="flex text-xl">
-            <ul className="">
+            <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
                 questions[props.questionCategory][props.questionNumber].ans
                   .optionsContent
@@ -100,7 +100,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="">
+                      <div className="flex">
                         <input
                           type={
                               props.questionType === "single"
@@ -124,7 +124,7 @@ export default function AnswerForQualifier(props) {
                               props.questionNumber
                             ].ans.optionsContent[ele]
                           }
-                          className="w-[350px] h-auto "
+                          className="w-[300px] h-auto "
                         />
                       </div>
                     )}
@@ -137,7 +137,7 @@ export default function AnswerForQualifier(props) {
         )}
         {props.questionCategory === "medium" && (
           <div className="flex text-xl">
-            <ul className="">
+            <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
                 questions[props.questionCategory][props.questionNumber].ans
                   .optionsContent
@@ -172,7 +172,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="">
+                      <div className="flex">
                         <input
                           type={
                             props.questionType === "single"
@@ -196,7 +196,7 @@ export default function AnswerForQualifier(props) {
                               props.questionNumber
                             ].ans.optionsContent[ele]
                           }
-                          className="w-[350px] h-auto "
+                          className="w-[300px] h-auto "
                         />
                       </div>
                     )}
@@ -209,7 +209,7 @@ export default function AnswerForQualifier(props) {
         )}
         {props.questionCategory === "hard" && (
           <div className="flex text-xl">
-            <ul className="">
+            <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
                 questions[props.questionCategory][props.questionNumber].ans
                   .optionsContent
@@ -244,7 +244,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="">
+                      <div className="flex">
                         <input
                           type={
                             props.questionType === "single"
@@ -268,7 +268,7 @@ export default function AnswerForQualifier(props) {
                               props.questionNumber
                             ].ans.optionsContent[ele]
                           }
-                          className="w-[350px] h-auto "
+                          className="w-[300px] h-auto "
                         />
                       </div>
                     )}
@@ -281,7 +281,7 @@ export default function AnswerForQualifier(props) {
         )}
         {props.questionCategory === "caseStudy" && (
           <div className="flex text-xl">
-            <ul className="">
+            <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
                 questions[props.questionCategory][props.questionNumber].ans
                   .optionsContent
@@ -316,7 +316,7 @@ export default function AnswerForQualifier(props) {
                         </label>
                       </div>
                     ) : (
-                      <div className="">
+                      <div className="flex">
                         <input
                           type={
                             props.questionType === "single"
@@ -340,7 +340,7 @@ export default function AnswerForQualifier(props) {
                               props.questionNumber
                             ].ans.optionsContent[ele]
                           }
-                          className="w-[350px] h-auto "
+                          className="w-[300px] h-auto "
                         />
                       </div>
                     )}
