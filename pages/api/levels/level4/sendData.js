@@ -21,7 +21,8 @@ export default async function handler(req, res) {
       console.log(data);
       await connectMongoDB();
 
-      await Level4.updateOne({ teamId: teamId}, { answers: data });
+      await Level4.findByIdAndUpdate(
+        teamId, { answers: data });
 
       return res.status(200).json({ message: "Data saved successfully." });
     }
