@@ -7,22 +7,26 @@ import { getSession } from "next-auth/react";
 export default async function handler(req, res) {
 
   const session = await getSession({req});
+  console.log('session', session)
   let teamId = await getTokenDetails(session);
+  console.log('teamId', teamId)
 
   if (req.method !== "GET") {
     res.status(405).json({ message: "Method not allowed" });
     return;
   } else {
     await connectMongoDB();
-    const qualTeam = await Qualifier.findOne({ teamId: teamId});
+    const qualTeam = await Qualifier.findById(teamId);
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
     }
-    const team = await TeamModel.findOne({ teamId: teamId});
+    const team = await TeamModel.findById(teamId);
     if (team.level !== -1) {
       res.status(400).json({ message: "Qualifier is not right now" });
     } else {
-      const teamData = await Qualifier.findOne({ teamId: teamId});
+
+      const teamData = await Qualifier.findById(teamId);
+      console.log("teamData", teamData)
       const questionCatogory = teamData.questionCategory;
       const pointer = teamData.questionPointer;
       const easyOrder = teamData.easyOrder;

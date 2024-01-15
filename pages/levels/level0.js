@@ -3,8 +3,12 @@ import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level0/game";
 import Router from "next/router";
 import { redirect } from "next/dist/server/api-utils";
+import { useSession } from "next-auth/react";
 
 export default function Level0() {
+
+  const { data: session, status } = useSession();
+
   const [curPage, setCurPage] = useState(-1);
 
   useEffect(() => {
@@ -19,6 +23,8 @@ export default function Level0() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
         },
       }).then((res) => {
         if (res.status === 200) {
@@ -43,6 +49,8 @@ export default function Level0() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
       },
     }).then((res) => {
       if (res.status === 200) {

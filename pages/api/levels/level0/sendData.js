@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       if(numberOfAnswers > 7) numberOfAnswers = 7;
       await connectMongoDB();
 
-      const teamData = await Level0.findOne({ teamId: teamId});
+      const teamData = await Level0.findById(teamId);
       const endTime = Date.now();
       const startTime = teamData.startTime;
       const timeTaken = (endTime - startTime) / 1000;

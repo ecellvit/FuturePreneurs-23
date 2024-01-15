@@ -30,7 +30,9 @@ export default function GamePage() {
       const response = await fetch('/api/levels/level4/sendData', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(formData),
       });

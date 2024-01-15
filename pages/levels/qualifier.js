@@ -11,20 +11,31 @@ import Instructions from "@/Components/Qualifier/Instructions";
 
 export default function Qualifier() {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [questionCategory, setQuestionCategory] = useState("easy");
+  const [questionCategory, setQuestionCategory] = useState('easy');
   const [finalAnswer, setFinalAnswer] = useState([]);
-  console.log(questions);
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    GetQuestionNumber();
-    checkCurrentQualifier();
-  });
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        router.push('/');
+      } else if (status === 'authenticated') {
+        console.log('Authenticated', session);
+        GetQuestionNumber();
+        checkCurrentQualifier();
+      }
+    }
+  }, [status, router]);
 
   const submitAnswer = () => {
-    fetch("/api/levels/qualifier/submitAnswer", {
-      method: "POST",
+    fetch('/api/levels/qualifier/submitAnswer', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({ answer: finalAnswer }),
     })
@@ -33,7 +44,7 @@ export default function Qualifier() {
         console.log(data);
         setFinalAnswer([]);
         GetQuestionNumber();
-        console.log("Final Answer => ", finalAnswer);
+        console.log('Final Answer => ', finalAnswer);
       })
       .catch((err) => {
         console.log(err);
@@ -41,10 +52,12 @@ export default function Qualifier() {
   };
 
   const checkCurrentQualifier = () => {
-    fetch("/api/levels/checkCurrentRound", {
-      method: "GET",
+    fetch('/api/levels/checkCurrentRound', {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
       },
     }).then((res) => {
       if (res.status === 200) {
@@ -66,16 +79,18 @@ export default function Qualifier() {
     });
   };
   function GetQuestionNumber() {
-    fetch("/api/levels/qualifier/getQuestionData", {
-      method: "GET",
+    fetch('/api/levels/qualifier/getQuestionData', {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
       },
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        console.log("Question number got :::::");
+        console.log('Question number got :::::');
         console.log(data.questionNumber);
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
@@ -88,11 +103,11 @@ export default function Qualifier() {
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       {/* <Image src={bg} alt="bgImage" fill className="object-cover z-[-10]" /> */}
-      {questionCategory === "waiting" && (
-        <Waiting text={"Wait!!! Quiz will start in few minutes"} />
+      {questionCategory === 'waiting' && (
+        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
       )}
-      {questionCategory === "instruction" && (
-        <Waiting text={"Wait!!! Quiz will start in few minutes"} />
+      {questionCategory === 'instruction' && (
+        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
       )}
       {questionCategory !== "instruction" && questionCategory !== "waiting" && (
     
