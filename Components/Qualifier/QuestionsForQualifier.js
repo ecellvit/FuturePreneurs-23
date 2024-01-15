@@ -26,10 +26,10 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
-                {typeOf(
+                {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
-                ) === "Array" ? (
+                ) === "object" ? (
                   <div>
                     <audio controls className="mb-2">
                       <source
@@ -92,10 +92,10 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
-                {typeOf(
+                {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
-                ) === "Array" ? (
+                ) === "object" ? (
                   <div>
                     <audio controls className="mb-2">
                       <source
@@ -157,10 +157,10 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
-                {typeOf(
+                {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
-                ) === "Array" ? (
+                ) === "object" ? (
                   <div>
                     <audio controls className="mb-2">
                       <source
@@ -222,10 +222,10 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
-                {typeOf(
+                {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
-                ) === "Array" ? (
+                ) === "object" ? (
                   <div>
                     <audio controls className="mb-2">
                       <source
