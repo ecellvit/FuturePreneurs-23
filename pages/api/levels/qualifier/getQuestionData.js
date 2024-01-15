@@ -39,9 +39,12 @@ export default async function handler(req, res) {
       } else if (questionCatogory === "caseStudy") {
         questionNumber = pointer;
       }
-      else{
-        return res.status(400).json({ message: "Question type is incorrect" });
+      else if(questionCatogory === "instruction"){
+        return res.status(200).json({ category: "instruction", questionNumber: -1 });
       }
+      else if(questionCatogory === "waiting"){
+        return res.status(200).json({ category: "waiting", questionNumber: -1 });
+      } 
 
       res.status(200).json({
         category: questionCatogory,
