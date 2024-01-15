@@ -16,18 +16,11 @@ export default async function handler(req, res) {
     return
   } else {
 
-    const teamId = '65a259d8709af49a6ab07240';
-
     await connectMongoDB();
-    const team = await Level1.findOne({teamName: teamName});
-    // const team = new Level1({teamName: teamName});
-    // await team.save();
-
-    // const tesmLevelData = await Level0Model.find({teamId: teams[0]._id});
-
+    const team = await Level1.findOne({teamId: teamId});
 
     try{
-      res.status(200).json({team})
+      res.status(200).json(team)
     } catch(e) {
       console.log(e)
       res.status(500).json({ message: 'Internal server error', error: e.toString() })
