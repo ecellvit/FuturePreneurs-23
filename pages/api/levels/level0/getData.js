@@ -2,11 +2,14 @@ import connectMongoDB from "@/libs/mongodb";
 import { Level0 } from "@/models/level0";
 // import { Level0Model } from "@/models/level0";
 import { TeamModel } from "@/models/teamModel";
+import getTokenDetails from "@/utils/auth";
 import mongoose from "mongoose";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
-  const { qno } = req.query
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' })
@@ -20,7 +23,7 @@ export default async function handler(req, res) {
     const teamName = 'team1';
 
     await connectMongoDB();
-    const team = await Level0.findOne({teamName: teamName});
+    const team = await Level0.findOne({teamId: teamId});
     // const team = new Level0({teamName: teamName});
     // await team.save();
 

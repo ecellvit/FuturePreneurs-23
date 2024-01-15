@@ -2,30 +2,24 @@
   "easy": [
     {
       "q": {
-        "questionType": "single", 
+        "questionType": "multiple", 
         "contentType": "text", 
-        "content": "Emma owns a small bakery called \"Sweet Delights.\"In what strategic move does Emma's surprise expansion of her bakery menu, featuring intriguing textures and boasting exotic flours, truly shine:"
+        "content": "The images given below represent the characteristic traits of an entrepreneur, identify which one of these is a managerial function of an entrepreneur"
       },
       "ans": {
-       "optionsType": "text", 
-        "optionsContent": [
-          "Appealing to the growing health-conscious clientele with a hidden line of gluten-free delights",
-          "Strategising against her competitor",
-          "Rekindling a cherished family recipe, passed down through generations, for public adoration",
-          "Reducing Overall Cost of production"
-        ]
+       "optionsType": "image", 
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325402/fp9.0/ts8e9dvvgyvjzpgeixbz.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/ozbx7tytbaoxmhuujpas.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/hluon4qowchxq7uky3nd.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/psvizdyjbgktbmp5dogh.png"]
       }
     },
     {
       "q": {
         "questionType": "single", 
-        "contentType": "text", 
-        "contentLink": "",
-        "content": "Which is the correct chronological order"
+        "contentType": "image", 
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705313797/fp9.0/pq6m1tx9qbabclfbgmee.png"
       },
       "ans": {
-       "optionsType": "image", 
-        "optionsContent": ["https://subzfresh.com/wp-content/uploads/2022/04/apple_158989157.jpg","https://subzfresh.com/wp-content/uploads/2022/04/apple_158989157.jpg","https://subzfresh.com/wp-content/uploads/2022/04/apple_158989157.jpg","https://subzfresh.com/wp-content/uploads/2022/04/apple_158989157.jpg"]
+       "optionsType": "text", 
+        "optionsContent": ["a-iv b-v c-i d-iii e-ii","a-iii b-ii c-iv d-i e-v","a-ii b-v c-iii d-i e-iv","a-iv b-i c-ii d-v e-iii"]
       }
     },
     {
@@ -33,11 +27,333 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"`A value-based strategy aims to create distinctiveness in the market. By providing peerless products and services, companies can justify charging elevated costs. Realizing differentiation requires offering perks that patrons appreciate amply to pay a premium. Branding, R&D, unique features, and high-touch customer service aid. A differentiation tactic is to premium valuations as a affordability approach is to"
+        "content":"Sandeep found his manufacturing company in the 80's with his father's money.Since 2020 ,his company Ayka has faced intense competition in the industry;there are two options for the future of Ayka ;either to reduce costs or differentiate its products.Before making this decision,what is the most important consideration to be made by the management team."
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Minimal margins","Mass distribution","Economies of scale","Conservative spending"]
+        "optionsContent": ["The market share", "Preferences of the target audience", "Industry growth rate","The Brand  of Ayka"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Which one of the following would qualify to be a strategic HRM activity?"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Administer Wage & Salary Programmes", "Prepare Staffing Plans", "Determine the level & type of performance that is crucial for a firm's growth","Use specific job skill training correctly"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single", 
+        "contentType": "text", 
+        "content": "Find the odd one out"
+      },
+      "ans": {
+       "optionsType": "image", 
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325068/fp9.0/sjrjusgssgmrreq4qfke.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/xbboeqdhei8faqkfouiy.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325125/fp9.0/jxhtssjr9bonvs9hsfmq.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/fpvp5pextojqqhfltfad.jpg"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Elevator pitch is to startup funding as _________ for a company is to winning over consumers."
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Sales strategy ","Income model ","Market study ","Promo campaign"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Reliance Industries Limited  doesn't own which of the following:"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Network 18","Urban Ladder"," Jio Platforms Limited ","Reliance Power"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Which of the following Indian company is not public?"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Nykaa","Cipla","boAt","Sun Tv Network"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Bull market : Optimism :: Bear market : ? "
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Caution","Regulation","Hopeful","Stability"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705326100/fp9.0/y3hmyw3anikzpyps33od.png",
+        "content":""
+      },
+      "ans": {
+       "optionsType": "image", 
+        "optionsContent": ["i,ii,iv,iii","iv,iii,ii","ii,iii,i,iv","iii,ii,i,iv"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "multiple",
+        "contentType": "text",
+        "content": "Which of the following is true about social entrepreneurship?? (multiple options  can be correct)"
+      },
+      "ans":{
+        "optionsType": "text", 
+        "optionsContent": ["Social entrepreneurship includes monetizing business in a bid to improve the life of the owner of the company.", "Social entrepreneurship is the venture of starting a business in order to solve a social problem and create positive change. Social entrepreneurship combines traditional business with social impact.", "Social entrepreneurship is essentially about individuals and companies selfishly exploiting societal, cultural, or environmental issues for personal gain, without any genuine commitment to finding meaningful solutions.", "Social entrepreneurship is the use of start-up companies and other entrepreneurs to develop, fund and implement solutions to social, cultural, or environmental issues"]
+      }
+    },
+
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "content": "If The Repo Rates Are Reduced By The RBI, Ceteris Parabis, What Would Be The Effect On The Bank Loans?"
+      },
+      "ans":{
+        "optionsType": "text", 
+        "optionsContent": ["Raise In The Interest Charged By The Banks", "Drop In The Interest Charged By The Banks", "No Change In The Interest Rates Charged By The Banks", "None Of The Above"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What event triggered the filing of a bankruptcy case against Coffee Day Enterprises Ltd by IDBI Trusteeship on September 8, 2023?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Closure of 500 outlets","Malavika Hegde becoming CEO","Partnership with Blackstone","Failure to repay a debt of Rs 228 crore"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "content": "Arrange the steps in respect to benchmarking\n\n (1) set performance targets\n(2) select benchmarking partners\n(3)implement and monitor\n(4) analyze and compare \n(5)define the focus \n(6)develop an action plan \n(7)learn and iterate \n(8) gather data and information"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["2-6-8-5-1-3-4-7","5-2-8-4-1-6-3-7","8-4-5-2-6-1-7-3","7-2-1-5-3-4-6-8"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "'EcoBuild Tech,' a hypothetical green construction startup, uses a mix of 60% recycled steel and 40% sustainable wood in their structures.Through their growth What could be a prudent step for the company ?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Prioritize using only sustainable wood, even if it raises costs.","Continue with the blend, showcasing both recycled and sustainable materials.","Collaborate with environmental groups for a series on sustainable building designs.","Innovate further with newer eco-materials despite higher developmental costs."]
+      }
+      },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Sarwan and Sunita Poddar are an NRI couple who own 7.2% of a public, unlisted company. They received their share of the company after they gifted one of the founders an island. They are the second-largest shareholders in this company. Identify this well-known, privately-held Indian company. It is one of the largest FMCG companies in India, having a primary focus on ayurveda."
+      }, 
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Emami", "Hindustan Unilever Ltd", "Patanjali Ayurveda Ltd", "Marico"]
+        
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705323926/fp9.0/rlisognahqkkjyqrggfu.png"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["A-ii, b-iii, c-i","A-i, b-iii, c-ii","A-iii, b-i, c-ii","A-ii, b-i, c-iii"]
+        }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "A survey method that relies on iterative anonymous questionnaires to progressively refine expert forecasts about a complex, uncertain future event is most closely associated with which of the following?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/necigag5l4fj7gvov4n9.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/tpgp7alvym7xt5veybig.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/myuiuovatcqlxfi1srvf.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/hrtev7i71uipywunyvps.png"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What Is The Purpose Of A Marketing Funnel?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": [  "To Visualize The Company's Hierarchy",  "To Track The Customer Journey From Awareness To Conversion",  "To Measure The Return On Investment",  "To Create Engaging Content"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705318080/fp9.0/o0hg56o1uvzwjgpdg6fc.png",
+        "content": ""
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["I-r, II - p, III -q","I-p, II - q, III -r","I-r, II - q, III -p","I-q, II - p, III - r"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What are the key considerations for valuing a company in the context of Mergers & Acquisitions?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": [  "Control premium",  "Synergies and cost savings",  "Market conditions and competitor valuations",  "All of the above"]
+        }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "In the field of neuromarketing, how is 'decision fatigue' defined, especially in retail settings such as DMart and Big Bazaar?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Reducing the options available to customers.","Encouraging quick decision-making.","Providing detailed product information to help customers make informed decisions.","Overwhelming customers with too many choices."]      
+      }
+    },
+    {
+      "q": {
+        "questionType": "calculation",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "'X' is a metric used to measure the efficiency and profitability of an investment. It essentially tells you how much you've gained (or lost) on an investment compared to its cost. Find what X is and calculate it for the following:A company invests $7,500 in a new software system. After one year, the software has generated $12,000 in additional revenue. What is the company's 'x' on this investment?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["33.33%","60%","40%","80%"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What Type Of Marketing Involves Using Unconventional And Low-Cost Tactics To Create Buzz And Generate Interest In A Product Or Service?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Direct Marketing", "Relationship Marketing", "Content Marketing", "Guerrilla Marketing"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705318826/fp9.0/lixhq0ioqs4l55k3xobz.png"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Moving Average", "Break-even point","Extrapolation line","Financial Stabilization Epoch"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "[True or False: Scalability is irrelevant to the long-term success of a startup.]"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["True","False"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "The Net Asset Value Method For The Valuation Of Shares Is Based On The Assumption That"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["The Company Is Going To Be Liquidated","The Company Is A Going Concern","The Company Is Going To Be Diversified","Both a And b Are Correct"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "X here refers to a financial term. (X) tells you how much faster (or slower) a company's profitability is growing on a per-share basis. Outperforming most peers in the technology sector, a company stands out with its growth. If a company's X in 2023 was $2.00 and its X in 2022 was $1.50, its X growth for 2023 would be:"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["25%","33.33%","55.5%","14.28%"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319536/fp9.0/ntkhm6wgctvnvci73mai.png",
+        "content": ""
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["A(iii) - B(i) - C(iv) - D(ii)","A(l) - B(ii) - C(iii) - D(iv)","A(iii) - B(ii) - C(iv) - DO)","A(iv) - B(i) - C(iii) - D(ii)"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "A clerical employee who gets the weekly salary (not by the hour) is exempted from the overtime requirements of the Fair Labor Standards Act"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["True", "False"]
       }
     }
   ],

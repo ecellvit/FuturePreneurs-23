@@ -1,6 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
-import { Qualifier } from "@/models/qualifier"
-import { TeamModel } from "@/models/teamModel";
+import { Qualifier } from "@/models/qualifier";
 
 export default async function handler(req, res) {
     if (req.method !== 'GET') {
@@ -9,7 +8,7 @@ export default async function handler(req, res) {
     } else {
         await connectMongoDB();
         const teamName = 'team1';
-        const qualTeam = await Qualifier.findOne({ teamName: teamName });
+        const qualTeam = await Qualifier.findOne({ teamId: teamId});
         if (!qualTeam) {
             res.status(400).json({ message: 'Team not found' })
         }
@@ -21,8 +20,24 @@ export default async function handler(req, res) {
         const mediumLength = 8;
         const hardLength = 4;
 
+        const getRandomUniqueNumberEasy = (array) => {
+            let randomNumber;
+            do {
+                randomNumber = Math.floor(Math.random() * 30) + 1;
+            } while (array.includes(randomNumber));
+            return randomNumber;
+        };
 
-        const getRandomUniqueNumber = (array) => {
+        const getRandomUniqueNumberMedium = (array) => {
+            let randomNumber;
+            do {
+                randomNumber = Math.floor(Math.random() * 25) + 1;
+            } while (array.includes(randomNumber));
+            return randomNumber;
+        };
+
+
+        const getRandomUniqueNumberHard = (array) => {
             let randomNumber;
             do {
                 randomNumber = Math.floor(Math.random() * 20) + 1;
@@ -32,17 +47,17 @@ export default async function handler(req, res) {
 
         // Fill easy array with unique random numbers
         for (let i = 0; i < easyLength; i++) {
-            easy.push(getRandomUniqueNumber(easy));
+            easy.push(getRandomUniqueNumberEasy(easy));
         }
 
         // Fill medium array with unique random numbers
         for (let i = 0; i < mediumLength; i++) {
-            medium.push(getRandomUniqueNumber(medium));
+            medium.push(getRandomUniqueNumberMedium(medium));
         }
 
         // Fill hard array with unique random numbers
         for (let i = 0; i < hardLength; i++) {
-            hard.push(getRandomUniqueNumber(hard));
+            hard.push(getRandomUniqueNumberHard(hard));
         }
 
         //randomise easy array 

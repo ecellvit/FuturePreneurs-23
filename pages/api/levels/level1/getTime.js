@@ -1,17 +1,22 @@
 import connectMongoDB from "@/libs/mongodb";
 import { Level1 } from "@/models/level0";
+import getTokenDetails from "@/utils/auth";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
+
+  const session = await getSession({req});
+  let teamId = await getTokenDetails(session);
+
   try {
     if (req.method !== "GET") {
       res.status(405).json({ message: "Method not allowed" });
       return;
     }
-    const teamName = "team1"; //Get team ID from db
     const startTime = Date.now();
     const endTime = startTime + 1000 * 60 * 5; //mins
     await connectMongoDB();
-    const teamData = await Level1.findOne({ teamName: teamName });
+    const teamData = await Level1.findOne({ teamId: teamId});
     console.log(teamData.startTime);
     if (teamData.startTime === undefined || teamData.startTime === null) {
       await Level1.updateOne(
