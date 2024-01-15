@@ -1,3 +1,4 @@
+import { Users } from "@/models/user";
 import { jwtVerify } from "jose";
 
 
@@ -13,8 +14,11 @@ export default async function getTokenDetails (session) {
         new TextEncoder().encode(process.env.ACCESS_TOKEN_SECRET)
       )
 
-      console.log("==========",tokenDetails.payload._id)
-      return tokenDetails.payload._id
+      const userId = tokenDetails.payload._id
+      console.log('aaaaaa', userId)
+      const user = await Users.findById(userId)
+      console.log('sssssss', user)
+      return user.teamId
 
     } catch (err) {
       console.log(err);
