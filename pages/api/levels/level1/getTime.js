@@ -1,5 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
-import { Level1 } from "@/models/level0";
+import { Level1 } from "@/models/level1";
 import getTokenDetails from "@/utils/auth";
 import { getSession } from "next-auth/react";
 
