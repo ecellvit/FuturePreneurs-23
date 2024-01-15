@@ -95,11 +95,7 @@ export default function Qualifier() {
         <Waiting text={"Wait!!! Quiz will start in few minutes"} />
       )}
       {questionCategory !== "instruction" && questionCategory !== "waiting" && (
-    <main className="min-h-screen">
-      {questionCategory==='waiting' && <Waiting text={"Wait!!! Quiz will start in few minutes"} />}
-      {questionCategory === 'instruction' && (
-        <Instructions/>)}
-      {(questionCategory !== "instruction" && questionCategory !=='waiting') && (
+    
         <div>
           <Navbar
             sendData={submitAnswer}
