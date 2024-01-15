@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   } else {
     try {
       await connectMongoDB();
-      const teamName = "team1";
+      const teamName = "team2";
 
       const qualTeam = await Qualifier.findOne({ teamName: teamName });
       if (!qualTeam) {
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       } else if (questionCategory === "medium" && questionPointer === 7) {
         newQuestionPointer = 0;
         questionCategory = "hard";
-      } else if (questionCategory === "hard" && questionPointer === 3) {
+      } else if (questionCategory === "hard" && questionPointer === 7) {
         newQuestionPointer = 0;
         questionCategory = "caseStudy";
       } else if (questionCategory === "caseStudy" && questionPointer === 3) {
