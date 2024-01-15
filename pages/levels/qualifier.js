@@ -27,7 +27,7 @@ export default function qualifier() {
         }).then((res) => {
           if (res.status === 200) {
             res.json().then((data) => {
-              console.log("data", data);
+              // console.log("data", data);
             });
           } else {
             console.log("error");
@@ -44,17 +44,18 @@ export default function qualifier() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
+            // console.log("data", data);
             // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
+            // console.log(data.round.level);
             if(data.round.level!==-1){
                 // redirect(`/levels/level${data.round.level}`)
                 Router.push(`/levels/level${data.round.level}`)
             }
+          })
+          .catch(err=>{
+            console.log(err)
           });
-        } else {
-          console.log("error");
-        }
+        } 
       });
   }
 
@@ -64,16 +65,17 @@ export default function qualifier() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.status === 200) {
-        res.json().then((data) => {
-          setQuestionNumber(data.questionPointer);
-          setQuestionCategory(data.category);
-        });
-      } else {
-        console.log("error");
-      }
-    });
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      console.log(data.questionNumber)
+      setQuestionNumber(data.questionNumber);
+      setQuestionCategory(data.category);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   }
 
   return (

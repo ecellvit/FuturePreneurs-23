@@ -45,7 +45,7 @@ export default async function handler(req, res) {
 
       res.status(200).json({
         category: questionCatogory,
-        questionNumber: questionNumber,
+        questionNumber: pointer,
       });
     }
 
