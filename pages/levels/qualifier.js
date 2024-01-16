@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 
 export default function Qualifier() {
-  const [questionNumber, setQuestionNumber] = useState(0);
+  const [questionNumber, setQuestionNumber] = useState(3);
   const [questionCategory, setQuestionCategory] = useState('easy');
   const [finalAnswer, setFinalAnswer] = useState([]);
 
@@ -22,7 +22,7 @@ export default function Qualifier() {
   useEffect(() => {
     if (router.isReady) {
       if (status === 'unauthenticated') {
-        router.push('/');
+        // router.push('/');
       } else if (status === 'authenticated') {
         console.log('Authenticated', session);
         GetQuestionNumber();
@@ -119,7 +119,9 @@ export default function Qualifier() {
             teamName={"Team 1"}
             level="qualifier"
           />
-          <section className="flex flex-col gap-4 mt-4 items-center">
+          <section className="flex gap-4 mt-4 justify-center">
+          {questionCategory==='caseStudy' && (<div className="flex flex-col h-full"><iframe src="/assets/levels/navbar/qualifier/pdf.pdf#toolbar=0&navpanes=0" className="h-[60vh] w-[50vw]"/></div>) }
+            <div className="flex flex-col gap-4 mt-4 justify-center items-center">
             <QuestionForQualifier
               questionNumber={questionNumber}
               questionCategory={questionCategory}
@@ -150,6 +152,7 @@ export default function Qualifier() {
                 Next
               </button>
             )}
+            </div>
           </section>
         </div>
       )}

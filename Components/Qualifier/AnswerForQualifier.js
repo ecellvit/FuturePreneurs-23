@@ -14,7 +14,7 @@ export default function AnswerForQualifier(props) {
 
   const storeAnswer=(ele)=>{
     if(props.questionType==='single')
-      {console.log('hfsdfsd',ele)
+      {
       props.setFinalAnswer([ele])}
     else{
       // console.log(selectedOptions)
@@ -61,7 +61,7 @@ export default function AnswerForQualifier(props) {
   return (
     <main className="text-white">
       
-      <section className="flex flex-col justify-center items-center text-white">
+      <section className="flex flex-col justify-center items-center text-white p-4">
       
         {props.questionCategory === "easy" && (
           <div className="flex text-xl">
