@@ -11,7 +11,7 @@ import Instructions from "@/Components/Qualifier/Instructions";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 
-export default function Qualifier() {
+export default function QualifierPage() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState('easy');
   const [finalAnswer, setFinalAnswer] = useState([]);

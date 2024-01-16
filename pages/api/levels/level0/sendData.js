@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       if(numberOfAnswers > 7) numberOfAnswers = 7;
       await connectMongoDB();
 
-      const teamData = await Level0.findById(teamId);
+      const teamData = await Level0.findOne({teamId:teamId});
       const endTime = Date.now();
       const startTime = teamData.startTime;
       const timeTaken = (endTime - startTime) / 1000;
@@ -32,8 +32,8 @@ export default async function handler(req, res) {
 
       //TODO: set points in TeamModel.
 
-      await Level0.findByIdAndUpdate(
-        teamId,
+      await Level0.findOneAndUpdate(
+        {teamId:teamId},
         { pageNo: 2, level0Points: points }
       );
       return res

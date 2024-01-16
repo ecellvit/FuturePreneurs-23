@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return;
   } else {
     await connectMongoDB();
-    const qualTeam = await Qualifier.findById(teamId);
+    const qualTeam = await Qualifier.findOne({teamId:teamId});
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
     }
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       res.status(400).json({ message: "Qualifier is not right now" });
     } else {
 
-      const teamData = await Qualifier.findById(teamId);
+      const teamData = await Qualifier.findOne({teamId:teamId});
       console.log("teamData", teamData)
       const questionCatogory = teamData.questionCategory;
       const pointer = teamData.questionPointer;

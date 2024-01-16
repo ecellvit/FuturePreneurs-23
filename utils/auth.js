@@ -1,6 +1,7 @@
 import connectMongoDB from '@/libs/mongodb';
 import { Users } from '@/models/user';
 import { jwtVerify } from 'jose';
+import mongoose from 'mongoose';
 
 export default async function getTokenDetails(session) {
   try {
@@ -15,6 +16,9 @@ export default async function getTokenDetails(session) {
     );
 
     const userId = tokenDetails.payload._id;
+
+    console.log("modelssssssssssssssss", mongoose.models)
+
     const user = await Users.findById(userId);
     console.log('user', user);
 
@@ -22,8 +26,8 @@ export default async function getTokenDetails(session) {
       throw new Error('Not allowed bro');
     }
 
-    console.log('user.teamId', user.teamId);
-    return user.teamId;
+    console.log('user.teamId', user.teamId.toString());
+    return user.teamId.toString();
   } catch (err) {
     console.log('Kuch Error hogya bro', err);
   }
