@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     try {
       await connectMongoDB();
 
-      const qualTeam = await Qualifier.findById(teamId);
+      const qualTeam = await Qualifier.findOne({teamId:teamId});
       if (!qualTeam) {
         res.status(400).json({ message: "Team not found" });
         return;
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
       const answerData = req.body.answer;
       console.log("answerData", answerData);
-      const teamData = await Qualifier.findById(teamId);
+      const teamData = await Qualifier.findOne({teamId:teamId});
       const questionPointer = teamData.questionPointer;
       const easyOrder = teamData.easyOrder;
       const mediumOrder = teamData.mediumOrder;
@@ -65,8 +65,8 @@ export default async function handler(req, res) {
       }
 
       console.log(questionPointer);
-      await Qualifier.findByIdAndUpdate(
-        teamId,
+      await Qualifier.findOneAndUpdate(
+        {teamId:teamId},
         {
           questionPointer: newQuestionPointer,
           questionCategory: questionCategory,

@@ -1,11 +1,12 @@
 import time from "@/constants/time";
 import connectMongoDB from "@/libs/mongodb";
-import { Level0 } from "@/models/level0";
+import { Qualifier } from "@/models/qualifier";
 import getTokenDetails from "@/utils/auth";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
+  await connectMongoDB();
   const session = await getSession({req});
   let teamId = await getTokenDetails(session);
 
@@ -16,12 +17,12 @@ export default async function handler(req, res) {
     }
     const startTime = Date.now();
     const endTime = startTime + 1000 * 60 * time.qualifiers; //mins
-    await connectMongoDB();
-    const teamData = await Qualifier.findOne({ teamId: teamId});
-    console.log(teamData.startTime);
+
+    const teamData = await Qualifier.findOne({teamId:teamId});
+    console.log('teamData', teamData);
     if (teamData.startTime === undefined || teamData.startTime === null) {
-      await Qualifier.findByIdAndUpdate(
-        teamId,
+      await Qualifier.findOneAndUpdate(
+        {teamId:teamId},
         { startTime: startTime, endTime: endTime }
       );
       return res
