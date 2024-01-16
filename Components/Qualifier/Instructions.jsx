@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from "react";
 
 const Instructions = () => {
-  const [buttonEnabled, setButtonEnabled] = useState(true);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const { data: session, status } = useSession();
 
@@ -106,11 +106,14 @@ const Instructions = () => {
             These sections are divided on the basis of the difficulty level of
             the questions, i.e. Easy, Medium, Hard and Case Study.
           </li>
-          <li>Easy section consists of 10 questions, each carrying 1 mark.</li>
+          <li>Easy section consists of 10 questions, each carrying 10 mark.</li>
           <li>
-            Medium section consists of 8 questions, each carrying 1.5 marks.
+            Medium section consists of 8 questions, each carrying 15 marks.
           </li>
-          <li>Case study consists of 4 questions, each carrying 2 marks.</li>
+          <li>
+            Hard section consists of 8 questions, each carrying 20 marks.
+          </li>
+          <li>Case study consists of 4 questions, each carrying 20 marks.</li>
           <li>
             There are three types of questions: Multiple Choice questions,
             Multiple Correct Questions and Fill in the blank.
