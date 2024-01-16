@@ -125,6 +125,7 @@ export default function AnswerForQualifier(props) {
                             ].ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
+                          alt="answer image"
                         />
                       </div>
                     )}
@@ -197,6 +198,7 @@ export default function AnswerForQualifier(props) {
                             ].ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
+                          alt="answer image"
                         />
                       </div>
                     )}
@@ -269,6 +271,7 @@ export default function AnswerForQualifier(props) {
                             ].ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
+                          alt="answer image"
                         />
                       </div>
                     )}
@@ -341,6 +344,7 @@ export default function AnswerForQualifier(props) {
                             ].ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
+                          alt="answer image"
                         />
                       </div>
                     )}

@@ -21,7 +21,9 @@ export default function QuestionForQualifier(props) {
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
                 }
-              />
+               alt="question image"
+                className="h-auto w-auto"
+               />
             )}
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
@@ -86,8 +88,8 @@ export default function QuestionForQualifier(props) {
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
                 }
-                className="w-[30vw] h-[15vh]"
-              />
+                className="w-auto h-auto"
+               alt="question image"/>
             )}
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
@@ -152,6 +154,8 @@ export default function QuestionForQualifier(props) {
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
                 }
+              alt="question image"
+
               />
             )}
             {questions[props.questionCategory][props.questionNumber].q
