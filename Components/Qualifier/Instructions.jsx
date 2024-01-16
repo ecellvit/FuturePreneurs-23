@@ -7,6 +7,7 @@ const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const { data: session, status } = useSession();
+  console.log("session------q-",session)
 
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();

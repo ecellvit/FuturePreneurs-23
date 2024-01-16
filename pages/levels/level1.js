@@ -3,15 +3,24 @@ import Router from "next/router";
 import Waiting from "@/Components/levels/Waiting";
 import Game1 from "@/Components/levels/level1/game";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Level1() {
 
   const { data: session, status } = useSession();
-
+  const router = useRouter();
   useEffect(() => {
-    checkCurrentLevel1();
-    getLevel1Data();
-  });
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
+        router.push('/');
+      } else if (status === 'authenticated') {
+        console.log('Authenticated000000000000000000000000', session);
+        checkCurrentLevel1();
+        getLevel1Data();
+      }
+    }
+  } , [status, router]);
 
   const [curPage, setCurPage] = useState(-1);
 
