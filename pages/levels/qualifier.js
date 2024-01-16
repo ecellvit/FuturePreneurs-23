@@ -90,7 +90,12 @@ export default function QualifierPage() {
         'Access-Control-Allow-Origin': '*',
       },
     })
-      .then((res) => res.json())
+      .then((res) => {if (res.status===400){
+          setQuestionCategory('waiting')
+        } else {
+          return res.json()
+        }
+      })
       .then((data) => {
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
