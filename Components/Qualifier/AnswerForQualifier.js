@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import questions from "@/constants/qualifiers/questions.json";
 
-
 export default function AnswerForQualifier(props) {
   const [selectedOptions, setSelectedOptions] = useState({});
 
@@ -12,29 +11,24 @@ export default function AnswerForQualifier(props) {
   //   }
   // }
 
-  const storeAnswer=(ele)=>{
-    if(props.questionType==='single')
-      {
-      props.setFinalAnswer([ele])}
-    else{
+  const storeAnswer = (ele) => {
+    if (props.questionType === "single") {
+      props.setFinalAnswer([ele]);
+    } else {
       // console.log(selectedOptions)
-      if((props.finalAnswer).includes(ele))
-        {
-          props.setFinalAnswer((props.answer).filter((x) => x !== ele));
-        }
-      
-      else{
-        props.setFinalAnswer(prevAnswer => [...prevAnswer, ele]);
-        
+      if (props.finalAnswer.includes(ele)) {
+        props.setFinalAnswer(props.answer.filter((x) => x !== ele));
+      } else {
+        props.setFinalAnswer((prevAnswer) => [...prevAnswer, ele]);
       }
     }
-  }
+  };
   // props.setFinalAnswer(answer)
-  
+
   const handleOptionChange = (questionId, option) => {
     const isSelected = selectedOptions[questionId]?.includes(option);
     // console.log(isSelected)
-    
+
     setSelectedOptions((prevOptions) => ({
       ...prevOptions,
       [questionId]: getUpdatedOptions(
@@ -42,11 +36,9 @@ export default function AnswerForQualifier(props) {
         option,
         questions[props.questionCategory][questionId].q.questionType,
         isSelected
-        ),
-      })
-      
-      );
-      // props.setFinalAnswer(selectedOptions)
+      ),
+    }));
+    // props.setFinalAnswer(selectedOptions)
   };
 
   const getUpdatedOptions = (prevOptions, option, optionType, isSelected) => {
@@ -54,15 +46,13 @@ export default function AnswerForQualifier(props) {
       return [option];
     } else {
       return isSelected
-      ? prevOptions.filter((selectedOption) => selectedOption !== option)
-      : [...prevOptions, option];
+        ? prevOptions.filter((selectedOption) => selectedOption !== option)
+        : [...prevOptions, option];
     }
   };
   return (
     <main className="text-white">
-      
       <section className="flex flex-col justify-center items-center text-white p-4">
-      
         {props.questionCategory === "easy" && (
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
@@ -71,52 +61,59 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <div key={ele}>
+                  <div
+                    key={ele}
+                    onClick={() => {
+                      handleOptionChange(props.questionNumber, ele);
+                      storeAnswer(ele);
+                    }}
+                  >
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
                       <div key={ele}>
-                        <label >
+                        <label>
                           <input
                             type={
                               props.questionType === "single"
                                 ? "radio"
                                 : "checkbox"
                             }
-                            onChange={() =>
-                              {
-                                handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
+                            onChange={() => {
+                              handleOptionChange(props.questionNumber, ele);
+                              storeAnswer(ele);
+                            }}
                             checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
+                              selectedOptions[props.questionNumber]?.includes(
+                                ele
+                              ) || false
                             }
                             className="mr-2"
                           />
-                          {questions[props.questionCategory][
+                          {
+                            questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]}
+                            ].ans.optionsContent[ele]
+                          }
                         </label>
                       </div>
                     ) : (
                       <div className="flex" key={ele}>
                         <input
                           type={
-                              props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
-                            onChange={() =>
-                              {handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
-                            checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
-                            }
-                            className="mr-2"
+                            props.questionType === "single"
+                              ? "radio"
+                              : "checkbox"
+                          }
+                          onChange={() => {
+                            handleOptionChange(props.questionNumber, ele);
+                            storeAnswer(ele);
+                          }}
+                          checked={
+                            selectedOptions[props.questionNumber]?.includes(
+                              ele
+                            ) || false
+                          }
+                          className="mr-2"
                         />
                         <img
                           src={
@@ -133,7 +130,6 @@ export default function AnswerForQualifier(props) {
                 );
               })}
             </ul>
-
           </div>
         )}
         {props.questionCategory === "medium" && (
@@ -144,7 +140,13 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <div key={ele}>
+                  <div
+                    key={ele}
+                    onClick={() => {
+                      handleOptionChange(props.questionNumber, ele);
+                      storeAnswer(ele);
+                    }}
+                  >
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
                       <div key={ele}>
@@ -155,21 +157,22 @@ export default function AnswerForQualifier(props) {
                                 ? "radio"
                                 : "checkbox"
                             }
-                            onChange={() =>
-                              {
-                                handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
+                            onChange={() => {
+                              handleOptionChange(props.questionNumber, ele);
+                              storeAnswer(ele);
+                            }}
                             checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
+                              selectedOptions[props.questionNumber]?.includes(
+                                ele
+                              ) || false
                             }
                             className="mr-2"
                           />
-                          {questions[props.questionCategory][
+                          {
+                            questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]}
+                            ].ans.optionsContent[ele]
+                          }
                         </label>
                       </div>
                     ) : (
@@ -177,19 +180,19 @@ export default function AnswerForQualifier(props) {
                         <input
                           type={
                             props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
-                            onChange={() =>
-                              {handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
-                            checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
-                            }
-                            className="mr-2"
+                              ? "radio"
+                              : "checkbox"
+                          }
+                          onChange={() => {
+                            handleOptionChange(props.questionNumber, ele);
+                            storeAnswer(ele);
+                          }}
+                          checked={
+                            selectedOptions[props.questionNumber]?.includes(
+                              ele
+                            ) || false
+                          }
+                          className="mr-2"
                         />
                         <img
                           src={
@@ -206,7 +209,6 @@ export default function AnswerForQualifier(props) {
                 );
               })}
             </ul>
-
           </div>
         )}
         {props.questionCategory === "hard" && (
@@ -217,7 +219,69 @@ export default function AnswerForQualifier(props) {
                   .optionsContent
               ).map((ele) => {
                 return (
-                  <div key={ele}>
+                  <div
+                    key={ele}
+                    onClick={() => {
+                      handleOptionChange(props.questionNumber, ele);
+                      storeAnswer(ele);
+                    }}
+                  >
+                    <input
+                      type={
+                        props.questionType === "single" ? "radio" : "checkbox"
+                      }
+                      onChange={() => {
+                        handleOptionChange(props.questionNumber, ele);
+                        storeAnswer(ele);
+                      }}
+                      checked={
+                        selectedOptions[props.questionNumber]?.includes(ele) ||
+                        false
+                      }
+                      className="mr-2"
+                    />
+                    {questions[props.questionCategory][props.questionNumber].ans
+                      .optionsType === "text" ? (
+                      <label>
+                        {
+                          questions[props.questionCategory][
+                            props.questionNumber
+                          ].ans.optionsContent[ele]
+                        }
+                      </label>
+                    ) : (
+                      <img
+                        src={
+                          questions[props.questionCategory][
+                            props.questionNumber
+                          ].ans.optionsContent[ele]
+                        }
+                        className="w-[300px] h-auto "
+                        alt="answer image"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+
+        {props.questionCategory === "caseStudy" && (
+          <div className="flex text-xl">
+            <ul className="grid grid-cols-2 gap-8">
+              {Object.keys(
+                questions[props.questionCategory][props.questionNumber].ans
+                  .optionsContent
+              ).map((ele) => {
+                return (
+                  <div
+                    key={ele}
+                    onClick={() => {
+                      handleOptionChange(props.questionNumber, ele);
+                      storeAnswer(ele);
+                    }}
+                  >
                     {questions[props.questionCategory][props.questionNumber].ans
                       .optionsType === "text" ? (
                       <div key={ele}>
@@ -228,21 +292,22 @@ export default function AnswerForQualifier(props) {
                                 ? "radio"
                                 : "checkbox"
                             }
-                            onChange={() =>
-                              {
-                                handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
+                            onChange={() => {
+                              handleOptionChange(props.questionNumber, ele);
+                              storeAnswer(ele);
+                            }}
                             checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
+                              selectedOptions[props.questionNumber]?.includes(
+                                ele
+                              ) || false
                             }
                             className="mr-2"
                           />
-                          {questions[props.questionCategory][
+                          {
+                            questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]}
+                            ].ans.optionsContent[ele]
+                          }
                         </label>
                       </div>
                     ) : (
@@ -250,19 +315,19 @@ export default function AnswerForQualifier(props) {
                         <input
                           type={
                             props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
-                            onChange={() =>
-                              {handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
-                            checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
-                            }
-                            className="mr-2"
+                              ? "radio"
+                              : "checkbox"
+                          }
+                          onChange={() => {
+                            handleOptionChange(props.questionNumber, ele);
+                            storeAnswer(ele);
+                          }}
+                          checked={
+                            selectedOptions[props.questionNumber]?.includes(
+                              ele
+                            ) || false
+                          }
+                          className="mr-2"
                         />
                         <img
                           src={
@@ -279,80 +344,6 @@ export default function AnswerForQualifier(props) {
                 );
               })}
             </ul>
-
-          </div>
-        )}
-        {props.questionCategory === "caseStudy" && (
-          <div className="flex text-xl">
-            <ul className="grid grid-cols-2 gap-8">
-              {Object.keys(
-                questions[props.questionCategory][props.questionNumber].ans
-                  .optionsContent
-              ).map((ele) => {
-                return (
-                  <div key={ele}>
-                    {questions[props.questionCategory][props.questionNumber].ans
-                      .optionsType === "text" ? (
-                      <div key={ele}>
-                        <label >
-                          <input
-                            type={
-                              props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
-                            onChange={() =>
-                              {
-                                handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
-                            checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
-                            }
-                            className="mr-2"
-                          />
-                          {questions[props.questionCategory][
-                              props.questionNumber
-                            ].ans.optionsContent[ele]}
-                        </label>
-                      </div>
-                    ) : (
-                      <div className="flex" key={ele}>
-                        <input
-                          type={
-                            props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
-                            onChange={() =>
-                              {handleOptionChange(props.questionNumber, ele)
-                                storeAnswer(ele)
-                              }
-                            }
-                            checked={
-                              selectedOptions[props.questionNumber]?.includes(ele) ||
-                              false
-                            }
-                            className="mr-2"
-                        />
-                        <img
-                          src={
-                            questions[props.questionCategory][
-                              props.questionNumber
-                            ].ans.optionsContent[ele]
-                          }
-                          className="w-[300px] h-auto "
-                          alt="answer image"
-                        />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </ul>
-
           </div>
         )}
       </section>
