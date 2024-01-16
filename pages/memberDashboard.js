@@ -61,10 +61,10 @@ const TeamPage = () => {
               setIsLoading(false);
             }
           } else {
-            router.push('/makeTeam')
+            router.push('/')
           }
         } else{
-          router.push('/userDetails');
+          router.push('/');
         }
         
       })

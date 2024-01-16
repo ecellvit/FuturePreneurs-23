@@ -148,7 +148,7 @@ export default function LeaderDashboard() {
       .then((data) => {
       })
       .then(() => {
-        router.push("/makeTeam");
+        router.push("/");
         toast.success("Team Deleted.");
         setIsLoading(false);
       })

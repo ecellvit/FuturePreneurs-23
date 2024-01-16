@@ -66,7 +66,7 @@ export default function UserDetails() {
             router.push(redirect);
             setIsLoading(true);
           } else {
-            router.push('/makeTeam');
+            router.push('/');
             setIsLoading(true);
           }
         }

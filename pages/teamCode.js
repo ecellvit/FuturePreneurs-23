@@ -54,11 +54,11 @@ export default function TeamCode() {
               router.push("/memberDashboard");
             }
           } else {
-            router.push("/joinTeam");
+            router.push("/");
           }
         }
         else{
-          router.push("/userDetails")
+          router.push("/")
         }
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamCode`, {
           content: "application/json",

@@ -50,7 +50,7 @@ const MakeTeam = () => {
             // router.push("/makeTeam");
           }
         } else {
-          router.push("/userDetails")
+          router.push("/")
         }
       });
   };

@@ -51,7 +51,7 @@ export default function TermsConditions() {
       })
     }).then((res) => res.json())
       .then((data) => {
-        router.push("/makeTeam")
+        router.push("/")
         // location.reload();
       })
   }

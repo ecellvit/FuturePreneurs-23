@@ -45,7 +45,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         
         const user = data.user;
         if (user.hasFilledDetails == false) {
-          router.push('/userDetails');
+          router.push('/');
         } else {
           if (user.teamId !== null) {
             const redirect = user.teamRole=='1' ? '/memberDashboard' : '/leaderDashboard';
