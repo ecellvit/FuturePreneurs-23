@@ -21,7 +21,7 @@ const qualifierSchema = mongoose.Schema(
     },
     questionCategory: {
       type: String,
-      default: 'easy',
+      default: 'instruction',
     },
     easyOrder: [
       {

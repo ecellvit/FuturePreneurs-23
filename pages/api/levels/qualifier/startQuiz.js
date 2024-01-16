@@ -19,9 +19,11 @@ export default async function handler(req, res) {
     console.log(startTime);
     const currentTime = Date.now();
 
-    console.log(currentTime);
+    console.log('curentTime', currentTime, 'startTime', startTime);
+    console.log('asdf', Math.abs(currentTime - startTime))
 
     if (Math.abs(currentTime - startTime) <= 600000) {
+      console.log('correct')
       await Qualifier.findOneAndUpdate(
         { teamId: teamId },
         {

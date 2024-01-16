@@ -7,7 +7,6 @@ const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const { data: session, status } = useSession();
-  console.log("session------q-",session)
 
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
@@ -103,7 +102,7 @@ const Instructions = () => {
           <li>There are Four sections in the quiz.</li>
           <li>Each section can be accessed only once.</li>
           <li>
-            Navigation between questions isn’t allowed and you can visit a
+            Navigation between questions isn't allowed and you can visit a
             question only once.
           </li>
           <li>
