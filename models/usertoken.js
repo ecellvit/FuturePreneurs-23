@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -18,7 +18,9 @@ const userTokenSchema = new Schema(
       expires: 30 * 86400, // 30 days
     },
   },
-  { collection: "UserToken" }
+  { collection: 'UserToken' }
 );
 
-export const UserToken = mongoose.model.UserToken || mongoose.model("UserToken", userTokenSchema);;
+export const UserToken =
+  mongoose.model.UserToken ||
+  mongoose.model('UserToken', userTokenSchema);

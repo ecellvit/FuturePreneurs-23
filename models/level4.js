@@ -1,10 +1,10 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const level4Schema = mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "teamModel",
+      ref: 'teamModel',
     },
     teamName: {
       type: String,
@@ -60,8 +60,8 @@ const level4Schema = mongoose.Schema(
       },
     },
   },
-  { collection: "Level4" }
+  { collection: 'Level4' }
 );
 
 export const Level4 =
-  mongoose.models.Level4 || mongoose.model("Level4", level4Schema);
+  mongoose.models.Level4 || mongoose.model('Level4', level4Schema);

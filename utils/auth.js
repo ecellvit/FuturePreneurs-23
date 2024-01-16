@@ -15,13 +15,11 @@ export default async function getTokenDetails(token) {
     const userId = tokenDetails.payload._id;
 
     const user = await Users.findById(userId);
-    console.log('user', user);
 
     if (user.teamRole != '0') {
       throw new Error('Not allowed bro');
     }
 
-    console.log('user.teamId', user.teamId.toString());
     return user.teamId.toString();
 
   } catch (err) {

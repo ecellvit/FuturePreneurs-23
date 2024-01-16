@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -6,7 +6,7 @@ const teamTokenSchema = new Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Teams",
+      ref: 'Teams',
     },
     token: {
       type: String,
@@ -15,10 +15,11 @@ const teamTokenSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-    }
-    
+    },
   },
-  { collection: "TeamToken" }
+  { collection: 'TeamToken' }
 );
 
-export const TeamToken = mongoose.model.TeamToken || mongoose.model("TeamToken", teamTokenSchema);
+export const TeamToken =
+  mongoose.model.TeamToken ||
+  mongoose.model('TeamToken', teamTokenSchema);

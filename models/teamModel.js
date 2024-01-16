@@ -1,45 +1,47 @@
 import mongoose from 'mongoose';
 
 const teamSchema = mongoose.Schema(
-    {
-        teamName: {
-            type: String,
-            unique: true
-        },
-        teamLeaderId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Users",
-        },
-        teamNumber: {
-            type: Number
-        },
-        leaderName: {
-            type: String
-        },
-        leaderEmail: {
-            type: String
-        },
-        isQualified: {
-            type: Boolean
-        },
-        currentRound: {
-            type: Number
-        },
-        members: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Users",
-            },
-        ],
-        teamCode: {
-            type: String
-        },
-        level:{
-            type:Number,
-            default:-1
-        }
+  {
+    teamName: {
+      type: String,
+      unique: true,
     },
-    { collection: "TeamModel" }
+    teamLeaderId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
+    },
+    teamNumber: {
+      type: Number,
+    },
+    leaderName: {
+      type: String,
+    },
+    leaderEmail: {
+      type: String,
+    },
+    isQualified: {
+      type: Boolean,
+    },
+    currentRound: {
+      type: Number,
+    },
+    members: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users',
+      },
+    ],
+    teamCode: {
+      type: String,
+    },
+    level: {
+      type: Number,
+      default: -1,
+    },
+  },
+  { collection: 'TeamModel' }
 );
 
-export const TeamModel = mongoose.models.TeamModel || mongoose.model("TeamModel", teamSchema);
+export const TeamModel =
+  mongoose.models.TeamModel ||
+  mongoose.model('TeamModel', teamSchema);
