@@ -13,7 +13,7 @@ import { useSession } from "next-auth/react";
 
 export default function QualifierPage() {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [questionCategory, setQuestionCategory] = useState('easy');
+  const [questionCategory, setQuestionCategory] = useState('instruction');
   const [finalAnswer, setFinalAnswer] = useState([]);
 
   const { data: session, status } = useSession();
@@ -104,7 +104,7 @@ export default function QualifierPage() {
         <Waiting text={'Wait!!! Quiz will start in few minutes'} />
       )}
       {questionCategory === 'instruction' && (
-        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
+        <Instructions/>
       )}
       {questionCategory !== "instruction" && questionCategory !== "waiting" && (
     
