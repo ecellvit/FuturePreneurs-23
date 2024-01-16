@@ -1,0 +1,958 @@
+{
+  "easy": [
+    {
+      "q": {
+        "questionType": "single", 
+        "contentType": "text", 
+        "content": "The images given below represent the characteristic traits of an entrepreneur, identify which one of these is a managerial function of an entrepreneur"
+      },
+      "ans": {
+       "optionsType": "image", 
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325402/fp9.0/ts8e9dvvgyvjzpgeixbz.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/ozbx7tytbaoxmhuujpas.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/hluon4qowchxq7uky3nd.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/psvizdyjbgktbmp5dogh.png"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single", 
+        "contentType": "image", 
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705313797/fp9.0/pq6m1tx9qbabclfbgmee.png",
+        "content":"Match the following "
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["a-iv b-v c-i d-iii e-ii","a-iii b-ii c-iv d-i e-v","a-ii b-v c-iii d-i e-iv","a-iv b-i c-ii d-v e-iii"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Sandeep found his manufacturing company in the 80's with his father's money.Since 2020 ,his company Ayka has faced intense competition in the industry;there are two options for the future of Ayka ;either to reduce costs or differentiate its products.Before making this decision,what is the most important consideration to be made by the management team."
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["The market share", "Preferences of the target audience", "Industry growth rate","The Brand  of Ayka"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Which one of the following would qualify to be a strategic HRM activity?"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Administer Wage & Salary Programmes", "Prepare Staffing Plans", "Determine the level & type of performance that is crucial for a firm's growth","Use specific job skill training correctly"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single", 
+        "contentType": "text", 
+        "content": "Find the odd one out"
+      },
+      "ans": {
+       "optionsType": "image", 
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325068/fp9.0/sjrjusgssgmrreq4qfke.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/xbboeqdhei8faqkfouiy.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325125/fp9.0/jxhtssjr9bonvs9hsfmq.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/fpvp5pextojqqhfltfad.jpg"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Elevator pitch is to startup funding as _________ for a company is to winning over consumers."
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Sales strategy ","Income model ","Market study ","Promo campaign"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Reliance Industries Limited  doesn't own which of the following:"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Network 18","Urban Ladder"," Jio Platforms Limited ","Reliance Power"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Which of the following Indian company is not public?"
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Nykaa","Cipla","boAt","Sun Tv Network"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Bull market : Optimism :: Bear market : ? "
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["Caution","Regulation","Hopeful","Stability"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705326100/fp9.0/y3hmyw3anikzpyps33od.png",
+        "content":""
+      },
+      "ans": {
+       "optionsType": "text", 
+        "optionsContent": ["i,ii,iv,iii","iv,iii,ii","ii,iii,i,iv","iii,ii,i,iv"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "multiple",
+        "contentType": "text",
+        "content": "Which of the following is true about social entrepreneurship?? (multiple options  can be correct)"
+      },
+      "ans":{
+        "optionsType": "text", 
+        "optionsContent": ["Social entrepreneurship includes monetizing business in a bid to improve the life of the owner of the company.", "Social entrepreneurship is the venture of starting a business in order to solve a social problem and create positive change. Social entrepreneurship combines traditional business with social impact.", "Social entrepreneurship is essentially about individuals and companies selfishly exploiting societal, cultural, or environmental issues for personal gain, without any genuine commitment to finding meaningful solutions.", "Social entrepreneurship is the use of start-up companies and other entrepreneurs to develop, fund and implement solutions to social, cultural, or environmental issues"]
+      }
+    },
+
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "content": "If The Repo Rates Are Reduced By The RBI, Ceteris Parabis, What Would Be The Effect On The Bank Loans?"
+      },
+      "ans":{
+        "optionsType": "text", 
+        "optionsContent": ["Raise In The Interest Charged By The Banks", "Drop In The Interest Charged By The Banks", "No Change In The Interest Rates Charged By The Banks", "None Of The Above"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What event triggered the filing of a bankruptcy case against Coffee Day Enterprises Ltd by IDBI Trusteeship on September 8, 2023?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Closure of 500 outlets","Malavika Hegde becoming CEO","Partnership with Blackstone","Failure to repay a debt of Rs 228 crore"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "content": "Arrange the steps in respect to benchmarking\n\n (1) set performance targets\n(2) select benchmarking partners\n(3)implement and monitor\n(4) analyze and compare \n(5)define the focus \n(6)develop an action plan \n(7)learn and iterate \n(8) gather data and information"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["2-6-8-5-1-3-4-7","5-2-8-4-1-6-3-7","8-4-5-2-6-1-7-3","7-2-1-5-3-4-6-8"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "'EcoBuild Tech,' a hypothetical green construction startup, uses a mix of 60% recycled steel and 40% sustainable wood in their structures.Through their growth What could be a prudent step for the company ?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Prioritize using only sustainable wood, even if it raises costs.","Continue with the blend, showcasing both recycled and sustainable materials.","Collaborate with environmental groups for a series on sustainable building designs.","Innovate further with newer eco-materials despite higher developmental costs."]
+      }
+      },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Sarwan and Sunita Poddar are an NRI couple who own 7.2% of a public, unlisted company. They received their share of the company after they gifted one of the founders an island. They are the second-largest shareholders in this company. Identify this well-known, privately-held Indian company. It is one of the largest FMCG companies in India, having a primary focus on ayurveda."
+      }, 
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Emami", "Hindustan Unilever Ltd", "Patanjali Ayurveda Ltd", "Marico"]
+        
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705323926/fp9.0/rlisognahqkkjyqrggfu.png",
+        "content": ""
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["A-ii, b-iii, c-i","A-i, b-iii, c-ii","A-iii, b-i, c-ii","A-ii, b-i, c-iii"]
+        }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "A survey method that relies on iterative anonymous questionnaires to progressively refine expert forecasts about a complex, uncertain future event is most closely associated with which of the following?"
+      },
+      "ans": {
+        "optionsType": "image",
+        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/necigag5l4fj7gvov4n9.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/tpgp7alvym7xt5veybig.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/myuiuovatcqlxfi1srvf.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/hrtev7i71uipywunyvps.png"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What Is The Purpose Of A Marketing Funnel?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": [  "To Visualize The Company's Hierarchy",  "To Track The Customer Journey From Awareness To Conversion",  "To Measure The Return On Investment",  "To Create Engaging Content"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705318080/fp9.0/o0hg56o1uvzwjgpdg6fc.png",
+        "content": ""
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["I-r, II - p, III -q","I-p, II - q, III -r","I-r, II - q, III -p","I-q, II - p, III - r"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What are the key considerations for valuing a company in the context of Mergers & Acquisitions?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": [  "Control premium",  "Synergies and cost savings",  "Market conditions and competitor valuations",  "All of the above"]
+        }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "In the field of neuromarketing, how is 'decision fatigue' defined, especially in retail settings such as DMart and Big Bazaar?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Reducing the options available to customers.","Encouraging quick decision-making.","Providing detailed product information to help customers make informed decisions.","Overwhelming customers with too many choices."]      
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "'X' is a metric used to measure the efficiency and profitability of an investment. It essentially tells you how much you've gained (or lost) on an investment compared to its cost. Find what X is and calculate it for the following:A company invests $7,500 in a new software system. After one year, the software has generated $12,000 in additional revenue. What is the company's 'x' on this investment?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["33.33%","60%","40%","80%"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What Type Of Marketing Involves Using Unconventional And Low-Cost Tactics To Create Buzz And Generate Interest In A Product Or Service?"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Direct Marketing", "Relationship Marketing", "Content Marketing", "Guerrilla Marketing"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705318826/fp9.0/lixhq0ioqs4l55k3xobz.png"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["Moving Average", "Break-even point","Extrapolation line","Financial Stabilization Epoch"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "[True or False: Scalability is irrelevant to the long-term success of a startup.]"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["True","False"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "The Net Asset Value Method For The Valuation Of Shares Is Based On The Assumption That"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["The Company Is Going To Be Liquidated","The Company Is A Going Concern","The Company Is Going To Be Diversified","Both a And b Are Correct"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "X here refers to a financial term. (X) tells you how much faster (or slower) a company's profitability is growing on a per-share basis. Outperforming most peers in the technology sector, a company stands out with its growth. If a company's X in 2023 was $2.00 and its X in 2022 was $1.50, its X growth for 2023 would be:"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["25%","33.33%","55.5%","14.28%"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319536/fp9.0/ntkhm6wgctvnvci73mai.png",
+        "content": ""
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["A(iii) - B(i) - C(iv) - D(ii)","A(l) - B(ii) - C(iii) - D(iv)","A(iii) - B(ii) - C(iv) - DO)","A(iv) - B(i) - C(iii) - D(ii)"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "A clerical employee who gets the weekly salary (not by the hour) is exempted from the overtime requirements of the Fair Labor Standards Act"
+      },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["True", "False"]
+      }
+    }
+  ],
+  "medium": [
+    {
+      "q": {
+        "questionType":"single",
+        "contentType":"image",
+        "contentLink":"https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315413/FP/medium-1_zdh7fe.png",
+        "content":"Match section A to section B in the following question:"
+      },
+      "ans":{
+        "optionsType": "text",
+        "optionsContent":["a)i-B,ii-C,iii-A,iv-D","b)i-A,ii-B,iii-C,iv-D","c)i-B,ii-A,iii-D,iv-C","d)i-C,ii-D,iii-B,iv-A"]
+      }
+    },
+    {
+      "q":{
+        "questionType":"single",
+        "contentType":"image",
+        "contentLink":"https://res.cloudinary.com/dhrvr4sey/image/upload/v1705323672/FP/med-2_lohahy.png",
+        "content":"Match the color themes of logos of the companies"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["A)K-v L-iv M-iii N-ii O-i","B)K-i,L-ii,M-iv,N-iii,O-v","C)K-v ,L-iv, M-i, N-ii, O-iii","D)K-v;M-i;N-ii;L-iii;O-iv"]
+      }
+    },
+    {
+      "q":{
+        "questionType":"single",
+        "contentType":"image",
+        "contentLink":"https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315414/FP/medium-3_bikfxh.png",
+        "content":"Match the following:"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["A)a-iv,b-iii,c-iv,d-vi","B)a-ii,b-v,c-i,d-iv","C)a-vi,b-i,c-iv,d-v","D)a-iv,b-ii,c-iii,d-vi"]
+      }
+      },
+      {
+        "q":{
+          "questionType":"single",
+          "contentType":"audio",
+          "contentLink":"https://utfs.io/f/697ccc5c-31c2-4d92-905f-765aeb6bad94-evxp2c.m4a",
+          "content":"Listen to the audio and answer:"
+        },
+        "ans":{
+          "optionsType":"text",
+          "optionsContent":["a)1/10","b)1/20","c)1/8","d)1/12"]
+      }
+
+    },
+    {
+      "q":{
+        "questionType":"single",
+        "contentType":"audio",
+        "contentLink":"https://utfs.io/f/916093ae-2dca-4dc6-94f5-abb2d6393f46-evxp2b.m4a",
+        "content":"Audio Question #1"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)True","b)False","c)Depends","d)Data not sufficient"]
+    }
+    },
+    {
+      "q":{
+        "questionType":"single",
+        "contentType":"audio",
+        "contentLink":"https://utfs.io/f/0978f9e9-a5f7-4b2d-b634-39bf4d3aa6ec-evxp2a.m4a",
+        "content":"Audio Question #2 \n Matching: Match the funding source with its description. \nI - Venture Capital\nII -Angel Investor\nIII - Crowdfunding"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)I-q, II - r, III -p","b)I-p, II - q, III -r","c)I-r, II - q, III -p","d)I-p, II - r, III -q"]
+    }
+    },
+    {
+      "q":{
+        "questionType":"single",
+        "contentType":"image",
+        "contentLink":"https://res.cloudinary.com/dhrvr4sey/image/upload/v1705323886/FP/med-7_sidlxc.png",
+        "content":"Match the companies on the left with their biggest competitor:"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)A-ii , B-i , C-iii , D-v , E-iv","b)A-ii , B-i , C-iv , D-v , E-iii","c)A-v , B-i , C-ii , D-iii , E-iv","d)A-ii , B-iv , C-i , D-iii , E-v"]
+    }
+  },
+  {
+    
+    "q":{
+      "questionType":"multiple",
+      "contentType":"text",
+      "contentLink":"",
+      "content":"Given that = Green: Public Startups,Red: Private StartUps.Choose the correct answer so that the companies belong to the correct coloured box representing the stage of their funding(multiple can be correct)"
+    },
+    "ans":{
+      "optionsType":"image",
+      "optionsContent":["https://res.cloudinary.com/dhrvr4sey/image/upload/v1705324075/FP/med-8_mh1j8j.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705324076/FP/med-8b_lbaz3n.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705324077/FP/med-8c_fpkqqq.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705324077/FP/med-8d_xtm5or.png"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "text",
+      "contentLink": "",
+      "content": "Case Study 1: 'From Humble Bakery to Viral Sensation: The Sweet Rise of Bake & Share'Bake & Share started as a small-town bakery known for its quirky, oversized cookies. Within a year, they were featured on national talk shows and had lines wrapping around the block, thanks to their hyper-local influencer partnerships, limited-edition flavor drops, and user-generated 'Baking Fails' contest.Bake & Share intentionally partnered with micro-influencers who weren't food bloggers but local personalities like barbers and firefighters. Which company below shares a similar strategy of leveraging non-traditional influencer reach?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Nike","b)Spotify","c)Tesla","d)Duolingo"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315414/FP/medium-10_lijmma.png",
+      "content": "The graph below depict the the Market Cap of the companies A,B,C:"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)TATA MOTORS","b)TVS MOTORS","c)MAHINDRA","d)HERO"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315416/FP/medium-11_oixlpk.png",
+      "content": "Person A is preparing to launch a new gizmo called XYZ. They need to plot the sequence for smoothly rolling out XYZ. However, the steps got all muddled up! Can you help unscramble them into optimal flow?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)3-1-5-4-2","b)2-4-1-3-5","c)1-4-3-2-5","d)1-3-2-5-4"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315417/FP/medium-12_ans_jbd9gn.jpg",
+      "content": "Arrange the given sharebrokers of India in descending order of their active clients in 2023"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)A,D,B,C","b)B,D,A,C","c)D,A,C,B","d)A,B,C,D"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315418/FP/medium-13_ans_ah46vc.jpg",
+      "content": "Arrange the given online payment platforms in ascending order of the number of the users in 2023"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)C,D,A,B","b)A,D,B,C","c)A,B,C,D","d)D,C,B,A"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315419/FP/medium-14_ab7k3a.png",
+      "content": "Identify the companies A,B,C Given that the graph y axis represents the profit margins of the companies:"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)A-apple,B-Microsoft,C-Meta,D-Adobe","b)A-Adobe, B-Meta, C-Apple, D-Microsoft","c)D-Meta, C-Microsoft, B-Adobe, A-Apple","d)C-Meta, B-Microsoft, A-Apple, D-Adobe"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315420/FP/medium-15_ans_ne3ar1.jpg",
+      "content": "which famous company had the inhouse quick commerce venture shutdown within days of introduction"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)A","b)B","c)C","d)D"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "multiple",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315420/FP/medium-15_ans_ne3ar1.jpg",
+      "content": "Given that = Green-Public Start ups,Red-Private StartUps.Choose the correct answer so that the companies belong to the correct coloured box representing the stage of their Funding(multiple can be correct)"
+    },
+    "ans":{
+      "optionsType":"image",
+      "optionsContent":["https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315991/FP/medium-16_option-1_s5yav8.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315992/FP/medium-16_option-2_g8rw3n.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315992/FP/medium-16_option-3_wlzt7b.png","https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315993/FP/medium-16_option-4_r0hxnt.png"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "text",
+      "contentLink": "",
+      "content": "'Y' is a financial term, it can be understood by the following statement “I bloom with profit, not petals, my value measured in equity's petals. The higher I climb, the sweeter the scent for shareholders, a measure of growth, content. What am I? A higher Y value would indicate a sweeter, more profitable investment.For a company with a net income of $100,000 and average shareholders' equity of  $500,000what is 'Y' ratio?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)10%","b)20%","c)25%","33.33%"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705330495/FP/med-18_ysve4k.jpg",
+      "content": "Match the following"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)K-ii,L-i,M-iii,N-v,O-iv","b)K-iii,L-iv,M-ii,N-v,O-i","c)K-iii,L-iv,M-i,N-v,O-ii","d)K-v,L-iii,M-ii,N-iv,O-i"]
+  }
+  },
+  {
+    
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315427/FP/medium-19_t4b8hd.png",
+      "content": "How many of the following provide financial services in india"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)8","b)6","c)7","d)5"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315428/FP/medium-20_zi1itg.png",
+      "content": "Identify what the shaded region in the following image indicate"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Value innovation","b)Value curve","c)Value frontier","d)Value proposition"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705343200/FP/dreamworks_e5wjsw.png",
+      "content": ""
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["DreamWorks","Dream11","Sleepwell","Sleepyhead"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705331257/FP/med-22_tvk8vj.png",
+      "content": "As you prepare to present your business plans to potential investors, what might you consider including in your business plan?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)i,iii,iv","b)i,iv","c)i,ii,iii","d)iii,iv"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "audio",
+      "contentLink": "https://utfs.io/f/eb2704cb-6925-4e4b-8c85-98d4bd620403-zbc95z.mp3",
+      "content": "Identify which founder spoke the following words via the audio clip"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Ronald Wayne","b)Bill gates","c)Steve jobs","d)Steve Wozniak"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "audio",
+      "contentLink": "https://utfs.io/f/c1fbec91-6c3a-406e-995e-21d86465fd49-zbc95y.mp3",
+      "content": "Listen to the audio and answer"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)red ocean strategy","b)blue ocean strategy","c)both","d)none"]
+  }
+  },
+  {
+    "q": {
+      "questionType": "single",
+      "contentType": "audio",
+      "contentLink": ["https://utfs.io/f/47af7eba-0dfd-4041-b5d1-bfbe8d63be9c-r0lazw.m4a","https://utfs.io/f/ef42098e-626b-4882-ade8-357d372d12c5-ucpfbs.m4a"],
+      "content": "Listen to the audio clip to answer assertion and reason"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Both assertion and reason are correct and reason is the correct explanation for the assertion","b)Both assertion and reason are correct but, reason is not the correct explanation for the assertion","c)Assertion is false, reason is true","d)Assertion is true, reason is false"]
+  }
+  }
+  ],
+  "hard": [
+    {
+      "q":{
+        "questionType": "multiple",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Emma owns a small bakery called 'Sweet Delights'.In what strategic move does Emma's surprise expansion of her bakery menu, featuring intriguing textures and boasting exotic flours, truly shine.(multiple can be correct)"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)Appealing to the growing health-conscious clientele with a hidden line of gluten-free delights.","b)Strategising against her competitor.","c)Rekindling a cherished family recipe, passed down through generations, for public adoration.","d)Reducing Overall Cost of production"]
+    }
+  },
+  {
+    "q":{
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705335242/FP/hard-2_jpsiaw.png",
+      "content":"Which is the correct chronological order?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)A","b)B","c)C","d)D"]
+  }
+  },
+  {
+    "q":{
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705335968/FP/hard-3_tafurr.png",
+      "content":"Which is the correct chronological order?"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)i-A, ii-Z, iii-Y, iv- C, v- B, vi- X","b)i-X, ii-Y, iii-Z, iv- A, v- B, vi- C","c)i-X, ii-Y, iii-Z, iv- A, v- C, vi- B","d)i-Z, ii-Y, iii-X, iv- C, v- A, vi- B"]
+  }
+  },
+  {
+    "q":{
+      "questionType": "single",
+      "contentType": "text",
+      "contentLink": "",
+      "content":"A value-based strategy aims to create distinctiveness in the market. By providing peerless products and services, companies can justify charging elevated costs. Realizing differentiation requires offering perks that patrons appreciate amply to pay a premium. Branding, R&D, unique features, and high-touch customer service aid A differentiation tactic is to premium valuations as a affordability approach is to"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Minimal margins","b)Mass distribution","c)Economies of scale","d)Conservative spending"]
+  }
+  },
+  {
+    "q":{
+      "questionType": "single",
+      "contentType": "image",
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705336498/FP/hard-5_sbiwn3.png",
+      "content":"Which of the following statements accurately encapsulates the fundamental principle of the 'X ocean' strategy ,a concept that challenges conventional business thinking?x ocean strategy was used by giants like jio and flipkart e commerce platform"
+    },
+    "ans":{
+      "optionsType":"text",
+      "optionsContent":["a)Green","b)Pink","c)Blue","d)Orange"]
+  }
+  },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705336613/FP/hard-6_zmyrr7.png",
+        "content":"Identify the following sections in the given graph"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)A-Growth, B-Time, C-Maturity, D-Decline, E-Introduction, F- Salesn","b)A-Introduction, B-Sales, C-Time, D-Maturity, E-Growth, F-Declinek","c)A- Introduction, B- Maturity, C-Sales, D-Growth, E-Time, F-Decline","d)A-Maturity, B-Sales, C-Introduction, D-Time, E-Decline, F-Growthe"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705336924/FP/hard-7_o8hbpr.jpg",
+        "content":"Suppose you are Jethalal, owner of Gada Electronics a public limited company based in Texas,USA.. As the owner of Gada Electronics, you are reviewing the balance sheets for the fiscal years 2019 and 2020. The equity and liabilities sections for both years are provided below.Calculate the total shareholder's equity and total liabilities and shareholders' equity for fiscal year 2020.(The highlighted terms in the balance sheet)"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)$65,339; $323,888","b)$90,488; $338,516","c)$105,392;$65,339","d)Can't be determined"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705337221/FP/hard-8_dsdjdn.png",
+        "content":"Answer the below question"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)36.18","b)39.12","c)39.52","d)37.54"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705337221/FP/hard-8_dsdjdn.png",
+        "content":" Find the operating expense ratio for the geographic region which Tibet is a part of. (for December 23')"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)52.71","b)57.72","c)59.75","d)62.46"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705337699/FP/hard-10_kwi3j6.png",
+        "content":" This famous company dealing with transportation services faced a  significant downfall with continuous losses, exacerbated by the adoption of another company of the same domain in the 2007 Financial troubles escalated later leading to a great loss half of which left the company bankrupt. The company attempted to overcome the financial crisis through debt restructuring, but they still face failures, This all happened because of which of the following reasons:"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)i,iii,iv,ii","b)i,iii,iv","c)ii,iv,v","d)iv,i,ii,iii"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":" A silent strike in Manesar, turned violent, causing the death of a manager and several others injured. Even though the workers were held responsible by the court and the organization. What would have triggered a silent protest for fair pay and treatment , to a level of inferno violence .Arrange the trigger events in the way they unfolded.\nA)Over 2000 employees were abruptly fired.\nB)An argument arose between a worker and a foreman about the later's use of a casteist slur.\nC)There were hundreds of people arbitrarily detained, among them  were the union office bearers."
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)A,C,B","b)B,C,A","c)C,A,B","d)B,A,C"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "multiple",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Settling for lower salaries in the competitor airlines and breaching the contract, for the sake of resigning, why do you think such a mass chaotic resignation of pilots occurred for Akasa airlines, which led India's affordable airline to 1.17% cancellation rates and great customer dissatisfaction?(Multiple correct)"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)Favouritism that the middle management of the organisation failed to confront.","b)No incentives or bonuses accompanied with high working hours.","c)No specific pay scale and pay lower than standard payment in the industry for standard hours of flying.","d)A soaring 20:1 pilot to flight ratio, leading to difficult achievement in full 70 hrs flight time."]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705338461/FP/hard-13_mdqjtx.png",
+        "content":"Recognise what does this cycle represent "
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)This metric describes how the cash Flows in and out of business","b)This metric depicts  the time it takes to convert net current assets and current liabilities (e.g. purchased stock) into cash.","c)This metric takes into account how much time the company needs to sell its inventory, how much time it takes to collect receivables, and how much time it has to pay its bills.","d)This metric describes  the amount of time that passes from the day an item is purchased by a company until it is sold. "]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705338735/FP/hard-14_ifivzg.png",
+        "content":"Choose the correct option which  best depicts the above chart "
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)A visual representation featuring horizontal lines that illustrates the quality of work accomplished or production completed during specific time intervals in comparison to the planned amounts for those periods.","b)A graphical depiction utilizing horizontal lines to display the progress of work or production left within defined timeframes, showcasing how it aligns with the planned quantities for those periods.","c)A chart composed of horizontal lines that visually communicates the extent of work undertaken or production achieved during overall time segments, offering insights into the correlation with the predetermined targets for each period.","d)a chart in which a series of horizontal lines shows the amount of work done or production completed in certain periods of time in relation to the amount planned for those periods. "]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"X is a company that started in 1921 in Boston and the name was an expression for a petite wooden structure intricately constructed to house the radio apparatus of a maritime vessel. This company was purchased by leather goods corporation in 1962 for about US$300,000. In mid 1990's this company endeavored to transitioned from niche components to broader consumer markets, with a specific emphasis on promoting wireless phones. It was delisted  from the NYSE in 2015 and subsequently in 2017 filed for bankruptcy "
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)Raytheon Technologies","b)RadioShack","c)Motorola","d)Zenith Electronics"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "multiple",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"An unforgettable  event marked by the founders suicide of a company with a huge debt  and his wife taking over then to ultimately  reduce the debt by 75% ,What ultimately led to the debts being paid off and revival of this company?(MULTIPLE CORRECT)"
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)US private equity firms stepped in","b)Selling Stake in an IT company ","c)Acquiring Investors from the Middle East","d)Divesting Non Performing Assets"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"A mobile phone company popularized as the business man's necessity ,innovating right from the age of pagers,how many of the following REASONS led to their irrelevance in the market ? \n 1)Adoption of Guerrilla Marketing Strategies \n 2)Using internet data to transfer messages between the devices. \n 3)Changing Physical Features to cope with the dynamic market. \n 4)Changing the Operating System5)Focusing On software security \n 5)Focusing On software security "
+      },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)1,2,3  ","b)1&,2  ","c)1, 4,5  ","d)3& 4"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Let us consider Company X, a large Indian conglomerate group started in 1978 involved in diverse sectors like infrastructure, finance, media, real estate etc. This company also purchased some shares of the Force India Formula team. Company X reportedly raised significant funds over the years through various subsidiary companies. There were some concerns raised about Company X's compliance to regulations regarding issuance of such securities and was encountered in a fraud case. Which of the following were the reasons behind the possible fraud? \n i)Company X offered OFCDs to the general investing public. \nii)Using accounting loopholes to hide billions of dollars of bad debt, while simultaneously inflating companies earnings\niii)Surpassing the stimulated SEBI limitations on procuring financial deposits from equity shareholders in a single fiscal year. \niv)Lack of proper documentation and reduced transparency.\nv)Insider trading by promoters and management."
+       },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)i,ii  ","b)i,iii,iv  ","c)iii,iv,v  ","d)ii,iii"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content":"Company X in the fast fashion sector has a high dividend payout ratio of 1.68 for the year 2023 and average Dividends Per Share Growth Rate of -33.30% has next year's dividend of 1. Identify the Z  growth model which is used to determine the intrinsic value of a stock based on a future series of dividends that grow at a constant rate , to calculate the discount rate(%)  when the given stock value is $16.55."
+       },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)11.23  ","b)10.48  ","c)9.87  ","d)10.58"]
+    }
+    },
+    {
+      "q":{
+        "questionType": "single",
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705340144/FP/hard-20_r63bhu.png",
+        "content":"X axis refers to TIME,and Y axis refers to GDP"
+       },
+      "ans":{
+        "optionsType":"text",
+        "optionsContent":["a)- A- Recession, B- Expansion,  C- Peak, D- Recovery, E- Trough, F- Depression  ","b)A- Depression, B- Expansion,  C- Peak, D- Trough,  E- Recovery, F- Recession ","c)A-Trough, B-Recession, C- Peak, D- Depression, E- Recession, F-Recession  ","d)A-Expansion, B-Depression, C-Peak, D- Trough, E- Recession, F-Depression"]
+    }
+    }
+  ],
+  "caseStudy":[
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What are the depreciation and amortization expenses in the Oil to Chemicals sector in the September 21' Quarter? (*in INR crores)"
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["1973", "12,231", "12,720", "1953"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "What is the YoY change in revenue in Financial services for the half-year period ending on 30th September 2021? (*in INR crores)"
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["-43.19", "-330", "46.59", "612"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Find the Y ratio that is a measure of the company's operating profit as a percentage of its revenue, for September 2021 (Half Year Ended)."
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["16.76", "18.22", "16.85", "12.39"]
+      }
+    },
+    {
+      "q": {
+        "questionType": "single",
+        "contentType": "text",
+        "contentLink": "",
+        "content": "Find the x ratio that examines how much of a company's assets are made of liabilities and also examines the leverage and risk for September 2021 (Quarter Ended)."
+        },
+      "ans": {
+        "optionsType": "text",
+        "optionsContent": ["0.5, medium", "0.8, medium", "1, high", "0.4, low"]
+      }
+    }
+  ]
+}

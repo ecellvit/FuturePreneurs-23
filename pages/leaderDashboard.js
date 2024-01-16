@@ -140,7 +140,8 @@ export default function LeaderDashboard() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + session.accessTokenBackend,
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((res) => res.json())
