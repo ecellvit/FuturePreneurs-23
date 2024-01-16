@@ -1,9 +1,9 @@
 {
-    "qualifiers":5, 
+    "qualifiers":0.5, 
     "level0":5,
     "level1":5,
     "level2":5,
     "level3":5,
     "level4":25,
-    "quizStartTime": {"day":16, "hour":18, "minute":40, "second":0}
- }
+    "quizStartTime": {"day":16, "hour":19, "minute":11, "second":30}
+}

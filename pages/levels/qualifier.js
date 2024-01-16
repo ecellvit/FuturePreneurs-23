@@ -87,7 +87,12 @@ export default function QualifierPage() {
         'Access-Control-Allow-Origin': '*',
       },
     })
-      .then((res) => res.json())
+      .then((res) => {if (res.status===400){
+          setQuestionCategory('waiting')
+        } else {
+          return res.json()
+        }
+      })
       .then((data) => {
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
@@ -101,7 +106,7 @@ export default function QualifierPage() {
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       {/* <Image src={bg} alt="bgImage" fill className="object-cover z-[-10]" /> */}
       {questionCategory === 'waiting' && (
-        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
+        <Waiting text={'Wait!!! Quiz Has Ended'} />
       )}
       {questionCategory === 'instruction' && (
         <Instructions/>
