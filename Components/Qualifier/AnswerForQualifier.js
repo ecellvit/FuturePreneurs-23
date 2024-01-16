@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import questions from "@/constants/qualifiers/questions.json";
 
 export default function AnswerForQualifier(props) {
   const [selectedOptions, setSelectedOptions] = useState({});
+
+  useEffect(()=>{
+    setSelectedOptions({});
+  },[props.changeOption])
 
   // const storeAnswers = ()=>{
   //   if(answerOptionType==='single'){

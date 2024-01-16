@@ -15,6 +15,7 @@ export default function QualifierPage() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState('instruction');
   const [finalAnswer, setFinalAnswer] = useState([]);
+  const [changeOption,setChangeOption] = useState(false)
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function QualifierPage() {
       .then((res) => res.json())
       .then((data) => {
         setFinalAnswer([]);
+        setChangeOption((prev)=>!prev)
         GetQuestionNumber();
       })
       .catch((err) => {
@@ -129,6 +131,7 @@ export default function QualifierPage() {
               }
               setFinalAnswer={setFinalAnswer}
               finalAnswer={finalAnswer}
+              changeOption={changeOption}
             />
             {(questionCategory === "caseStudy" && questionNumber === 3) ? (
               <button
