@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   try {
 
-    let startTime = new Date('January 16, 2024 15:15:00');
+    let startTime = new Date('January 16, 2024 17:15:00');
     startTime.toTimeString();
     startTime = startTime - 4;
     console.log(startTime);
