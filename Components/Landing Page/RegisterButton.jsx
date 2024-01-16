@@ -1,6 +1,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import LoadingIcons from "react-loading-icons";
 
 const RegisterButton = (props) => {
@@ -10,6 +11,7 @@ const RegisterButton = (props) => {
 
   return (
     <div className="position-relative" style={{ marginTop: "20px" }}>
+    <Toaster/>
     <button
       className=" rounded-full py-1 px-1 bg-gradient-to-br from-cyan-600 via-green-400 to-purple-600 font-semibold w-42"
       onClick={() => {
@@ -35,11 +37,13 @@ const RegisterButton = (props) => {
                       : "/leaderDashboard";
                   router.push(redirect);
                 } else {
-                  router.push("/makeTeam");
+                  // router.push("/makeTeam");
+                  toast.error("Resistration closed.")
                 }
               }
               else {
-                router.push("/userDetails");
+                // router.push("/userDetails");
+                toast.error("Resistration closed.")
               }
             });
         } else {
@@ -48,7 +52,7 @@ const RegisterButton = (props) => {
       }}
     >
       <div className="py-2 px-4 rounded-full bg-black">
-        {isLoading ? <LoadingIcons.Oval height={"20px"}/> : (status == "authenticated" ? "Get Started" : "Register")}
+        {isLoading ? <LoadingIcons.Oval height={"20px"}/> : (status == "authenticated" && "Get Started")}
       </div>
     </button>
     </div>
