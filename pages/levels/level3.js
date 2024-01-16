@@ -3,16 +3,26 @@ import Waiting from "@/Components/levels/Waiting";
 import GamePage1 from "@/Components/levels/level3/GamePage1";
 import Router from "next/router";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Level3() {
 
   const { data: session, status } = useSession();
 
   // useEffect(() => {
+  //  if (router.isReady) {
+  //    if (status === 'unauthenticated') {
+  //      console.log('Authenticated000000000000000000000000=======');
+  //      router.push('/');
+  //    } else if (status === 'authenticated') {
+  //      console.log('Authenticated000000000000000000000000', session);
   //   // fetch /api/level0
+
   //   getLevel0Data();
   //   checkCurrentLevel0();
-  // }, [])
+  //   }
+  //  } 
+  // }, [status, router]);
 
   const [curPage, setCurPage] = useState(1);
 

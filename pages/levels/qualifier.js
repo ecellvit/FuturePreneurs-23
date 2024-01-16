@@ -22,9 +22,10 @@ export default function QualifierPage() {
   useEffect(() => {
     if (router.isReady) {
       if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
         router.push('/');
       } else if (status === 'authenticated') {
-        console.log('Authenticated', session);
+        console.log('Authenticated000000000000000000000000', session);
         GetQuestionNumber();
         checkCurrentQualifier();
       }
