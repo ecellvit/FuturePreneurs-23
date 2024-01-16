@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 
 export default function Qualifier() {
-  const [questionNumber, setQuestionNumber] = useState(3);
+  const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState('easy');
   const [finalAnswer, setFinalAnswer] = useState([]);
 
@@ -22,7 +22,7 @@ export default function Qualifier() {
   useEffect(() => {
     if (router.isReady) {
       if (status === 'unauthenticated') {
-        // router.push('/');
+        router.push('/');
       } else if (status === 'authenticated') {
         console.log('Authenticated', session);
         GetQuestionNumber();
@@ -43,10 +43,8 @@ export default function Qualifier() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setFinalAnswer([]);
         GetQuestionNumber();
-        console.log('Final Answer => ', finalAnswer);
       })
       .catch((err) => {
         console.log(err);
@@ -91,9 +89,6 @@ export default function Qualifier() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        console.log('Question number got :::::');
-        console.log(data.questionNumber);
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
       })
