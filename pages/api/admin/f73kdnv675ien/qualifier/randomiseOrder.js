@@ -7,11 +7,14 @@ export default async function handler(req, res) {
     return;
   } else {
     await connectMongoDB();
-    const teamName = 'team1';
-    const qualTeam = await Qualifier.findOne({ teamId: teamId });
-    if (!qualTeam) {
+
+    const qualTeams = await Qualifier.find();
+    if (!qualTeams) {
       res.status(400).json({ message: 'Team not found' });
     }
+
+    for(let i = 0; i < qualTeams.length; i++) {
+
     const easy = [];
     const medium = [];
     const hard = [];
@@ -74,13 +77,13 @@ export default async function handler(req, res) {
       const j = Math.floor(Math.random() * (i + 1));
       [hard[i], hard[j]] = [hard[j], hard[i]];
     }
-    qualTeam.easyOrder = easy;
-    qualTeam.mediumOrder = medium;
-    qualTeam.hardOrder = hard;
-    await qualTeam.save();
-
+    qualTeams[i].easyOrder = easy;
+    qualTeams[i].mediumOrder = medium;
+    qualTeams[i].hardOrder = hard;
+    await qualTeams[i].save();
+  }
     try {
-      res.status(200).json({ qualTeam });
+      res.status(200).json({ "message":"success" });
     } catch (e) {
       console.log(e);
       res
