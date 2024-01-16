@@ -20,7 +20,7 @@ const Instructions = () => {
 
     if (Math.floor(timeDiff / 1000) <= 0) {
       console.log('asdf')
-      setButtonEnabled((prev)=>!prev);
+      setButtonEnabled(true);
     }
 
     const hours = Math.floor(
