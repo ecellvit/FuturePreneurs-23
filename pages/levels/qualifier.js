@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Instructions from "@/Components/Qualifier/Instructions";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import QuizEnd from "@/Components/Qualifier/QuizEnd";
 
 export default function QualifierPage() {
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -103,10 +104,12 @@ export default function QualifierPage() {
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       {/* <Image src={bg} alt="bgImage" fill className="object-cover z-[-10]" /> */}
       {questionCategory === 'waiting' && (
-        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
+        
+        <QuizEnd/>
       )}
       {questionCategory === 'instruction' && (
         <Instructions/>
+        
       )}
       {questionCategory !== "instruction" && questionCategory !== "waiting" && (
     
