@@ -43,10 +43,8 @@ export default function QualifierPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setFinalAnswer([]);
         GetQuestionNumber();
-        console.log('Final Answer => ', finalAnswer);
       })
       .catch((err) => {
         console.log(err);
@@ -91,9 +89,6 @@ export default function QualifierPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        console.log('Question number got :::::');
-        console.log(data.questionNumber);
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
       })
@@ -119,7 +114,9 @@ export default function QualifierPage() {
             teamName={"Team 1"}
             level="qualifier"
           />
-          <section className="flex flex-col gap-4 mt-4 items-center">
+          <section className="flex gap-4 mt-4 justify-center">
+          {questionCategory==='caseStudy' && (<div className="flex flex-col h-full"><iframe src="/assets/levels/navbar/qualifier/pdf.pdf#toolbar=0&navpanes=0" className="h-[60vh] w-[50vw]"/></div>) }
+            <div className="flex flex-col gap-4 mt-4 justify-center items-center">
             <QuestionForQualifier
               questionNumber={questionNumber}
               questionCategory={questionCategory}
@@ -150,6 +147,7 @@ export default function QualifierPage() {
                 Next
               </button>
             )}
+            </div>
           </section>
         </div>
       )}
