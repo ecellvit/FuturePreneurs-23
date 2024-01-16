@@ -114,7 +114,7 @@
         "content":""
       },
       "ans": {
-       "optionsType": "image", 
+       "optionsType": "text", 
         "optionsContent": ["i,ii,iv,iii","iv,iii,ii","ii,iii,i,iv","iii,ii,i,iv"]
       }
     },
@@ -192,9 +192,9 @@
     {
       "q": {
         "questionType": "single",
-        "contentType": "text",
-        "contentLink": "",
-        "content": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705323926/fp9.0/rlisognahqkkjyqrggfu.png"
+        "contentType": "image",
+        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705323926/fp9.0/rlisognahqkkjyqrggfu.png",
+        "content": ""
       },
       "ans": {
         "optionsType": "text",
@@ -209,7 +209,7 @@
         "content": "A survey method that relies on iterative anonymous questionnaires to progressively refine expert forecasts about a complex, uncertain future event is most closely associated with which of the following?"
       },
       "ans": {
-        "optionsType": "text",
+        "optionsType": "image",
         "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/necigag5l4fj7gvov4n9.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/tpgp7alvym7xt5veybig.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/myuiuovatcqlxfi1srvf.png", "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319963/fp9.0/hrtev7i71uipywunyvps.png"]
       }
     },
@@ -336,7 +336,7 @@
     {
       "q": {
         "questionType": "single",
-        "contentType": "text",
+        "contentType": "image",
         "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705319536/fp9.0/ntkhm6wgctvnvci73mai.png",
         "content": ""
       },
