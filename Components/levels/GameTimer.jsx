@@ -48,6 +48,7 @@ export default function GameTimer(props) {
 
     if (Math.floor(timeDiff / 1000) <= 0) {
       props.sendData();
+      location.reload();
     }
 
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));

@@ -1,6 +1,7 @@
 import time from '@/constants/time.json';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
@@ -11,17 +12,18 @@ const Instructions = () => {
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
 
+    console.log('asdfasdfasdf', time.quizStartTime);
     const targetTime = new Date(2024, 0, time.quizStartTime.day, time.quizStartTime.hour, time.quizStartTime.minute, time.quizStartTime.second);
     const timeDiff = targetTime - now;
 
     if (timeDiff <= 0) {
       // Target date has passed
+      setButtonEnabled(true);
       return { minutes: "00", seconds: "00", hours: "00" };
     }
 
     if (Math.floor(timeDiff / 1000) <= 0) {
       console.log('asdf')
-      setButtonEnabled(true);
     }
 
     const hours = Math.floor(
@@ -44,6 +46,7 @@ const Instructions = () => {
     const intervalId = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining);
     }, 1000);
+    
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
@@ -62,7 +65,7 @@ const Instructions = () => {
         if (res.status===200){
           location.reload();
         } else {
-          // toast here.
+          toast.error("Quiz has already started. Cannot join now.")
         }
         console.log(res.status)
       })
@@ -158,6 +161,7 @@ const Instructions = () => {
           Start Quiz
         </button>
       </div>
+      <Toaster/>
     </main>
   );
 };

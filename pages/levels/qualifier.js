@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 import Instructions from "@/Components/Qualifier/Instructions";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import QuizEnd from "@/Components/Qualifier/QuizEnd";
 
 export default function QualifierPage() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState('instruction');
   const [finalAnswer, setFinalAnswer] = useState([]);
+  const [changeOption,setChangeOption] = useState(false)
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -45,6 +47,7 @@ export default function QualifierPage() {
       .then((res) => res.json())
       .then((data) => {
         setFinalAnswer([]);
+        setChangeOption((prev)=>!prev)
         GetQuestionNumber();
       })
       .catch((err) => {
@@ -88,7 +91,12 @@ export default function QualifierPage() {
         'Access-Control-Allow-Origin': '*',
       },
     })
-      .then((res) => res.json())
+      .then((res) => {if (res.status===400){
+          setQuestionCategory('waiting')
+        } else {
+          return res.json()
+        }
+      })
       .then((data) => {
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
@@ -102,10 +110,12 @@ export default function QualifierPage() {
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       {/* <Image src={bg} alt="bgImage" fill className="object-cover z-[-10]" /> */}
       {questionCategory === 'waiting' && (
-        <Waiting text={'Wait!!! Quiz will start in few minutes'} />
+        
+        <QuizEnd/>
       )}
       {questionCategory === 'instruction' && (
         <Instructions/>
+        
       )}
       {questionCategory !== "instruction" && questionCategory !== "waiting" && (
     
@@ -130,6 +140,7 @@ export default function QualifierPage() {
               }
               setFinalAnswer={setFinalAnswer}
               finalAnswer={finalAnswer}
+              changeOption={changeOption}
             />
             {(questionCategory === "caseStudy" && questionNumber === 3) ? (
               <button
