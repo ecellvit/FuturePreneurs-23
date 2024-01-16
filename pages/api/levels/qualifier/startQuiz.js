@@ -4,13 +4,15 @@ import { getSession } from 'next-auth/react';
 import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
-  const session = await getSession({ req });
-  let teamId = await getTokenDetails(session);
+
+  connectMongoDB();
+
+  const auth = req.headers.authorization.split(' ')[1];
+  let teamId = await getTokenDetails(auth);
 
   try {
-    connectMongoDB();
 
-    let startTime = new Date('January 15, 2024 16:45:00');
+    let startTime = new Date('January 16, 2024 13:20:00');
     startTime.toTimeString();
     startTime = startTime - 4;
     console.log(startTime);
@@ -32,11 +34,11 @@ export default async function handler(req, res) {
         message: 'Qualifier round started',
       });
     } else if (currentTime < startTime) {
-      res.status(401).json({
+      res.status(403).json({
         message: 'Quiz has not started yet',
       });
     } else {
-      res.status(200).json({
+      res.status(404).json({
         message: 'Too late',
       });
     }

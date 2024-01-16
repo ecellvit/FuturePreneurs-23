@@ -34,6 +34,9 @@ export default async function handler(req, res) {
       let questionCategory = teamData.questionCategory;
       let newQuestionPointer = questionPointer;
 
+      console.log('easy-------', easyAnswers);
+      console.log('medium-------', easyOrder);
+      console.log('medium-------', questionPointer);
       if (questionCategory === 'easy') {
         easyAnswers[easyOrder[questionPointer]] = answerData;
       } else if (questionCategory == 'medium') {
@@ -73,7 +76,8 @@ export default async function handler(req, res) {
         newQuestionPointer = questionPointer + 1;
       }
 
-      console.log(questionPointer);
+      console.log('asdfasdfasdf', easyAnswers);
+
       await Qualifier.findOneAndUpdate(
         { teamId: teamId },
         {

@@ -1,10 +1,21 @@
+import { useSession } from "next-auth/react";
 import React, { useState, useEffect } from "react";
 
 export default function GameTimer(props) {
   // const currentTime = new Time.now();
   const [endTime, setEndTime] = useState(Date.now());
+
+  const { data: session, status } = useSession();
+
   useEffect(() => {
-    fetch(`/api/levels/${props.level}/getTime`)
+    fetch(`/api/levels/${props.level}/getTime`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("data for time", data);
@@ -14,6 +25,7 @@ export default function GameTimer(props) {
         console.log("error=>", err);
       });
   }, []);
+
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
     const targetTime = new Date(endTime).getTime();

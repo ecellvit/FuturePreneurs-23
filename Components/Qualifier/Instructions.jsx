@@ -1,11 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import time from '@/constants/time.json';
+import { useSession } from 'next-auth/react';
+import { useEffect, useState } from "react";
 
 const Instructions = () => {
-  const [buttonEnabled, setButtonEnabled] = useState(false);
+  const [buttonEnabled, setButtonEnabled] = useState(true);
+
+  const { data: session, status } = useSession();
+
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
-    const targetTime = new Date(2024, 0, 17, 21, 30);
+
+    const targetTime = new Date(2024, 0, time.quizStartTime.day, time.quizStartTime.hour, time.quizStartTime.minute, time.quizStartTime.second);
     const timeDiff = targetTime - now;
 
     if (timeDiff <= 0) {
@@ -14,7 +19,8 @@ const Instructions = () => {
     }
 
     if (Math.floor(timeDiff / 1000) <= 0) {
-      setButtonEnabled(true);
+      console.log('asdf')
+      setButtonEnabled((prev)=>!prev);
     }
 
     const hours = Math.floor(
@@ -32,13 +38,37 @@ const Instructions = () => {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
 
   useEffect(() => {
+    // if early then disable button
+
     const intervalId = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining);
     }, 1000);
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  });
+  }, []);
+
+  const startQuiz = () => {
+    fetch('/api/levels/qualifier/startQuiz', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((res) => {
+        if (res.status===200){
+          location.reload();
+        } else {
+          // toast here.
+        }
+        console.log(res.status)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <main className="min-h-[100vh] text-white flex flex-col items-center">
@@ -119,7 +149,7 @@ const Instructions = () => {
               ? "opacity-75 hover:cursor-not-allowed"
               : "hover:opacity-80 hover:cursor-pointer"
           }}`}
-          onClick={() => console.log("clicked")}
+          onClick={() => startQuiz()}
         >
           Start Quiz
         </button>
