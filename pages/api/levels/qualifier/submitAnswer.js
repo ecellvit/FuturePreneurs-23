@@ -30,6 +30,16 @@ export default async function handler(req, res) {
       const mediumAnswers = teamData.mediumAnswers;
       const hardAnswers = teamData.hardAnswers;
       const caseStudyAnswers = teamData.caseStudyAnswers;
+      const endTime = teamData.endTime;
+      if(endTime < Date.now()){
+        await Qualifier.findOneAndUpdate(
+          { teamId: teamId },
+          {
+            questionCategory: "waiting",
+          }
+        );
+        return res.status(400).json({ message: 'Time is up' });
+      }
 
       let questionCategory = teamData.questionCategory;
       let newQuestionPointer = questionPointer;
