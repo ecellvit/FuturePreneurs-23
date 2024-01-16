@@ -20,6 +20,7 @@ export default async function handler(req, res) {
     if (!qualTeam) {
       res.status(400).json({ message: "Team not found" });
     }
+    console.log('asdf', teamId)
     const team = await TeamModel.findById(teamId);
     if (team.level !== -1) {
       res.status(400).json({ message: "Qualifier is not right now" });

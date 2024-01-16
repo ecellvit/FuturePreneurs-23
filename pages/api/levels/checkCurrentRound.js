@@ -7,14 +7,18 @@ import { getSession } from "next-auth/react";
 export default async function checkCurrentRound(req,res){
 
     const session = await getSession({req});
+    console.log('session', session)
     let teamId = await getTokenDetails(session);
+    console.log('teamId', teamId)
 
     if(req.method !=='GET'){
         res.status(405).json({ message: 'Method not allowed' })
         return
     }else{
         await connectMongoDB();
+        console.log('reamID', teamId)
         const round = await TeamModel.findById(teamId);
+        console.log('round', round)
 
         try{
             res.status(200).json({round})

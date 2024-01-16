@@ -17,8 +17,6 @@ export default async function getTokenDetails(session) {
 
     const userId = tokenDetails.payload._id;
 
-    console.log("modelssssssssssssssss", mongoose.models)
-
     const user = await Users.findById(userId);
     console.log('user', user);
 
@@ -28,6 +26,7 @@ export default async function getTokenDetails(session) {
 
     console.log('user.teamId', user.teamId.toString());
     return user.teamId.toString();
+
   } catch (err) {
     console.log('Kuch Error hogya bro', err);
   }
