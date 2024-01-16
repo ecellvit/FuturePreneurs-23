@@ -2,12 +2,11 @@ import connectMongoDB from "@/libs/mongodb";
 import { Level4 } from "@/models/level4";
 // import { Level0Model } from "@/models/level0";
 import getTokenDetails from "@/utils/auth";
-import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
-  const session = await getSession({req});
-  let teamId = await getTokenDetails(session);
+    const auth = req.headers.authorization.split(' ')[1];
+    let teamId = await getTokenDetails(auth);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' })

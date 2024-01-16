@@ -6,9 +6,8 @@ import { getSession } from "next-auth/react";
 
 export default async function checkCurrentRound(req,res){
 
-    const session = await getSession({req});
-    console.log('session', session)
-    let teamId = await getTokenDetails(session);
+    const auth = req.headers.authorization.split(' ')[1];
+    let teamId = await getTokenDetails(auth);
     console.log('teamId', teamId)
 
     if(req.method !=='GET'){

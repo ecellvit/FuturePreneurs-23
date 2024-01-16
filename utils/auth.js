@@ -3,12 +3,9 @@ import { Users } from '@/models/user';
 import { jwtVerify } from 'jose';
 import mongoose from 'mongoose';
 
-export default async function getTokenDetails(session) {
+export default async function getTokenDetails(token) {
   try {
     connectMongoDB();
-
-    const token = session?.accessTokenBackend;
-    console.log('token', token);
 
     const tokenDetails = await jwtVerify(
       token,

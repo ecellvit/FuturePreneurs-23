@@ -1,12 +1,11 @@
 import connectMongoDB from "@/libs/mongodb";
 import { Level1 } from "@/models/level1";
 import getTokenDetails from "@/utils/auth";
-import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
 
-  const session = await getSession({req});
-  let teamId = await getTokenDetails(session);
+    const auth = req.headers.authorization.split(' ')[1];
+    let teamId = await getTokenDetails(auth);
 
   try {
     if (req.method !== "GET") {
