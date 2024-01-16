@@ -2,6 +2,7 @@ import { Qualifier } from '@/models/qualifier';
 import connectMongoDB from '@/libs/mongodb';
 import { getSession } from 'next-auth/react';
 import getTokenDetails from '@/utils/auth';
+import time from '@/constants/time.json';
 
 export default async function handler(req, res) {
 
@@ -12,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
 
-    let startTime = new Date('January 16, 2024 17:45:00');
+    let startTime = new Date(`January ${time.quizStartTime.day}, 2024 ${time.quizStartTime.hour}:${time.quizStartTime.minute}:${time.quizStartTime.second}`);
     startTime.toTimeString();
     startTime = startTime - 4;
     console.log(startTime);
