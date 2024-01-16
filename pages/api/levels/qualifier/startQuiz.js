@@ -17,7 +17,9 @@ export default async function handler(req, res) {
     startTime.toTimeString();
     startTime = startTime - 4;
     console.log(startTime);
-    const currentTime = Date.now();
+    
+    // const currentTime = new Date();
+    const currentTime = startTime;
 
     console.log('curentTime', currentTime, 'startTime', startTime);
     console.log('asdf', Math.abs(currentTime - startTime))
