@@ -4,18 +4,29 @@ import Game from "@/Components/levels/level0/game";
 import Router from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Level0() {
 
   const { data: session, status } = useSession();
 
   const [curPage, setCurPage] = useState(-1);
+  const router = useRouter();
+
 
   useEffect(() => {
     // fetch /api/level0
-    getLevel0Data();
-    checkCurrentLevel0();
-  }, [])
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
+        router.push('/');
+      } else if (status === 'authenticated') {
+        console.log('Authenticated000000000000000000000000', session);
+        getLevel0Data();
+        checkCurrentLevel0();
+      }
+    }
+  }, [status, router]);
 
 
   const checkCurrentLevel0 = ()=>{
