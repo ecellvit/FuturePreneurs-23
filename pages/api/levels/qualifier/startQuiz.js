@@ -34,14 +34,17 @@ export default async function handler(req, res) {
         }
       );
       res.status(200).json({
+        time: currentTime,
         message: 'Qualifier round started',
       });
     } else if (currentTime < startTime) {
       res.status(403).json({
+        time: currentTime,
         message: 'Quiz has not started yet',
       });
     } else {
       res.status(404).json({
+        time: currentTime,
         message: 'Too late',
       });
     }

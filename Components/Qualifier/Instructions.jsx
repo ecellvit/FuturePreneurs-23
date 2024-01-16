@@ -69,7 +69,8 @@ const Instructions = () => {
           toast.error("too late")
         }
         console.log(res.status)
-      })
+        return res.json()
+      }).then((data) => {console.log(data)})
       .catch((err) => {
         console.log(err);
       });
