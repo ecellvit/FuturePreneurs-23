@@ -5,7 +5,6 @@ import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
   const auth = req.headers.authorization.split(' ')[1];
-  console.log('auth', auth)
   let teamId = await getTokenDetails(auth);
 
   if (req.method !== 'GET') {
@@ -18,15 +17,13 @@ export default async function handler(req, res) {
       res.status(400).json({ message: 'Team not found' });
       return
     }
-    console.log('asdf', teamId);
     const team = await TeamModel.findById(teamId);
-    console.log("AGFFaf", team);
     if (team.level !== -1) {
       res.status(400).json({ message: 'Qualifier is not right now' });
       return
     } else {
+
       const teamData = await Qualifier.findOne({ teamId: teamId });
-      console.log('teamData', teamData);
 
       const questionCatogory = teamData.questionCategory;
       const pointer = teamData.questionPointer;
@@ -61,6 +58,7 @@ export default async function handler(req, res) {
       return res.status(200).json({
         category: questionCatogory,
         questionNumber: questionNumber,
+        chronoNumber: pointer,
         teamName: teamData.teamName,
       });
     }
