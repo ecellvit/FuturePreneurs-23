@@ -52,9 +52,11 @@ export default function QualifierPage() {
       .then((data) => {
         setFinalAnswer([]);
         setChangeOption((prev)=>!prev)
-        setLoading(false);
         GetQuestionNumber();
       })
+      .then(
+        setLoading(false)
+      )
       .catch((err) => {
         console.log(err);
       });
