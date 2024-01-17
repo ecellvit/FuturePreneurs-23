@@ -16,15 +16,18 @@ export default async function handler(req, res) {
     const qualTeam = await Qualifier.findOne({ teamId: teamId });
     if (!qualTeam) {
       res.status(400).json({ message: 'Team not found' });
+      return
     }
     console.log('asdf', teamId);
     const team = await TeamModel.findById(teamId);
     console.log("AGFFaf", team);
     if (team.level !== -1) {
       res.status(400).json({ message: 'Qualifier is not right now' });
+      return
     } else {
       const teamData = await Qualifier.findOne({ teamId: teamId });
       console.log('teamData', teamData);
+
       const questionCatogory = teamData.questionCategory;
       const pointer = teamData.questionPointer;
       const easyOrder = teamData.easyOrder;
@@ -55,23 +58,12 @@ export default async function handler(req, res) {
           .json({ category: 'waiting', questionNumber: -1 });
       }
 
-      res.status(200).json({
+      return res.status(200).json({
         category: questionCatogory,
         questionNumber: pointer,
       });
     }
 
-    try {
-      res.status(200).json({ qualTeam });
-    } catch (e) {
-      console.log(e);
-      res
-        .status(500)
-        .json({
-          message: 'Internal server error',
-          error: e.toString(),
-        });
-    }
   }
 }
 
