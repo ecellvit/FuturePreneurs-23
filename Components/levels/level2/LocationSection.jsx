@@ -21,7 +21,7 @@ const LocationSection = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container text-black mt-2">
       <ul>
         {titles.map(({ id, title, description }) => (
           <li key={id} className="mb-4">
