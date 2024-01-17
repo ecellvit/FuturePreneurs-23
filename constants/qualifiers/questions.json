@@ -133,7 +133,7 @@
       "q": {
         "questionType": "multiple",
         "contentType": "text",
-        "content": "Which of the following is true about social entrepreneurship?? (multiple options  can be correct)"
+        "content": "Which of the following is true about social entrepreneurship? (Multiple options  can be correct)"
       },
       "ans":{
         "optionsType": "text", 
@@ -513,8 +513,8 @@
     "q": {
       "questionType": "single",
       "contentType": "image",
-      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315414/FP/medium-10_lijmma.png",
-      "content": "The graph below depict the the Market Cap of the companies A,B,C:"
+      "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705500338/1_jrtfko.jpg",
+      "content": "The graph below depict the the Market Cap of the companies A,B,C,D:"
     },
     "ans":{
       "optionsType":"text",
