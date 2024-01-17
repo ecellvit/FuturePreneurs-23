@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import questions from "@/constants/qualifiers/questions.json";
+import { useSession } from "next-auth/react";
+
 
 export default function QuestionForQualifier(props) {
-  // if(questions[props.questionCategory][props.questionNumber].q.contentType === "audio") location.reload();
+  const { data: session, status } = useSession();
   return (
     <main>
       <section className="flex flex-col justify-center items-center px-4">
