@@ -25,7 +25,7 @@ const MapDroppableArea = ({ onDrop, index, mapData, onDragStart }) => {
   const isDropArea = mapData[index] !== null;
 
   const areaStyle = `
-    border w-16 h-16 relative
+    border w-10 h-10 relative
   `;
 
   return (
@@ -75,7 +75,7 @@ const MapSection = ({ onDrop, mapData }) => {
     <main className='relative w-full'>
     <Image src={map} className='w-full absolute top-0 left-0'/>
       <div className="grid grid-cols-12">
-      {Array.from({ length: 12 * 7 }, (_, index) => (
+      {Array.from({ length: 12 * 12 }, (_, index) => (
           <MapDroppableArea
             key={index}
             index={index}
