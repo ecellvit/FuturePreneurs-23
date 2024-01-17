@@ -1,0 +1,63 @@
+{
+  "setA": [
+    {
+      "title": "Charging Stations: Highways",
+      "pdf": "https://utfs.io/f/ddf27a0f-3e57-4fdc-ab85-3c90ebea6574-x0jv7y.pdf"
+    },
+    {
+      "title": "Battery Manufacturing Facility: Helo Mountains",
+      "pdf": ""
+    },
+    {
+      "title": "R&D Centre: Nexus Heights",
+      "pdf": ""
+    },
+    {
+      "title": "Recycling Facility: District 9",
+      "pdf": ""
+    },
+    {
+      "title": "Supply Chain Logistics Hub: Castle Rock",
+      "pdf": ""
+    },
+    {
+      "title": "Showroom and Customer Experience Centers: Downtown and Suburbs",
+      "pdf": ""
+    },
+    {
+      "title": "Energy Storage Facility: Electropolis Wind Farms and Solar Fields",
+      "pdf": ""
+    }
+  ],
+  "setB": [
+    {
+      "title": "BioNest: Downtown and Suburbs",
+      "pdf": ""
+    },
+    {
+      "title": "WattLab : Wind Farms and Solar Fields",
+      "pdf": ""
+    },
+    {
+      "title": "GreenLink: Rich in rare-earth minerals",
+      "pdf": ""
+    },
+    {
+      "title": "CITE : Central Institute for Transforming Envisions : Technology Hubs",
+      "pdf": ""
+    },
+    {
+      "title": "RippleCenter:Nature Haven",
+      "pdf": ""
+    },
+    {
+      "title": " EcoCycle Center:Maritime Oasis",
+      "pdf": ""
+    },
+    {
+      "title": "Charging Stations: Highways",
+      "pdf": ""
+    }
+  ],
+  "setC": []
+}
