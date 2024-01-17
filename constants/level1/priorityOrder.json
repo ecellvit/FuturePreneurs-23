@@ -1,0 +1,21 @@
+{
+    "e.v":[
+        "Lacking Charging Infrastructure",
+        "High Charging Time",
+        "Lithium Shortage",
+        "Power Storage"
+        ],
+    "green construction":[
+        "Lack Of Awareness",
+        "Lack Of Skilled Professionals",
+        "Retrofitting Complexity",
+        "Maintenance Issues"
+    ],
+    "renewable energy":[
+        "Lack Of Policy",
+        "Implementation Cost",
+        "Seasonal Dependance",
+        "Power Storage"
+    ]
+    
+}

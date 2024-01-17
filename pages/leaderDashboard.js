@@ -88,8 +88,7 @@ export default function LeaderDashboard() {
         setTeamLeaderId(data.teamDetails.teamLeaderId);
         setIsLoading(false);
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   };
 
   function toggleDelete() {
@@ -105,7 +104,7 @@ export default function LeaderDashboard() {
     setPopUpForDelete(!popUpForDelete);
   }
   function removeMember(id) {
-    setRemove(prev=>!prev);
+    setRemove((prev) => !prev);
     setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
       method: "POST",
@@ -127,7 +126,7 @@ export default function LeaderDashboard() {
         setRemove(!remove);
         toast.success("Member removed successfully.");
       });
-    }
+  }
 
   function deleteTeam() {
     if (teamMembersData.length !== 1) {
@@ -145,8 +144,7 @@ export default function LeaderDashboard() {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-      })
+      .then((data) => {})
       .then(() => {
         router.push("/makeTeam");
         toast.success("Team Deleted.");
@@ -171,16 +169,23 @@ export default function LeaderDashboard() {
           Team : {teamName}
         </h1>
 
-        {
-          teamMembersData.length < 3 && 
-          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
-            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who&lsquo;ve registered would be added to my team</p>
+        {teamMembersData.length < 3 && (
+          <div
+            style={{ backgroundColor: "#141B2B" }}
+            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5"
+          >
+            <p className="text-white">
+              I understand that if the team I have created does not meet the
+              minimum requirement of 3 members per team before the end of
+              registrations, random members who&lsquo;ve registered would be
+              added to my team
+            </p>
           </div>
-        }
+        )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
-        {teamMembersData.length < 4 && (
+        {/* {teamMembersData.length < 4 && (
           <Link
             className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
             href="/teamCode"
@@ -188,7 +193,7 @@ export default function LeaderDashboard() {
             {" "}
             Add Members{" "}
           </Link>
-        )}
+        )} */}
         <div className="flex flex-wrap justify-center">
           {teamMembersData.map((el) => {
             return (
@@ -213,7 +218,14 @@ export default function LeaderDashboard() {
       </div>
 
       <div className="flex justify-center mt-4">
-        <DeleteTeamButton onClick={() => deleteTeam()} />
+        {/* <DeleteTeamButton onClick={() => deleteTeam()} /> */}
+
+        <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        onClick={()=>{
+          router.push('/levels/qualifier');
+        }}>
+          Start Quiz
+        </button>
         <Toaster />
       </div>
     </div>
