@@ -61,8 +61,8 @@ const Instructions = () => {
     })
       .then((res) => {
         if (res.status===200){
-          // location.reload();
           console.log('quizStartingNow.')
+          location.reload();
         } else if (res.status===403) {
           toast.error("Quiz has not started yet")
         } else {
