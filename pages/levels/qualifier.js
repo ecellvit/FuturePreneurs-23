@@ -53,10 +53,12 @@ export default function QualifierPage() {
       .then((data) => {
         setFinalAnswer([]);
         setChangeOption((prev)=>!prev)
-        setLoading(false);
         GetQuestionNumber();
         setChronoNumber(prev=>prev+1);
       })
+      .then(
+        setLoading(false)
+      )
       .catch((err) => {
         console.log(err);
       });
