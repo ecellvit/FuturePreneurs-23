@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import GameTimer from './GameTimer';
-import image from 'public/assets/levels/navbar/downloadNewspaper.svg';
+// import image from 'public/assets/levels/navbar/downloadNewspaper.svg';
+import sponsor from 'public/assets/levels/navbar/sponsor.png';
 import logo from 'public/assets/logos/FP LOGO.svg';
 
 
@@ -22,9 +23,9 @@ const Navbar = (props) => {
           <div className="logo">
             <Image src={logo} className="h-16 p-3" />
           </div>
-          {/* <div className="newspaper hover:cursor-pointer">
-            <Image src={image} className="h-full p-3" />
-          </div> */}
+          <div className="">
+            <Image src={sponsor} className="h-16 w-72 p-3" />
+          </div>
         </div>
         <div className="mid w-1/3 flex justify-center text-2xl font-bold">
           {levelNames[props.level]}
