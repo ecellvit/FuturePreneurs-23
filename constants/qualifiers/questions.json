@@ -115,7 +115,7 @@
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["i,ii,iv,iii","iv,iii,ii","ii,iii,i,iv","iii,ii,i,iv"]
+        "optionsContent": ["i,ii,iv,iii","iv,iii,ii,i","ii,iii,i,iv","iii,ii,i,iv"]
       }
     },
     {

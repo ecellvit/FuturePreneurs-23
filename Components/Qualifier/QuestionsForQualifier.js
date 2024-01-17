@@ -2,6 +2,7 @@ import React from "react";
 import questions from "@/constants/qualifiers/questions.json";
 
 export default function QuestionForQualifier(props) {
+  // if(questions[props.questionCategory][props.questionNumber].q.contentType === "audio") location.reload();
   return (
     <main>
       <section className="flex flex-col justify-center items-center px-4">
@@ -40,7 +41,7 @@ export default function QuestionForQualifier(props) {
                             props.questionNumber
                           ].q.contentLink[0]
                         }
-                        type="audio/mpeg"
+                        // type="audio/mpeg"
                       />
                       Your browser does not support the audio element.
                     </audio>
@@ -51,7 +52,7 @@ export default function QuestionForQualifier(props) {
                             props.questionNumber
                           ].q.contentLink[1]
                         }
-                        type="audio/mpeg"
+                        // type="audio/mpeg"
                       />
                       Your browser does not support the audio element.
                     </audio>
@@ -63,7 +64,7 @@ export default function QuestionForQualifier(props) {
                         questions[props.questionCategory][props.questionNumber]
                           .q.contentLink
                       }
-                      type="audio/mpeg"
+                      // type="audio/mpeg"
                     />
                     Your browser does not support the audio element.
                   </audio>
