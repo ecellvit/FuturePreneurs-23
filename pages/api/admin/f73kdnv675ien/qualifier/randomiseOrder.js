@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     const easyLength = 10;
     const mediumLength = 8;
-    const hardLength = 4;
+    const hardLength = 8;
 
     const getRandomUniqueNumberEasy = (array) => {
       let randomNumber;

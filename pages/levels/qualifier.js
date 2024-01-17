@@ -14,6 +14,7 @@ import QuizEnd from "@/Components/Qualifier/QuizEnd";
 import LoadingIcons from "react-loading-icons";
 
 export default function QualifierPage() {
+  const [chronoNumber, setChronoNumber] = useState(0);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionCategory, setQuestionCategory] = useState('instruction');
   const [finalAnswer, setFinalAnswer] = useState([]);
@@ -39,6 +40,7 @@ export default function QualifierPage() {
 
   const submitAnswer = () => {
     setLoading(true);
+    console.log('ans submit hora')
     fetch('/api/levels/qualifier/submitAnswer', {
       method: 'POST',
       headers: {
@@ -54,9 +56,6 @@ export default function QualifierPage() {
         setChangeOption((prev)=>!prev)
         GetQuestionNumber();
       })
-      .then(
-        setLoading(false)
-      )
       .catch((err) => {
         console.log(err);
       });
@@ -110,6 +109,9 @@ export default function QualifierPage() {
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
         setTeamName(data.teamName);
+        setChronoNumber(data.chronoNumber)
+      }).then(()=>{
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err);
@@ -139,6 +141,7 @@ export default function QualifierPage() {
           {questionCategory==='caseStudy' && (<div className="flex flex-col h-full"><iframe src="/assets/levels/navbar/qualifier/pdf.pdf#toolbar=0&navpanes=0" className="h-[60vh] w-[50vw]"/></div>) }
             <div className="flex flex-col gap-4 mt-4 justify-center items-center">
             <QuestionForQualifier
+              chronoNumber={chronoNumber}
               questionNumber={questionNumber}
               questionCategory={questionCategory}
             />
