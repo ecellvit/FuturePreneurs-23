@@ -26,16 +26,16 @@ export default async function handler(req, res) {
 
     // if (Math.abs(currentTime - startTime) <= 20 * 60 * 1000) {
     //   console.log('correct')
-      await Qualifier.findOneAndUpdate(
-        { teamId: teamId },
-        {
-          $set: {
-            questionCategory: 'easy',
-            questionPointer: 0,
-          },
-        }
-      );
-      res.status(200).json({
+      // await Qualifier.findOneAndUpdate(
+      //   { teamId: teamId },
+      //   {
+      //     $set: {
+      //       questionCategory: 'easy',
+      //       questionPointer: 0,
+      //     },
+      //   }
+      // );
+      res.status(400).json({
         message: 'Qualifier round started',
       });
     // } else if (currentTime < startTime) {

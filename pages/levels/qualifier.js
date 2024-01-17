@@ -20,7 +20,7 @@ export default function QualifierPage() {
   const [finalAnswer, setFinalAnswer] = useState([]);
   const [changeOption,setChangeOption] = useState(false)
   const [teamName, setTeamName] = useState()
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -62,6 +62,7 @@ export default function QualifierPage() {
   };
 
   const checkCurrentQualifier = () => {
+
     fetch('/api/levels/checkCurrentRound', {
       method: 'GET',
       headers: {
@@ -90,6 +91,7 @@ export default function QualifierPage() {
   };
 
   function GetQuestionNumber() {
+
     fetch('/api/levels/qualifier/getQuestionData', {
       method: 'GET',
       headers: {
