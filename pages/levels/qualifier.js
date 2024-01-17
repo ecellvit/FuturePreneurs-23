@@ -18,6 +18,7 @@ export default function QualifierPage() {
   const [questionCategory, setQuestionCategory] = useState('instruction');
   const [finalAnswer, setFinalAnswer] = useState([]);
   const [changeOption,setChangeOption] = useState(false)
+  const [teamName, setTeamName] = useState()
   const [loading, setLoading] = useState(false);
 
   const { data: session, status } = useSession();
@@ -88,6 +89,7 @@ export default function QualifierPage() {
       }
     });
   };
+
   function GetQuestionNumber() {
     fetch('/api/levels/qualifier/getQuestionData', {
       method: 'GET',
@@ -104,8 +106,10 @@ export default function QualifierPage() {
         }
       })
       .then((data) => {
+        console.log('data', data)
         setQuestionNumber(data.questionNumber);
         setQuestionCategory(data.category);
+        setTeamName(data.teamName);
       })
       .catch((err) => {
         console.log(err);
@@ -128,7 +132,7 @@ export default function QualifierPage() {
         <div>
           <Navbar
             sendData={submitAnswer}
-            teamName={"Team 1"}
+            teamName={teamName}
             level="qualifier"
           />
           <section className="flex gap-4 mt-4 justify-center">

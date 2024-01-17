@@ -51,16 +51,17 @@ export default async function handler(req, res) {
       } else if (questionCatogory === 'instruction') {
         return res
           .status(200)
-          .json({ category: 'instruction', questionNumber: -1 });
+          .json({ category: 'instruction', questionNumber: -1, teamName:teamData.teamName });
       } else if (questionCatogory === 'waiting') {
         return res
           .status(200)
-          .json({ category: 'waiting', questionNumber: -1 });
+          .json({ category: 'waiting', questionNumber: -1, teamName:teamData.teamName });
       }
 
       return res.status(200).json({
         category: questionCatogory,
-        questionNumber: pointer,
+        questionNumber: questionNumber,
+        teamName: teamData.teamName,
       });
     }
 
