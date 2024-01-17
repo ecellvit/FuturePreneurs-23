@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import questions from "@/constants/qualifiers/questions.json";
-import { useSession } from "next-auth/react";
-
 
 export default function QuestionForQualifier(props) {
-  const { data: session, status } = useSession();
   return (
     <main>
       <section className="flex flex-col justify-center items-center px-4">
@@ -31,6 +28,7 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
+                
                 {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
@@ -43,7 +41,7 @@ export default function QuestionForQualifier(props) {
                             props.questionNumber
                           ].q.contentLink[0]
                         }
-                        // type="audio/mpeg"
+                        type="audio/mpeg"
                       />
                       Your browser does not support the audio element.
                     </audio>
@@ -54,7 +52,7 @@ export default function QuestionForQualifier(props) {
                             props.questionNumber
                           ].q.contentLink[1]
                         }
-                        // type="audio/mpeg"
+                        type="audio/mpeg"
                       />
                       Your browser does not support the audio element.
                     </audio>
@@ -66,7 +64,7 @@ export default function QuestionForQualifier(props) {
                         questions[props.questionCategory][props.questionNumber]
                           .q.contentLink
                       }
-                      // type="audio/mpeg"
+                      type="audio/mpeg"
                     />
                     Your browser does not support the audio element.
                   </audio>
