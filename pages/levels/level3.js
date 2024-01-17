@@ -1,32 +1,35 @@
 import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
 import GamePage1 from "@/Components/levels/level3/GamePage1";
+import GamePage2 from "@/Components/levels/level3/GamePage2";
 import Router from "next/router";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Level3() {
 
+
   const { data: session, status } = useSession();
+  const router = useRouter()
 
-  // useEffect(() => {
-  //  if (router.isReady) {
-  //    if (status === 'unauthenticated') {
-  //      console.log('Authenticated000000000000000000000000=======');
-  //      router.push('/');
-  //    } else if (status === 'authenticated') {
-  //      console.log('Authenticated000000000000000000000000', session);
-  //   // fetch /api/level0
+  useEffect(() => {
+   if (router.isReady) {
+     if (status === 'unauthenticated') {
+       console.log('Authenticated000000000000000000000000=======');
+       router.push('/');
+     } else if (status === 'authenticated') {
+       console.log('Authenticated000000000000000000000000', session);
+    // fetch /api/level0
 
-  //   getLevel0Data();
-  //   checkCurrentLevel0();
-  //   }
-  //  } 
-  // }, [status, router]);
+    checkCurrentLevel3();
+    getLevel3Data();
+    }
+   } 
+  }, [status, router]);
 
   const [curPage, setCurPage] = useState(1);
 
-  const checkCurrentLevel0 = ()=>{
+  const checkCurrentLevel3 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
         method: "GET",
         headers: {
@@ -40,9 +43,9 @@ export default function Level3() {
             console.log("data", data);
             // setCurPage(data.team.pageNo);
             console.log(data.round.level);
-            if(data.round.level!==0){
+            if(data.round.level!==3){
                 // redirect(`/levels/level${data.round.level}`)
-                Router.push(`/levels/level${data.round.level}`)
+                router.push(`/levels/level${data.round.level}`)
             }
           });
         } else {
@@ -51,9 +54,9 @@ export default function Level3() {
       });
   }
 
-  const getLevel0Data = () => {
+  const getLevel3Data = () => {
     // get question number & end Time from backend
-    fetch("/api/levels/level0/getData", {
+    fetch("/api/levels/level3/getData", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -64,8 +67,8 @@ export default function Level3() {
       if (res.status === 200) {
         res.json().then((data) => {
           console.log("data", data);
-          setCurPage(data.team.pageNo);
-          console.log(data.team.pageNo);
+          setCurPage(data.pageNo);
+          console.log(data.pageNo)
         });
       } else {
         console.log("error");
@@ -75,11 +78,12 @@ export default function Level3() {
 
   return (
     <div>
+    <GamePage2/>
       {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <GamePage1/>}
-      {curPage === 2 && <GamePage1/>}
+      {curPage === 2 && <GamePage2/>}
       {curPage === 3 && <Waiting text={"Prompt"}/>}
       {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}
       {/* {curPage === 2 && <Prompt/>} */}
