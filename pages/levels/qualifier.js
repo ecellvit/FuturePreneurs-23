@@ -40,6 +40,7 @@ export default function QualifierPage() {
 
   const submitAnswer = () => {
     setLoading(true);
+    console.log('ans submit hora')
     fetch('/api/levels/qualifier/submitAnswer', {
       method: 'POST',
       headers: {
@@ -54,11 +55,7 @@ export default function QualifierPage() {
         setFinalAnswer([]);
         setChangeOption((prev)=>!prev)
         GetQuestionNumber();
-        setChronoNumber(prev=>prev+1);
       })
-      .then(
-        setLoading(false)
-      )
       .catch((err) => {
         console.log(err);
       });
@@ -113,6 +110,8 @@ export default function QualifierPage() {
         setQuestionCategory(data.category);
         setTeamName(data.teamName);
         setChronoNumber(data.chronoNumber)
+      }).then(()=>{
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err);
