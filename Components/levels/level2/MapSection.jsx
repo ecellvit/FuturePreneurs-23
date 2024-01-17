@@ -70,8 +70,7 @@ const MapSection = ({ onDrop, mapData }) => {
 
 
   return (
-    <div style={{ background: 'url(https://res.cloudinary.com/dsftfigs8/image/upload/v1705482804/fp9.0/sgkhym89kdgrvenkhrfh.png)', backgroundSize: 'cover' }}>
-      <h2 className="text-xl font-bold mb-4">Map Section</h2>
+    <main className="bg-cover bg-center	" style={{ background: 'url(https://res.cloudinary.com/dsftfigs8/image/upload/v1705482804/fp9.0/sgkhym89kdgrvenkhrfh.png)' }}>
       <div className="grid grid-cols-6">
       {Array.from({ length: 6 * 6 }, (_, index) => (
           <MapDroppableArea
@@ -83,7 +82,7 @@ const MapSection = ({ onDrop, mapData }) => {
             className="drop-area border-dashed border border-gray-400 p-4"/>
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 
