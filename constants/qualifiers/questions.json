@@ -371,7 +371,7 @@
       },
       "ans": {
         "optionsType": "text",
-        "optionsContent": ["A(iii) - B(i) - C(iv) - D(ii)","A(l) - B(ii) - C(iii) - D(iv)","A(iii) - B(ii) - C(iv) - DO)","A(iv) - B(i) - C(iii) - D(ii)"]
+        "optionsContent": ["A(iii) - B(i) - C(iv) - D(ii)","A(i) - B(ii) - C(iii) - D(iv)","A(iii) - B(ii) - C(iv) - D(i)","A(iv) - B(i) - C(iii) - D(ii)"]
       }
     },
     {
