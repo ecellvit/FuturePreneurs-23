@@ -105,7 +105,7 @@ const Instructions = () => {
           <li>There are Four sections in the quiz.</li>
           <li>Each section can be accessed only once.</li>
           <li>
-            Navigation between questions isn't allowed and you can visit a
+            Navigation between questions isn&apos;t allowed and you can visit a
             question only once.
           </li>
           <li>
