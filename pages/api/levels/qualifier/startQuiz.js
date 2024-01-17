@@ -36,7 +36,6 @@ export default async function handler(req, res) {
         }
       );
       res.status(200).json({
-        time: currentTime,
         message: 'Qualifier round started',
       });
     // } else if (currentTime < startTime) {
