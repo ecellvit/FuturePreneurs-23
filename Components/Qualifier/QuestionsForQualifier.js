@@ -28,6 +28,7 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
+                
                 {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
