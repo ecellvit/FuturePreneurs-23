@@ -7,12 +7,10 @@ const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const { data: session, status } = useSession();
-  console.log("session------q-",session)
 
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
 
-    console.log('asdfasdfasdf', time.quizStartTime);
     const targetTime = new Date(2024, 0, time.quizStartTime.day, time.quizStartTime.hour, time.quizStartTime.minute, time.quizStartTime.second);
     const timeDiff = targetTime - now;
 
@@ -63,9 +61,12 @@ const Instructions = () => {
     })
       .then((res) => {
         if (res.status===200){
-          location.reload();
+          // location.reload();
+          console.log('quizStartingNow.')
+        } else if (res.status===403) {
+          toast.error("Quiz has not started yet")
         } else {
-          toast.error("Quiz has already started. Cannot join now.")
+          toast.error("too late")
         }
         console.log(res.status)
       })
@@ -103,7 +104,7 @@ const Instructions = () => {
           <li>There are Four sections in the quiz.</li>
           <li>Each section can be accessed only once.</li>
           <li>
-            Navigation between questions isn’t allowed and you can visit a
+            Navigation between questions isn't allowed and you can visit a
             question only once.
           </li>
           <li>
