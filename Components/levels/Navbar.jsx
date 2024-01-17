@@ -22,9 +22,9 @@ const Navbar = (props) => {
           <div className="logo">
             <Image src={logo} className="h-16 p-3" />
           </div>
-          <div className="newspaper hover:cursor-pointer">
+          {/* <div className="newspaper hover:cursor-pointer">
             <Image src={image} className="h-full p-3" />
-          </div>
+          </div> */}
         </div>
         <div className="mid w-1/3 flex justify-center text-2xl font-bold">
           {levelNames[props.level]}
