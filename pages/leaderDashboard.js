@@ -202,6 +202,7 @@ export default function LeaderDashboard() {
                 name={el.firstName}
                 Role={el.teamRole === "0" ? "Leader" : "Member"}
                 regNo={el.regNo}
+                phone={el.mobno}
                 leader={true}
                 removeMember={() => {
                   removeMember(el._id);

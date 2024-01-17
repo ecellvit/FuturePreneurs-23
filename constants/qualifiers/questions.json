@@ -288,7 +288,7 @@
     {
       "q": {
         "questionType": "single",
-        "contentType": "text",
+        "contentType": "image",
         "contentLink": "",
         "content": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705318826/fp9.0/lixhq0ioqs4l55k3xobz.png"
       },
@@ -400,7 +400,7 @@
           "questionType":"single",
           "contentType":"audio",
           "contentLink":"https://utfs.io/f/697ccc5c-31c2-4d92-905f-765aeb6bad94-evxp2c.m4a",
-          "content":"Listen to the audio and answer:"
+          "content":"Listen to the audio and answer \n (In case of audio player not functioning properly, reload the page once.)"
         },
         "ans":{
           "optionsType":"text",
@@ -413,7 +413,7 @@
         "questionType":"single",
         "contentType":"audio",
         "contentLink":"https://utfs.io/f/916093ae-2dca-4dc6-94f5-abb2d6393f46-evxp2b.m4a",
-        "content":"Audio Question #1"
+        "content":"Audio Question #1 \n(In case of audio player not functioning properly, reload the page once.)"
       },
       "ans":{
         "optionsType":"text",
@@ -425,7 +425,7 @@
         "questionType":"single",
         "contentType":"audio",
         "contentLink":"https://utfs.io/f/0978f9e9-a5f7-4b2d-b634-39bf4d3aa6ec-evxp2a.m4a",
-        "content":"Audio Question #2 \n Matching: Match the funding source with its description. \nI - Venture Capital\nII -Angel Investor\nIII - Crowdfunding"
+        "content":"Audio Question #2 \n Matching: Match the funding source with its description. \nI - Venture Capital\nII -Angel Investor\nIII - Crowdfunding\n\n(In case of audio player not functioning properly, reload the page once.)"
       },
       "ans":{
         "optionsType":"text",
@@ -631,7 +631,7 @@
       "questionType": "single",
       "contentType": "audio",
       "contentLink": "https://utfs.io/f/eb2704cb-6925-4e4b-8c85-98d4bd620403-zbc95z.mp3",
-      "content": "Identify which founder spoke the following words via the audio clip"
+      "content": "Identify which founder spoke the following words via the audio clip \n(In case of audio player not functioning properly, reload the page once.)"
     },
     "ans":{
       "optionsType":"text",
@@ -643,7 +643,7 @@
       "questionType": "single",
       "contentType": "audio",
       "contentLink": "https://utfs.io/f/c1fbec91-6c3a-406e-995e-21d86465fd49-zbc95y.mp3",
-      "content": "Listen to the audio and answer"
+      "content": "Listen to the audio and answer \n(In case of audio player not functioning properly, reload the page once.)"
     },
     "ans":{
       "optionsType":"text",
@@ -655,7 +655,7 @@
       "questionType": "single",
       "contentType": "audio",
       "contentLink": ["https://utfs.io/f/47af7eba-0dfd-4041-b5d1-bfbe8d63be9c-r0lazw.m4a","https://utfs.io/f/ef42098e-626b-4882-ade8-357d372d12c5-ucpfbs.m4a"],
-      "content": "Listen to the audio clip to answer assertion and reason"
+      "content": "Listen to the audio clip to answer assertion and reason \n(In case of audio player not functioning properly, reload the page once.)"
     },
     "ans":{
       "optionsType":"text",
