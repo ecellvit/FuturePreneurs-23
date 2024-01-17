@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <main
-      className=" bg-cover bg-no-repeat bg-center text-white text-center w-full"
+      className=" bg-cover bg-no-repeat bg-center text-white text-center w-full -z-20"
       style={{
         backgroundImage: 'url(/assets/bg/spceBg.svg)',
         minHeight: '100vh',
@@ -42,17 +42,17 @@ const App = () => {
         <DndProvider backend={HTML5Backend}>
           <div className='flex h-[100vh] '>
 
-            <div className='flex-1'>
-                <h1  className='text-2xl font-black p-8'>Description of Properties</h1>
+            <div className='w-80 p-8'>
+                <h1  className='text-2xl font-black p-5'>Description of Properties</h1>
                 <PropertySection onDrop={handlePropertyDrop} />
             </div>
 
-            <div className='flex-1'>
+            <div className='w-full p-5'>
                 <h1></h1>
                 <MapSection onDrop={handleMapDrop} mapData={mapData}/>
             </div>
 
-            <div className='flex-1'>
+            <div className='w-80 p-5'>
                 <h1 className='text-2xl font-black p-8'>Description of Location </h1>
                 <LocationSection onClick={handleLocationClick} />
             </div>
