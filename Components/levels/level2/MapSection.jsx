@@ -1,6 +1,8 @@
 // MapSection.js
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
+import map from "public/assets/levels/navbar/level3/map.png"
 
 const MapDroppableArea = ({ onDrop, index, mapData, onDragStart }) => {
 
@@ -70,9 +72,10 @@ const MapSection = ({ onDrop, mapData }) => {
 
 
   return (
-    <main className="bg-cover bg-center	" style={{ background: 'url(https://res.cloudinary.com/dsftfigs8/image/upload/v1705482804/fp9.0/sgkhym89kdgrvenkhrfh.png)' }}>
-      <div className="grid grid-cols-6">
-      {Array.from({ length: 6 * 6 }, (_, index) => (
+    <main className='relative w-full'>
+    <Image src={map} className='w-full absolute top-0 left-0'/>
+      <div className="grid grid-cols-12">
+      {Array.from({ length: 12 * 7 }, (_, index) => (
           <MapDroppableArea
             key={index}
             index={index}
