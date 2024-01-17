@@ -74,8 +74,8 @@ const MapSection = ({ onDrop, mapData }) => {
   return (
     <main className='relative w-full'>
     <Image src={map} className='w-full absolute top-0 left-0'/>
-      <div className="grid grid-cols-6">
-      {Array.from({ length: 6 * 6 }, (_, index) => (
+      <div className="grid grid-cols-12">
+      {Array.from({ length: 12 * 7 }, (_, index) => (
           <MapDroppableArea
             key={index}
             index={index}

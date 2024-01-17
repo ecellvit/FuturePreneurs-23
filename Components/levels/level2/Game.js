@@ -42,7 +42,7 @@ const App = () => {
         <DndProvider backend={HTML5Backend}>
           <div className='flex h-[100vh] '>
 
-            <div className='w-80 p-8'>
+            <div className='w-[600px] p-8'>
                 <h1  className='text-2xl font-black p-5'>Description of Properties</h1>
                 <PropertySection onDrop={handlePropertyDrop} />
             </div>
@@ -52,7 +52,7 @@ const App = () => {
                 <MapSection onDrop={handleMapDrop} mapData={mapData}/>
             </div>
 
-            <div className='w-80 p-5'>
+            <div className='w-[600px] p-5'>
                 <h1 className='text-2xl font-black p-8'>Description of Location </h1>
                 <LocationSection onClick={handleLocationClick} />
             </div>
