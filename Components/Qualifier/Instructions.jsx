@@ -2,9 +2,11 @@ import time from "@/constants/time.json";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import LoadingIcons from "react-loading-icons";
 
 const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
+  const[loading, setLoading] = useState(false);
 
   const { data: session, status } = useSession();
 
@@ -57,6 +59,7 @@ const Instructions = () => {
   }, []);
 
   const startQuiz = () => {
+    setLoading(true);
     fetch("/api/levels/qualifier/startQuiz", {
       method: "GET",
       headers: {
@@ -74,6 +77,7 @@ const Instructions = () => {
         } else {
           toast.error("too late");
         }
+        setLoading(false);
         console.log(res.status);
         return res.json();
       })
@@ -227,7 +231,7 @@ const Instructions = () => {
           }}`}
           onClick={() => startQuiz()}
         >
-          Start Quiz
+          {loading ? <LoadingIcons.Oval height={"20px"}/> : "Start Quiz"}
         </button>
       </div>
       <Toaster />
