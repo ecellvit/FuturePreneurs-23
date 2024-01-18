@@ -49,6 +49,7 @@ const GamePage1 = (props) => {
           setGetProperty(data.answers);
           console.log("fgsdfgsdfgsdf",data.answers);
           console.log("dfasdgfasgsfg",data.sector);
+          props.setNewSector(data.sector)
           setSector(data.sector);
           // setGetProperty(data);
           // setCurPage(data.team.pageNo);

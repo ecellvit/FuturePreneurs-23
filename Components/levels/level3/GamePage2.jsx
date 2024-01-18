@@ -5,6 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaDownload } from "react-icons/fa6";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import properties from '@/constants/level3/properties.json'
+import locations from '@/constants/level3/locations.json'
 
 
 
@@ -12,6 +14,8 @@ const GamePage2 = (props) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
+  const [sector,setSector]= useState();
+  const [heading,setHeading] = useState([]);
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -25,7 +29,7 @@ const GamePage2 = (props) => {
         // fetch /api/level0
 
         //  checkCurrentLevel3();
-        // getLevel3DataPage1();
+        getLevel3DataPage2();
       }
     }
   }, [status, router]);
@@ -45,6 +49,30 @@ const GamePage2 = (props) => {
     });
   }
 
+  function getDataForPage2(){
+    fetch('/api/levels/level3/getDataPage2',{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          console.log("data", data);
+          setSector(data.sector);
+          setHeading(data.answers);
+          // setGetProperty(data);
+          // setCurPage(data.team.pageNo);
+          // setAnswer(data.ans)
+        });
+      } else {
+        console.log("error");
+      }
+    })
+  }
+
   const handleOptionChange = (heading, option) => {
     setSelectedOptions((prevSelectedOptions) => ({
       ...prevSelectedOptions,
@@ -59,7 +87,8 @@ const GamePage2 = (props) => {
     }));
   };
 
-  
+  // console.log(locations[sector]["title"])
+  // console.log(locations[sector]["locations"][0]["locationName"])
 
   const headings = ["Heading 1", "Heading 2"];
   const optionsPerHeading = {
