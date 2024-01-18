@@ -1,5 +1,5 @@
 {
-    "e.v":[
+    "E.V":[
         {
           "Charging Stations: Highways": "Delhi, India",
           
@@ -22,7 +22,7 @@
              "Energy Storage Facility": "Rajasthan, India"
         }
     ],
-    "green":[
+    "Green Construction":[
         {
             "BioNest": "Maharashtra, India"
           ,
@@ -45,7 +45,7 @@
              "Charging Stations": "Assam, India"
           }
     ],
-    "renewable":[
+    "Renewable Energy":[
         {
             "Solar Power Farms": "Rajasthan, India"
           ,
@@ -65,7 +65,7 @@
              "Smart Grid Infrastructure": "Andhra Pradesh, India"
           ,
           
-             "Research and Development Labs": "Andhra Pradesh, India"
+             "Research and Development Labs": "Andhra Pradesh, Indiaw"
           }
     ]
 }
