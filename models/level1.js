@@ -19,13 +19,16 @@ const level1Schema = mongoose.Schema(
     endTime: {
       type: Date,
     },
-
-    // members: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: "Users",
-    //     },
-    // ],
+    level1Points: {
+      type: Number,
+      default: -1,
+    },
+    newspaperset:{
+      type : Number,
+    },
+    problemOrder :{
+      type : Array ,
+    }
   },
   { collection: 'Level1' }
 );
