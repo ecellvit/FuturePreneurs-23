@@ -26,7 +26,6 @@ export default function Level0() {
     }
   }, [status, router]);
 
-
   const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
         method: "GET",

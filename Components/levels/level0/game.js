@@ -12,6 +12,8 @@ export default function Game() {
 
   const { data: session, status } = useSession();
 
+  const newspaperLink = "https://utfs.io/f/70759f63-63e2-41b8-ab97-87e023d0cda5-rcqfzh.pdf#toolbar=0&navpanes=0";
+
   const sendData = ()=>{
     // send data to backend
     setLoading(true);
@@ -72,7 +74,7 @@ export default function Game() {
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
         <div className="flex w-3/5 h-full">
-          <iframe className="h-[80vh] w-full m-2 no-scrollbar" src="https://utfs.io/f/70759f63-63e2-41b8-ab97-87e023d0cda5-rcqfzh.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
+          <iframe className="h-[80vh] w-full m-2 no-scrollbar" src={newspaperLink} frameborder="0"></iframe>
         </div>
         <div className="max-w-md mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-4 text-white">Enter Your Answers</h1>
