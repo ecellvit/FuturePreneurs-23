@@ -53,6 +53,7 @@ const MapDroppableArea = ({ onDrop, index, mapData, onDragStart }) => {
   );
 };
 
+const dropArr = [6, 12, 14, 18, 25, 65, 104, 129, 134, 143];
 const MapSection = ({ onDrop, mapData }) => {
   // const gridItems = Array.from({ length: 6 * 6 }, (_, index) => (
   //   <MapDroppableArea key={index} index={index} onDrop={onDrop} mapData={mapData} />
@@ -99,16 +100,22 @@ const MapSection = ({ onDrop, mapData }) => {
           }}
           className="grid"
         >
-          {Array.from({ length: 16 * 10 }, (_, index) => (
-            <MapDroppableArea
-              key={index}
-              index={index}
-              onDrop={onDrop}
-              mapData={mapData}
-              onDragStart={handleDragStart}
-              className="drop-area"
-            />
-          ))}
+          {Array.from({ length: 16 * 10 }, (_, index) => {
+            if (dropArr.includes(index)) {
+              return (
+                <MapDroppableArea
+                  key={index}
+                  index={index}
+                  onDrop={onDrop}
+                  mapData={mapData}
+                  onDragStart={handleDragStart}
+                  className="drop-area"
+                />
+              );
+            } else {
+              return <div className="border w-14 h-14 relative"></div>;
+            }
+          })}
         </div>
       </div>
     </main>
