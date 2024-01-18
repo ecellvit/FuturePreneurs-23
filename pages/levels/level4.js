@@ -1,13 +1,12 @@
-import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
-import Router, { useRouter } from "next/router";
-import { redirect } from "next/dist/server/api-utils";
 import GamePage from "@/Components/levels/level4/GamePage";
-import { useSession } from "next-auth/react";
 import Instructions from "@/Components/levels/level4/instruction";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Level4() {
-  const [curPage, setCurPage] = useState(1);
+  const [curPage, setCurPage] = useState(-1);
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -61,7 +60,7 @@ export default function Level4() {
       if (res.status === 200) {
         res.json().then((data) => {
           console.log("data", data);
-          // setCurPage(data.team.pageNo);
+          setCurPage(data.team.pageNo);
           console.log(data.team.pageNo);
         });
       } else {
