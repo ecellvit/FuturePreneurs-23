@@ -1,13 +1,11 @@
-import { Mongoose } from 'mongoose';
 import connectMongoDB from '@/libs/mongodb';
 import { TeamModel } from '@/models/teamModel';
 import getTokenDetails from '@/utils/auth';
-import { getSession } from 'next-auth/react';
 
 export default async function checkCurrentRound(req, res) {
-  // const auth = req.headers.authorization.split(' ')[1];
-  // let teamId = await getTokenDetails(auth);
-  // console.log('teamId', teamId);
+  const auth = req.headers.authorization.split(' ')[1];
+  let teamId = await getTokenDetails(auth);
+  console.log('teamId', teamId);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' });

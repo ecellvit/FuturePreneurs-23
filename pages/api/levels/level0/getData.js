@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     // const authToken = req.headers.authorization;
     // check if leader, auth etc.
 
-    const teamName = 'team1';
 
     await connectMongoDB();
     const team = await Level0.findOne({ teamId: teamId });
