@@ -75,7 +75,8 @@ export default async function handler(req, res) {
     console.log(answers);
     // Send the answers in the response
     res.status(200).json({
-      message: sector,answers
+      "sector": sector,
+      "answers":answers
     });
   } catch (e) {
     console.error('Error in handler:', e);

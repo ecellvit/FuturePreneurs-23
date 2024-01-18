@@ -13,6 +13,7 @@ export default function Level3() {
   const router = useRouter();
   const [finalAnswerForPage1,setFinalAnswerForPage1]=useState([]);
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
+  const [transfer,newTransfer]=useState();
 
   useEffect(() => {
    if (router.isReady) {
@@ -85,7 +86,7 @@ export default function Level3() {
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <GamePage1 finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
-      {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
+      {curPage === 2 && <GamePage2  finalAnswerForPage2={finalAnswerForPage2} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
       {curPage === 3 && <Waiting text={"Prompt"}/>}
       {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}
       {/* {curPage === 2 && <Prompt/>} */}
