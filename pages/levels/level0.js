@@ -81,9 +81,8 @@ export default function Level0() {
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <Game/>}
-      {curPage === 2 && <Waiting text={"Prompt"}/>}
+      {curPage === 2 && <Waiting text={"Thank you for submitting"}/>}
       {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}
-      {/* {curPage === 2 && <Prompt/>} */}
     </div>
   )
 }
