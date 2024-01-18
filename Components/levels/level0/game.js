@@ -1,24 +1,26 @@
 import Navbar from "../Navbar";
-import InputBoxList from "./InputBoxList";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
-import Image from "public/assets/bg/spceBg.svg";
-import LoadingIcons from "react-loading-icons";
+import { useSession } from "next-auth/react";
 
 export default function Game() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const { data: session, status } = useSession();
+
   const sendData = ()=>{
     // send data to backend
     setLoading(true);
     fetch("/api/levels/level0/sendData",{
       method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
       },
       body:JSON.stringify({answers:todos.length})
       
@@ -38,7 +40,6 @@ export default function Game() {
     })
 
   }
-  
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -66,7 +67,7 @@ export default function Game() {
   };
   return (
     <main className="min-h-screen bg-neutral-800">
-      <Navbar sendData={sendData} teamName={"Team 1"} level="level0"/>
+      <Navbar sendData={()=>sendData()} teamName={"Team 1"} level="level0"/>
       <div className="flex h-full"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >

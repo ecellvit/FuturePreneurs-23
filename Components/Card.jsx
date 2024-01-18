@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
+const Card = ({ name, Role, regNo, leader, removeMember, imageSrc, phone }) => {
   return (
     <div
       className="relative w-96 h-48 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 flex items-center"
@@ -12,7 +12,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc }) => {
       
       <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end p-2">
         <div className="">
-          <p className="font-bold text-lg mb-1 text-white">{name}  [{regNo}] - {Role}</p>
+          <p className="font-bold text-lg mb-1 text-white">{name}  [{regNo}] - {Role} - {phone}</p>
         </div>
 
         {leader && 

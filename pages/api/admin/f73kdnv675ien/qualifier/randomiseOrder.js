@@ -21,12 +21,12 @@ export default async function handler(req, res) {
 
     const easyLength = 10;
     const mediumLength = 8;
-    const hardLength = 4;
+    const hardLength = 8;
 
     const getRandomUniqueNumberEasy = (array) => {
       let randomNumber;
       do {
-        randomNumber = Math.floor(Math.random() * 30) + 1;
+        randomNumber = Math.floor(Math.random() * 29) + 1;
       } while (array.includes(randomNumber));
       return randomNumber;
     };
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     const getRandomUniqueNumberMedium = (array) => {
       let randomNumber;
       do {
-        randomNumber = Math.floor(Math.random() * 25) + 1;
+        randomNumber = Math.floor(Math.random() * 24) + 1;
       } while (array.includes(randomNumber));
       return randomNumber;
     };
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
     const getRandomUniqueNumberHard = (array) => {
       let randomNumber;
       do {
-        randomNumber = Math.floor(Math.random() * 20) + 1;
+        randomNumber = Math.floor(Math.random() * 19) + 1;
       } while (array.includes(randomNumber));
       return randomNumber;
     };

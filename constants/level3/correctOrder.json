@@ -1,71 +1,71 @@
 {
-    "e.v":[
+    "E.V":[
         {
           "Charging Stations: Highways": "Delhi, India",
           
           
-            "Battery Manufacturing Facility": "Helo Mountains",
+            "Battery Manufacturing Facility": "Uttarakhand, India",
           
           
-            "R&D Centre": "Nexus Heights"
+            "R&D Centre": "Karnataka, India"
           ,
           
-            "Recycling Facility": "District 9"
+            "Recycling Facility": "Gujarat, India"
           ,
           
-             "Supply Chain Logistics Hub": "Castle Rock"
+             "Supply Chain Logistics Hub": "Gujarat, India"
           ,
           
-             "Showroom and Customer Experience Centers": "Downtown and Suburbs"
+             "Showroom and Customer Experience Centers": "Delhi NCR, India"
           ,
           
-             "Energy Storage Facility": "Electropolis Wind Farms and Solar Fields"
+             "Energy Storage Facility": "Rajasthan, India"
         }
     ],
-    "green":[
+    "Green Construction":[
         {
-            "BioNest": "Downtown and Suburbs"
+            "BioNest": "Maharashtra, India"
           ,
           
-            "WattLab" : "Wind Farms and Solar Fields"
+            "WattLab" : "Gujarat, India"
           ,
           
-            "GreenLink": "Rich in rare-earth minerals"
+            "GreenLink": "Odisha, India"
           ,
           
-            "CITE : Central Institute for Transforming Envisions" : "Technology Hubs"
+            "CITE : Central Institute for Transforming Envisions" : "Telangana, India"
           ,
           
-             "RippleCenter":"Nature Haven"
+             "RippleCenter":"Himachal Pradesh, India"
           ,
           
-             "EcoCycle Center":"Maritime Oasis"
+             "EcoCycle Center":"Kerala, India"
           ,
           
-             "Charging Stations": "Highways"
+             "Charging Stations": "Assam, India"
           }
     ],
-    "renewable":[
+    "Renewable Energy":[
         {
-            "Solar Power Farms": "Asteroid Range"
+            "Solar Power Farms": "Rajasthan, India"
           ,
           
-            "Corporate Renewable Energy Procurement": "District9"
+            "Corporate Renewable Energy Procurement": "Tamil Nadu, India"
           ,
           
-            "Hydropower Plants": "Maritime Oasis"
+            "Hydropower Plants": "Himachal Pradesh, India"
           ,
           
-            "Geothermal Energy Facilities": "Helo Mountains"
+            "Geothermal Energy Facilities": "Odisha, India"
           ,
           
-             "Energy Storage Centers": "Emeralds"
+             "Energy Storage Centers": "Uttar Pradesh, India"
           ,
           
-             "Smart Grid Infrastructure": "Elvatech District"
+             "Smart Grid Infrastructure": "Andhra Pradesh, India"
           ,
           
-             "Research and Development Labs": "Nexus Heights"
+             "Research and Development Labs": "Andhra Pradesh, Indiaw"
           }
     ]
 }
