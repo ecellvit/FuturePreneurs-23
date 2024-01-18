@@ -54,6 +54,21 @@ export default async function handler(req, res) {
 
       console.log('ansss', points, anss)
 
+      if (anss.length===0) {
+        points -= 20;
+        let n1 = Math.floor(Math.random() * 7)
+        let n2 = n1+1
+        if (n2==7){
+          n2 = 5
+        }
+        anss.push(n1)
+        anss.push(n2)
+      } else if (anss.length===1) {
+        points -= 10;
+        let n1 = Math.floor(Math.random() * 7)
+        anss.push(n1)
+      }
+
       await Level2.findOneAndUpdate(
         {teamId:teamId},{answers:anss, Level2points:points, pageNo:2}
       );
