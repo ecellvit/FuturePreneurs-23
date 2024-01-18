@@ -106,7 +106,7 @@ const MapSection = ({ onDrop, mapData }) => {
               onDrop={onDrop}
               mapData={mapData}
               onDragStart={handleDragStart}
-              className="drop-area border-dashed border border-gray-400"
+              className="drop-area"
             />
           ))}
         </div>
