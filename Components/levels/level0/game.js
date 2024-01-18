@@ -17,8 +17,10 @@ export default function Game() {
     setLoading(true);
     fetch("/api/levels/level0/sendData",{
       method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
       },
       body:JSON.stringify({answers:todos.length})
       
@@ -66,7 +68,7 @@ export default function Game() {
   };
   return (
     <main className="min-h-screen bg-neutral-800">
-      <Navbar sendData={sendData} teamName={"Team 1"} level="level0"/>
+      <Navbar sendData={()=>sendData()} teamName={"Team 1"} level="level0"/>
       <div className="flex h-full"
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
