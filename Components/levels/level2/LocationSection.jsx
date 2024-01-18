@@ -21,7 +21,7 @@ const LocationSection = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container text-black mt-2">
       <ul>
         {titles.map(({ id, title, description }) => (
           <li key={id} className="mb-4">
@@ -29,7 +29,7 @@ const LocationSection = () => {
               className={`cursor-pointer border p-2 ${
                 activeTitle === id ? 'bg-gray-300' : 'bg-gray-100'
               }`}
-              onClick={() => handleClick(id)}
+              // onClick={() => handleClick(id)}
             >
               {title}
             </div>

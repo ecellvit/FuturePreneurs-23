@@ -48,10 +48,16 @@ const teamSchema = mongoose.Schema(
     newspaperset: {
       type: Number,
     },
+    sector :{
+      type : String,
+    },
+    problemStatements:{
+      type: Array,
+    }
   },
-  { collection: 'TeamModeltest' }
+  { collection: 'TeamModel1' }
 );
 
 export const TeamModel1 =
-  mongoose.models.TeamModeltest ||
-  mongoose.model('TeamModeltest', teamSchema);
+  mongoose.models.TeamModel1 ||
+  mongoose.model('TeamModel1', teamSchema);

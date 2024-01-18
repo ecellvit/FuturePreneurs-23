@@ -21,7 +21,7 @@ export default function AnswerForQualifier(props) {
     } else {
       // console.log(selectedOptions)
       if (props.finalAnswer.includes(ele)) {
-        props.setFinalAnswer(props.answer.filter((x) => x !== ele));
+        props.setFinalAnswer(props.finalAnswer.filter((x) => x !== ele));
       } else {
         props.setFinalAnswer((prevAnswer) => [...prevAnswer, ele]);
       }

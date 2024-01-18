@@ -86,8 +86,6 @@ export default async function handler(req, res) {
         newQuestionPointer = questionPointer + 1;
       }
 
-      console.log('asdfasdfasdf', easyAnswers);
-
       await Qualifier.findOneAndUpdate(
         { teamId: teamId },
         {
