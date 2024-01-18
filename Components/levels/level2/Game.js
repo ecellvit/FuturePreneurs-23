@@ -5,11 +5,15 @@ import PropertySection from "@/Components/levels/level2/PropertySection";
 import MapSection from "@/Components/levels/level2/MapSection";
 import LocationSection from "@/Components/levels/level2/LocationSection";
 import Navbar from "@/Components/levels/Navbar";
+import toast, { Toaster } from "react-hot-toast";
+import { useSession } from "next-auth/react";
 
 const App = () => {
   const [propertyData, setPropertyData] = useState([]);
   const [mapData, setMapData] = useState(Array(36).fill(null));
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [dataToSend, setDataToSend] = useState([]);
+  const { data: session, status } = useSession();
 
   const handlePropertyDrop = (item) => {
     setPropertyData([...propertyData, { id: item.id, name: item.name }]);
@@ -19,6 +23,16 @@ const App = () => {
     const newMapData = [...mapData];
     newMapData[index] = { id: item.id, name: item.name };
     setMapData(newMapData);
+    setDataToSend([]);
+    newMapData.forEach((ele, idx)=>{
+      if(ele === null)
+      return 
+    const arr = dataToSend;
+    arr.push({[idx]:ele.id})
+    })
+    console.log(newMapData);
+    console.log("Sending dataaaaaaa=>");
+    console.log(dataToSend);
   };
 
   const handleLocationClick = (location) => {
@@ -27,11 +41,25 @@ const App = () => {
 
   const sendDataToBackend = () => {
     // Send propertyData, mapData, and selectedLocation to the backend
-    console.log("Sending data to backend:", {
-      propertyData,
-      mapData,
-      selectedLocation,
-    });
+    fetch("/api/levels/level2/sendData",{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      body:JSON.stringify({answer:dataToSend})
+      
+    })
+    .then(res=>{
+      if(res === 200){
+        toast.success("Submitted successfully.")
+      }
+      else{
+        toast.error("Something went wrong.")
+      }
+    })
+    
   };
 
   return (
@@ -69,12 +97,21 @@ const App = () => {
           </div>
         </div>
         <button
+          onClick={()=>{
+            location.reload();
+          }}
+          className="mt-[-30px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          Reset
+        </button>
+        <button
           onClick={sendDataToBackend}
           className="mt-[-30px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Submit
         </button>
       </DndProvider>
+      <Toaster/>
     </main>
   );
 };
