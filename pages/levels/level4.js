@@ -16,7 +16,6 @@ export default function Level4() {
     checkCurrentLevel4();
   }, [])
 
-
   const checkCurrentLevel4 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
         method: "GET",
