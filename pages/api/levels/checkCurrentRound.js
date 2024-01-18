@@ -17,6 +17,7 @@ export default async function checkCurrentRound(req, res) {
     console.log('reamID', teamId);
     const round = await TeamModel.findById(teamId);
     console.log('round', round);
+    // 65a51a0184dbd8c1e549d011
 
     try {
       res.status(200).json({ round });

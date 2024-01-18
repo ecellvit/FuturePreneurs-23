@@ -14,9 +14,11 @@ export default async function handler(req, res) {
       const leaderEmail = team.leaderEmail;
       const newLevel0 = await new Level0({
         teamName: teamName,
-        teamLeaderId: teamId,
+        teamId: teamId,
         leaderName: leaderName,
         leaderEmail: leaderEmail,
+        level:0,
+
       }).save();
     }
     res.status(200).json({
