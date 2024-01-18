@@ -2,6 +2,8 @@
 import connectMongoDB from '@/libs/mongodb';
 import { Level3 } from '@/models/level3';
 import getTokenDetails from '@/utils/auth';
+import { correctOrder } from "@/constants/level3/correctOrder.json"; 
+import { TeamModel } from '@/models/teamModel';
 
 // import { TeamModel } from '@/models/teamModel';
 
@@ -13,8 +15,10 @@ export default async function handler(req, res) {
 
     // Assuming req.body contains the received data from the frontend
     const receivedData = req.body.answerPage2;
-    // const team=await TeamModel.findById(teamId);
-    await Level3.findOneAndUpdate({teamId:teamId},{$set:{choice:receivedData,pageNo:3}})
+    const team=await TeamModel.findById(teamId);
+    const industry=["E.V","Green Construction","Renewable Energy"]
+    const sector = industry[team.newspaperset]
+    // await Level3.findOneAndUpdate({teamId:teamId},{$set:{choice:receivedData,pageNo:3}})
 
    
     res.status(200).json({
