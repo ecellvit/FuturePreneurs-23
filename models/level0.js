@@ -12,6 +12,12 @@ const level0Schema = mongoose.Schema(
             ref: "Users",
         },
         */
+    startTime: {
+      type: Date,
+    },
+    endTime: {
+      type: Date,
+    },
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'teamModel',
