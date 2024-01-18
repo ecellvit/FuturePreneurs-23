@@ -1,5 +1,7 @@
+
 import connectMongoDB from '@/libs/mongodb';
-import { Level0 } from '@/models/level0';
+
+import { Qualifier } from '@/models/qualifier';
 import { TeamModel } from '@/models/teamModel';
 
 export default async function handler(req, res) {
@@ -12,14 +14,15 @@ export default async function handler(req, res) {
       const teamName = team.teamName;
       const leaderName = team.leaderName;
       const leaderEmail = team.leaderEmail;
-      const newLevel0 = await new Level0({
+      const newLevel1 = await new Qualifier({
         teamName: teamName,
         teamId: teamId,
         leaderName: leaderName,
         leaderEmail: leaderEmail,
-        level:0,
-
-      }).save();
+        questionCategory: 'instruction'
+      })
+      await newLevel1.save();
+      
     }
     res.status(200).json({
       message: 'Data has been assigned',
