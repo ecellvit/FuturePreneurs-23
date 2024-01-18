@@ -82,7 +82,6 @@ const App = (props) => {
         "Access-Control-Allow-Origin": "*",
       },
       body:JSON.stringify({"answer":asdf})
-      
     })
     .then(res=>{
       if(res.status === 200){
@@ -96,7 +95,7 @@ const App = (props) => {
     
   };
 
-  const locationPDFS = ["https://utfs.io/f/abd35793-1801-498d-a8e7-bdfe0794d065-188rbp.pdf","https://utfs.io/f/9810c50f-f1f4-4685-ae46-b962495430ac-188st5.pdf","https://utfs.io/f/a9344f63-3549-4d57-af36-e7d180f595f6-188ual.pdf"]
+  const locationPDFS = ["https://utfs.io/f/abd35793-1801-498d-a8e7-bdfe0794d065-188rbp.pdf","https://utfs.io/f/a9344f63-3549-4d57-af36-e7d180f595f6-188ual.pdf","https://utfs.io/f/9810c50f-f1f4-4685-ae46-b962495430ac-188st5.pdf"]
 
   return (
     <main
