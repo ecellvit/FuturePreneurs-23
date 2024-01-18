@@ -1,18 +1,19 @@
 import connectMongoDB from '@/libs/mongodb';
-import { TeamModel } from '@/models/teamModel';
 
+import { Level0 } from '@/models/level0';
+import { TeamModel1 } from '@/models/test';
 
 const newspaperLinks = [
   'https://newspaper1.com',
   'https://newspaper2.com',
   'https://newspaper3.com',
 ];
-const Industry = ['E.V', 'Green Construction', 'Renewable Energy'];
+const sectors = ['E.V', 'Green Construction', 'Renewable Energy'];
 export default async function handler(req, res) {
   try {
     connectMongoDB();
-    const totalTeams = await TeamModel.find();
-    const counts = await TeamModel.countDocuments();
+    const totalTeams = await TeamModel1.find();
+    const counts = await TeamModel1.countDocuments();
     //console.log(totalTeams);
     const distribution = Math.floor(counts / newspaperLinks.length);
     // Function to shuffle an array
@@ -36,19 +37,20 @@ export default async function handler(req, res) {
 
     for (const teamName of shuffledTeams) {
       if (part1Distribution >= 0) {
-        const team = await TeamModel.findOne({
+        const team = await TeamModel1.findOne({
           teamName: shuffledTeams[part1Distribution],
         });
         //console.log(team);
         // const team = totalTeams.find(team => team.teamName === teamName);
 
-        await TeamModel.findOneAndUpdate(
+        await TeamModel1.findOneAndUpdate(
           { teamName: teamName },
           {
             $set: {
               newspaperLink: newspaperLinks[0],
               newspaperset: 1,
               newspaperExists: true,
+              sectors:"E.V"
             },
           }
         );
@@ -57,16 +59,17 @@ export default async function handler(req, res) {
       // Move to the next newspaper after reaching the distribution count
 
       if (part1Distribution === -1 && part2Distribution >= 0) {
-        const team = await TeamModel.findOne({
+        const team = await TeamModel1.findOne({
           teamName: shuffledTeams[part1Distribution],
         });
-        await TeamModel.findOneAndUpdate(
+        await TeamModel1.findOneAndUpdate(
           { teamName: teamName },
           {
             $set: {
               newspaperLink: newspaperLinks[1],
               newspaperset: 2,
               newspaperExists: true,
+              sectors:"Green Construction"
             },
           }
         );
@@ -77,10 +80,10 @@ export default async function handler(req, res) {
           part2Distribution == -1 &&
           part3Distribution >= 0
         ) {
-          const team = await TeamModel.findOne({
+          const team = await TeamModel1.findOne({
             teamName: shuffledTeams[part1Distribution],
           });
-          await TeamModel.findOneAndUpdate(
+          await TeamModel1.findOneAndUpdate(
             { teamName: teamName },
             {
               $set: {
@@ -95,7 +98,7 @@ export default async function handler(req, res) {
       }
     }
 
-    const teamsWithoutNewspaper = await TeamModel.find({
+    const teamsWithoutNewspaper = await TeamModel1.find({
       newspaperExists: false,
     });
 
@@ -105,13 +108,14 @@ export default async function handler(req, res) {
 
     console.log(teamNames1);
     for (const teamName of teamNames1) {
-      await TeamModel.findOneAndUpdate(
+      await TeamModel1.findOneAndUpdate(
         { teamName: teamName },
         {
           $set: {
             newspaperLink: newspaperLinks[0],
             newspaperset: 1,
             newspaperExists: true,
+            sectors:"Renewable Energy"
           },
         }
       );
