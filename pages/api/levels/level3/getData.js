@@ -1,42 +1,28 @@
 import connectMongoDB from '@/libs/mongodb';
-import { Level3test } from '@/models/level3test';
+import { Level3 } from '@/models/level3';
 import { TeamModel } from '@/models/teamModel';
-// import { Level0Model } from "@/models/level0";
 import getTokenDetails from '@/utils/auth';
 import { getSession } from 'next-auth/react';
 
 export default async function handler(req, res) {
-  const session = await getSession({ req });
-  let teamId = await getTokenDetails(session);
+  await connectMongoDB();
+
+  const auth = req.headers.authorization.split(' ')[1];
+  let teamId = await getTokenDetails(auth);
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' });
     return;
   } else {
-    await connectMongoDB();
-    const teamName = 'vyas'
-    // const team = await Level1test.findOne({ teamId: teamId });
 
-    // const team = new Level3test({teamName:teamName})
-    // await team.save();
-    // const teamId ='65a51a0ef7b023b3e7ff0fd4'
-    const team =await TeamModel.findOne({teamName:teamName});
-    console.log('Team is ', team);
-    const teamInLevel3 = await Level3test.findOne({teamName:teamName});
-    // if(!teamInLevel3){
-        
-    // }
-    // res.status(400).json({message:n})
+    const team = await TeamModel.findById(teamId);
+    console.log('team', team)
+    const teamInLevel3 = await Level3.findOne({teamId:teamId});
+
     const pageNo=teamInLevel3.pageNo;
-    console.log(teamInLevel3.pageNo)
-    const level=team.level;
-    console.log(pageNo)
-    // const problems = Object.values(teamInLevel3.problemOrder);
-    // const sector = team.sector;
-    // console.log(sector);
 
     try {
-      res.status(200).json({pageNo:pageNo})
+      res.status(200).json({"team":teamInLevel3, "set":team.newspaperset })
     } catch (e) {
       console.log(e);
       res

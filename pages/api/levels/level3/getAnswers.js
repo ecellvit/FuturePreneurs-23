@@ -38,41 +38,36 @@ export default async function handler(req, res) {
 
 // to send the data to the frontend in the form of an array (recieved from map)
 import connectMongoDB from '@/libs/mongodb';
+import { Level2 } from '@/models/level2';
 import { TeamModel } from '@/models/teamModel';
-import { Level2test } from '@/models/level2test';
-import { getSession } from 'next-auth/react';
+import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
   try {
 
     connectMongoDB();
-
+    const auth = req.headers.authorization.split(' ')[1];
+    let teamId = await getTokenDetails(auth);
   
-    const teams = await TeamModel.find();
-    //console.log(teams);
+    const teamteam = await TeamModel.findById(teamId);
+    //console.log(team);
     
-    if (!teams) {
+    if (!teamteam) {
       return res.status(404).json({ message: 'Teams not found' });
     }
 
-  
-    const teamName = "vyas";
-
+    const team = await Level2.findOne({teamId:teamId});
     
-    const team = await Level2test.findOne({ teamName:teamName });
-    const team1=await TeamModel.findOne({teamName:teamName});
-    
-    const sector=team1.sector;
-    console.log(sector);
-    console.log(team);
+    const sector = teamteam.newspaperset;
 
     if (!team) {
       return res.status(404).json({ message: 'Team not found' });
     }
-
     
     const answers = team.answers;
-    console.log(answers);
+    console.log('asdfasdf', team)
+    console.log("++++++++",team.answers)
+
     // Send the answers in the response
     res.status(200).json({
       "sector": sector,

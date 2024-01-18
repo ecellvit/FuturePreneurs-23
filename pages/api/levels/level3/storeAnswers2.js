@@ -3,7 +3,7 @@
 
 
 import connectMongoDB from '@/libs/mongodb';
-import { Level3test } from '@/models/level3test';
+import { Level3test } from '@/models/level3';
 import { TeamModel } from '@/models/teamModel';
 
 export default async function handler(req, res) {

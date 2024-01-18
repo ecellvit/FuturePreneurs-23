@@ -1,11 +1,10 @@
-import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
 import GamePage1 from "@/Components/levels/level3/GamePage1";
 import GamePage2 from "@/Components/levels/level3/GamePage2";
-import Router from "next/router";
+import Instructions from "@/Components/levels/level3/instruction";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Instructions from "@/Components/levels/level3/instruction";
+import { useEffect, useState } from "react";
 
 export default function Level3() {
 
@@ -24,9 +23,8 @@ export default function Level3() {
        router.push('/');
      } else if (status === 'authenticated') {
        console.log('Authenticated000000000000000000000000', session);
-    // fetch /api/level0
 
-    // checkCurrentLevel3();
+    checkCurrentLevel3();
     getLevel3Data();
     }
    } 
@@ -45,11 +43,8 @@ export default function Level3() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            // console.log("data", data);
-            // setCurPage(data.team.pageNo);
-            // console.log(data.round.level);
             if(data.round.level!==3){
-                router.push(`/levels/level${data.round.level}`)
+              router.push(`/levels/level${data.round.level}`)
             }
           });
         } else {
@@ -71,8 +66,8 @@ export default function Level3() {
       if (res.status === 200) {
         res.json().then((data) => {
           console.log("data", data);
-          setCurPage(data.pageNo);
-          console.log(data.pageNo)
+          setCurPage(data.team.pageNo);
+          console.log("dfssd--------",data.team.pageNo)
         });
       } else {
         console.log("error");
@@ -86,7 +81,7 @@ export default function Level3() {
       {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <GamePage1 finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
-      {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
+      {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
       {curPage === 4 && <Waiting text={"Level 3 has ended"}/>}
     </div>
   )

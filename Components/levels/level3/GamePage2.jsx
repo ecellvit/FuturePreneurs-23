@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
-import Navbar from "../Navbar";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import toast, { Toaster } from "react-hot-toast";
-import { FaDownload } from "react-icons/fa6";
+import locations from "@/constants/level3/locations.json";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import properties from "@/constants/level3/properties.json";
-import locations from "@/constants/level3/locations.json";
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
+import { FaDownload } from "react-icons/fa6";
+import Navbar from "../Navbar";
 
 const GamePage2 = (props) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -18,9 +16,17 @@ const GamePage2 = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("hora hai");
-    getDataForPage2()
-  }, []);
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        router.push("/");
+      } else if (status === "authenticated") {
+        // fetch /api/level0
+
+        //  checkCurrentLevel3();
+        getDataForPage2();
+      }
+    }
+  }, [status, router]);
 
   function submitAnswerForLevel3Page2() {
     fetch("/api/levels/level3/storeAnswers2", {
@@ -80,28 +86,36 @@ const GamePage2 = (props) => {
 
   // const pair = heading[i];
 
-  const number1 = heading[0];
-  const number2 = heading[1];
+  const number1 = props.finalAnswerForPage1[heading[0]];
+  const number2 = props.finalAnswerForPage1[heading[1]];
 
-  console.log('sab', number1, number2, locations[sector][number1]["title"] )
+  console.log("--------",number1)
+  console.log("++++++++",props.finalAnswerForPage1)
+
+  const industry=["E.V","Green Construction","Renewable Energy"]
+  const final = industry[sector]
+
+  // console.log('sab', number1, number2, locations[sector][number1]["title"] )
+
+  
 
   const headings = [
-    locations[sector][number1]["title"],
-    locations[sector][number2]["title"],
+    locations[final][number1]["title"],
+    locations[final][number2]["title"],
   ];
   const pdf = [
-    locations[sector][number1]["pdf"],
-    locations[sector][number2]["pdf"],
+    locations[final][number1]["pdf"],
+    locations[final][number2]["pdf"],
   ];
 
   const optionHeadings=[
     [
-      locations[sector][number1]["locations"][0]["locationName"],
-      locations[sector][number1]["locations"][1]["locationName"]
+      locations[final][number1]["locations"][0]["locationName"],
+      locations[final][number1]["locations"][1]["locationName"]
     ],
     [
-      locations[sector][number2]["locations"][0]["locationName"],
-      locations[sector][number2]["locations"][1]["locationName"]
+      locations[final][number2]["locations"][0]["locationName"],
+      locations[final][number2]["locations"][1]["locationName"]
     ]
   ]
 

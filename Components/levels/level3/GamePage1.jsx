@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import Navbar from "../Navbar";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import toast, { Toaster } from "react-hot-toast";
-import { FaDownload } from "react-icons/fa6";
+import properties from '@/constants/level3/properties.json';
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import properties from '@/constants/level3/properties.json'
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { FaDownload } from "react-icons/fa6";
+import Navbar from "../Navbar";
 
 const GamePage1 = (props) => {
   const defaultContent = "asdfaf";
@@ -33,7 +32,7 @@ const GamePage1 = (props) => {
   }, [status, router]);
 
   const getLevel3DataPage1 = () => {
-    fetch("/api/levels/level3/sendAnswers", {
+    fetch("/api/levels/level3/getAnswers", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +43,9 @@ const GamePage1 = (props) => {
       if (res.status === 200) {
         res.json().then((data) => {
           setGetProperty(data.answers);
-          props.setNewSector(data.sector)
+          console.log('dsagsdfga',data.answers);
+          console.log('getprrr///////////////',getProperty);
+          // props.setNewSector(data.sector)
           setSector(data.sector);
           // setGetProperty(data);
           // setCurPage(data.team.pageNo);
@@ -111,7 +112,8 @@ const GamePage1 = (props) => {
     }
   };
 
-
+  const industry=["E.V","Green Construction","Renewable Energy"]
+  const final = industry[sector]
 
   // for(let i=0;i<getProperty.length;i++){
   //     answerArray.push(properties[sector])
@@ -151,7 +153,7 @@ const GamePage1 = (props) => {
                   onChange={() => {}}
                   className="cursor-pointer"
                 />
-                <span className="text-white">{properties[sector][ele]['title']}</span>
+                <span className="text-white">{properties[final][ele]['title']}</span>
                 <FaDownload className="text-white cursor-pointer" onClick={()=>{handleIconClick(properties[sector][ele]['pdf'])}}/>
               </div>
             ))}
