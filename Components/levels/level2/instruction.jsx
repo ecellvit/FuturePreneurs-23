@@ -21,6 +21,9 @@ export default function Instructions(){
         <li>  
           They have 15 minutes to make accurate selections; 
         </li>
+        <li>
+          To start fresh with new combinations, click RESET. Be aware that this will erase all existing combinations, and teams will need to create them again.
+        </li>
 
         </ul>
       </div>
