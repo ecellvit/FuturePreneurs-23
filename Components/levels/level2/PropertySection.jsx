@@ -43,8 +43,8 @@ const PropertySection = ({ onDrop , set}) => {
   const [activeIconId, setActiveIconId] = useState(null);
   const mapping = [
     "E.V",
-    "Renewable Energy",
     "Green Construction",
+    "Renewable Energy",
   ]
   // console.log('asdfsdfaasdf', mapping, set, mapping[set])
 

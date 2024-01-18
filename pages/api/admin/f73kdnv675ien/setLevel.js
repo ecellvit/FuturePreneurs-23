@@ -11,9 +11,10 @@ export default async function handler(req, res) {
       level = team.level;
       console.log(level);
       level = level + 1;
+
       await TeamModel.findOneAndUpdate(
         { teamName: team.teamName },
-        { $set: { level: 2 } }
+        { $set: { level: 1 } }
       );
     }
     return res.status(200).json({

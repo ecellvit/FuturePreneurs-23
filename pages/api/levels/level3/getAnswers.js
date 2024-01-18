@@ -68,6 +68,8 @@ export default async function handler(req, res) {
     console.log('asdfasdf', team)
     console.log("++++++++",team.answers)
 
+    
+
     // Send the answers in the response
     res.status(200).json({
       "sector": sector,
