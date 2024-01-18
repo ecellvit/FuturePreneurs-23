@@ -56,6 +56,8 @@ const GamePage1 = (props) => {
   };
 
   function submitAnswerForLevel3() {
+    if(finalAnswerForPage1.length===2)
+    {
     fetch("/api/levels/level3/storeAnswers", {
       method: "POST",
       headers: {
@@ -67,7 +69,10 @@ const GamePage1 = (props) => {
     })
       .then((res) => res.json())
       .catch((err) => {
-      });
+      });}
+      else{
+        toast.error("You have to select two options!!!")
+      }
   }
 
   const submitAnswerForLevel3Page1 = (value) => {
