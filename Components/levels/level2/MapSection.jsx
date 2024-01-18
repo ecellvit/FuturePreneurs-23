@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useDrop } from "react-dnd";
-import map from "public/assets/levels/navbar/level3/map2.png";
+import map from "public/assets/levels/level2/map.png";
 
 const MapDroppableArea = ({ onDrop, index, mapData, onDragStart }) => {
   const [itemUrl, setItemUrl] = useState();
