@@ -4,6 +4,7 @@ import Router from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 import GamePage from "@/Components/levels/level4/GamePage";
 import { useSession } from "next-auth/react";
+import Instructions from "@/Components/levels/level4/instruction";
 
 export default function Level4() {
   const [curPage, setCurPage] = useState(1);
@@ -67,7 +68,7 @@ export default function Level4() {
     <div>
       {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
-      {curPage === 0 && <Waiting text={"Instruction"}/>}
+      {curPage === 0 && <Instructions/>}
       {curPage === 1 && <GamePage/>}
       {curPage === 2 && <Waiting text={"Prompt"}/>}
       {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}

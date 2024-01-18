@@ -19,6 +19,7 @@ const App = () => {
     const newMapData = [...mapData];
     newMapData[index] = { id: item.id, name: item.name };
     setMapData(newMapData);
+    console.log(newMapData);
   };
 
   const handleLocationClick = (location) => {
