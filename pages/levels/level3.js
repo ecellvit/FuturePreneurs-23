@@ -13,6 +13,8 @@ export default function Level3() {
   const router = useRouter();
   const [finalAnswerForPage1,setFinalAnswerForPage1]=useState([]);
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
+  const [transfer,newTransfer]=useState();
+  const [newSector,setNewSector]=useState()
 
   useEffect(() => {
    if (router.isReady) {
@@ -23,7 +25,7 @@ export default function Level3() {
        console.log('Authenticated000000000000000000000000', session);
     // fetch /api/level0
 
-    checkCurrentLevel3();
+    // checkCurrentLevel3();
     getLevel3Data();
     }
    } 
@@ -42,9 +44,9 @@ export default function Level3() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
+            // console.log("data", data);
             // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
+            // console.log(data.round.level);
             if(data.round.level!==3){
                 // redirect(`/levels/level${data.round.level}`)
                 router.push(`/levels/level${data.round.level}`)
@@ -84,7 +86,7 @@ export default function Level3() {
       {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
-      {curPage === 1 && <GamePage1 finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
+      {curPage === 1 && <GamePage1 setNewSector={setNewSector} finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
       {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
       {curPage === 3 && <Waiting text={"Prompt"}/>}
       {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}

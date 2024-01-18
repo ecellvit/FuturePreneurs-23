@@ -51,6 +51,10 @@ const teamSchema = mongoose.Schema(
       type: Number,
       default: -1,
     },
+    points:{
+      type:Number,
+      default:0,
+    }
   },
   { collection: 'TeamModel' }
 );
