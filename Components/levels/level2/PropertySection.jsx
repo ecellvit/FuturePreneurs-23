@@ -2,10 +2,12 @@
 
 import React,{useState} from 'react';
 import { useDrag } from 'react-dnd';
+import mapProperties from "@/constants/level2/mapProperties"
 
-const PropertyIcon = ({ id,title,description, imageUrl, activeIconId, onDragStart }) => {
+const PropertyIcon = ({ id,title,description, imageUrl, activeIconId, onDragStart, set }) => {
   const [isActive, setIsActive] = useState(id === activeIconId);
 
+  
   const [, drag] = useDrag({
     type: 'PROPERTY_ICON',
     item: { id, imageUrl },
@@ -37,8 +39,15 @@ const PropertyIcon = ({ id,title,description, imageUrl, activeIconId, onDragStar
   );
 };
 
-const PropertySection = ({ onDrop }) => {
+const PropertySection = ({ onDrop , set}) => {
   const [activeIconId, setActiveIconId] = useState(null);
+  const mapping = [
+    "E.V",
+    "Renewable Energy",
+    "Green Construction",
+  ]
+  // console.log('asdfsdfaasdf', mapping, set, mapping[set])
+
 
   const handleDragStart = (node, data) => {
     if (data && data.id) {
@@ -51,15 +60,8 @@ const PropertySection = ({ onDrop }) => {
   
   };
 
-  const icons = [
-    { id: 1, title: 'Charging Station', description: 'Description for Charging Station', imageUrl: 'https://utfs.io/f/98b501e3-9a58-427a-94fe-4abc767792a9-9nmj88.png' },
-    { id: 2, title: 'Battery Manufacturing Facilites', description: 'Description for Battery Manufacturing Facilities', imageUrl: 'https://utfs.io/f/61e6dcb3-d551-4b64-8c91-c1141707140a-r9i2s5.png' },
-    { id: 3, title: 'R&D Labs', description: 'Description for R&D Labs', imageUrl: 'https://utfs.io/f/fdfde9c6-5ec2-4eda-9dde-359b1e3dad69-tbtwqy.png' },
-    { id: 4, title: 'Recycling Facilities', description: 'Description for Recycling Facilities', imageUrl: 'https://utfs.io/f/f0716306-2581-4384-b7d0-a1b46d661bd6-7a6lv7.png' },
-    { id: 5, title: 'Supply Chain Logisitics Hub', description: 'Description for Supply Chain Logisitics Hub', imageUrl: 'https://utfs.io/f/fa7b0f25-0a10-4c76-ad3f-bbc3325b8c34-3pd66w.png' },
-    { id: 6, title: 'Showroom and Customer Experience Centre', description: 'Showroom and Customer Experience Centre', imageUrl: 'https://utfs.io/f/f9e4c060-2263-4aa1-a2e1-56dd96482d28-kxtz1h.png' },
-    { id: 7, title: 'Energy Storage Facility', description: 'Description for Energy Storage Facility', imageUrl: 'https://utfs.io/f/ea0fb86e-c2ca-4706-8f01-c1e6ced728d1-1k8pfk.png' },
-  ];
+  const icons = mapProperties[mapping[set]]
+  
 
   return (
     <div className='flex flex-wrap gap-1=5'>
