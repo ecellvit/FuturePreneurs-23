@@ -1,5 +1,5 @@
 {
-  "setA": [
+  "e.v": [
     {
       "title": "Charging Stations: Highways",
       "pdf": "",
@@ -99,7 +99,7 @@
       ]
     }
   ],
-  "setB": [
+  "green": [
     {
       "title": "BioNest: Emeralds",
       "pdf": "",
@@ -199,7 +199,7 @@
       ]
     }
   ],
-  "setC": [
+  "renewable": [
     {
       "title": "Solar Power Farms : Asteroid Range",
       "pdf": "",
@@ -290,7 +290,7 @@
       "locations": [
         {
           "isCorrect": true,
-          "locationName": "Telangana, India"
+          "locationName": "c"
         },
         {
           "isCorrect": false,
