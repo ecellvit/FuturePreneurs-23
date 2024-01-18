@@ -1,68 +1,61 @@
-import correctOrderForMap from '@/constants/level2/correctOrderForMap.json';
-import mapLocation from '@/constants/level2/mapLocation.json';
-import mapProperties from '@/constants/level2/mapProperties.json';
+import correctOrder from '@/constants/level2/correctOrder.json';
 import connectMongoDB from '@/libs/mongodb';
 import { Level2 } from '@/models/level2';
 import { TeamModel } from '@/models/teamModel';
 import getTokenDetails from '@/utils/auth';
 
+function anderHai( a, b ){
+  const isObjectEqual = (obj1, obj2) => obj1.title === obj2.title && obj1.author === obj2.author
+  return b.some(item => isObjectEqual(item, a));
+}
+
 export default async function handler(req, res) {
+  await connectMongoDB();
   const auth = req.headers.authorization.split(' ')[1];
   let teamId = await getTokenDetails(auth);
 
   try {
+    // change to POST
     if (req.method !== 'POST') {
       res.status(405).json({ message: 'Method not allowed' });
       return;
     } else {
       const data = req.body.answer;
-      console.log("DATA GOTTTT");
-      console.log(data);
-      console.log("DATA GOTTTT");
-      await connectMongoDB();
-      const team=await TeamModel.findById(teamId);
-      const sector = team.newspaperset;
-      // const overAllPoints = team.points;
-      // const level2team = await Level2.findOne({teamId:teamId});
-      let level2Points = 0
-      let newOverAllPoints = 0
 
-     const correctAnswers=[
-      
-     ]
-      // const numData = JSON.parse(data)
-      // const newArray = []
-      // console.log((numData));
+      // data = [{title:6, author:4}, {title:1, author:6}, {title:2, author:8}]
+      // {title:location, author:property}
 
-      // for (let i = 0; i < numData.length; i++) {
-      //   const pair = numData[i];
-      //   const number1 = pair[0];
-      //   const number2 = pair[1];
-      //   console.log(mapProperties[sector][number1]);
-      //   console.log(mapLocation[number2]);
-      //   console.log(correctOrderForMap[sector][0]);
-      //   if (correctOrderForMap[sector][0][mapProperties[sector][number1]] === mapLocation[number2]) {
-      //     {console.log('Values are equal.');
-      //     newArray.push(number1);
-      //     newOverAllPoints+=10;
-      //     level2Points+=10;
-      //   }
-      //   } else {
-      //     console.log('Values are not equal.');
-      //   }
-      // }
-      // console.log(newArray);
+      console.log("DATA GOTTTT", data);
 
-      // await Level3test.findOneAndUpdate(
-      //   { teamId: teamId },
-      //   { answers: data }
-      // );
-      // console.log(level2Points)
+      const team = await TeamModel.findById(teamId);
 
+      const set = team.newspaperset;
+      const mapping = [
+        "E.V",
+        "Green Construction",
+        "Renewable Energy",
+      ]
+      const sector = mapping[set]
+      console.log('SECTOR', sector)
+
+      const co = correctOrder[sector];
+      console.log('CO', co)
+
+      let points = 0;
+      let anss = [];
+
+      for (let pair of data){
+        console.log('PAIR', pair)
+        if (anderHai(pair, co)){
+          points += 10;
+          anss.push(pair.author-1)
+        }
+      }
+
+      console.log('ansss', points, anss)
 
       await Level2.findOneAndUpdate(
-        {teamId:teamId},{answers:[2],Level2points:2, pageNo:2}
-       
+        {teamId:teamId},{answers:anss, Level2points:points, pageNo:2}
       );
 
       return res

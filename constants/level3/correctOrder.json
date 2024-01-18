@@ -1,71 +1,35 @@
 {
-    "E.V":[
-        {
-          "Charging Stations: Highways": "Delhi, India",
-          
-          
-            "Battery Manufacturing Facility": "Uttarakhand, India",
-          
-          
-            "R&D Centre": "Karnataka, India"
-          ,
-          
-            "Recycling Facility": "Gujarat, India"
-          ,
-          
-             "Supply Chain Logistics Hub": "Gujarat, India"
-          ,
-          
-             "Showroom and Customer Experience Centers": "Delhi NCR, India"
-          ,
-          
-             "Energy Storage Facility": "Rajasthan, India"
-        }
-    ],
-    "Green Construction":[
-        {
-            "BioNest": "Maharashtra, India"
-          ,
-          
-            "WattLab" : "Gujarat, India"
-          ,
-          
-            "GreenLink": "Odisha, India"
-          ,
-          
-            "CITE : Central Institute for Transforming Envisions" : "Telangana, India"
-          ,
-          
-             "RippleCenter":"Himachal Pradesh, India"
-          ,
-          
-             "EcoCycle Center":"Kerala, India"
-          ,
-          
-             "Charging Stations": "Assam, India"
-          }
-    ],
-    "Renewable Energy":[
-        {
-            "Solar Power Farms": "Rajasthan, India"
-          ,
-          
-            "Corporate Renewable Energy Procurement": "Tamil Nadu, India"
-          ,
-          
-            "Hydropower Plants": "Himachal Pradesh, India"
-          ,
-          
-            "Geothermal Energy Facilities": "Odisha, India"
-          ,
-          
-             "Energy Storage Centers": "Uttar Pradesh, India"
-          ,
-          
-             "Smart Grid Infrastructure": "Andhra Pradesh, India"
-          ,
-          
-             "Research and Development Labs": "Andhra Pradesh, Indiaw"
-          }
-    ]
+  "E.V": [
+    {
+      "Charging Stations: Highways": "Delhi, India",
+      "Battery Manufacturing Facility": "Uttarakhand, India",
+      "R&D Centre": "Karnataka, India",
+      "Recycling Facility": "Gujarat, India",
+      "Supply Chain Logistics Hub": "Gujarat, India",
+      "Showroom and Customer Experience Centers": "Delhi NCR, India",
+      "Energy Storage Facility": "Rajasthan, India"
+    }
+  ],
+  "Green Construction": [
+    {
+      "BioNest": "Maharashtra, India",
+      "WattLab": "Gujarat, India",
+      "GreenLink": "Odisha, India",
+      "CITE : Central Institute for Transforming Envisions": "Telangana, India",
+      "RippleCenter": "Himachal Pradesh, India",
+      "EcoCycle Center": "Kerala, India",
+      "Charging Stations": "Assam, India"
+    }
+  ],
+  "Renewable Energy": [
+    {
+      "Solar Power Farms": "Rajasthan, India",
+      "Corporate Renewable Energy Procurement": "Tamil Nadu, India",
+      "Hydropower Plants": "Himachal Pradesh, India",
+      "Geothermal Energy Facilities": "Odisha, India",
+      "Energy Storage Centers": "Uttar Pradesh, India",
+      "Smart Grid Infrastructure": "Andhra Pradesh, India",
+      "Research and Development Labs": "Andhra Pradesh, Indiaw"
+    }
+  ]
 }
