@@ -19,11 +19,13 @@ const level2testSchema = mongoose.Schema(
     endTime: {
       type: Date,
     },
-    Level2points: {
+    level2Points: {
       type: Number,
       default: 0,
     },
-
+    answers:{
+      type:Array,
+    }
     // members: [
     //     {
     //         type: mongoose.Schema.Types.ObjectId,

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Navbar from "../Navbar";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaDownload } from "react-icons/fa6";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 
 
@@ -10,21 +12,38 @@ const GamePage2 = (props) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  // function submitAnswerForLevel3Page2(){
-  //   fetch('/api/levels/level1/sendData',{
-  //     method:'POST',
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${session.accessTokenBackend}`,
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //     body: JSON.stringify({answerPage2:finalAnswerForPage2}),
-  //   }).then((res) => res.json()).then(console.log('clicked')).then(console.log(level1Answer))
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  // }
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        console.log("Authenticated000000000000000000000000=======");
+        router.push("/");
+      } else if (status === "authenticated") {
+        console.log("Authenticated000000000000000000000000", session);
+        // fetch /api/level0
+
+        //  checkCurrentLevel3();
+        // getLevel3DataPage1();
+      }
+    }
+  }, [status, router]);
+
+  function submitAnswerForLevel3Page2(){
+    fetch('/api/levels/level3/storeAnswers2',{
+      method:'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({answerPage2:finalAnswerForPage2}),
+    }).then((res) => res.json()).then(console.log('clicked')).then(console.log(finalAnswerForPage2))
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   const handleOptionChange = (heading, option) => {
     setSelectedOptions((prevSelectedOptions) => ({
@@ -65,14 +84,14 @@ const GamePage2 = (props) => {
                   <div
                     key={optionIndex}
                     className={`flex items-center space-x-2 mb-2 p-2 rounded cursor-pointer text-white`}
-                    onClick={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,optionIndex)}}
+                    onClick={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,option)}}
                   >
                     <input
                       type="radio"
                       name={heading}
                       value={option}
                       checked={selectedOptions[heading] === option}
-                      onChange={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,optionIndex)}}
+                      onChange={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,option)}}
                       className="cursor-pointer"
                     />
                     <span className="select-none ml-5">{option}</span>
@@ -86,7 +105,7 @@ const GamePage2 = (props) => {
         <button
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        onClick={() => console.log('hdfkjhakslghkas;fhg',finalAnswerForPage2)}
+        onClick={() => {submitAnswerForLevel3Page2()}}
         >
           Submit
         </button>
