@@ -5,7 +5,6 @@ import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
   const auth = req.headers.authorization.split(" ")[1];
-  console.log("auth", auth);
   let teamId = await getTokenDetails(auth);
 
   if (req.method !== "GET") {
@@ -21,7 +20,6 @@ export default async function handler(req, res) {
     try {
       // console.log("asdf", teamId);
       const team = await TeamModel.findById(teamId);
-      console.log("AGFFaf", team);
       if (team.level !== 3) {
         res.status(400).json({ message: "Level3 is not right now" });
         return;
@@ -29,9 +27,7 @@ export default async function handler(req, res) {
         const teamData = await Level3.findOne({ teamId: teamId });
         const teamDataSector = await TeamModel.findById(teamId);
         const sector = teamDataSector.newspaperset;
-        console.log("teamData", teamData);
         const answers = teamData.answers;
-        console.log("ANSWERS_______________________", answers);
         return res.status(200).json({
           answers: answers,
           sector: sector,

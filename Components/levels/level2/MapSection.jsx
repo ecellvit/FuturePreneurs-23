@@ -113,7 +113,7 @@ const MapSection = ({ onDrop, mapData }) => {
                 />
               );
             } else {
-              return <div className="border w-14 h-14 relative"></div>;
+              return <div key={index} className="border w-14 h-14 relative"></div>;
             }
           })}
         </div>

@@ -147,16 +147,16 @@ const GamePage1 = (props) => {
             {getProperty.map((ele, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-2 mb-2"
-                onClick={() => {
-                  handleOptionClick(ele), submitAnswerForLevel3Page1(index);
-                }}
+                className="flex items-center space-x-2 mb-2" 
               >
                 <input
                   type="checkbox"
                   checked={selectedOptions.includes(ele)}
                   onChange={() => { }}
                   className="cursor-pointer"
+                  onClick={() => {
+                  handleOptionClick(ele), submitAnswerForLevel3Page1(index);
+                }}
                 />
                 <span className="text-white">{properties[final][ele]['title']}</span>
                 <FaDownload className="text-white cursor-pointer" onClick={() => { handleIconClick(properties[final][ele]['pdf']) }} />

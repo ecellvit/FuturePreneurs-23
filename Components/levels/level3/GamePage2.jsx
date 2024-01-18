@@ -9,7 +9,7 @@ import Navbar from "../Navbar";
 const GamePage2 = (props) => {
   const [selectedOptions, setSelectedOptions] = useState([0,1]);
   const [getProperty, setGetProperty] = useState([0]);
-  const [finalAnswerForPage2, setFinalAnswerForPage2] = useState([0,1]);
+  const [finalAnswerForPage2, setFinalAnswerForPage2] = useState();
   const [sector, setSector] = useState(0);
   const [heading, setHeading] = useState([0,1]);
   const [number1,setNumber1]=useState(0);
@@ -36,24 +36,24 @@ const GamePage2 = (props) => {
   fetchData();
   }, [status, router, number1, number2]);
 
-   function submitAnswerForLevel3Page2() {
-    fetch("/api/levels/level3/storeAnswers2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({ answerPage2: finalAnswerForPage2 }),
-    })
-    .then(res=>{
-      if(res.status === 200){
-        toast.success("Submitted successfully.")
-        location.reload();
-      };
-    })  
-      .catch((err) => {
-      });
+  function submitAnswerForLevel3Page2() {
+  fetch("/api/levels/level3/storeAnswers2", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session.accessTokenBackend}`,
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify({ "answerPage2": finalAnswerForPage2 }),
+  })
+  .then(res=>{
+    if(res.status === 200){
+      toast.success("Submitted successfully.")
+      location.reload();
+    };
+  })  
+    .catch((err) => {
+    });
   }
 
   const getDataForPage2 = async () => {
@@ -139,7 +139,7 @@ const GamePage2 = (props) => {
   ]
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
-      <Navbar level="level3" sendData={submitAnswerForLevel3Page2}
+      <Navbar level="level3" sendData={() => {submitAnswerForLevel3Page2()}}
       />
       <div className="flex flex-col gap-5 items-center justify-center w-[95vw] h-[80vh]">
         <div className="w-full">

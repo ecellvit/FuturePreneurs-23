@@ -71,7 +71,6 @@ const App = (props) => {
     console.log(nr)
 
     const asdf = removeDuplicates(nr);
-    console.log('asdfasdfasdf', asdf)
 
     // Send propertyData, mapData, and selectedLocation to the backend
     fetch("/api/levels/level2/sendData",{
