@@ -13,7 +13,7 @@ export default function Instructions(){
             <li>
                 Participants have a designated 10-minute timeframe to read the newspaper and pinpoint pressing issues.</li>
             <li>
-                Following the reading period, teams will be given 5 minutes to input their identified areas into the portal.</li>
+                Following the reading period, teams will be given 5 minutes to input the problems into the portal.</li>
             <li>
                 Teams have the opportunity to earn extra bonus points based on how quickly they submit their answers.</li>
         </ul>
