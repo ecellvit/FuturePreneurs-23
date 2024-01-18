@@ -41,7 +41,7 @@ const Navbar = (props) => {
             <Image src={logo} className="h-16 p-3" />
           </div>
           <div className="">
-            <Image src={sponsor} className="h-16 w-64 p-3" />
+            <Image src={sponsor} className="h-16 w-48 p-3" />
           </div>
         </div>
         <div className="mid w-1/3 flex justify-center text-2xl font-bold">
