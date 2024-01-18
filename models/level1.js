@@ -19,6 +19,16 @@ const level1Schema = mongoose.Schema(
     endTime: {
       type: Date,
     },
+    level1Points: {
+      type: Number,
+      default: -1,
+    },
+    sector:{
+      type : String ,
+    },
+    problemOrder :{
+      type : Array ,
+    }
 
     // members: [
     //     {

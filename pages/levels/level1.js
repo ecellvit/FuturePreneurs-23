@@ -56,16 +56,7 @@ export default function Level1() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
-          // setCurPage(data.team.pageNo);
-          // console.log(data.round.level);
           if (data.round.level !== 1) {
-            // redirect(`/levels/level${data.round.level}`)
-            // if(data.round.level!==-1)
-            // {router.push(`/levels/level${data.round.level}`);}
-            // else{
-            //   router.push(`/levels/qualifier`);
-            // }
             router.push(`/levels/level${data.round.level}`);
           }
         });

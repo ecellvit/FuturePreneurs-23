@@ -1,18 +1,18 @@
 import connectMongoDB from '@/libs/mongodb';
-import { Level1test } from '@/models/level1test';
-import { TeamModel1 } from '@/models/test';
+import { Level1 } from '@/models/level1';
+import { TeamModel } from '@/models/teamModel';
 
 export default async function handler(req, res) {
   try {
     connectMongoDB();
-    const teams = await TeamModel1.find();
+    const teams = await TeamModel.find();
     let team;
     for (team of teams) {
       const teamId = team._id;
       const teamName = team.teamName;
       const leaderName = team.leaderName;
       const leaderEmail = team.leaderEmail;
-      const newLevel1 = await new Level1test({
+      await new Level1({
         teamName: teamName,
         teamId: teamId,
         leaderName: leaderName,
