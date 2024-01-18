@@ -22,10 +22,8 @@ const GamePage1 = (props) => {
   useEffect(() => {
     if (router.isReady) {
       if (status === "unauthenticated") {
-        console.log("Authenticated000000000000000000000000=======");
         router.push("/");
       } else if (status === "authenticated") {
-        console.log("Authenticated000000000000000000000000", session);
         // fetch /api/level0
 
         //  checkCurrentLevel3();
@@ -45,10 +43,7 @@ const GamePage1 = (props) => {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
           setGetProperty(data.answers);
-          console.log("fgsdfgsdfgsdf",data.answers);
-          console.log("dfasdgfasgsfg",data.sector);
           props.setNewSector(data.sector)
           setSector(data.sector);
           // setGetProperty(data);
@@ -56,7 +51,6 @@ const GamePage1 = (props) => {
           // setAnswer(data.ans)
         });
       } else {
-        console.log("error");
       }
     });
   };
@@ -72,10 +66,7 @@ const GamePage1 = (props) => {
       body: JSON.stringify({ answerPage1: finalAnswerForPage1 }),
     })
       .then((res) => res.json())
-      .then(console.log("clicked"))
-      .then(console.log(finalAnswerForPage1))
       .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -115,15 +106,11 @@ const GamePage1 = (props) => {
     }
   };
 
-// console.log(properties[sector][3]['pdf'])
 
-console.log(newArray)
 
   // for(let i=0;i<getProperty.length;i++){
-  //     console.log(i)
   //     answerArray.push(properties[sector])
   // }
-  // console.log(newArray)
 
   const options = [
     "Option A",
@@ -167,7 +154,6 @@ console.log(newArray)
         </div>
         <button
           onClick={() => {
-            console.log("hfhashfkdhfskldfhkadh", finalAnswerForPage1);
             submitAnswerForLevel3();
           }}
           type="button"
