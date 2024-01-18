@@ -1,4 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
+import { TeamModel } from "@/models/teamModel";
 
 const Industry = ['E.V', 'Green Construction', 'Renewable Energy'];
 
@@ -16,7 +17,7 @@ export default async function handler(req, res) {
         { teamName: team.teamName },
         {
           $set: {
-            set: 0,
+            newspaperset: 0,
           },
         }
       );
@@ -25,7 +26,7 @@ export default async function handler(req, res) {
         { teamName: team.teamName },
         {
           $set: {
-            set: 0,
+            newspaperset: 1,
           },
         }
       );
@@ -34,17 +35,16 @@ export default async function handler(req, res) {
         { teamName: team.teamName },
         {
           $set: {
-            set: 0,
+            newspaperset: 2,
           },
         }
-      );
+      )
     }
     i = i+1
 
     i = i%3;
-
-    return res.status(200).json({message:'sets lag gaye hai'})
-
+    
   }
+  return res.status(200).json({message:'sets lag gaye hai'})
 
 }
