@@ -5,12 +5,13 @@ import GamePage2 from "@/Components/levels/level3/GamePage2";
 import Router from "next/router";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Instructions from "@/Components/levels/level3/instruction";
 
 export default function Level3() {
 
-
   const { data: session, status } = useSession();
   const router = useRouter();
+
   const [finalAnswerForPage1,setFinalAnswerForPage1]=useState([]);
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
 
@@ -42,11 +43,7 @@ export default function Level3() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
-            // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
             if(data.round.level!==3){
-                // redirect(`/levels/level${data.round.level}`)
                 router.push(`/levels/level${data.round.level}`)
             }
           });
@@ -82,13 +79,10 @@ export default function Level3() {
     <div>
     {/* <GamePage2/> */}
       {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 0 started"}/>}
-      {/* {curPage === 0 && <Instructions/>} */}
-      {curPage === 0 && <Waiting text={"Instruction"}/>}
+      {curPage === 0 && <Instructions/>}
       {curPage === 1 && <GamePage1 finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
       {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
-      {curPage === 3 && <Waiting text={"Prompt"}/>}
-      {curPage === 4 && <Waiting text={"Level 0 is ended"}/>}
-      {/* {curPage === 2 && <Prompt/>} */}
+      {curPage === 4 && <Waiting text={"Level 3 has ended"}/>}
     </div>
   )
 }

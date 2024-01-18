@@ -23,12 +23,19 @@ const level1Schema = mongoose.Schema(
       type: Number,
       default: -1,
     },
-    newspaperset:{
-      type : Number,
+    sector:{
+      type : String ,
     },
     problemOrder :{
       type : Array ,
     }
+
+    // members: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "Users",
+    //     },
+    // ],
   },
   { collection: 'Level1' }
 );

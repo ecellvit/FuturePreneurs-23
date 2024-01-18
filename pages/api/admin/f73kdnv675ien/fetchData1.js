@@ -2,7 +2,6 @@ import connectMongoDB from '@/libs/mongodb';
 import { Level1 } from '@/models/level1';
 import { TeamModel } from '@/models/teamModel';
 
-
 export default async function handler(req, res) {
   try {
     connectMongoDB();
@@ -30,7 +29,7 @@ export default async function handler(req, res) {
       const teamName = team.teamName;
       const leaderName = team.leaderName;
       const leaderEmail = team.leaderEmail;
-      const newLevel1 = await new Level1({
+      await new Level1({
         teamName: teamName,
         teamId: teamId,
         leaderName: leaderName,

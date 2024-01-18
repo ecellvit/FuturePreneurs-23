@@ -1,0 +1,30 @@
+{
+    "E.V": [
+      {"id": 1, "title": "Charging Stations", "imageUrl": "https://utfs.io/f/98b501e3-9a58-427a-94fe-4abc767792a9-9nmj88.png"},
+      {"id": 2, "title": "Battery Manufacturing Facility", "imageUrl": "https://utfs.io/f/61e6dcb3-d551-4b64-8c91-c1141707140a-r9i2s5.png"},
+      {"id": 3, "title": "R&D Center", "imageUrl": "https://utfs.io/f/fdfde9c6-5ec2-4eda-9dde-359b1e3dad69-tbtwqy.png"},
+      {"id": 4, "title": "Recycling Facility", "imageUrl": "https://utfs.io/f/f0716306-2581-4384-b7d0-a1b46d661bd6-7a6lv7.png"},
+      {"id": 5, "title": "Supply Chain Logistics Hub", "imageUrl": "https://utfs.io/f/fa7b0f25-0a10-4c76-ad3f-bbc3325b8c34-3pd66w.png"},
+      {"id": 6, "title": "Showroom and Customer Experience Centers", "imageUrl": "https://utfs.io/f/f9e4c060-2263-4aa1-a2e1-56dd96482d28-kxtz1h.png"},
+      {"id": 7, "title": "Energy Storage Facility", "imageUrl": "https://utfs.io/f/ea0fb86e-c2ca-4706-8f01-c1e6ced728d1-1k8pfk.png"}
+    ],
+    "Green Construction": [
+      {"id": 1, "title": "BioNest", "imageUrl": "https://utfs.io/f/b83d55c5-1b93-40ba-9430-b6ec91ea9b42-0.Bionest.png"},
+      {"id": 2, "title": "WattLab", "imageUrl": "https://utfs.io/f/67cbab71-46b7-413f-b364-ccc15ec8c48a-ovci3h.png"},
+      {"id": 3, "title": "GreenLink", "imageUrl": "https://utfs.io/f/c59db7ca-23dc-4a99-8832-42049d187239-3oyjdv.png"},
+      {"id": 4, "title": "CITE : Central Institute for Transforming Envisions", "imageUrl": "https://utfs.io/f/db592e04-2d4b-44ed-9f08-3c96bb613e77-18cbb.png"},
+      {"id": 5, "title": "RippleCenter", "imageUrl": "https://utfs.io/f/609a4409-140b-4395-b885-debb57691af7-scw3z9.png"},
+      {"id": 6, "title": "EcoCycle Center", "imageUrl": "https://utfs.io/f/a6a464ff-1332-4db8-bc5b-50147b0c2d1a-9kb9k0.png"},
+      {"id": 7, "title": "Community Sustainability Hub", "imageUrl": "https://utfs.io/f/13a01234-8435-4175-801b-bb2579f29f19-5aom9f.png"}
+    ],
+    "Renewable Energy": [
+      {"id": 1, "title": "Solar Power Farms", "imageUrl": "https://utfs.io/f/b16b41d3-6b7e-440b-9d8a-89d355e10347-grb2fx.png"},
+      {"id": 2, "title": "Corporate Renewable Energy Procurement", "imageUrl": "https://utfs.io/f/fb97f667-212e-4546-af7d-8d0e137ce83e-r4n5v8.png"},
+      {"id": 3, "title": "Hydropower Plants", "imageUrl": "https://utfs.io/f/63718d8d-00d4-421e-be8f-e43a9ca00a37-doa2b1.png"},
+      {"id": 4, "title": "Geothermal Energy Facilities", "imageUrl": "https://utfs.io/f/c3759967-3cce-45c6-bb37-4306d0862d81-qub9kx.png"},
+      {"id": 5, "title": "Energy Storage Centers", "imageUrl": "https://utfs.io/f/5622281e-173e-42dd-9434-0952a80ce884-awwx4o.png"},
+      {"id": 6, "title": "Smart Grid Infrastructure", "imageUrl": "https://utfs.io/f/28255a7c-eb28-4386-b55d-0f04a8b25cdf-lc0i0q.png"},
+      {"id": 7, "title": "Research and Development Labs", "imageUrl": "https://utfs.io/f/7eeb400e-34e1-45f9-9b22-c1cfca75712b-tbtwqy.png"}
+    ]
+  }
+  

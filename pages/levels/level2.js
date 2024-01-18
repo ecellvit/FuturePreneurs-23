@@ -4,23 +4,24 @@ import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level2/Game";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Instructions from "@/Components/levels/level2/instruction";
 
 export default function Level2() {
 
-//   const { data: session, status } = useSession();
-//   const router = useRouter();
-//   useEffect(() => {
-//     if (router.isReady) {
-//       if (status === 'unauthenticated') {
-//         console.log('Authenticated000000000000000000000000=======');
-//         router.push('/');
-//       } else if (status === 'authenticated') {
-//         console.log('Authenticated000000000000000000000000', session);
-//         checkCurrentLevel2();
-//         getLevel2Data();
-//       }
-//     }
-//   } , [status, router]);
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
+        router.push('/');
+      } else if (status === 'authenticated') {
+        console.log('Authenticated000000000000000000000000', session);
+        checkCurrentLevel2();
+        getLevel2Data();
+      }
+    }
+  } , [status, router]);
 
   const [curPage, setCurPage] = useState(1);
 
@@ -35,12 +36,8 @@ export default function Level2() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
-          // setCurPage(data.team.pageNo);
-          console.log(data.round.level);
           if (data.round.level !== 2) {
-            // redirect(`/levels/level${data.round.level}`)
-            //Router.push(`/levels/level${data.round.level}`);
+            router.push(`/levels/level${data.round.level}`);
           }
         });
       } else {
@@ -74,12 +71,9 @@ export default function Level2() {
   return (
     <div>
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
-      {/* {curPage === 0 && <Instructions/>} */}
-      {curPage === 0 && <Waiting text={"Instruction"} />}
+      {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game />}
-      {curPage === 2 && <Waiting text={"Prompt"} />}
-      {curPage === 3 && <Waiting text={"Level 2 is ended"} />}
-      {/* {curPage === 2 && <Prompt/>} */}
+      {curPage === 3 && <Waiting text={"Level 2 has ended"} />}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { TeamModel } from '@/models/teamModel';
 import {TeamModel1} from '@/models/test';
 import getTokenDetails from '@/utils/auth';
 import { getSession } from 'next-auth/react';
+var mongoose = require('mongoose');
 
 export default async function handler(req, res) {
   const auth = req.headers.authorization.split(' ')[1];
@@ -14,10 +15,15 @@ export default async function handler(req, res) {
     return;
   } else {
     await connectMongoDB();
-    
-    const team =await TeamModel.findById(teamId);
+    // const team = await Level1test.findOne({ teamId: teamId });
 
-    const teamInLevel1 = await Level1.findOne({teamId:teamId});
+    // const team = new Level1test({teamName:teamName})
+    // await team.save();
+    const team =await TeamModel.findById(teamId);
+    console.log("********",team)
+    const teamInLevel1 = await Level1.findOne({teamName:team.teamName});
+    console.log("+++++++++",teamInLevel1)
+    // res.status(400).json({message:n})
     const pageNo=teamInLevel1.pageNo;
     const level=team.level;
     const problems = Object.values(teamInLevel1.problemOrder);

@@ -5,6 +5,7 @@ import Game1 from "@/Components/levels/level1/game";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Navbar from "@/Components/Navbar";
+import Instructions from "@/Components/levels/level1/instruction";
 
 export default function Level1() {
 
@@ -55,16 +56,7 @@ export default function Level1() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
-          // setCurPage(data.team.pageNo);
-          // console.log(data.round.level);
           if (data.round.level !== 1) {
-            // redirect(`/levels/level${data.round.level}`)
-            // if(data.round.level!==-1)
-            // {router.push(`/levels/level${data.round.level}`);}
-            // else{
-            //   router.push(`/levels/qualifier`);
-            // }
             router.push(`/levels/level${data.round.level}`);
           }
         });
@@ -101,11 +93,10 @@ export default function Level1() {
 
   return (
     <div>
-      
       {curPage === -1 && <Waiting text={"Please Wait for Level 1 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
-      {curPage === 0 && <Waiting text={"Instruction"} />}
-      {curPage === 1 && <Game1 submit={submitAnswerForLevel1} problems={problems} sector={sector} setProblems={setProblems} setLevel1Answer={setLevel1Answer} level1Answer={level1Answer}/>}
+      {curPage === 0 && <Instructions/>}
+      {curPage === 1 && <Game1 />}
       {curPage === 2 && <Waiting text={"Prompt"} />}
       {curPage === 3 && <Waiting text={"Level 1 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}
