@@ -2,7 +2,6 @@ import connectMongoDB from '@/libs/mongodb';
 import { Level1 } from '@/models/level1';
 import { TeamModel } from '@/models/teamModel';
 import {TeamModel1} from '@/models/test';
-// import { Level0Model } from "@/models/level0";
 import getTokenDetails from '@/utils/auth';
 import { getSession } from 'next-auth/react';
 var mongoose = require('mongoose');
@@ -28,8 +27,7 @@ export default async function handler(req, res) {
     const pageNo=teamInLevel1.pageNo;
     const level=team.level;
     const problems = Object.values(teamInLevel1.problemOrder);
-    const sector = team.sector;
-    console.log(sector);
+    const newspaperset = team.newspaperset;
 
     try {
       if(level!==1){
@@ -47,7 +45,7 @@ export default async function handler(req, res) {
           else{
             // return res.status(200).json({message:'successful'})
             
-            res.status(200).json({problems:problems,pageNo:pageNo,sector:sector})
+            res.status(200).json({problems:problems,pageNo:pageNo,newspaperset:newspaperset})
           }
         }
       }

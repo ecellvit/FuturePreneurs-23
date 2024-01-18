@@ -5,6 +5,7 @@ import Game from "@/Components/levels/level2/Game";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Instructions from "@/Components/levels/level2/instruction";
+import { compress } from "@/next.config";
 
 export default function Level2() {
 
@@ -23,7 +24,8 @@ export default function Level2() {
     }
   } , [status, router]);
 
-  const [curPage, setCurPage] = useState(1);
+  const [curPage, setCurPage] = useState();
+  const[set, setSet] = useState();
 
   const checkCurrentLevel2 = () => {
     fetch("/api/levels/checkCurrentRound", {
@@ -59,6 +61,9 @@ export default function Level2() {
       if (res.status === 200) {
         res.json().then((data) => {
           console.log("data", data);
+          setSet(data.set);
+          console.log(data.set);
+          
           setCurPage(data.team.pageNo);
         });
       } else {
@@ -71,8 +76,8 @@ export default function Level2() {
     <div>
        {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {curPage === 0 && <Instructions/>}
-      {curPage === 1 && <Game />}
-      {curPage === 3 && <Waiting text={"Level 2 has ended"} />} 
+      {curPage === 1 && <Game set={set}/>}
+      {curPage === 2 && <Waiting text={"Level 2 has ended"} />} 
     </div>
   );
 }

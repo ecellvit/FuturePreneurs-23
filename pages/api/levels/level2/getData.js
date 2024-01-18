@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     // const tesmLevelData = await Level0Model.find({teamId: teams[0]._id});
 
     try {
-      return res.status(200).json({ team:level2tea, sector:team.newspaperset });
+      return res.status(200).json({ team:level2tea, set:team.newspaperset });
     } catch (e) {
       console.log(e);
       return res

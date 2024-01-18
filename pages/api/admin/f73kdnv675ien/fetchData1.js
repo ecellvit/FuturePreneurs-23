@@ -8,6 +8,23 @@ export default async function handler(req, res) {
     const teams = await TeamModel.find();
     let team;
     for (team of teams) {
+      
+      // if(team.isQualified){
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      
+      let randomArray = [];
+      
+      while (randomArray.length < 4) {
+        let randomNumber = getRandomInt(0, 3);
+      
+        if (!randomArray.includes(randomNumber)) {
+          randomArray.push(randomNumber);
+        }
+      }
+
       const teamId = team._id;
       const teamName = team.teamName;
       const leaderName = team.leaderName;
@@ -17,7 +34,10 @@ export default async function handler(req, res) {
         teamId: teamId,
         leaderName: leaderName,
         leaderEmail: leaderEmail,
+        newspaperset: team.newspaperset,
+        problemOrder: randomArray,
       }).save();
+    // }
     }
     res.status(200).json({
       message: 'Data has been assigned',
