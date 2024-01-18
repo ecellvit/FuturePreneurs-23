@@ -9,10 +9,9 @@ import Instructions from "@/Components/levels/level3/instruction";
 
 export default function Level3() {
 
-
-
   const { data: session, status } = useSession();
   const router = useRouter();
+
   const [finalAnswerForPage1,setFinalAnswerForPage1]=useState([]);
   const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
 
@@ -44,13 +43,7 @@ export default function Level3() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
-            // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
             if(data.round.level!==3){
-            if(data.round.level!==3){
-                // redirect(`/levels/level${data.round.level}`)
-                router.push(`/levels/level${data.round.level}`)
                 router.push(`/levels/level${data.round.level}`)
             }
           });

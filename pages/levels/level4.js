@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 import GamePage from "@/Components/levels/level4/GamePage";
 import { useSession } from "next-auth/react";
@@ -10,12 +10,22 @@ export default function Level4() {
   const [curPage, setCurPage] = useState(1);
 
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    // fetch /api/level0
-    getLevel4Data();
-    checkCurrentLevel4();
-  }, [])
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
+        router.push('/');
+      } else if (status === 'authenticated') {
+        console.log('Authenticated000000000000000000000000', session);
+     // fetch /api/level0
+ 
+     getLevel4Data();
+     checkCurrentLevel4();
+     }
+    } 
+   }, [status, router]);
 
   const checkCurrentLevel4 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
@@ -28,12 +38,8 @@ export default function Level4() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
-            // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
             if(data.round.level!==4){
-                // redirect(`/levels/level${data.round.level}`)
-                // Router.push(`/levels/level${data.round.level}`)
+                router.push(`/levels/level${data.round.level}`)
             }
           });
         } else {
