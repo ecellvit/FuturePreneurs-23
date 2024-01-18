@@ -2,7 +2,7 @@
   "E.V": [
     {
       "title": "Charging Stations: Highways",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/0cd0c070-7928-4bc1-b8d5-c774a8de3433-b5omnt.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -16,7 +16,7 @@
     },
     {
       "title": "Battery Manufacturing Facility: Helo Mountains ",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/2bc1ebbb-4ba7-4fd0-9258-4173228f5200-twh473.pdf",
       "locations": [
         {
           "isCorrect": false,
@@ -30,7 +30,7 @@
     },
     {
       "title": " R&D Centre : Nexus Heights",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/cfb5bba4-2cad-44bb-9ef6-66b5fd529717-yaoevl.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -44,7 +44,7 @@
     },
     {
       "title": "Recycling Facility:  District 9",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/37e82c69-5dcc-4d9f-a6c3-800527588d91-f1kwyt.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -58,7 +58,7 @@
     },
     {
       "title": "Supply Chain Logistics Hub: Castle Rock",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/c7d50aa6-76c4-4a16-9e3d-767b48b9fcbe-4hx5gs.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -72,7 +72,7 @@
     },
     {
       "title": "Showroom and Customer Experience Centers: Emeralds",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/e6f7e1ad-dbef-4987-8289-0c5c55037ae3-qud661.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -86,7 +86,7 @@
     },
     {
       "title": "Energy Storage Facility: Asteroid Range",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/3021347a-ca99-44d6-ae41-cbf404036a1c-li4sdj.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -102,7 +102,7 @@
   "Green Construction": [
     {
       "title": "BioNest: Emeralds",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/a011ae37-f96a-474c-8f97-d524d0efa479-osb7gh.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -116,7 +116,7 @@
     },
     {
       "title": "WattLab : Asteroid Range",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/813a0e16-a3aa-4c72-bc70-104dcb76e897-x2r9hl.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -130,7 +130,7 @@
     },
     {
       "title": "GreenLink: Helo Mountains",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/1f18d237-575b-4036-92b2-cf30dd8b0857-z23h51.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -144,7 +144,7 @@
     },
     {
       "title": "CITE : Central Institute for Transforming Envisions : Nexus Heights ",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/8efbf348-8200-4e8d-977b-6a55e95b324c-ojh8ex.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -158,7 +158,7 @@
     },
     {
       "title": "RippleCenter:Nature Haven",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/9769fc3d-04b3-4475-a3b7-0ae4aa031d56-gkqnna.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -172,7 +172,7 @@
     },
     {
       "title": "EcoCycle Center: Maritime Oasis",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/54c58f69-52b7-4b91-b1b9-b40eae8ee6e0-n7poln.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -186,7 +186,7 @@
     },
     {
       "title": "Community Sustainability Hub: ElevaTech District",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/d9bd257f-fb0d-4973-8ef0-1153bb9241e7-3mibey.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -202,7 +202,7 @@
   "Renewable Energy": [
     {
       "title": "Solar Power Farms : Asteroid Range",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/7411db94-df95-46dd-bb63-a3e5aaee9aa3-bjpq8k.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -216,7 +216,7 @@
     },
     {
       "title": "Corporate Renewable Energy Procurement : District9",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/f3fe1b00-9c9c-4684-b3d6-39939c575da0-25klnu.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -230,7 +230,7 @@
     },
     {
       "title": "Hydropower Plants : Maritime oasis",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/587eb340-b011-406f-817a-da4a04a48e08-yh4f3j.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -244,7 +244,7 @@
     },
     {
       "title": "Geothermal Energy Facilities : Helo Mountains",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/1fa67e22-8523-4855-8438-9410bf75bac0-fqs7c8.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -258,7 +258,7 @@
     },
     {
       "title": "Energy Storage Centers : Emeralds",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/b9b4ef5e-0941-489a-b538-ef446aa1dd83-6skq0h.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -272,7 +272,7 @@
     },
     {
       "title": "Smart Grid Infrastructure : ElevaTech District",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/3ae3112a-2503-4aaa-9550-d20a1892b824-6wmetk.pdf",
       "locations": [
         {
           "isCorrect": true,
@@ -286,7 +286,7 @@
     },
     {
       "title": "Research and Development Labs : Nexus Heights",
-      "pdf": "",
+      "pdf": "https://utfs.io/f/50d2fb7d-02a5-43bf-aea8-629897eb76ac-ba2bdn.pdf",
       "locations": [
         {
           "isCorrect": true,
