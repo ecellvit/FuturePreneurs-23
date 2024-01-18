@@ -23,7 +23,7 @@ export default function Level3() {
        console.log('Authenticated000000000000000000000000', session);
     // fetch /api/level0
 
-    checkCurrentLevel3();
+    // checkCurrentLevel3();
     getLevel3Data();
     }
    } 
@@ -42,9 +42,9 @@ export default function Level3() {
       }).then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            console.log("data", data);
+            // console.log("data", data);
             // setCurPage(data.team.pageNo);
-            console.log(data.round.level);
+            // console.log(data.round.level);
             if(data.round.level!==3){
                 // redirect(`/levels/level${data.round.level}`)
                 router.push(`/levels/level${data.round.level}`)

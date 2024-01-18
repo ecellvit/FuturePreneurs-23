@@ -23,6 +23,15 @@ const level3testSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    answers:{
+      type:Array,
+    },
+    choice:{
+      type:Array,
+    },
+    sector:{
+      type:String,
+    }
 
     // members: [
     //     {
