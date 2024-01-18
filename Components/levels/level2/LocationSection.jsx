@@ -29,7 +29,7 @@ const LocationSection = () => {
               className={`cursor-pointer border p-2 ${
                 activeTitle === id ? 'bg-gray-300' : 'bg-gray-100'
               }`}
-              onClick={() => handleClick(id)}
+              // onClick={() => handleClick(id)}
             >
               {title}
             </div>
