@@ -20,7 +20,7 @@ const PropertyIcon = ({ id,title,description, imageUrl, activeIconId, onDragStar
 
   return (
     <div
-    onClick={handleClick} 
+    // onClick={handleClick} 
     ref={(node) => {
       if (node) {
         drag(node);
@@ -61,20 +61,19 @@ const PropertySection = ({ onDrop }) => {
 
   return (
     <div>
-      <h2>Draggable Property</h2>
       {icons.map(({ id, title, description, imageUrl }) => (
-        <div key={id}>
+        <div key={id} className="mb-2 font-bold text-black cursor-pointer border p-2 bg-gray-100">
           <PropertyIcon
             id={id}
-            title={title}
-            description={description}
             imageUrl={imageUrl}
             onDragStart={() => handleDragStart()}
           />
+          <p className="mt-2">{title}</p>
         </div>
       ))}
     </div>
   );
+  
 };
 
 export default PropertySection;

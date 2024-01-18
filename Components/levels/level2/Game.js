@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import PropertySection from '@/Components/levels/level2/PropertySection';
-import MapSection from '@/Components/levels/level2/MapSection';
-import LocationSection from '@/Components/levels/level2/LocationSection';
-import Navbar from '@/Components/levels/Navbar';
+import React, { useState } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import PropertySection from "@/Components/levels/level2/PropertySection";
+import MapSection from "@/Components/levels/level2/MapSection";
+import LocationSection from "@/Components/levels/level2/LocationSection";
+import Navbar from "@/Components/levels/Navbar";
 
 const App = () => {
   const [propertyData, setPropertyData] = useState([]);
@@ -27,40 +27,52 @@ const App = () => {
 
   const sendDataToBackend = () => {
     // Send propertyData, mapData, and selectedLocation to the backend
-    console.log('Sending data to backend:', { propertyData, mapData, selectedLocation });
+    console.log("Sending data to backend:", {
+      propertyData,
+      mapData,
+      selectedLocation,
+    });
   };
 
   return (
     <main
       className=" bg-cover bg-no-repeat bg-center text-white text-center w-full -z-20"
       style={{
-        backgroundImage: 'url(/assets/bg/spceBg.svg)',
-        minHeight: '100vh',
-      }}>
-      <Navbar/>
+        backgroundImage: "url(/assets/bg/spceBg.svg)",
+        minHeight: "100vh",
+      }}
+    >
+      <Navbar />
 
-        <DndProvider backend={HTML5Backend}>
-          <div className='flex h-[100vh] '>
-
-            <div className='w-[600px] p-8'>
-                <h1  className='text-2xl font-black p-5'>Description of Properties</h1>
-                <PropertySection onDrop={handlePropertyDrop} />
-            </div>
-
-            <div className='w-full p-5'>
-                <h1></h1>
-                <MapSection onDrop={handleMapDrop} mapData={mapData}/>
-            </div>
-
-            <div className='w-[600px] p-5'>
-                <h1 className='text-2xl font-black p-8'>Description of Location </h1>
-                <LocationSection onClick={handleLocationClick} />
-            </div>
-
+      <DndProvider backend={HTML5Backend}>
+        <div className="flex h-[100vh] ">
+          <div className="w-[600px] p-8 bg-white bg-opacity-25 rounded-3xl">
+            <h1 className="text-2xl font-black p-3">
+              Properties
+            </h1>
+            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <PropertySection onDrop={handlePropertyDrop} />
           </div>
-          <button onClick={sendDataToBackend} className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'>
-          Submit</button>
-        </DndProvider>
+
+          <div className="w-full p-5">
+            <MapSection onDrop={handleMapDrop} mapData={mapData} />
+          </div>
+
+          <div className="w-[600px] p-5 bg-white bg-opacity-25 rounded-3xl">
+            <h1 className="text-2xl font-black p-3 ">
+              Locations{" "}
+            </h1>
+            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <LocationSection onClick={handleLocationClick} />
+          </div>
+        </div>
+        <button
+          onClick={sendDataToBackend}
+          className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          Submit
+        </button>
+      </DndProvider>
     </main>
   );
 };
