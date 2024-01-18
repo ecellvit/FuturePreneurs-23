@@ -1,16 +1,16 @@
 import Navbar from "../Navbar";
-import InputBoxList from "./InputBoxList";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
-import Image from "public/assets/bg/spceBg.svg";
-import LoadingIcons from "react-loading-icons";
+import { useSession } from "next-auth/react";
 
 export default function Game() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { data: session, status } = useSession();
 
   const sendData = ()=>{
     // send data to backend
@@ -40,7 +40,6 @@ export default function Game() {
     })
 
   }
-  
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
