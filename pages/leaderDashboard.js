@@ -21,6 +21,7 @@ export default function LeaderDashboard() {
   const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isQualified, setIsQualified] = useState(null);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -86,6 +87,9 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
+        setIsQualified(data.teamDetails.isQualify);
+        console.log(data.teamDetails.isQualify);
+        setIsQualified(data.teamDetails.isQualify);
         setIsLoading(false);
       })
       .catch((err) => {});
@@ -225,6 +229,19 @@ export default function LeaderDashboard() {
             Start Quiz
         </button> */}
         {/* <DeleteTeamButton onClick={() => deleteTeam()} /> */}
+
+        {isQualified && (
+          <div className="flex flex-col text-white items-center border p-2 rounded-xl my-2">
+            <h1 className="text-lg font-bold">
+              Congratulations! Your team has been shortlisted for the main round
+              of Futurepreneurs 9.0.
+            </h1>
+            <h6 className="font-bold">See you at the event!</h6>
+            <h6>Date : 19 January 2024</h6>
+            <h6>Reporting Time : 9 AM</h6>
+            <h6>Venue : Sarojini Naidu Hall, SJT</h6>
+          </div>
+        )}
         <Toaster />
       </div>
     </div>
