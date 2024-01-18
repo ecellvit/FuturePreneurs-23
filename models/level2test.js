@@ -23,6 +23,9 @@ const level2testSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    answers:{
+      type: Array,
+    }
 
     // members: [
     //     {

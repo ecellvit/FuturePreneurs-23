@@ -1,5 +1,5 @@
 {
-    "e.v":[
+    "E.V":[
         {
             "Charging Stations": "Highway",
           
@@ -22,7 +22,7 @@
              "Energy Storage Facility": "Asteroid Range"
         }
     ],
-    "green":[
+    "Green Construction":[
         {
             "BioNest": "Emeralds"
           ,
@@ -45,7 +45,7 @@
              "Community Sustainability Hub":"Elvatech"
           }
     ],
-    "renewable":[
+    "Renewable Energy":[
         {
             "Solar Power Farms": "Asteroid Range"
           ,

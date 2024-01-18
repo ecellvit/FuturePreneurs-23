@@ -2,7 +2,7 @@ import connectMongoDB from '@/libs/mongodb';
 import { Level2test } from '@/models/level2test';
 import { TeamModel } from '@/models/teamModel';
 import getTokenDetails from '@/utils/auth';
-import correctOrder from '@/constants/level3/correctOrder.json';
+import correctOrderForMap from '@/constants/level2/correctOrderForMap.json';
 import mapProperties from '@/constants/level2/mapProperties.json';
 import mapLocation from '@/constants/level2/mapLocation.json';
 export default async function handler(req, res) {
@@ -34,10 +34,10 @@ export default async function handler(req, res) {
         const pair = numData[i];
         const number1 = pair[0];
         const number2 = pair[1];
-        console.log(mapProperties['renewable'][number1]);
+        console.log(mapProperties[sector][number1]);
         console.log(mapLocation[number2]);
-        console.log(correctOrder['renewable'][0]);
-        if (correctOrder['renewable'][0][mapProperties['renewable'][number1]] === mapLocation[number2]) {
+        console.log(correctOrderForMap[sector][0]);
+        if (correctOrderForMap[sector][0][mapProperties[sector][number1]] === mapLocation[number2]) {
           {console.log('Values are equal.');
           newArray.push(number1);
           newOverAllPoints+=10;
@@ -57,9 +57,8 @@ export default async function handler(req, res) {
 
 
       await Level2test.findOneAndUpdate(
-        { teamName: teamName },
-        { answers: newArray },
-        { level2Points:level2Points }
+        {teamName:teamName},{answers:newArray,Level2points:level2Points}
+       
       );
 
       return res

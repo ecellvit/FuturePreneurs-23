@@ -1,5 +1,5 @@
 {
-    "e.v":[
+    "E.V":[
         "Charging Stations",
         "Battery Manufacturing Facility",
         "R&D Center",
@@ -8,7 +8,7 @@
         "Showroom and Customer Experience Centers",
         "Energy Storage Facility"
     ],
-    "green":[
+    "Green Construction":[
         "BioNest",
         "WattLab",
         "GreenLink",
@@ -17,7 +17,7 @@
         "EcoCycle Center",
         "Community Sustainability Hub"
     ],
-    "renewable":[
+    "Renewable Energy":[
         "Solar Power Farms",
         "Corporate Renewable Energy Procurement",
         "Hydropower Plants",
