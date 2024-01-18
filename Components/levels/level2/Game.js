@@ -105,7 +105,7 @@ const App = (props) => {
         minHeight: "100vh",
       }}
     >
-      <Navbar level="level2"  sendData={sendDataToBackend}/>
+      <Navbar level="level2"  sendData={()=>sendDataToBackend()}/>
 
       <DndProvider backend={HTML5Backend}>
         <div className="flex h-[100vh]">

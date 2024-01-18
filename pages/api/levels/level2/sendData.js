@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       console.log('ansss', points, anss)
 
       await Level2.findOneAndUpdate(
-        {teamId:teamId},{answers:anss, Level2points:points, pageNo:1}
+        {teamId:teamId},{answers:anss, Level2points:points, pageNo:2}
       );
 
       return res
