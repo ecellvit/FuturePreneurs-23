@@ -4,6 +4,7 @@ import Game from "@/Components/levels/level0/game";
 import Router from "next/router";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Instructions from "@/Components/levels/level0/instruction";
 
 export default function Level0() {
 
