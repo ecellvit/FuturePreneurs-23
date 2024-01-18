@@ -138,7 +138,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} imageSrc={boardImg} />
+              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.teamRole==='0'?'Leader':'Member'} leader={false} phone={el.mobno} imageSrc={boardImg} />
             })
           }
         </div>
