@@ -78,7 +78,7 @@ const App = () => {
             <h1 className="text-2xl font-black p-3">
               Properties
             </h1>
-            <div className="flex flex-col items-center gap-2">
+            <div className="underline flex flex-col items-center gap-2">
             <p><a href="https://docs.google.com/document/d/1-k6pmmQrzAvgikIcwO2qRQE1APATb6j8w8-TUnX9H-o/edit" target="_blank">Click here for more info</a></p>
             <PropertySection onDrop={handlePropertyDrop} />
             </div>
@@ -92,7 +92,7 @@ const App = () => {
             <h1 className="text-2xl font-black p-3 ">
               Locations{" "}
             </h1>
-            <p><a href="https://docs.google.com/document/d/1HzhjeIf0wPNUdkyDnXGQzcY9q0WQrP9pGbp0FM_zam0/edit" target="_blank">Click here for more info</a></p>
+            <p><a className="underline" href="https://utfs.io/f/b9253f3d-074c-4713-8c3e-ef05d742053c-6m19b7.pdf" target="_blank">Click here for more info</a></p>
             <LocationSection onClick={handleLocationClick} />
           </div>
         </div>
