@@ -23,9 +23,9 @@ const MapDroppableArea = ({ onDrop, index, mapData, onDragStart }) => {
   const isDropArea = mapData[index] !== null;
 
   const areaStyle = `
-    border w-10 h-10 relative
+  border w-14 h-14 relative
   `;
-  //   border w-12 h-12 z-10
+  //  border w-12 h-12 z-10
 
   return (
     <div
@@ -72,42 +72,44 @@ const MapSection = ({ onDrop, mapData }) => {
   };
 
   return (
-     <main className="relative w-full">
-       <Image src={map} className="w-full absolute top-0 left-0" />
-       {/* <div className="flex flex-row">
+    <main className="relative w-full mx-auto">
+      <div className="absoluter">
+        <Image src={map} className="w-full absolute top-0 left-0" />
+        {/* <div className="flex flex-row">
        {Array.from({ length: 10 }, (_, index) => (
          <div className="flex flex-column">
          {Array.from({ length: 16 }, (_, index) => (
-          <MapDroppableArea
-            key={index}
-            index={index}
-            onDrop={onDrop}
-            mapData={mapData}
-            onDragStart={handleDragStart}
-            className="drop-area border-dashed border border-gray-400 p-4"/>
-        ))}
+           <MapDroppableArea
+           key={index}
+           index={index}
+           onDrop={onDrop}
+           mapData={mapData}
+           onDragStart={handleDragStart}
+           className="drop-area border-dashed border border-gray-400 p-4"/>
+           ))}
+           </div>
+           ))}
+          </div> */}
+        <div
+          style={{
+            // grid-template-columns: repeat(16, 1fr); /* 16 columns */
+            // grid-template-rows: repeat(10, 1fr); /* 10 rows */</main>
+            gridTemplateColumns: " repeat(10, 1fr)",
+            gridTemplateColumns: "repeat(16, 1fr)",
+          }}
+          className="grid"
+        >
+          {Array.from({ length: 16 * 10 }, (_, index) => (
+            <MapDroppableArea
+              key={index}
+              index={index}
+              onDrop={onDrop}
+              mapData={mapData}
+              onDragStart={handleDragStart}
+              className="drop-area border-dashed border border-gray-400"
+            />
+          ))}
         </div>
-        ))}
-      </div> */}
-      <div
-        style={{
-          // grid-template-columns: repeat(16, 1fr); /* 16 columns */
-          // grid-template-rows: repeat(10, 1fr); /* 10 rows */</main>
-          gridTemplateColumns: " repeat(10, 1fr)",
-          gridTemplateColumns: "repeat(16, 1fr)",
-        }}
-        className="grid"
-      >
-        {Array.from({ length: 16 * 10 }, (_, index) => (
-          <MapDroppableArea
-            key={index}
-            index={index}
-            onDrop={onDrop}
-            mapData={mapData}
-            onDragStart={handleDragStart}
-            className="drop-area border-dashed border border-gray-400"
-          />
-        ))}
       </div>
     </main>
   );

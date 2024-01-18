@@ -45,13 +45,15 @@ const App = () => {
       <Navbar />
 
       <DndProvider backend={HTML5Backend}>
-        <div className="flex h-[100vh] ">
+        <div className="flex h-[100vh]">
           <div className="w-[600px] p-8 bg-white bg-opacity-25 rounded-3xl">
             <h1 className="text-2xl font-black p-3">
               Properties
             </h1>
+            <div className="flex flex-col items-center gap-2">
             <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
             <PropertySection onDrop={handlePropertyDrop} />
+            </div>
           </div>
 
           <div className="w-full p-5">
