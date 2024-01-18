@@ -9,7 +9,8 @@ export default async function handler(req, res) {
     const teams = await TeamModel.find();
     let team;
     for (team of teams) {
-      if(team.isQualified){
+      
+      // if(team.isQualified){
 
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -37,7 +38,7 @@ export default async function handler(req, res) {
         newspaperset: team.newspaperset,
         problemOrder: randomArray,
       }).save();
-    }
+    // }
     }
     res.status(200).json({
       message: 'Data has been assigned',

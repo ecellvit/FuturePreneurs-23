@@ -1,9 +1,7 @@
 import connectMongoDB from '@/libs/mongodb';
 import { Level1 } from '@/models/level1';
-import { Level1 } from '@/models/level1';
 import { TeamModel } from '@/models/teamModel';
 import {TeamModel1} from '@/models/test';
-// import { Level0Model } from "@/models/level0";
 import getTokenDetails from '@/utils/auth';
 import { getSession } from 'next-auth/react';
 
@@ -17,13 +15,13 @@ export default async function handler(req, res) {
   } else {
     await connectMongoDB();
     
-    const team =await TeamModel.findOne({teamId:teamId});
+    const team =await TeamModel.findById(teamId);
+
     const teamInLevel1 = await Level1.findOne({teamId:teamId});
     const pageNo=teamInLevel1.pageNo;
     const level=team.level;
     const problems = Object.values(teamInLevel1.problemOrder);
     const newspaperset = team.newspaperset;
-    console.log(sector);
 
     try {
       if(level!==1){
