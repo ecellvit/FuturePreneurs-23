@@ -29,10 +29,10 @@ const PropertyIcon = ({ id,title,description, imageUrl, activeIconId, onDragStar
     }}
     >
       <img src={imageUrl} alt={`Icon ${id}`} style={{ width: '50px', height: '50px',cursor: 'move' }} />
-      <div>
+      {/* <div>
         <h4>{title}</h4>
         {isActive && <p>{description}</p>}
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -62,13 +62,13 @@ const PropertySection = ({ onDrop }) => {
   return (
     <div>
       {icons.map(({ id, title, description, imageUrl }) => (
-        <div key={id} className="mb-2 font-bold text-black cursor-pointer border p-2 bg-gray-100">
+        <div key={id} className="mb-2 font-bold text-black cursor-pointer border p-2 w-20 h-20 flex items-center justify-center">
           <PropertyIcon
             id={id}
             imageUrl={imageUrl}
             onDragStart={() => handleDragStart()}
           />
-          <p className="mt-2">{title}</p>
+          {/* <p className="mt-2">{title}</p> */}
         </div>
       ))}
     </div>
