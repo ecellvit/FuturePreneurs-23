@@ -14,19 +14,11 @@ export default function Level4() {
   const router = useRouter();
   console.log("++++++++++++++++++",status)
   useEffect(() => {
-    if (router.isReady) {
-      if (status === 'unauthenticated') {
-        console.log('Authenticated000000000000000000000000=======');
-        router.push('/');
-      } else if (status === 'authenticated') {
-        console.log('Authenticated000000000000000000000000', session);
-        getLevel4Data();
-        checkCurrentLevel4();
-      }
-    }
-  }, [status, router]);
+    // fetch /api/level0
+    getLevel4Data();
+    checkCurrentLevel4();
+  }, [])
 
-  console.log("))))))))))",session)
 
   const checkCurrentLevel4 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
