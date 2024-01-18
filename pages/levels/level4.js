@@ -4,21 +4,17 @@ import Router from "next/router";
 import { redirect } from "next/dist/server/api-utils";
 import GamePage from "@/Components/levels/level4/GamePage";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 
 export default function Level4() {
   const [curPage, setCurPage] = useState(1);
 
   const { data: session, status } = useSession();
 
-  const router = useRouter();
-  console.log("++++++++++++++++++",status)
   useEffect(() => {
     // fetch /api/level0
     getLevel4Data();
     checkCurrentLevel4();
   }, [])
-
 
   const checkCurrentLevel4 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
@@ -59,7 +55,7 @@ export default function Level4() {
         res.json().then((data) => {
           console.log("data", data);
           // setCurPage(data.team.pageNo);
-          // console.log(data.team.pageNo);
+          console.log(data.team.pageNo);
         });
       } else {
         console.log("error");

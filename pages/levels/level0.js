@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level0/game";
 import Router from "next/router";
-import { redirect } from "next/dist/server/api-utils";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
@@ -82,9 +81,7 @@ export default function Level0() {
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game/>}
-      {curPage === 2 && <Waiting text={"Prompt"}/>}
-      {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}
-      {/* {curPage === 2 && <Prompt/>} */}
+      {curPage === 2 && <Waiting text={"Level 0 Submitted"}/>}
     </div>
   )
 }

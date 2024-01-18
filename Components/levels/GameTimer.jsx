@@ -8,11 +8,9 @@ export default function GameTimer(props) {
   const { data: session, status } = useSession();
 
   const router = useRouter();
-  console.log("Session------",session)
   useEffect(() => {
     if (router.isReady) {
       if (status === 'unauthenticated') {
-        console.log('Authenticated000000000000000000000000=======');
         router.push('/');
       } else if (status === 'authenticated') {
         fetch(`/api/levels/${props.level}/getTime`, {

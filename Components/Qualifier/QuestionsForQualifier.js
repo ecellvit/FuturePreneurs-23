@@ -7,7 +7,7 @@ export default function QuestionForQualifier(props) {
       <section className="flex flex-col justify-center items-center px-4">
         {props.questionCategory === "easy" && (
           <div className="flex flex-col text-xl w-fit h-fit p-5 border border-white text-white rounded-lg">
-            <div className="text-4xl align-top">Question {props.questionNumber + 1}</div>
+            <div className="text-4xl align-top">Question {props.chronoNumber + 1}</div>
             <div className="">
               {
                 questions[props.questionCategory][props.questionNumber].q
@@ -28,6 +28,7 @@ export default function QuestionForQualifier(props) {
             {questions[props.questionCategory][props.questionNumber].q
               .contentType === "audio" && (
               <div>
+                
                 {typeof(
                   questions[props.questionCategory][props.questionNumber].q
                     .contentLink
@@ -74,7 +75,7 @@ export default function QuestionForQualifier(props) {
         )}
         {props.questionCategory === "medium" && (
           <div className="flex flex-col text-xl w-fit h-fit p-5 border border-white text-white rounded-lg">
-            <div className="text-4xl align-top">Question {props.questionNumber + 11}</div>
+            <div className="text-4xl align-top">Question {props.chronoNumber + 11}</div>
             <div>
               {
                 questions[props.questionCategory][props.questionNumber].q
@@ -140,7 +141,7 @@ export default function QuestionForQualifier(props) {
         )}
         {props.questionCategory === "hard" && (
           <div className="flex flex-col text-xl w-fit h-fit p-5 border border-white text-white rounded-lg">
-            <div className="text-4xl align-top">Question {props.questionNumber + 19}</div>
+            <div className="text-4xl align-top">Question {props.chronoNumber + 19}</div>
             <div>
               {
                 questions[props.questionCategory][props.questionNumber].q
@@ -207,7 +208,7 @@ export default function QuestionForQualifier(props) {
         )}
         {props.questionCategory === "caseStudy" && (
           <div className="flex flex-col text-xl w-fit h-fit p-5 border border-white text-white rounded-lg">
-            <div className="text-4xl align-top">Question {props.questionNumber + 27}</div>
+            <div className="text-4xl align-top">Question {props.chronoNumber + 27}</div>
             <div>
               {
                 questions[props.questionCategory][props.questionNumber].q

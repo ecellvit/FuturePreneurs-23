@@ -13,36 +13,42 @@ export default async function handler(req, res) {
 
   try {
 
-    let startTime = new Date(`January ${time.quizStartTime.day}, 2024 ${time.quizStartTime.hour}:${time.quizStartTime.minute}:${time.quizStartTime.second}`);
-    startTime.toTimeString();
-    startTime = startTime - 4;
-    console.log(startTime);
-    const currentTime = Date.now();
+    // let startTime = new Date(`January ${time.quizStartTime.day}, 2024 ${time.quizStartTime.hour}:${time.quizStartTime.minute}:${time.quizStartTime.second}`);
+    // startTime.toTimeString();
+    // startTime = startTime - 4;
+    // console.log(startTime);
+    
+    // const currentTime = new Date();
+    // const currentTime = startTime;
 
-    console.log(currentTime);
+    // console.log('curentTime', currentTime, 'startTime', startTime);
+    // console.log('asdf', Math.abs(currentTime - startTime))
 
-    if (Math.abs(currentTime - startTime) <= 600000) {
-      await Qualifier.findOneAndUpdate(
-        { teamId: teamId },
-        {
-          $set: {
-            questionCategory: 'easy',
-            questionPointer: 0,
-          },
-        }
-      );
-      res.status(200).json({
+    // if (Math.abs(currentTime - startTime) <= 20 * 60 * 1000) {
+    //   console.log('correct')
+      // await Qualifier.findOneAndUpdate(
+      //   { teamId: teamId },
+      //   {
+      //     $set: {
+      //       questionCategory: 'easy',
+      //       questionPointer: 0,
+      //     },
+      //   }
+      // );
+      res.status(400).json({
         message: 'Qualifier round started',
       });
-    } else if (currentTime < startTime) {
-      res.status(403).json({
-        message: 'Quiz has not started yet',
-      });
-    } else {
-      res.status(404).json({
-        message: 'Too late',
-      });
-    }
+    // } else if (currentTime < startTime) {
+    //   res.status(403).json({
+    //     time: currentTime,
+    //     message: 'Quiz has not started yet',
+    //   });
+    // } else {
+    //   res.status(404).json({
+    //     time: currentTime,
+    //     message: 'Too late',
+    //   });
+    // }
   } catch (error) {
     return res.status(500).json({
       error: 'Something went wrong',

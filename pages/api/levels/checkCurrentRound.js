@@ -1,8 +1,6 @@
-import { Mongoose } from 'mongoose';
 import connectMongoDB from '@/libs/mongodb';
 import { TeamModel } from '@/models/teamModel';
 import getTokenDetails from '@/utils/auth';
-import { getSession } from 'next-auth/react';
 
 export default async function checkCurrentRound(req, res) {
   const auth = req.headers.authorization.split(' ')[1];
@@ -17,6 +15,7 @@ export default async function checkCurrentRound(req, res) {
     console.log('reamID', teamId);
     const round = await TeamModel.findById(teamId);
     console.log('round', round);
+    // 65a51a0184dbd8c1e549d011
 
     try {
       res.status(200).json({ round });
