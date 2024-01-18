@@ -43,8 +43,8 @@ export default async function handler(req, res) {
 
     i = i%3;
 
-    return res.status(200).json({message:'sets lag gaye hai'})
-
+    
   }
+  return res.status(200).json({message:'sets lag gaye hai'})
 
 }
