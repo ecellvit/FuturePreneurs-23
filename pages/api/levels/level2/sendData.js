@@ -1,13 +1,14 @@
+import correctOrderForMap from '@/constants/level2/correctOrderForMap.json';
+import mapLocation from '@/constants/level2/mapLocation.json';
+import mapProperties from '@/constants/level2/mapProperties.json';
 import connectMongoDB from '@/libs/mongodb';
-import { Level2test } from '@/models/level2test';
+import { Level2test } from '@/models/level2';
 import { TeamModel } from '@/models/teamModel';
 import getTokenDetails from '@/utils/auth';
-import correctOrderForMap from '@/constants/level2/correctOrderForMap.json';
-import mapProperties from '@/constants/level2/mapProperties.json';
-import mapLocation from '@/constants/level2/mapLocation.json';
+
 export default async function handler(req, res) {
-  // const auth = req.headers.authorization.split(' ')[1];
-  // let teamId = await getTokenDetails(auth);
+  const auth = req.headers.authorization.split(' ')[1];
+  let teamId = await getTokenDetails(auth);
 
   try {
     if (req.method !== 'POST') {

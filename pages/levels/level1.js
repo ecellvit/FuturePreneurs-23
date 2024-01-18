@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Router from "next/router";
 import Waiting from "@/Components/levels/Waiting";
 import Game1 from "@/Components/levels/level1/game";
 import { useSession } from "next-auth/react";

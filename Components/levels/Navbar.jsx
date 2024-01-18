@@ -1,10 +1,11 @@
 import Image from "next/image";
 import GameTimer from "./GameTimer";
 // import image from 'public/assets/levels/navbar/downloadNewspaper.svg';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import sponsor from "public/assets/levels/navbar/sponsor.png";
 import logo from "public/assets/logos/FP LOGO.svg";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 const Navbar = (props) => {
   const { data: session, status } = useSession();
@@ -17,21 +18,47 @@ const Navbar = (props) => {
     level3: "Round 4",
     level4: "Round 5",
   };
+
+  const router = useRouter(); 
+
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
-      content: "application/json",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTeamName(data.teamDetails.teamName)
-      });
-  }, []);
+    if (router.isReady) {
+      if (status === 'unauthenticated') {
+        console.log('Authenticated000000000000000000000000=======');
+        router.push('/');
+      } else if (status === 'authenticated') {
+        fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
+          content: "application/json",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.accessTokenBackend}`,
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setTeamName(data.teamDetails.teamName)
+          });
+      }
+    }
+  } , [status, router]);
+
+  // useEffect(() => {
+  //   fetch(process.env.NEXT_PUBLIC_SERVER + "/team/getTeamDetails", {
+  //     content: "application/json",
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${session.accessTokenBackend}`,
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setTeamName(data.teamDetails.teamName)
+  //     });
+  // }, []);
 
   return (
     <main>
