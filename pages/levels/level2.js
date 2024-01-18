@@ -59,8 +59,7 @@ export default function Level2() {
       if (res.status === 200) {
         res.json().then((data) => {
           console.log("data", data);
-          //setCurPage(data.team.pageNo);
-          //console.log(data.team.pageNo);
+          setCurPage(data.team.pageNo);
         });
       } else {
         console.log("error");
@@ -70,10 +69,10 @@ export default function Level2() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
+       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game />}
-      {curPage === 3 && <Waiting text={"Level 2 has ended"} />}
+      {curPage === 3 && <Waiting text={"Level 2 has ended"} />} 
     </div>
   );
 }
