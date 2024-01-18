@@ -5,11 +5,15 @@ import PropertySection from "@/Components/levels/level2/PropertySection";
 import MapSection from "@/Components/levels/level2/MapSection";
 import LocationSection from "@/Components/levels/level2/LocationSection";
 import Navbar from "@/Components/levels/Navbar";
+import toast, { Toaster } from "react-hot-toast";
+import { useSession } from "next-auth/react";
 
 const App = () => {
   const [propertyData, setPropertyData] = useState([]);
   const [mapData, setMapData] = useState(Array(36).fill(null));
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [dataToSend, setDataToSend] = useState([]);
+  const { data: session, status } = useSession();
 
   const handlePropertyDrop = (item) => {
     setPropertyData([...propertyData, { id: item.id, name: item.name }]);
@@ -19,6 +23,16 @@ const App = () => {
     const newMapData = [...mapData];
     newMapData[index] = { id: item.id, name: item.name };
     setMapData(newMapData);
+    setDataToSend([]);
+    newMapData.forEach((ele, idx)=>{
+      if(ele === null)
+      return 
+    const arr = dataToSend;
+    arr.push({[idx]:ele.id})
+    })
+    console.log(newMapData);
+    console.log("Sending dataaaaaaa=>");
+    console.log(dataToSend);
   };
 
   const handleLocationClick = (location) => {
@@ -27,11 +41,25 @@ const App = () => {
 
   const sendDataToBackend = () => {
     // Send propertyData, mapData, and selectedLocation to the backend
-    console.log("Sending data to backend:", {
-      propertyData,
-      mapData,
-      selectedLocation,
-    });
+    fetch("/api/levels/level2/sendData",{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      body:JSON.stringify({answer:dataToSend})
+      
+    })
+    .then(res=>{
+      if(res === 200){
+        toast.success("Submitted successfully.")
+      }
+      else{
+        toast.error("Something went wrong.")
+      }
+    })
+    
   };
 
   return (
@@ -46,12 +74,12 @@ const App = () => {
 
       <DndProvider backend={HTML5Backend}>
         <div className="flex h-[100vh]">
-          <div className="w-[600px] p-8 bg-white bg-opacity-25 rounded-3xl">
+          <div className="w-[600px] h-fit p-8 bg-white bg-opacity-25 rounded-3xl">
             <h1 className="text-2xl font-black p-3">
               Properties
             </h1>
             <div className="flex flex-col items-center gap-2">
-            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <p><a href="https://docs.google.com/document/d/1-k6pmmQrzAvgikIcwO2qRQE1APATb6j8w8-TUnX9H-o/edit" target="_blank">Click here for more info</a></p>
             <PropertySection onDrop={handlePropertyDrop} />
             </div>
           </div>
@@ -64,17 +92,26 @@ const App = () => {
             <h1 className="text-2xl font-black p-3 ">
               Locations{" "}
             </h1>
-            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <p><a href="https://docs.google.com/document/d/1HzhjeIf0wPNUdkyDnXGQzcY9q0WQrP9pGbp0FM_zam0/edit" target="_blank">Click here for more info</a></p>
             <LocationSection onClick={handleLocationClick} />
           </div>
         </div>
         <button
+          onClick={()=>{
+            location.reload();
+          }}
+          className="mt-[-30px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          Reset
+        </button>
+        <button
           onClick={sendDataToBackend}
-          className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="mt-[-30px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Submit
         </button>
       </DndProvider>
+      <Toaster/>
     </main>
   );
 };
