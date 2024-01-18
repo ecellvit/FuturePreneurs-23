@@ -80,7 +80,7 @@ export default function Level0() {
       {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
       {curPage === 0 && <Waiting text={"Instruction"}/>}
       {curPage === 1 && <Game/>}
-      {curPage === 2 && <Waiting text={"Level 2 Submitted"}/>}
+      {curPage === 2 && <Waiting text={"Level 0 Submitted"}/>}
     </div>
   )
 }
