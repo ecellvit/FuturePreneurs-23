@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import Navbar from '../Navbar';
+import { useSession } from "next-auth/react";
 
 export default function GamePage() {
+  const { data: session, status } = useSession();
+
   const [formData, setFormData] = useState({
     problemStatement: '',
     projectName: '',

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const level2testSchema = mongoose.Schema(
+const level2Schema = mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,23 +19,17 @@ const level2testSchema = mongoose.Schema(
     endTime: {
       type: Date,
     },
-    level2Points: {
+    Level2points: {
       type: Number,
       default: 0,
     },
     answers:{
-      type:Array,
+      type: Array,
     }
-    // members: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: "Users",
-    //     },
-    // ],
   },
-  { collection: 'Level2test' }
+  { collection: 'Level2' }
 );
 
-export const Level2test =
-  mongoose.models.Level2test ||
-  mongoose.model('Level2test', level2testSchema);
+export const Level2 =
+  mongoose.models.Level2 ||
+  mongoose.model('Level2', level2Schema);

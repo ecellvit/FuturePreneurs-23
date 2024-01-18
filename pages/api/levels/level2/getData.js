@@ -1,13 +1,14 @@
 import connectMongoDB from '@/libs/mongodb';
-import { Level0 } from '@/models/level0';
-import { TeamModel } from '@/models/teamModel';
-// import { Level0Model } from "@/models/level0";
+import { Level2 } from '@/models/level2';
+import { TeamModel } from "@/models/teamModel";
 import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
+  await connectMongoDB();
+
   const auth = req.headers.authorization.split(' ')[1];
   let teamId = await getTokenDetails(auth);
-  console.log("TEAM IDDDD = ", teamId);
+  console.log('teamId', teamId)
 
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method not allowed' });
@@ -18,26 +19,24 @@ export default async function handler(req, res) {
     // const authToken = req.headers.authorization;
     // check if leader, auth etc.
 
-
-    await connectMongoDB();
-    const team = await Level0.findOne({ teamId: teamId });
-
-    const teamteam = await TeamModel.findById(teamId);
-    console.log("teamteam ================ ", teamteam);
+    const team = await TeamModel.findById(teamId)
+    console.log('team', team)
 
     if (!team) {
       res.status(400).json({ message: 'Team not found' });
+      return
     }
-    // const team = new Level0({teamName: teamName});
-    // await team.save();
+
+    const level2tea = await Level2.findOne({teamId : teamId});
+    console.log('level2tea', level2tea)
 
     // const tesmLevelData = await Level0Model.find({teamId: teams[0]._id});
 
     try {
-      res.status(200).json({ "team":team, "set":teamteam.newspaperset });
+      return res.status(200).json({ team:level2tea, sector:team.newspaperset });
     } catch (e) {
       console.log(e);
-      res
+      return res
         .status(500)
         .json({
           message: 'Internal server error',
