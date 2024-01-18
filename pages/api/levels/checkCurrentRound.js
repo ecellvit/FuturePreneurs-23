@@ -14,12 +14,11 @@ export default async function checkCurrentRound(req, res) {
     return;
   } else {
     await connectMongoDB();
-    // console.log('reamID', teamId);
-    // const round = await TeamModel.findById(teamId);
-    // console.log('round', round);
-    const name = 'vyas'
-    const round = await TeamModel.findOne({teamName:name});
-    console.log(round)
+    console.log('reamID', teamId);
+    const round = await TeamModel.findById(teamId);
+    console.log('round', round);
+    // 65a51a0184dbd8c1e549d011
+
     try {
       res.status(200).json({ round });
     } catch (e) {

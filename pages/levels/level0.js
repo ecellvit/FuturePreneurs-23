@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level0/game";
 import Router from "next/router";
-import { redirect } from "next/dist/server/api-utils";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
