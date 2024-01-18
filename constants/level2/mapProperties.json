@@ -1,0 +1,29 @@
+{
+    "E.V":[
+        "Charging Stations",
+        "Battery Manufacturing Facility",
+        "R&D Center",
+        "Recycling Facility",
+        "Supply Chain Logistics Hub",
+        "Showroom and Customer Experience Centers",
+        "Energy Storage Facility"
+    ],
+    "Green Construction":[
+        "BioNest",
+        "WattLab",
+        "GreenLink",
+        "CITE : Central Institute for Transforming Envisions",
+        "RippleCenter",
+        "EcoCycle Center",
+        "Community Sustainability Hub"
+    ],
+    "Renewable Energy":[
+        "Solar Power Farms",
+        "Corporate Renewable Energy Procurement",
+        "Hydropower Plants",
+        "Geothermal Energy Facilities",
+        "Energy Storage Centers",
+        "Smart Grid Infrastructure",
+        "Research and Development Labs"
+    ]
+}
