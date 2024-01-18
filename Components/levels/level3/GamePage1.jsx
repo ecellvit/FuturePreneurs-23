@@ -16,7 +16,7 @@ const GamePage1 = (props) => {
   const [sector, setSector] = useState();
 
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [newArray,setNewArray]=useState([])
+  const [newArray, setNewArray] = useState([])
 
   useEffect(() => {
     if (router.isReady) {
@@ -43,8 +43,8 @@ const GamePage1 = (props) => {
       if (res.status === 200) {
         res.json().then((data) => {
           setGetProperty(data.answers);
-          console.log('dsagsdfga',data.answers);
-          console.log('getprrr///////////////',getProperty);
+          console.log('dsagsdfga', data.answers);
+          console.log('getprrr///////////////', getProperty);
           // props.setNewSector(data.sector)
           setSector(data.sector);
           // setGetProperty(data);
@@ -57,23 +57,28 @@ const GamePage1 = (props) => {
   };
 
   function submitAnswerForLevel3() {
-    if(finalAnswerForPage1.length===2)
-    {
-    fetch("/api/levels/level3/storeAnswers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({ answerPage1: finalAnswerForPage1 }),
-    })
-      .then((res) => res.json())
-      .catch((err) => {
-      });}
-      else{
-        toast.error("You have to select two options!!!")
-      }
+    if (finalAnswerForPage1.length === 2) {
+      fetch("/api/levels/level3/storeAnswers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ answerPage1: finalAnswerForPage1 }),
+      })
+      .then(res=>{
+        if(res.status === 200){
+          toast.success("Submitted successfully.")
+          location.reload();
+        };
+      })  
+        .catch((err) => {
+        });
+    }
+    else {
+      toast.error("You have to select two options!!!")
+    }
   }
 
   const submitAnswerForLevel3Page1 = (value) => {
@@ -94,7 +99,7 @@ const GamePage1 = (props) => {
     // Replace 'your_link_url' with the actual URL you want to open
     window.open(link, '_blank');
   };
-  
+
 
   const handleOptionClick = (option) => {
     if (selectedOptions.includes(option)) {
@@ -112,7 +117,7 @@ const GamePage1 = (props) => {
     }
   };
 
-  const industry=["E.V","Green Construction","Renewable Energy"]
+  const industry = ["E.V", "Green Construction", "Renewable Energy"]
   const final = industry[sector]
 
   // for(let i=0;i<getProperty.length;i++){
@@ -132,7 +137,7 @@ const GamePage1 = (props) => {
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       <Toaster />
-      <Navbar level="level3" sendData={submitAnswerForLevel3}/>
+      <Navbar level="level3" sendData={submitAnswerForLevel3} />
       <div className="flex flex-col gap-5 items-center justify-center w-[95vw] h-[80vh]">
         <div className="mx-auto p-4 border rounded-md shadow-md w-3/4 h-3/4 flex flex-col">
           <h1 className="text-lg font-semibold mb-4 text-white">
@@ -150,11 +155,11 @@ const GamePage1 = (props) => {
                 <input
                   type="checkbox"
                   checked={selectedOptions.includes(ele)}
-                  onChange={() => {}}
+                  onChange={() => { }}
                   className="cursor-pointer"
                 />
                 <span className="text-white">{properties[final][ele]['title']}</span>
-                <FaDownload className="text-white cursor-pointer" onClick={()=>{handleIconClick(properties[sector][ele]['pdf'])}}/>
+                <FaDownload className="text-white cursor-pointer" onClick={() => { handleIconClick(properties[final][ele]['pdf']) }} />
               </div>
             ))}
           </div>

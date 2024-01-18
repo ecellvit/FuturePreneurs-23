@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Instructions(){
     return (
-    <main className="min-h-[100vh] text-white flex flex-col items-center bg-[url('/assets/bg/spceBg.svg')]">
+    <main className="min-h-[100vh] text-white flex flex-col items-center bg-[url('/assets/bg/spceBg.svg')] p-10 justify-center">
       <div className="border border-white rounded-lg p-2 my-6">
-        <h1 className="flex justify-center text-2xl font-bold">INSTRUCTIONS</h1>
+        <h1 className="flex justify-center text-2xl font-bold">INSTRUCTIONS</h1> 
         <ul className="list-disc list-inside leading-8">
         <li>
             Teams are presented with a list of correct combinations identified in the previous level, with each combination consisting of a dataset of 2 locations.
