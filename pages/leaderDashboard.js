@@ -21,6 +21,7 @@ export default function LeaderDashboard() {
   const [teamName, setTeamName] = useState("");
   const [teamMembersData, setTeamMemberData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isQualified, setIsQualified] = useState(null);
   // const router = useRouter();
   // const {data: session} = useSession();
 
@@ -86,10 +87,12 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
+        setIsQualified(data.teamDetails.isQualify);
+        console.log(data.teamDetails.isQualify);
+        setIsQualified(data.teamDetails.isQualify);
         setIsLoading(false);
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   };
 
   function toggleDelete() {
@@ -105,7 +108,7 @@ export default function LeaderDashboard() {
     setPopUpForDelete(!popUpForDelete);
   }
   function removeMember(id) {
-    setRemove(prev=>!prev);
+    setRemove((prev) => !prev);
     setIsLoading(true);
     fetch(process.env.NEXT_PUBLIC_SERVER + "/team/remove/" + teamId, {
       method: "POST",
@@ -127,7 +130,7 @@ export default function LeaderDashboard() {
         setRemove(!remove);
         toast.success("Member removed successfully.");
       });
-    }
+  }
 
   function deleteTeam() {
     if (teamMembersData.length !== 1) {
@@ -145,8 +148,7 @@ export default function LeaderDashboard() {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-      })
+      .then((data) => {})
       .then(() => {
         router.push("/makeTeam");
         toast.success("Team Deleted.");
@@ -171,12 +173,19 @@ export default function LeaderDashboard() {
           Team : {teamName}
         </h1>
 
-        {
-          teamMembersData.length < 3 && 
-          <div style={{ backgroundColor: '#141B2B' }} className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
-            <p className="text-white">I understand that if the team I have created does not meet the minimum requirement of 3 members per team before the end of registrations, random members who&lsquo;ve registered would be added to my team</p>
+        {teamMembersData.length < 3 && (
+          <div
+            style={{ backgroundColor: "#141B2B" }}
+            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5"
+          >
+            <p className="text-white">
+              I understand that if the team I have created does not meet the
+              minimum requirement of 3 members per team before the end of
+              registrations, random members who&lsquo;ve registered would be
+              added to my team
+            </p>
           </div>
-        }
+        )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
         {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
@@ -213,13 +222,28 @@ export default function LeaderDashboard() {
       </div>
 
       <div className="flex justify-center mt-4">
-      <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-        onClick={()=>{
-          router.push('/levels/qualifier');
-        }}>
+        {/* <button
+          className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          onClick={() => {
+            router.push("/levels/qualifier");
+          }}
+        >
           Start Quiz
-        </button>
+        </button> */}
         {/* <DeleteTeamButton onClick={() => deleteTeam()} /> */}
+
+        {isQualified && (
+          <div className="flex flex-col text-white items-center border p-2 rounded-xl my-2">
+            <h1 className="text-lg font-bold">
+              Congratulations! Your team has been shortlisted for the main round
+              of Futurepreneurs 9.0.
+            </h1>
+            <h6 className="font-bold">See you at the event!</h6>
+            <h6>Date : 19 January 2024</h6>
+            <h6>Reporting Time : 9 AM</h6>
+            <h6>Venue : Sarojini Naidu Hall, SJT</h6>
+          </div>
+        )}
         <Toaster />
       </div>
     </div>
