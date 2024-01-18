@@ -4,10 +4,10 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaDownload } from "react-icons/fa6";
 
-const GamePage1 = () => {
+const GamePage1 = (props) => {
   const defaultContent = "asdfaf";
-  const [teamName,setTeamName]=useState('');
-  const [answer,setAnswer]=useState([]);
+  
+  const [finalAnswerForPage1,setFinalAnswerForPage1]=useState([]);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -34,6 +34,34 @@ const GamePage1 = () => {
   //       }
   // })
 
+  // function submitAnswerForLevel3Page1(){
+  //   fetch('/api/levels/level1/sendData',{
+  //     method:'POST',
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${session.accessTokenBackend}`,
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //     body: JSON.stringify({answerPage1:finalAnswerForPage1}),
+  //   }).then((res) => res.json()).then(console.log('clicked')).then(console.log(level1Answer))
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // }
+
+
+  const submitAnswerForLevel3Page1=(value)=>{
+    if (finalAnswerForPage1.includes(value)) {
+      // If option is already selected, remove it
+      setFinalAnswerForPage1(finalAnswerForPage1.filter((selected) => selected !== value));
+    } else {
+      // If option is not selected, add it (up to a maximum of two options)
+      if (finalAnswerForPage1.length < 2) {
+        setFinalAnswerForPage1([...finalAnswerForPage1, value]);
+      }
+    }
+  }
+
   const handleOptionClick = (option) => {
     if (selectedOptions.includes(option)) {
       // If option is already selected, remove it
@@ -43,8 +71,13 @@ const GamePage1 = () => {
       if (selectedOptions.length < 2) {
         setSelectedOptions([...selectedOptions, option]);
       }
+      else{
+        toast.error('You cannot select more than two')
+      }
     }
   };
+
+  
 
   const options = [
     'Option A',
@@ -60,6 +93,7 @@ const GamePage1 = () => {
   
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
+      <Toaster/>
       <Navbar level="level3" /><div className="flex flex-col gap-5 items-center justify-center w-[95vw] h-[80vh]">
       <div className="mx-auto p-4 border rounded-md shadow-md w-3/4 h-3/4 flex flex-col">
       <h1 className="text-lg font-semibold mb-4 text-white">Select up to two options:</h1>
@@ -68,7 +102,7 @@ const GamePage1 = () => {
           <div
             key={index}
             className="flex items-center space-x-2 mb-2"
-            onClick={() => handleOptionClick(option)}
+            onClick={() => {handleOptionClick(option),submitAnswerForLevel3Page1(index);}}
           >
             <input
               type="checkbox"
@@ -87,6 +121,7 @@ const GamePage1 = () => {
       </div>
     </div>
         <button
+        onClick={()=>{console.log('hfhashfkdhfskldfhkadh',finalAnswerForPage1);}}
         type="button"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >

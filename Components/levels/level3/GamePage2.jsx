@@ -4,11 +4,27 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaDownload } from "react-icons/fa6";
 
-const GamePage2 = () => {
-  const [selectedOptions, setSelectedOptions] = useState({
-    heading1: null,
-    heading2: null,
-  });
+
+
+const GamePage2 = (props) => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const [finalAnswerForPage2,setFinalAnswerForPage2]=useState([]);
+
+  // function submitAnswerForLevel3Page2(){
+  //   fetch('/api/levels/level1/sendData',{
+  //     method:'POST',
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${session.accessTokenBackend}`,
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //     body: JSON.stringify({answerPage2:finalAnswerForPage2}),
+  //   }).then((res) => res.json()).then(console.log('clicked')).then(console.log(level1Answer))
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // }
 
   const handleOptionChange = (heading, option) => {
     setSelectedOptions((prevSelectedOptions) => ({
@@ -16,6 +32,15 @@ const GamePage2 = () => {
       [heading]: option,
     }));
   };
+
+  const handleSubmitAnswer = (heading, index) => {
+    setFinalAnswerForPage2((prev) => ({
+      ...prev,
+      [heading]: index,
+    }));
+  };
+
+  
 
   const headings = ["Heading 1", "Heading 2"];
   const optionsPerHeading = {
@@ -33,20 +58,21 @@ const GamePage2 = () => {
               Select one option per property:
             </h1>
             {headings.map((heading, index) => (
-              <div key={index} className="mb-4"><div>
+              <div key={index} className="mb-4"><div className="flex items-center gap-4">
                 <h1 className="text-2xl font-semibold mb-2">{heading}</h1>
                 <FaDownload  className="text-white "/></div>
                 {optionsPerHeading[heading].map((option, optionIndex) => (
                   <div
                     key={optionIndex}
                     className={`flex items-center space-x-2 mb-2 p-2 rounded cursor-pointer text-white`}
+                    onClick={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,optionIndex)}}
                   >
                     <input
                       type="radio"
                       name={heading}
                       value={option}
                       checked={selectedOptions[heading] === option}
-                      onChange={() => handleOptionChange(heading, option)}
+                      onChange={() => {handleOptionChange(heading, option),handleSubmitAnswer(heading,optionIndex)}}
                       className="cursor-pointer"
                     />
                     <span className="select-none ml-5">{option}</span>
@@ -60,6 +86,7 @@ const GamePage2 = () => {
         <button
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        onClick={() => console.log('hdfkjhakslghkas;fhg',finalAnswerForPage2)}
         >
           Submit
         </button>

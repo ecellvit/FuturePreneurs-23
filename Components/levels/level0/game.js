@@ -4,13 +4,25 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
 import { useSession } from "next-auth/react";
+import { newspaper } from "@/constants/newspaper.json"; 
+import time from "@/constants/time.json";
 
-export default function Game() {
+export default function Game({set}) {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { data: session, status } = useSession();
+
+  const newspaper = {
+    "1":"https://utfs.io/f/341b21ed-f487-4308-a55c-3ecb1edbf5bb-xraikq.pdf",
+    "2":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf",
+    "3":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf"
+  } 
+
+  console.log('asssssssssss', newspaper, time);
+
+  const newspaperLink = newspaper[set.toString()];
 
   const sendData = ()=>{
     // send data to backend
@@ -72,7 +84,7 @@ export default function Game() {
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
         <div className="flex w-3/5 h-full">
-          <iframe className="h-[80vh] w-full m-2 no-scrollbar" src="https://utfs.io/f/70759f63-63e2-41b8-ab97-87e023d0cda5-rcqfzh.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
+          <iframe className="h-[80vh] w-full m-2 no-scrollbar" src={newspaperLink} frameborder="0"></iframe>
         </div>
         <div className="max-w-md mx-auto mt-5">
       <h1 className="text-2xl font-bold mb-4 text-white">Enter Your Answers</h1>

@@ -1,5 +1,6 @@
 import connectMongoDB from '@/libs/mongodb';
 import { Level0 } from '@/models/level0';
+import { TeamModel } from '@/models/teamModel';
 // import { Level0Model } from "@/models/level0";
 import getTokenDetails from '@/utils/auth';
 
@@ -20,17 +21,20 @@ export default async function handler(req, res) {
 
     await connectMongoDB();
     const team = await Level0.findOne({ teamId: teamId });
+
+    const teamteam = await TeamModel.findById(teamId);
+    console.log("teamteam ================ ", teamteam);
+
     if (!team) {
       res.status(400).json({ message: 'Team not found' });
     }
-    console.log("-------------------------", team);
     // const team = new Level0({teamName: teamName});
     // await team.save();
 
     // const tesmLevelData = await Level0Model.find({teamId: teams[0]._id});
 
     try {
-      res.status(200).json({ "team":team });
+      res.status(200).json({ "team":team, "set":teamteam.newspaperset });
     } catch (e) {
       console.log(e);
       res
