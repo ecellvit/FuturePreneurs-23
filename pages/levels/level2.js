@@ -4,6 +4,7 @@ import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level2/Game";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Instructions from "@/Components/levels/level2/instruction";
 
 export default function Level2() {
 
@@ -74,7 +75,7 @@ export default function Level2() {
   return (
     <div>
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
-      {curPage === 0 && <Waiting text={"Instruction"} />}
+      {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game />}
       {curPage === 3 && <Waiting text={"Level 2 has ended"} />}
     </div>

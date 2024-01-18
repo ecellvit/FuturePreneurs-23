@@ -1,32 +1,30 @@
-import React,{useEffect,useState} from "react"
 import Waiting from "@/Components/levels/Waiting";
 import Game from "@/Components/levels/level0/game";
-import Router from "next/router";
+import Instructions from "@/Components/levels/level0/instruction";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Level0() {
 
   const { data: session, status } = useSession();
 
   const [curPage, setCurPage] = useState(-1);
+  
+  const [set, setset] = useState();
   const router = useRouter();
-
 
   useEffect(() => {
     // fetch /api/level0
     if (router.isReady) {
       if (status === 'unauthenticated') {
-        console.log('Authenticated000000000000000000000000=======');
         router.push('/');
       } else if (status === 'authenticated') {
-        console.log('Authenticated000000000000000000000000', session);
         getLevel0Data();
         checkCurrentLevel0();
       }
     }
   }, [status, router]);
-
 
   const checkCurrentLevel0 = ()=>{
     fetch('/api/levels/checkCurrentRound',{
@@ -65,9 +63,8 @@ export default function Level0() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log("data", data);
           setCurPage(data.team.pageNo);
-          console.log(data.team.pageNo);
+          setset(data.set);
         });
       } else {
         console.log("error");
@@ -80,7 +77,7 @@ export default function Level0() {
       {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
-      {curPage === 1 && <Game/>}
+      {curPage === 1 && <Game set={set}/>}
       {curPage === 2 && <Waiting text={"Level 0 Submitted"}/>}
     </div>
   )
