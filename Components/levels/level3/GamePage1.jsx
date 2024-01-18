@@ -130,7 +130,7 @@ const GamePage1 = (props) => {
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
       <Toaster />
-      <Navbar level="level3" />
+      <Navbar level="level3" sendData={submitAnswerForLevel3}/>
       <div className="flex flex-col gap-5 items-center justify-center w-[95vw] h-[80vh]">
         <div className="mx-auto p-4 border rounded-md shadow-md w-3/4 h-3/4 flex flex-col">
           <h1 className="text-lg font-semibold mb-4 text-white">

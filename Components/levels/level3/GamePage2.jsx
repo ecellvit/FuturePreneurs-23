@@ -107,7 +107,8 @@ const GamePage2 = (props) => {
 
   return (
     <main className="min-h-screen bg-[url('/assets/landingPage/bg.svg')]">
-      <Navbar level="level3" />
+      <Navbar level="level3" sendData={submitAnswerForLevel3Page2}
+      />
       <div className="flex flex-col gap-5 items-center justify-center w-[95vw] h-[80vh]">
         <div className="w-full">
           <div className="w-1/2 mx-auto p-4 border rounded-md shadow-md text-white">
