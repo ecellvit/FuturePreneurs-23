@@ -46,12 +46,12 @@ const App = () => {
 
       <DndProvider backend={HTML5Backend}>
         <div className="flex h-[100vh]">
-          <div className="w-[600px] p-8 bg-white bg-opacity-25 rounded-3xl">
+          <div className="w-[600px] h-fit p-8 bg-white bg-opacity-25 rounded-3xl">
             <h1 className="text-2xl font-black p-3">
               Properties
             </h1>
             <div className="flex flex-col items-center gap-2">
-            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <p><a href="https://docs.google.com/document/d/1-k6pmmQrzAvgikIcwO2qRQE1APATb6j8w8-TUnX9H-o/edit" target="_blank">Click here for more info</a></p>
             <PropertySection onDrop={handlePropertyDrop} />
             </div>
           </div>
@@ -64,13 +64,13 @@ const App = () => {
             <h1 className="text-2xl font-black p-3 ">
               Locations{" "}
             </h1>
-            <p><a href="https://docs.google.com/document/d/1TzaCZ8bP8ucFfBr0SdmRWky_D39bqWgRo5y_eB3wt2Q/edit">Click here for more info</a></p>
+            <p><a href="https://docs.google.com/document/d/1HzhjeIf0wPNUdkyDnXGQzcY9q0WQrP9pGbp0FM_zam0/edit" target="_blank">Click here for more info</a></p>
             <LocationSection onClick={handleLocationClick} />
           </div>
         </div>
         <button
           onClick={sendDataToBackend}
-          className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="mt-[-30px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Submit
         </button>
