@@ -78,7 +78,7 @@ export default function Level0() {
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game set={set}/>}
-      {curPage === 2 && <Waiting text={"Level 0 Submitted"}/>}
+      {curPage === 2 && <Waiting next={"1"} text={"Level 0 Submitted"}/>}
     </div>
   )
 }
