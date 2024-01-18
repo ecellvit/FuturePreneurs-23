@@ -17,10 +17,8 @@ export default function Level0() {
     // fetch /api/level0
     if (router.isReady) {
       if (status === 'unauthenticated') {
-        console.log('Authenticated000000000000000000000000=======');
         router.push('/');
       } else if (status === 'authenticated') {
-        console.log('Authenticated000000000000000000000000', session);
         getLevel0Data();
         checkCurrentLevel0();
       }
