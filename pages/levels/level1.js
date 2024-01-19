@@ -12,7 +12,7 @@ export default function Level1() {
   const router = useRouter();
   const [problems,setProblems] = useState([]);
   const [level1Answer,setLevel1Answer] = useState({});
-  const [sector,setSector] = useState();
+  const [sector,setSector] = useState(0);
 
   useEffect(() => {
     if (router.isReady) {
@@ -79,9 +79,10 @@ export default function Level1() {
         res.json().then((data) => {
           console.log("data", data);
           // setCurPage(data.team.pageNo);
+          console.log("!!!!!!a",data)
           setCurPage(data.pageNo);
           setProblems(data.problems);
-          setSector(data.sector);
+          setSector(data.newspaperset);
           // console.log(data.team.pageNo);
         });
       } else {
@@ -96,7 +97,7 @@ export default function Level1() {
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
-      {curPage === 1 && <Game1 setLevel1Answer={setLevel1Answer} level1Answer={level1Answer}/>}
+      {curPage === 1 && <Game1 setLevel1Answer={setLevel1Answer} level1Answer={level1Answer} sector={sector} submit={submitAnswerForLevel1} problems={problems}/>}
       {curPage === 2 && <Waiting text={"Prompt"} />}
       {curPage === 3 && <Waiting next={'2'} text={"Level 2 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}

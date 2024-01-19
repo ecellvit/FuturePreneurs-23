@@ -53,6 +53,16 @@ export default function Game1(props){
         }
       };
 
+      console.log("=======12",priorityOrder)
+      console.log("+++++++12",props.sector)
+      console.log("=======12",props.problems)
+
+      const mapping = [
+        "E.V",
+        "Green Construction",
+        "Renewable Energy",
+      ]
+      
     return(
         <main className="min-h-screen" 
         style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
@@ -60,12 +70,13 @@ export default function Game1(props){
             <Navbar />
             <div className="flex flex-col items-center gap-8">
     <Toaster/>
+    <div className="text-4xl p-2 text-white font-bold">Your sector is: {mapping[props.sector]}</div>
       <div className="text-4xl p-2 text-white font-bold">
         Arrange The Given Problems In Correct Order
       </div>
-      {Object.keys(priorityOrder[props.sector]).map((statement, index) => (
+      {Object.keys(priorityOrder[mapping[props.sector]]).map((statement, index) => (
         <div key={index} className="flex items-center justify-between w-full">
-          <div className="w-1/2 flex justify-center mr-2 text-white font-bold text-3xl">{`${priorityOrder[props.sector][props.problems[index]]}:`}</div>
+          <div className="w-1/2 flex justify-center mr-2 text-white font-bold text-3xl">{`${priorityOrder[mapping[props.sector]][props.problems[index]]}:`}</div>
           <div className="w-1/2 self-start">
           <select
             className="border rounded p-2 w-1/4 flex justify-center"
