@@ -71,12 +71,12 @@ export default function Level4() {
 
   return (
     <div>
-      {curPage === -1 && <Waiting text={"Please Wait for Level 0 to start"}/>}
+      {curPage === -1 && <Waiting text={"Please Wait for Level 5 to start"}/>}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <GamePage/>}
       {curPage === 2 && <Waiting text={"Prompt"}/>}
-      {curPage === 3 && <Waiting text={"Level 0 is ended"}/>}
+      {curPage === 3 && <Waiting text={"Level 5 is ended"}/>}
       {/* {curPage === 2 && <Prompt/>} */}
     </div>
   )

@@ -93,12 +93,12 @@ export default function Level1() {
   return (
     <div>
       
-      {curPage === -1 && <Waiting text={"Please Wait for Level 1 to start"} />}
+      {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game1 />}
       {curPage === 2 && <Waiting text={"Prompt"} />}
-      {curPage === 3 && <Waiting text={"Level 1 is ended"} />}
+      {curPage === 3 && <Waiting next={'2'} text={"Level 2 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}
     </div>
   );
