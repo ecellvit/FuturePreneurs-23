@@ -2,28 +2,23 @@
 import connectMongoDB from '@/libs/mongodb';
 import { TeamModel } from '@/models/teamModel';
 import { Level0 } from '@/models/level0';
+import { Level1 } from '@/models/level1';
+import { Level2 } from '@/models/level2';
+import { Level3 } from '@/models/level3';
+import { Level4 } from '@/models/level4';
 
 export default async function handler(req, res) {
   try {
     connectMongoDB();
 
-    const teamName = 'team1';
-    const v = await Level0.findOne({ teamName: 'team1' });
-    console.log(v.pageNo);
-    const pageNumber = teamName.pageNo;
-    const count = await TeamModel.countDocuments();
-    //console.log(TeamModel)
-    //console.log(count);
-    //console.log(Level0)
-
-    const teams = await Level0.find();
+    const teams = await Level4.find();
     console.log(teams);
     let pageNo;
     for (let team of teams) {
       pageNo = team.pageNo;
-      pageNo += 1;
+      pageNo = 1;
       await Level0.findOneAndUpdate(
-        { teamName: team.teamName },
+        { teamId: team.teamId },
         {
           $set: {
             pageNo: pageNo,
