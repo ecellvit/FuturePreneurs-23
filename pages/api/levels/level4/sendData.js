@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
       await Level4.findOneAndUpdate(
         { teamId: teamId },
-        { answers: data }
+        { pageNo:2,answers: data }
       );
 
       return res
