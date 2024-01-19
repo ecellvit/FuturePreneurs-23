@@ -74,10 +74,10 @@ export default function Level2() {
 
   return (
     <div>
-       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
+       {curPage === -1 && <Waiting text={"Please Wait for Level 3 to start"} />}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game set={set}/>}
-      {curPage === 2 && <Waiting text={"Level 2 has ended"} />} 
+      {curPage === 3 && <Waiting next={'3'} text={"Level 3 has ended"} />} 
     </div>
   );
 }

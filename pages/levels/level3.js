@@ -78,11 +78,11 @@ export default function Level3() {
   return (
     <div>
     {/* <GamePage2/> */}
-      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 3 started"}/>}
+      {curPage === -1 && <Waiting text={"Please Wait for other teams,Level 4 started"}/>}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <GamePage1 finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage1={setFinalAnswerForPage1}/>}
       {curPage === 2 && <GamePage2 finalAnswerForPage2={finalAnswerForPage2} finalAnswerForPage1={finalAnswerForPage1} setFinalAnswerForPage2={setFinalAnswerForPage2}/>}
-      {curPage === 3 && <Waiting text={"Level 3 has ended"}/>}
+      {curPage === 3 && <Waiting next={'4'} text={"Level 4 has ended"}/>}
     </div>
   )
 }

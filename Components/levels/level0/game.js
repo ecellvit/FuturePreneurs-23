@@ -15,9 +15,9 @@ export default function Game({set}) {
   const { data: session, status } = useSession();
 
   const newspaper = {
-    "1":"https://utfs.io/f/341b21ed-f487-4308-a55c-3ecb1edbf5bb-xraikq.pdf",
-    "2":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf",
-    "3":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf"
+    "0":"https://utfs.io/f/341b21ed-f487-4308-a55c-3ecb1edbf5bb-xraikq.pdf",
+    "1":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf",
+    "2":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf"
   } 
 
   console.log('asssssssssss', newspaper, time);

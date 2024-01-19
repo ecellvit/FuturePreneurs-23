@@ -82,7 +82,7 @@ const Navbar = (props) => {
           <div className="">
             <Image src={sponsor} className="h-16 w-48 p-3" />
           </div>
-          {set && (
+          {set.toString() && (
             <Link href={newspaper[set]} target='blank'>
               <div className="">
                 <Image src={pdf} className="h-16 w-48 p-3" />
