@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from '../Navbar';
 import { useSession } from "next-auth/react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function GamePage() {
   const { data: session, status } = useSession();
@@ -43,6 +44,8 @@ export default function GamePage() {
       if (response.status === 200) {
         // Handle success, maybe show a success message to the user
         console.log('Data successfully sent to the backend.');
+        toast.success("Submitted successfully.")
+        location.reload();
       } else {
         // Handle errors, maybe show an error message to the user
         console.error('Failed to send data to the backend.');
@@ -177,6 +180,7 @@ export default function GamePage() {
           </button>
         </div>
       </form>
+      <Toaster/>
     </main>
   );
 }
