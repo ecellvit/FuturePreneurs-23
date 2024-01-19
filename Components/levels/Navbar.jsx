@@ -23,7 +23,7 @@ const Navbar = (props) => {
   };
   const newspaper = [
     'https://utfs.io/f/341b21ed-f487-4308-a55c-3ecb1edbf5bb-xraikq.pdf',
-    'https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf',
+    'https://utfs.io/f/f7304a69-9962-4fc0-8672-ae75917fae2a-x045o8.pdf',
     'https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf',
   ];
 
@@ -82,7 +82,7 @@ const Navbar = (props) => {
           <div className="">
             <Image src={sponsor} className="h-16 w-48 p-3" />
           </div>
-          {set.toString() && (
+          {set?.toString() && (
             <Link href={newspaper[set]} target='blank'>
               <div className="">
                 <Image src={pdf} className="h-16 w-48 p-3" />

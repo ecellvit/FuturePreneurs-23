@@ -16,8 +16,8 @@ export default function Game({set}) {
 
   const newspaper = {
     "0":"https://utfs.io/f/341b21ed-f487-4308-a55c-3ecb1edbf5bb-xraikq.pdf",
-    "1":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf",
-    "2":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf"
+    "1":"https://utfs.io/f/f7304a69-9962-4fc0-8672-ae75917fae2a-x045o8.pdf",
+    "2":"https://utfs.io/f/7c46982b-507d-4234-a9da-b0988a31c231-z4yujb.pdf",
   } 
 
   console.log('asssssssssss', newspaper, time);
