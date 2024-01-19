@@ -3,7 +3,7 @@
 // page no increment\
 // waiting page:true
 import connectMongoDB from '@/libs/mongodb';
-import { Level1test } from '@/models/level1test';
+import {Level1} from '@/models/level1';
 import getTokenDetails from '@/utils/auth';
 
 export default async function handler(req, res) {
@@ -21,8 +21,7 @@ export default async function handler(req, res) {
         const answerForLevel1 = req.body.answer;
         console.log(answerForLevel1)
 
-        const teamName='vyas'
-        const teamLevelOne = await Level1test.findOne({teamId:teamId})
+        const teamLevelOne = await Level1.findOne({teamId:teamId})
         if (!teamLevelOne) {
             res.status(400).json({ message: 'Team not found' });
             return;
@@ -50,8 +49,8 @@ export default async function handler(req, res) {
         console.log("points=", level1Points);
 
       try {
-        await Level1test.findOneAndUpdate({teamId:teamId},{level1Points:level1Points})
-        await Level1test.findOneAndUpdate({teamId:teamId},{pageNo:curPage})
+        await Level1.findOneAndUpdate({teamId:teamId},{level1Points:level1Points})
+        await Level1.findOneAndUpdate({teamId:teamId},{pageNo:curPage})
         res.status(200).json({message:answerForLevel1,message:'successful'})
       } catch (err) {
         console.log(err);

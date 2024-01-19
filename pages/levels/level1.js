@@ -93,7 +93,6 @@ export default function Level1() {
 
   return (
     <div>
-      
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
