@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const level3testSchema = mongoose.Schema(
+const level3 = mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,6 +23,15 @@ const level3testSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    answers:{
+      type:Array,
+    },
+    choice:{
+      type:Array,
+    },
+    sector:{
+      type:String,
+    }
 
     // members: [
     //     {
@@ -31,9 +40,9 @@ const level3testSchema = mongoose.Schema(
     //     },
     // ],
   },
-  { collection: 'Level3test' }
+  { collection: 'Level3' }
 );
 
-export const Level3test =
-  mongoose.models.Level3test ||
-  mongoose.model('Level3test', level3testSchema);
+export const Level3 =
+  mongoose.models.Level3 ||
+  mongoose.model('Level3', level3);

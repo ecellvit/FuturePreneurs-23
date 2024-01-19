@@ -1,63 +1,92 @@
 {
-  "setA": [
+  "E.V": [
     {
       "title": "Charging Stations: Highways",
       "pdf": "https://utfs.io/f/ddf27a0f-3e57-4fdc-ab85-3c90ebea6574-x0jv7y.pdf"
     },
     {
       "title": "Battery Manufacturing Facility: Helo Mountains",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/21572e62-5ade-4038-bfa4-8662fb50453c-jk1njv.pdf"
     },
     {
       "title": "R&D Centre: Nexus Heights",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/580b9d04-4895-4f58-8583-1f88538dcf06-p1rkpr.pdf"
     },
     {
       "title": "Recycling Facility: District 9",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/507b46d8-0bf6-4272-af70-3b628cf0eaf4-s42bqj.pdf"
     },
     {
       "title": "Supply Chain Logistics Hub: Castle Rock",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/d60b5bcc-e43f-47ab-83a1-c665f73b8779-szbkr2.pdf"
     },
     {
       "title": "Showroom and Customer Experience Centers: Downtown and Suburbs",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/e4e6696d-ffc0-4661-a73e-f9333530819a-w58ghf.pdf"
     },
     {
       "title": "Energy Storage Facility: Electropolis Wind Farms and Solar Fields",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/aa430b50-5bc0-4d71-b96e-c3a5efddded6-g1qjdr.pdf"
     }
   ],
-  "setB": [
+  "Green Construction": [
     {
       "title": "BioNest: Downtown and Suburbs",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/d80543be-81fd-4c36-8f82-fd45688d8a3e-sdny9x.pdf"
     },
     {
       "title": "WattLab : Wind Farms and Solar Fields",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/e3629d98-c28e-4104-bc13-65888c7fac1d-6hho12.pdf"
     },
     {
       "title": "GreenLink: Rich in rare-earth minerals",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/5e41b35b-b320-427d-b22b-1b6c2cd96b2c-w8zl4l.pdf"
     },
     {
       "title": "CITE : Central Institute for Transforming Envisions : Technology Hubs",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/76d12626-1327-47bf-bb6e-6f7fb1277ffb-j9s2w8.pdf"
     },
     {
       "title": "RippleCenter:Nature Haven",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/3443947d-2d8e-4b1c-aeeb-957bc2185201-i8b0iq.pdf"
     },
     {
       "title": " EcoCycle Center:Maritime Oasis",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/3296195c-0213-465c-9cc7-6149c60735ec-68lmnj.pdf"
     },
     {
       "title": "Charging Stations: Highways",
-      "pdf": ""
+      "pdf": "https://utfs.io/f/20188634-a4d3-4727-9533-92d68f5c924f-39m4bp.pdf"
     }
   ],
-  "setC": []
+  "Renewable Energy": [
+    {
+      "title":"Solar Power Farms: Asteroid Range",
+      "pdf":"https://utfs.io/f/34c31c5f-5038-411a-9fb2-f6cb23b57747-u130he.pdf"
+    },
+    {
+      "title":" Corporate Renewable Energy Procurement: District9",
+      "pdf":"https://utfs.io/f/435d95a7-02bd-4fe2-893d-e9b174166c34-rtu0b4.pdf"
+    },
+    {
+      "title":"Hydropower Plants: Maritime Oasis",
+      "pdf":"https://utfs.io/f/4bd0b02a-9d49-4c0f-8c6a-20217079b391-7l9qlz.pdf"
+    },
+    {
+      "title":"Geothermal Energy Facilities: Helo Mountains",
+      "pdf":"https://utfs.io/f/274bf459-8049-44dd-ba92-c9394e941c82-y22xg2.pdf"
+    },
+    {
+      "title":"Energy Storage Centers: Emeralds",
+      "pdf":"https://utfs.io/f/30578743-7b7a-43cf-8b0d-b03a2c0b080f-es0k7p.pdf"
+    },
+    {
+      "title":"Smart Grid Infrastructure: Elvatech District",
+      "pdf":"https://utfs.io/f/874859fb-e83c-4fc9-9f40-57c5aceab6b0-wvl07h.pdf"
+    },
+    {
+      "title":"Research and Development Labs: Nexus Heights",
+      "pdf":"https://utfs.io/f/784a4dd5-7faf-4e7e-a71c-37bb7e7b4fae-9y6lt7.pdf"
+    }
+  ]
 }

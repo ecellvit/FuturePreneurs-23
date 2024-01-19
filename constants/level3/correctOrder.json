@@ -1,0 +1,29 @@
+{
+  "E.V": {
+    "Charging Stations: Highways": "Delhi, India",
+    "Battery Manufacturing Facility: Helo Mountains ": "Uttarakhand, India",
+    "R&D Centre : Nexus Heights": "Karnataka, India",
+    "Recycling Facility:  District 9": "Gujarat, India",
+    "Supply Chain Logistics Hub: Castle Rock": "Gujarat, India",
+    "Showroom and Customer Experience Centers: Emeralds": "Delhi NCR, India",
+    "Energy Storage Facility: Asteroid Range": "Rajasthan, India"
+  },
+  "Green Construction": {
+    "BioNest: Emeralds": "Maharashtra, India",
+    "WattLab : Asteroid Range": "Gujarat, India",
+    "GreenLink: Helo Mountains": "Odisha, India",
+    "CITE : Central Institute for Transforming Envisions : Nexus Heights ": "Telangana, India",
+    "RippleCenter:Nature Haven": "Himachal Pradesh, India",
+    "EcoCycle Center: Maritime Oasis": "Kerala, India",
+    "Community Sustainability Hub: ElevaTech District": "Assam, India"
+  },
+  "Renewable Energy": {
+    "Solar Power Farms : Asteroid Range": "Rajasthan, India",
+    "Corporate Renewable Energy Procurement : District9": "Tamil Nadu, India",
+    "Hydropower Plants : Maritime oasis": "Himachal Pradesh, India",
+    "Geothermal Energy Facilities : Helo Mountains": "Odisha, India",
+    "Energy Storage Centers : Emeralds": "Uttar Pradesh, India",
+    "Smart Grid Infrastructure : ElevaTech District": "Andhra Pradesh, India",
+    "Research and Development Labs : Nexus Heights": "Andhra Pradesh, Indiaw"
+  }
+}

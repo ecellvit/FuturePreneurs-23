@@ -1,0 +1,29 @@
+{
+  "E.V": {
+    "Charging Stations": "Highway",
+    "Battery Manufacturing Facility": "Helo Mountains",
+    "R&D Centre": "Nexus Heights",
+    "Recycling Facility": "District9",
+    "Supply Chain Logistics Hub": "Castle Rock",
+    "Showroom and Customer Experience Centers": "Emeralds",
+    "Energy Storage Facility": "Asteroid Range"
+  },
+  "Green Construction": {
+    "BioNest": "Emeralds",
+    "WattLab": "Asteroid Range",
+    "GreenLink": "Helo Mountains",
+    "CITE : Central Institute for Transforming Envisions": "Nexus Heights",
+    "RippleCenter": "Nature Haven",
+    "EcoCycle Center": "Maritime Oasis",
+    "Community Sustainability Hub": "Elvatech"
+  },
+  "Renewable Energy": {
+    "Solar Power Farms": "Asteroid Range",
+    "Corporate Renewable Energy Procurement": "District9",
+    "Hydropower Plants": "Maritime Oasis",
+    "Geothermal Energy Facilities": "Helo Mountains",
+    "Energy Storage Centers": "Emeralds",
+    "Smart Grid Infrastructure": "Elvatech District",
+    "Research and Development Labs": "Nexus Heights"
+  }
+}

@@ -6,6 +6,7 @@ import getTokenDetails from '@/utils/auth';
 export default async function handler(req, res) {
   const auth = req.headers.authorization.split(' ')[1];
   let teamId = await getTokenDetails(auth);
+  console.log('asdf', teamId)
 
   try {
     if (req.method !== 'GET') {
