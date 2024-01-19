@@ -87,9 +87,7 @@ export default function LeaderDashboard() {
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
-        setIsQualified(data.teamDetails.isQualify);
-        console.log(data.teamDetails.isQualify);
-        setIsQualified(data.teamDetails.isQualify);
+        setIsQualified(data.teamDetails.isQualified);
         setIsLoading(false);
       })
       .catch((err) => {});
@@ -188,7 +186,16 @@ export default function LeaderDashboard() {
         )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
-        {/* <Link className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'" href="/teamCode"> Add Members </Link> */}
+        { isQualified &&
+         ( <button
+            className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            onClick={()=>{
+              router.push("/levels/level0")
+            }}
+          >
+            Start FP 9.0
+          </button>)
+        }
         {/* {teamMembersData.length < 4 && (
           <Link
             className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
