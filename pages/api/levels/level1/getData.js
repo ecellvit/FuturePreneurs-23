@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         return res.status(400).json({message:'Level one is not started'})
       }
       else{
-        if(!team.newspaperExists){
+        if(!team.newspaperset){
           return res.status(400).json({message:'newspaper not assigned'})
         }
         else{
