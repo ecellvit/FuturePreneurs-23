@@ -96,7 +96,7 @@ export default function Level1() {
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
-      {curPage === 1 && <Game1 />}
+      {curPage === 1 && <Game1 setLevel1Answer={setLevel1Answer} level1Answer={level1Answer}/>}
       {curPage === 2 && <Waiting text={"Prompt"} />}
       {curPage === 3 && <Waiting next={'2'} text={"Level 2 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}
