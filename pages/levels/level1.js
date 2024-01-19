@@ -38,7 +38,12 @@ export default function Level1() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({answer:level1Answer}),
-    }).then((res) => res.json()).then(console.log('clicked')).then(console.log(level1Answer))
+    }).then((res) => res.json())
+    .then(()=>{
+      console.log('clicked')
+      location.reload()
+    })
+    .then(console.log(level1Answer))
     .catch((err) => {
       console.log(err);
     });
@@ -93,12 +98,11 @@ export default function Level1() {
 
   return (
     <div>
-      
       {curPage === -1 && <Waiting text={"Please Wait for Level 2 to start"} />}
       {/* {curPage === 0 && <Instructions/>} */}
       {curPage === 0 && <Instructions/>}
       {curPage === 1 && <Game1 setLevel1Answer={setLevel1Answer} level1Answer={level1Answer} sector={sector} submit={submitAnswerForLevel1} problems={problems}/>}
-      {curPage === 2 && <Waiting text={"Prompt"} />}
+      {curPage === 2 && <Waiting text={"Level 2 is ended"} />}
       {curPage === 3 && <Waiting next={'2'} text={"Level 2 is ended"} />}
       {/* {curPage === 2 && <Prompt/>} */}
     </div>

@@ -67,7 +67,7 @@ export default function Game1(props){
         <main className="min-h-screen" 
         style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
         >
-            <Navbar />
+            <Navbar level={"level1"} sendData={()=>props.submit()}/>
             <div className="flex flex-col items-center gap-8">
     <Toaster/>
     <div className="text-4xl p-2 text-white font-bold">Your sector is: {mapping[props.sector]}</div>
