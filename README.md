@@ -29,9 +29,8 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 
 ### Qualifier Round Features
 
-<svg>
 
-<div style="display:flex; gap:5px; flex-wrap:wrap">
+<!-- <div style="display:flex; gap:5px; flex-wrap:wrap">
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Timer Enabled</span>
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Auto Submit</span>
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Single Correct Answers</span>
@@ -40,25 +39,20 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Questions with Audio</span>
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Case Study Questions</span>
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Randomized Questions</span>
-</div>
+</div> -->
 
-</svg>
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300"> 
 
-<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
-
-<div xmlns="http://www.w3.org/1999/xhtml">
 <style>
-.container {
-display: flex;
-width: 100%;
-height: 300px;
-background-color: white;
-color: black;
-}
-</style>
-<div class="container">
-        <h1>Hi there, my name is Nikola 👋</h1>
+    .container{
+        height:100%;
+        width:100%;
+        background-color:black;
+    }
+    </style>
+   <div class="container">
+   <h1>
+   Testing
+   </h1>
 </div>
-</div>
-
 </svg>
