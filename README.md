@@ -52,12 +52,12 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 display: flex;
 width: 100%;
 height: 300px;
-background-color: black;
-color: white;
+background-color: white;
+color: black;
 }
 </style>
 <div class="container">
-<h1>Hi there, my name is Nikola 👋</h1>
+        <h1>Hi there, my name is Nikola 👋</h1>
 </div>
 </div>
 
