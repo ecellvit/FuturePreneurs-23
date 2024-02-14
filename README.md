@@ -41,18 +41,6 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Randomized Questions</span>
 </div> -->
 
-<svg fill="none" viewBox="0 0 600 300" width="600" height="300"> 
-
-<style>
-    .container{
-        height:100%;
-        width:100%;
-        background-color:black;
-    }
-    </style>
-   <div class="container">
-   <h1>
-   Testing
-   </h1>
+<div style="width: 100%;">
+  <img src="public\assets\readme\test.svg" style="width: 100%;" alt="Click to see the source">
 </div>
-</svg>
