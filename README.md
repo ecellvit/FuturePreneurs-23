@@ -1,5 +1,5 @@
-<h1 style="text-align: center;">FuturePreneurs 9.0</h1>
-<h3 style="text-align: center;">Entrepreneurship Cell, VIT brings to you Futurepreneurs 9.0, its business simulation competition.</h3>
+<h1 align=center>FuturePreneurs 9.0</h1>
+<h3 align=center>Entrepreneurship Cell, VIT brings to you Futurepreneurs 9.0, its business simulation competition.</h3>
 
 <p align="center">
 <img src="https://utfs.io/f/c18c10e6-f661-4b17-ba08-1bd5a943c07f-22f2ls.png" alt="drawing" width="80%"/>
@@ -28,9 +28,6 @@ Checkout the back-end for this application <a href= "https://github.com/ecellvit
 The Qualifying Round served as a selection phase designed to identify the top-performing teams. This segment of the competition was conducted in a quiz format, wherein team leaders had the responsibility to respond to questions on behalf of their respective teams. To ensure fairness, the questions were randomized for each team, with every team receiving a set of 30 questions from a pool of 75. This strategic approach aimed to assess the teams' knowledge across a diverse range of topics and determine their eligibility for advancing in the competition.
 
 ### Qualifier Round Features
-
-
-
 <div style="width: 100%;">
   <img src="public\assets\readme\roundFeatures.svg" style="width: 100%;">
 </div>
