@@ -30,17 +30,7 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 ### Qualifier Round Features
 
 
-<!-- <div style="display:flex; gap:5px; flex-wrap:wrap">
-<span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Timer Enabled</span>
-<span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Auto Submit</span>
-<span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Single Correct Answers</span>
-<span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Multiple Correct Answers</span>
-<span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Questions with Images</span>
-<span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Questions with Audio</span>
-<span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Case Study Questions</span>
-<span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Randomized Questions</span>
-</div> -->
 
 <div style="width: 100%;">
-  <img src="public\assets\readme\test.svg" style="width: 100%;" alt="Click to see the source">
+  <img src="public\assets\readme\roundFeatures.svg" style="width: 100%;">
 </div>
