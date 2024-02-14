@@ -28,6 +28,7 @@ Checkout the back-end for this application <a href= "https://github.com/ecellvit
 The Qualifying Round served as a selection phase designed to identify the top-performing teams. This segment of the competition was conducted in a quiz format, wherein team leaders had the responsibility to respond to questions on behalf of their respective teams. To ensure fairness, the questions were randomized for each team, with every team receiving a set of 30 questions from a pool of 75. This strategic approach aimed to assess the teams' knowledge across a diverse range of topics and determine their eligibility for advancing in the competition.
 
 ### Qualifier Round Features
+<svg>
 
 <div style="display:flex; gap:5px; flex-wrap:wrap">
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Timer Enabled</span>
@@ -39,3 +40,5 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Case Study Questions</span>
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Randomized Questions</span>
 </div>
+
+</svg>
