@@ -28,6 +28,7 @@ Checkout the back-end for this application <a href= "https://github.com/ecellvit
 The Qualifying Round served as a selection phase designed to identify the top-performing teams. This segment of the competition was conducted in a quiz format, wherein team leaders had the responsibility to respond to questions on behalf of their respective teams. To ensure fairness, the questions were randomized for each team, with every team receiving a set of 30 questions from a pool of 75. This strategic approach aimed to assess the teams' knowledge across a diverse range of topics and determine their eligibility for advancing in the competition.
 
 ### Qualifier Round Features
+
 <svg>
 
 <div style="display:flex; gap:5px; flex-wrap:wrap">
@@ -39,6 +40,25 @@ The Qualifying Round served as a selection phase designed to identify the top-pe
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Questions with Audio</span>
 <span style="background: linear-gradient(to left, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Case Study Questions</span>
 <span style="background: linear-gradient(to right, #03A3FE, #00FFA3);width:fit-content; color:white; font-weight:bold; text-align:center; padding:5px 10px; border-radius:10px">Randomized Questions</span>
+</div>
+
+</svg>
+
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>
+.container {
+display: flex;
+width: 100%;
+height: 300px;
+background-color: black;
+color: white;
+}
+</style>
+<div class="container">
+<h1>Hi there, my name is Nikola 👋</h1>
+</div>
 </div>
 
 </svg>
