@@ -1,5 +1,6 @@
 import BSG from "@/Components/Landing Page/BSG";
 import CardSection from "@/Components/Landing Page/CardSection/CardSection";
+import Credits from "@/Components/Landing Page/Credits/Credits";
 import FAQ from "@/Components/Landing Page/FAQ/FAQ";
 import Footer from "@/Components/Landing Page/Footer";
 import GlobeAnimation from '@/Components/Landing Page/GlobeAnimation';
@@ -49,6 +50,7 @@ export default function Home() {
       <FAQ/>
       <RegisterSection isLoading={isLoading} setIsLoading={setIsLoading}/>
       <Footer/>
+      <Credits/>
     </main>
   );
 }
