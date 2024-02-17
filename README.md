@@ -23,6 +23,10 @@ Checkout the back-end for this application <a href= "https://github.com/ecellvit
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
+
+https://github.com/arjunbector/FuturePreneurs-23/assets/115365396/5471b87d-2457-4915-8ec7-886a72ee3ff8
+
+
 ## Qualifiers
 
 The Qualifying Round served as a selection phase designed to identify the top-performing teams. This segment of the competition was conducted in a quiz format, wherein team leaders had the responsibility to respond to questions on behalf of their respective teams. To ensure fairness, the questions were randomized for each team, with every team receiving a set of 30 questions from a pool of 75. This strategic approach aimed to assess the teams' knowledge across a diverse range of topics and determine their eligibility for advancing in the competition.
